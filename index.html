@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heath Golf | Barrel Headcovers</title>
+    <title>Heath Golf | Handcrafted Golf Accessories</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -32,27 +32,12 @@
         }
     </script>
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-        .hero-pattern {
-            background-color: #f3f4f6;
-            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e5e7eb' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        }
-        .product-card:hover .product-img {
-            transform: scale(1.05);
-        }
-        .product-img {
-            transition: transform 0.3s ease-in-out;
-        }
-        /* Hide scrollbar for clean modal look */
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+        html { scroll-behavior: smooth; }
+        .hero-pattern { background-color: #f3f4f6; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e5e7eb' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
+        .product-card:hover .product-img { transform: scale(1.05); }
+        .product-img { transition: transform 0.3s ease-in-out; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen relative">
@@ -60,7 +45,6 @@
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="#" class="font-serif text-3xl font-bold text-primary tracking-tighter">
                        HEATH<span class="text-accent">.</span>
@@ -112,20 +96,6 @@
                     </div>
                 </div>
             </div>
-            <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none opacity-20">
-                <div class="absolute -top-24 -right-24 w-96 h-96 bg-accent rounded-full blur-3xl mix-blend-multiply"></div>
-                <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-gray-400 rounded-full blur-3xl mix-blend-multiply"></div>
-            </div>
-        </section>
-
-        <section class="bg-primary text-white py-6">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col md:flex-row justify-center items-center gap-4">
-                <span class="font-medium text-lg">First Drop Opens In:</span>
-                <div id="countdown" class="flex gap-4 font-mono text-xl font-bold text-accent">
-                    <!-- Countdown injected via JS -->
-                    <span>00d</span> : <span>00h</span> : <span>00m</span> : <span>00s</span>
-                </div>
-            </div>
         </section>
 
         <section id="collections" class="py-24 bg-white">
@@ -135,9 +105,8 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Three distinct series, meticulously crafted for style and protection. Available for Drivers and Woods. Bundle up to save.</p>
                 </div>
 
-                <!-- Product Grid Area (JavaScript fills this) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="productGrid">
-                    <!-- Products inject here -->
+                    <!-- Products inject here via JS -->
                 </div>
 
                 <div class="mt-20 bg-gray-50 rounded-2xl p-8 md:p-12 text-center shadow-inner border border-gray-100">
@@ -173,39 +142,16 @@
                         <p class="text-gray-300 mb-6 leading-relaxed">
                             Barrel was born out of a desire for golf accessories that blend classic aesthetics with modern durability. We believe your clubs deserve protection that looks as good as it performs.
                         </p>
-                        <p class="text-gray-300 mb-8 leading-relaxed">
-                            Our debut collection is strictly limited to 40 units across all styles. We are an SSM registered business, ensuring quality and trust in every stitch.
-                        </p>
                         <div class="flex gap-4">
-                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors" aria-label="Instagram">
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors">
                                 <i class="fab fa-instagram text-xl"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors" aria-label="TikTok">
-                                <i class="fab fa-tiktok text-xl"></i>
-                            </a>
                         </div>
-                    </div>
-                    <div class="relative h-96 rounded-2xl overflow-hidden shadow-2xl bg-gray-800 flex items-center justify-center">
-                        <span class="text-gray-500 italic">Lifestyle Imagery Placeholder</span>
                     </div>
                 </div>
             </div>
         </section>
     </main>
-
-    <footer class="bg-gray-900 text-gray-400 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-6 border-b border-gray-800 pb-8 mb-8">
-                <div class="font-serif text-2xl font-bold text-white tracking-tighter">
-                    HEATH STUDIO<span class="text-accent">.</span>
-                </div>
-                <div class="text-sm border border-gray-700 px-4 py-2 rounded-full">
-                    SSM Registered Business
-                </div>
-            </div>
-            <p>&copy; <span id="year"></span> Barrel Headcovers. All rights reserved.</p>
-        </div>
-    </footer>
 
     <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
     
@@ -218,7 +164,7 @@
         </div>
         
         <div id="cartItems" class="flex-grow overflow-y-auto p-6 space-y-4 no-scrollbar">
-            <!-- JavaScript injects cart items here -->
+            <!-- JS injects cart items here -->
         </div>
 
         <div class="border-t p-6 bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
@@ -229,18 +175,25 @@
             <div class="text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-md mb-4 hidden border border-green-100" id="bundleNotice">
                 <i class="fas fa-check-circle mr-1"></i> Bundle discount applied!
             </div>
+            
+            <!-- Shipping Dropdown -->
+            <div class="mb-4">
+                <label for="shippingSelect" class="block text-sm font-medium text-gray-700 mb-1">Shipping Destination</label>
+                <select id="shippingSelect" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border" onchange="updateCartUI()">
+                    <option value="west">West Malaysia (RM 10)</option>
+                    <option value="east">East Malaysia (RM 15)</option>
+                </select>
+            </div>
+
             <button id="checkoutBtn" class="w-full bg-primary text-white py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex justify-center items-center gap-2">
                 Proceed to Payment
             </button>
-            <p class="text-xs text-center text-gray-400 mt-4"><i class="fas fa-lock mr-1"></i> Secure checkout via HitPay (FPX, DuitNow, Cards)</p>
+            <p class="text-xs text-center text-gray-400 mt-4"><i class="fas fa-lock mr-1"></i> Secure checkout via HitPay</p>
         </div>
     </div>
 
     <div id="productModal" class="fixed inset-0 z-[80] hidden items-center justify-center">
-        <!-- Backdrop -->
         <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="modalBackdrop"></div>
-        
-        <!-- Modal Content Box -->
         <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 no-scrollbar" id="modalContent">
             
             <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 z-20 bg-white/80 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center shadow-sm focus:outline-none">
@@ -258,9 +211,7 @@
                     
                     <div class="mb-8">
                         <h4 class="text-sm font-medium text-gray-900 mb-3 uppercase tracking-wide">Select Colorway</h4>
-                        <div class="flex gap-4" id="modalColors">
-                            <!-- JS injects color buttons here -->
-                        </div>
+                        <div class="flex gap-4" id="modalColors"></div>
                     </div>
 
                     <div class="mb-8">
@@ -298,61 +249,27 @@
     </div>
 
     <script>
-        // Data Configuration
         const products = [
-            {
-                id: 'earthy',
-                series: 'Earthy Tweed',
-                desc: 'Classic tweed texture bringing a touch of tradition to your bag. Perfect for the purist.',
-                colors: [
-                    { name: 'Oatmeal', hex: '#d2b48c', img: 'https://placehold.co/600x800/d2b48c/ffffff?text=Earthy+Tweed%0AOatmeal' },
-                    { name: 'Forest', hex: '#228b22', img: 'https://placehold.co/600x800/228b22/ffffff?text=Earthy+Tweed%0AForest' }
-                ]
-            },
-            {
-                id: 'azure',
-                series: 'Azure Wave',
-                desc: 'Dynamic patterns inspired by coastal waters. Stand out on the fairway with vibrant hues.',
-                colors: [
-                    { name: 'Deep Sea', hex: '#00008b', img: 'https://placehold.co/600x800/00008b/ffffff?text=Azure+Wave%0ADeep+Sea' },
-                    { name: 'Sky Crest', hex: '#87ceeb', img: 'https://placehold.co/600x800/87ceeb/1F2937?text=Azure+Wave%0ASky+Crest' }
-                ]
-            },
-            {
-                id: 'bone',
-                series: 'Black Bone',
-                desc: 'Sleek, minimalist, and menacing. For the modern golfer who prefers a clean, stealthy aesthetic.',
-                colors: [
-                    { name: 'Pitch Black', hex: '#000000', img: 'https://placehold.co/600x800/000000/ffffff?text=Black+Bone%0APitch+Black' },
-                    { name: 'Ivory Ash', hex: '#f0fff0', img: 'https://placehold.co/600x800/f0fff0/1F2937?text=Black+Bone%0AIvory+Ash' }
-                ]
-            }
+            { id: 'earthy', series: 'Earthy Tweed', desc: 'Classic tweed texture bringing a touch of tradition to your bag.', colors: [{ name: 'Oatmeal', hex: '#d2b48c', img: 'https://placehold.co/600x800/d2b48c/ffffff?text=Earthy+Tweed%0AOatmeal' }, { name: 'Forest', hex: '#228b22', img: 'https://placehold.co/600x800/228b22/ffffff?text=Earthy+Tweed%0AForest' }] },
+            { id: 'azure', series: 'Azure Wave', desc: 'Dynamic patterns inspired by coastal waters.', colors: [{ name: 'Deep Sea', hex: '#00008b', img: 'https://placehold.co/600x800/00008b/ffffff?text=Azure+Wave%0ADeep+Sea' }, { name: 'Sky Crest', hex: '#87ceeb', img: 'https://placehold.co/600x800/87ceeb/1F2937?text=Azure+Wave%0ASky+Crest' }] },
+            { id: 'bone', series: 'Black Bone', desc: 'Sleek, minimalist, and menacing.', colors: [{ name: 'Pitch Black', hex: '#000000', img: 'https://placehold.co/600x800/000000/ffffff?text=Black+Bone%0APitch+Black' }, { name: 'Ivory Ash', hex: '#f0fff0', img: 'https://placehold.co/600x800/f0fff0/1F2937?text=Black+Bone%0AIvory+Ash' }] }
         ];
 
         const PRICES = { wood: 109, driver: 119 };
         const BUNDLE_PRICE = 218;
 
-        // Application State
         let cart = [];
         let currentModalProduct = null;
         let selectedColorIndex = 0;
 
         document.addEventListener('DOMContentLoaded', () => {
-            try {
-                document.getElementById('year').textContent = new Date().getFullYear();
-                renderProductGrid();
-                setupCountdown();
-                setupEventListeners();
-                updateCartUI();
-            } catch (e) {
-                console.error("Initialization Error: ", e);
-            }
+            renderProductGrid();
+            setupEventListeners();
+            updateCartUI();
         });
 
         function renderProductGrid() {
             const grid = document.getElementById('productGrid');
-            if(!grid) return;
-            
             grid.innerHTML = products.map((product) => `
                 <div class="product-card group cursor-pointer" onclick="openModal('${product.id}')">
                     <div class="relative bg-gray-100 rounded-2xl overflow-hidden aspect-[4/5] mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-300">
@@ -364,100 +281,47 @@
                         </div>
                     </div>
                     <div class="px-2">
-                        <div class="flex justify-between items-start mb-2">
-                            <h3 class="font-serif text-2xl font-bold text-primary">${product.series}</h3>
-                            <div class="flex gap-1 pt-1">
-                                <span class="w-5 h-5 rounded-full border-2 border-white shadow-md" style="background-color: ${product.colors[0].hex}"></span>
-                                <span class="w-5 h-5 rounded-full border-2 border-white shadow-md -ml-2" style="background-color: ${product.colors[1].hex}"></span>
-                            </div>
-                        </div>
-                        <p class="text-gray-600 text-sm mb-3 line-clamp-2">${product.desc}</p>
+                        <h3 class="font-serif text-2xl font-bold text-primary mb-2">${product.series}</h3>
+                        <p class="text-gray-600 text-sm mb-3">${product.desc}</p>
                         <p class="font-semibold text-primary">From RM ${PRICES.wood}</p>
                     </div>
                 </div>
             `).join('');
         }
 
-        function setupCountdown() {
-            const countdownEl = document.getElementById('countdown');
-            if(!countdownEl) return;
-
-            const now = new Date();
-            let launchDate = new Date(now.getFullYear(), 8, 25, 0, 0, 0); 
-            if (now.getTime() > launchDate.getTime()) {
-                launchDate.setFullYear(now.getFullYear() + 1);
-            }
-
-            function update() {
-                const distance = launchDate.getTime() - new Date().getTime();
-                if (distance < 0) {
-                    countdownEl.innerHTML = "<span class='text-white bg-green-500 px-4 py-1 rounded-full'>We are LIVE!</span>";
-                    return;
-                }
-                const d = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const s = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                countdownEl.innerHTML = `<span>${d}d</span> : <span>${h}h</span> : <span>${m}m</span> : <span>${s}s</span>`;
-            }
-            update();
-            setInterval(update, 1000);
-        }
-
         function openModal(productId) {
             currentModalProduct = products.find(p => p.id === productId);
-            selectedColorIndex = 0; 
-            if (!currentModalProduct) return;
-
+            selectedColorIndex = 0;
+            
             document.getElementById('modalSeries').textContent = currentModalProduct.series;
             document.getElementById('modalTitle').textContent = currentModalProduct.series;
             document.getElementById('modalDesc').textContent = currentModalProduct.desc;
             updateModalImage();
             
-            const colorsContainer = document.getElementById('modalColors');
-            colorsContainer.innerHTML = currentModalProduct.colors.map((color, index) => `
-                <button onclick="selectColor(${index})" 
-                        class="w-12 h-12 rounded-full focus:outline-none transition-all ${index === selectedColorIndex ? 'border-4 border-white ring-2 ring-primary scale-110 shadow-md' : 'border-2 border-gray-200 shadow-sm'}"
-                        style="background-color: ${color.hex}"
-                        title="${color.name}"
-                        id="colorBtn-${index}">
-                </button>
+            document.getElementById('modalColors').innerHTML = currentModalProduct.colors.map((color, index) => `
+                <button onclick="selectColor(${index})" class="w-12 h-12 rounded-full transition-all ${index === selectedColorIndex ? 'border-4 border-white ring-2 ring-primary scale-110' : 'border-2 border-gray-200'}" style="background-color: ${color.hex}" id="colorBtn-${index}"></button>
             `).join('');
 
             document.querySelector('input[name="clubType"][value="wood"]').checked = true;
             updateModalPrice();
 
-            const modal = document.getElementById('productModal');
-            const backdrop = document.getElementById('modalBackdrop');
-            const content = document.getElementById('modalContent');
-            
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            
+            document.getElementById('productModal').classList.remove('hidden');
+            document.getElementById('productModal').classList.add('flex');
             setTimeout(() => {
-                backdrop.classList.remove('opacity-0');
-                content.classList.remove('scale-95', 'opacity-0');
-                content.classList.add('scale-100', 'opacity-100');
+                document.getElementById('modalBackdrop').classList.remove('opacity-0');
+                document.getElementById('modalContent').classList.remove('scale-95', 'opacity-0');
             }, 10);
-            
-            document.body.style.overflow = 'hidden'; 
+            document.body.style.overflow = 'hidden';
         }
 
         function closeModal() {
-            const modal = document.getElementById('productModal');
-            const backdrop = document.getElementById('modalBackdrop');
-            const content = document.getElementById('modalContent');
-            
-            backdrop.classList.add('opacity-0');
-            content.classList.remove('scale-100', 'opacity-100');
-            content.classList.add('scale-95', 'opacity-0');
-
+            document.getElementById('modalBackdrop').classList.add('opacity-0');
+            document.getElementById('modalContent').classList.add('scale-95', 'opacity-0');
             setTimeout(() => {
-                modal.classList.remove('flex');
-                modal.classList.add('hidden');
+                document.getElementById('productModal').classList.remove('flex');
+                document.getElementById('productModal').classList.add('hidden');
                 document.body.style.overflow = '';
-            }, 300); 
+            }, 300);
         }
 
         function selectColor(index) {
@@ -465,60 +329,24 @@
             updateModalImage();
             currentModalProduct.colors.forEach((_, i) => {
                 const btn = document.getElementById(`colorBtn-${i}`);
-                if (i === index) {
-                    btn.classList.add('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110', 'shadow-md');
-                    btn.classList.remove('border-2', 'border-gray-200', 'shadow-sm');
-                } else {
-                    btn.classList.remove('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110', 'shadow-md');
-                    btn.classList.add('border-2', 'border-gray-200', 'shadow-sm');
-                }
+                if (i === index) btn.classList.add('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110');
+                else btn.classList.remove('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110');
             });
         }
 
-        function updateModalImage() {
-            if(currentModalProduct) {
-                document.getElementById('modalImg').src = currentModalProduct.colors[selectedColorIndex].img;
-            }
-        }
-
-        function updateModalPrice() {
-            const type = document.querySelector('input[name="clubType"]:checked').value;
-            document.getElementById('modalPrice').textContent = `RM ${PRICES[type]}`;
-        }
+        function updateModalImage() { document.getElementById('modalImg').src = currentModalProduct.colors[selectedColorIndex].img; }
+        function updateModalPrice() { document.getElementById('modalPrice').textContent = `RM ${PRICES[document.querySelector('input[name="clubType"]:checked').value]}`; }
 
         function addToCart() {
             const type = document.querySelector('input[name="clubType"]:checked').value;
             const color = currentModalProduct.colors[selectedColorIndex];
-            
-            cart.push({
-                series: currentModalProduct.series,
-                type: type,
-                color: color.name,
-                price: PRICES[type],
-                img: color.img
-            });
-
+            cart.push({ series: currentModalProduct.series, type: type, color: color.name, price: PRICES[type], img: color.img });
             updateCartUI();
             closeModal();
             openCart();
         }
 
-        function removeFromCart(index) {
-            cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        function calculateTotal() {
-            let woods = cart.filter(item => item.type === 'wood').length;
-            let drivers = cart.filter(item => item.type === 'driver').length;
-            
-            let bundlesCount = Math.min(woods, drivers);
-            let total = (bundlesCount * BUNDLE_PRICE) + 
-                        ((woods - bundlesCount) * PRICES.wood) + 
-                        ((drivers - bundlesCount) * PRICES.driver);
-
-            return { total, bundlesCount };
-        }
+        function removeFromCart(index) { cart.splice(index, 1); updateCartUI(); }
 
         function updateCartUI() {
             const cartItemsEl = document.getElementById('cartItems');
@@ -533,16 +361,14 @@
                 checkoutBtn.disabled = false;
                 
                 cartItemsEl.innerHTML = cart.map((item, index) => `
-                    <div class="flex gap-4 border-b border-gray-100 pb-4 last:border-0 items-center">
-                        <img src="${item.img}" alt="${item.series}" class="w-24 h-24 object-cover rounded-xl bg-gray-100 border border-gray-200">
+                    <div class="flex gap-4 border-b border-gray-100 pb-4 items-center">
+                        <img src="${item.img}" class="w-20 h-20 object-cover rounded-xl border">
                         <div class="flex-grow">
-                            <h4 class="font-bold text-gray-900">${item.series}</h4>
-                            <p class="text-sm text-gray-500 capitalize mt-1">${item.type} &bull; ${item.color}</p>
-                            <div class="flex justify-between items-center mt-2">
-                                <p class="font-bold text-primary text-lg">RM ${item.price}</p>
-                                <button onclick="removeFromCart(${index})" class="text-gray-400 hover:text-red-500 bg-gray-50 p-2 rounded-full transition-colors">
-                                    <i class="fas fa-trash-alt text-sm"></i>
-                                </button>
+                            <h4 class="font-bold">${item.series}</h4>
+                            <p class="text-xs text-gray-500 capitalize">${item.type} &bull; ${item.color}</p>
+                            <div class="flex justify-between items-center mt-1">
+                                <p class="font-bold text-primary">RM ${item.price}</p>
+                                <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-600"><i class="fas fa-trash-alt"></i></button>
                             </div>
                         </div>
                     </div>
@@ -550,18 +376,20 @@
             } else {
                 cartCountEl.classList.add('hidden');
                 checkoutBtn.disabled = true;
-                cartItemsEl.innerHTML = `
-                    <div class="flex flex-col items-center justify-center h-full text-center text-gray-400 mt-10">
-                        <i class="fas fa-shopping-bag text-5xl mb-4 opacity-20"></i>
-                        <p class="font-medium text-gray-600">Your cart is empty.</p>
-                        <p class="text-sm mt-1">Ready to hit the links?</p>
-                    </div>
-                `;
+                cartItemsEl.innerHTML = `<p class="text-center text-gray-400 mt-10">Your cart is empty.</p>`;
             }
 
-            const { total, bundlesCount } = calculateTotal();
-            totalEl.textContent = `RM ${total}`;
+            let woods = cart.filter(i => i.type === 'wood').length;
+            let drivers = cart.filter(i => i.type === 'driver').length;
+            let bundlesCount = Math.min(woods, drivers);
+            let productsTotal = (bundlesCount * BUNDLE_PRICE) + ((woods - bundlesCount) * PRICES.wood) + ((drivers - bundlesCount) * PRICES.driver);
 
+            const shippingZone = document.getElementById('shippingSelect').value;
+            let shippingFee = shippingZone === 'west' ? 10 : 15;
+            let finalTotal = cart.length > 0 ? (productsTotal + shippingFee) : 0;
+
+            totalEl.textContent = `RM ${finalTotal}`;
+            
             if (bundlesCount > 0) {
                 bundleNotice.classList.remove('hidden');
                 bundleNotice.innerHTML = `<i class="fas fa-check-circle mr-1"></i> ${bundlesCount} Bundle discount(s) applied!`;
@@ -571,102 +399,49 @@
         }
 
         function openCart() {
-            const sidebar = document.getElementById('cartSidebar');
-            const overlay = document.getElementById('cartOverlay');
-            
-            overlay.classList.remove('hidden');
-            void overlay.offsetWidth;
-            overlay.classList.remove('opacity-0');
-            sidebar.classList.remove('translate-x-full');
-            document.body.style.overflow = 'hidden';
+            document.getElementById('cartOverlay').classList.remove('hidden', 'opacity-0');
+            document.getElementById('cartSidebar').classList.remove('translate-x-full');
         }
 
         function closeCart() {
-            const sidebar = document.getElementById('cartSidebar');
-            const overlay = document.getElementById('cartOverlay');
-            
-            sidebar.classList.add('translate-x-full');
-            overlay.classList.add('opacity-0');
-            
-            setTimeout(() => {
-                overlay.classList.add('hidden');
-                document.body.style.overflow = '';
-            }, 300);
+            document.getElementById('cartSidebar').classList.add('translate-x-full');
+            document.getElementById('cartOverlay').classList.add('opacity-0');
+            setTimeout(() => { document.getElementById('cartOverlay').classList.add('hidden'); }, 300);
         }
 
         function setupEventListeners() {
             document.getElementById('cartBtn').addEventListener('click', openCart);
             document.getElementById('closeCart').addEventListener('click', closeCart);
             document.getElementById('cartOverlay').addEventListener('click', closeCart);
-
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
-            
-            mobileMenuBtn.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-                const icon = mobileMenuBtn.querySelector('i');
-                if (mobileMenu.classList.contains('hidden')) {
-                    icon.classList.replace('fa-times', 'fa-bars');
-                } else {
-                    icon.classList.replace('fa-bars', 'fa-times');
-                }
-            });
-
-            document.querySelectorAll('.mobile-link').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                    mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
-                });
-            });
-
             document.getElementById('closeModal').addEventListener('click', closeModal);
-            document.getElementById('modalBackdrop').addEventListener('click', closeModal);
             
-            document.querySelectorAll('input[name="clubType"]').forEach(radio => {
-                radio.addEventListener('change', updateModalPrice);
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            mobileMenuBtn.addEventListener('click', () => {
+                document.getElementById('mobileMenu').classList.toggle('hidden');
             });
+
+            document.querySelectorAll('input[name="clubType"]').forEach(r => r.addEventListener('change', updateModalPrice));
             document.getElementById('addToCartModalBtn').addEventListener('click', addToCart);
 
             document.getElementById('checkoutBtn').addEventListener('click', async () => {
                 if(cart.length === 0) return;
-                
                 const btn = document.getElementById('checkoutBtn');
-                const originalText = btn.innerHTML;
-                
-                // Show loading state
-                btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Loading secure checkout...';
+                const shippingZone = document.getElementById('shippingSelect').value;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
                 btn.disabled = true;
 
                 try {
-                    // Send cart data to our Vercel Serverless Function that we created
                     const response = await fetch('/api/checkout', {
                         method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify({ cart: cart })
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ cart: cart, shippingZone: shippingZone })
                     });
-
                     const data = await response.json();
-
-                    if (data.url) {
-                        // Redirect customer directly to the secure HitPay link
-                        window.location.href = data.url;
-                    } else {
-                        console.error('Checkout error:', data);
-                        btn.innerHTML = '<i class="fas fa-exclamation-circle"></i> Error creating payment';
-                        setTimeout(() => {
-                            btn.innerHTML = originalText;
-                            btn.disabled = false;
-                        }, 3000);
-                    }
+                    if (data.url) window.location.href = data.url;
+                    else throw new Error(data.error);
                 } catch (error) {
-                    console.error('Error during checkout:', error);
-                    btn.innerHTML = '<i class="fas fa-exclamation-circle"></i> Connection Error';
-                    setTimeout(() => {
-                        btn.innerHTML = originalText;
-                        btn.disabled = false;
-                    }, 3000);
+                    btn.innerHTML = 'Error. Try Again';
+                    setTimeout(() => { btn.innerHTML = 'Proceed to Payment'; btn.disabled = false; }, 3000);
                 }
             });
         }
