@@ -498,6 +498,14 @@
                     formError.classList.remove('hidden');
                     return;
                 }
+                // NEW CODE: Check if the email looks like a real email address
+                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(custEmail)) {
+                    formError.textContent = 'Please enter a valid email address (e.g., name@email.com).';
+                    formError.classList.remove('hidden');
+                    return;
+                }
+                
                 formError.classList.add('hidden');
 
                 const btn = document.getElementById('checkoutBtn');
