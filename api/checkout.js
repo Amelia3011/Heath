@@ -5,7 +5,7 @@ export default async function handler(req, res) {
     }
 
     try {
-        const { cart } = req.body;
+        const { cart, shippingZone } = req.body;
 
         // 1. Recalculate the exact price securely on the server
         const PRICES = { wood: 109, driver: 119 };
@@ -15,9 +15,16 @@ export default async function handler(req, res) {
         let drivers = cart.filter(item => item.type === 'driver').length;
 
         let bundlesCount = Math.min(woods, drivers);
-        let total = (bundlesCount * BUNDLE_PRICE) + 
+        let productsTotal = (bundlesCount * BUNDLE_PRICE) + 
                     ((woods - bundlesCount) * PRICES.wood) + 
                     ((drivers - bundlesCount) * PRICES.driver);
+
+        // Calculate Shipping Fee
+        let shippingFee = 0;
+        if (shippingZone === 'west') shippingFee = 10;
+        if (shippingZone === 'east') shippingFee = 15;
+
+        let total = productsTotal + shippingFee;
 
         // 2. Setup HitPay API URL for Sandbox
         const hitpayUrl = 'https://api.sandbox.hit-pay.com/v1/payment-requests';
