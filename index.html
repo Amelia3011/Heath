@@ -16,9 +16,9 @@
                         serif: ['Playfair Display', 'serif'],
                     },
                     colors: {
-                        primary: '#1F2937', // Dark Gray/Black
+                        primary: '#1F2937', 
                         secondary: '#4B5563',
-                        accent: '#D97706', // Muted Gold/Amber
+                        accent: '#D97706', 
                         'earthy-1': '#8B7355',
                         'earthy-2': '#A0522D',
                         'azure-1': '#4682B4',
@@ -31,7 +31,6 @@
         }
     </script>
     <style>
-        /* Custom Styles for smooth scrolling and animations */
         html {
             scroll-behavior: smooth;
         }
@@ -45,29 +44,17 @@
         .product-img {
             transition: transform 0.3s ease-in-out;
         }
-        
-        /* Modal transitions */
-        .modal-enter {
-            opacity: 0;
-            transform: scale(0.9);
+        /* Hide scrollbar for clean modal look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
         }
-        .modal-enter-active {
-            opacity: 1;
-            transform: scale(1);
-            transition: opacity 300ms, transform 300ms;
-        }
-        .modal-exit {
-            opacity: 1;
-            transform: scale(1);
-        }
-        .modal-exit-active {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 300ms, transform 300ms;
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
     </style>
 </head>
-<body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen">
+<body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen relative">
 
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -92,14 +79,14 @@
                         <i class="fas fa-shopping-bag text-xl"></i>
                         <span id="cartCount" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/4 bg-accent rounded-full hidden">0</span>
                     </button>
-                    <button id="mobileMenuBtn" class="md:hidden text-gray-600 hover:text-primary p-2" aria-label="Menu">
+                    <button id="mobileMenuBtn" class="md:hidden text-gray-600 hover:text-primary p-2 focus:outline-none" aria-label="Menu">
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
 
-            <!-- Mobile Navigation Menu (Hidden by default) -->
-            <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg pb-4">
+            <!-- Mobile Navigation Menu -->
+            <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg pb-4 transition-all duration-300">
                 <div class="px-4 pt-2 pb-3 space-y-1">
                     <a href="#home" class="mobile-link block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Home</a>
                     <a href="#collections" class="mobile-link block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Collections</a>
@@ -122,12 +109,11 @@
                     </p>
                     <div class="flex justify-center gap-4">
                         <a href="#collections" class="bg-primary text-white px-8 py-4 rounded-full font-medium hover:bg-gray-800 transition-colors shadow-lg">
-                            View Collections
+                            Shop The Drop
                         </a>
                     </div>
                 </div>
             </div>
-            <!-- Decorative Elements -->
             <div class="absolute top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none opacity-20">
                 <div class="absolute -top-24 -right-24 w-96 h-96 bg-accent rounded-full blur-3xl mix-blend-multiply"></div>
                 <div class="absolute -bottom-24 -left-24 w-96 h-96 bg-gray-400 rounded-full blur-3xl mix-blend-multiply"></div>
@@ -138,7 +124,7 @@
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col md:flex-row justify-center items-center gap-4">
                 <span class="font-medium text-lg">First Drop Opens In:</span>
                 <div id="countdown" class="flex gap-4 font-mono text-xl font-bold text-accent">
-                    <!-- Countdown will be injected here via JS -->
+                    <!-- Countdown injected via JS -->
                     <span>00d</span> : <span>00h</span> : <span>00m</span> : <span>00s</span>
                 </div>
             </div>
@@ -151,28 +137,28 @@
                     <p class="text-gray-600 max-w-2xl mx-auto">Three distinct series, meticulously crafted for style and protection. Available for Drivers and Woods. Bundle up to save.</p>
                 </div>
 
-                <!-- Product Grid -->
+                <!-- Product Grid Area (JavaScript fills this) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="productGrid">
-                    <!-- Products will be injected here via JS to keep HTML clean -->
+                    <!-- Products inject here -->
                 </div>
 
-                <!-- Bundle Offer Highlight -->
+                <!-- Bundle Notice -->
                 <div class="mt-20 bg-gray-50 rounded-2xl p-8 md:p-12 text-center shadow-inner border border-gray-100">
                     <h3 class="font-serif text-3xl font-bold text-primary mb-4">The Complete Set</h3>
                     <p class="text-gray-600 mb-8 max-w-xl mx-auto">Match your Wood and Driver headcovers for a unified look on the course. Purchase any Wood + Driver combo for a special bundle price.</p>
-                    <div class="inline-block bg-white p-6 rounded-xl shadow-md">
+                    <div class="inline-block bg-white p-6 rounded-xl shadow-md border border-gray-100">
                         <div class="flex flex-col md:flex-row items-center gap-6">
                             <div class="text-left">
                                 <p class="text-sm text-gray-500 uppercase tracking-wide">Wood</p>
                                 <p class="font-semibold text-lg">RM 109</p>
                             </div>
-                            <i class="fas fa-plus text-gray-300"></i>
+                            <i class="fas fa-plus text-gray-300 text-sm"></i>
                             <div class="text-left">
                                 <p class="text-sm text-gray-500 uppercase tracking-wide">Driver</p>
                                 <p class="font-semibold text-lg">RM 119</p>
                             </div>
-                            <i class="fas fa-equals text-gray-300 hidden md:block"></i>
-                            <div class="text-center bg-accent text-white px-6 py-3 rounded-lg">
+                            <i class="fas fa-equals text-gray-300 hidden md:block text-sm"></i>
+                            <div class="text-center bg-accent text-white px-6 py-3 rounded-lg shadow">
                                 <p class="text-xs uppercase tracking-wider opacity-90">Bundle Price</p>
                                 <p class="font-bold text-2xl">RM 218</p>
                             </div>
@@ -193,7 +179,6 @@
                         <p class="text-gray-300 mb-8 leading-relaxed">
                             Our debut collection is strictly limited to 40 units across all styles. We are an SSM registered business, ensuring quality and trust in every stitch.
                         </p>
-                        
                         <div class="flex gap-4">
                             <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors" aria-label="Instagram">
                                 <i class="fab fa-instagram text-xl"></i>
@@ -201,14 +186,10 @@
                             <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors" aria-label="TikTok">
                                 <i class="fab fa-tiktok text-xl"></i>
                             </a>
-                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors" aria-label="Threads">
-                                <i class="fab fa-threads text-xl"></i>
-                            </a>
                         </div>
                     </div>
-                    <div class="relative h-96 rounded-2xl overflow-hidden shadow-2xl">
-                        <!-- Placeholder for a lifestyle brand image -->
-                        <img src="https://placehold.co/800x600/2F4F4F/FFFFFF?text=Barrel+Lifestyle" alt="Golfer with Barrel Headcover" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="relative h-96 rounded-2xl overflow-hidden shadow-2xl bg-gray-800 flex items-center justify-center">
+                        <span class="text-gray-500 italic">Lifestyle Imagery Placeholder</span>
                     </div>
                 </div>
             </div>
@@ -216,65 +197,58 @@
     </main>
 
     <footer class="bg-gray-900 text-gray-400 py-12">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6 border-b border-gray-800 pb-8 mb-8">
                 <div class="font-serif text-2xl font-bold text-white tracking-tighter">
                     BARREL<span class="text-accent">.</span>
                 </div>
-                <div class="text-sm">
+                <div class="text-sm border border-gray-700 px-4 py-2 rounded-full">
                     SSM Registered Business
                 </div>
             </div>
-            <div class="flex flex-col md:flex-row justify-between items-center text-sm gap-4">
-                <p>&copy; <span id="year"></span> Barrel Headcovers. All rights reserved.</p>
-                <div class="flex gap-6">
-                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
-                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
-                </div>
-            </div>
+            <p>&copy; <span id="year"></span> Barrel Headcovers. All rights reserved.</p>
         </div>
     </footer>
 
     <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
     
     <div id="cartSidebar" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
-        <div class="p-6 border-b flex justify-between items-center">
+        <div class="p-6 border-b flex justify-between items-center bg-gray-50">
             <h2 class="font-serif text-2xl font-bold text-primary">Your Cart</h2>
-            <button id="closeCart" class="text-gray-500 hover:text-gray-800">
+            <button id="closeCart" class="text-gray-500 hover:text-gray-800 p-2 focus:outline-none">
                 <i class="fas fa-times text-xl"></i>
             </button>
         </div>
         
-        <div id="cartItems" class="flex-grow overflow-y-auto p-6 space-y-4">
-            <!-- Cart items will be injected here -->
-            <div class="text-center text-gray-500 mt-10" id="emptyCartMsg">
-                <p>Your cart is empty.</p>
-                <p class="text-sm mt-2">Ready to hit the links?</p>
-            </div>
+        <div id="cartItems" class="flex-grow overflow-y-auto p-6 space-y-4 no-scrollbar">
+            <!-- JavaScript injects cart items here -->
         </div>
 
-        <div class="border-t p-6 bg-gray-50">
+        <div class="border-t p-6 bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
             <div class="flex justify-between items-center mb-4">
                 <span class="text-gray-600">Subtotal</span>
-                <span class="font-bold text-xl" id="cartTotal">RM 0</span>
+                <span class="font-bold text-2xl text-primary" id="cartTotal">RM 0</span>
             </div>
-            <div class="text-sm text-accent mb-4 hidden" id="bundleNotice">
-                <i class="fas fa-tag mr-1"></i> Bundle discount applied!
+            <div class="text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-md mb-4 hidden border border-green-100" id="bundleNotice">
+                <i class="fas fa-check-circle mr-1"></i> Bundle discount applied!
             </div>
-            <button id="checkoutBtn" class="w-full bg-primary text-white py-4 rounded-lg font-medium hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
-                Proceed to Checkout
+            <button id="checkoutBtn" class="w-full bg-primary text-white py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md">
+                Order via WhatsApp
             </button>
-            <p class="text-xs text-center text-gray-500 mt-4">*Payments processed securely.</p>
+            <p class="text-xs text-center text-gray-400 mt-4"><i class="fab fa-whatsapp mr-1"></i> Secure checkout directly with us.</p>
         </div>
     </div>
 
-    <div id="productModal" class="fixed inset-0 z-[80] hidden flex items-center justify-center">
+    <!-- Note: Initialized as hidden. We use JS to toggle 'hidden' and 'flex' safely. -->
+    <div id="productModal" class="fixed inset-0 z-[80] hidden items-center justify-center">
         <!-- Backdrop -->
-        <div class="absolute inset-0 bg-black bg-opacity-50" id="modalBackdrop"></div>
-        <!-- Modal Content -->
-        <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300" id="modalContent">
-            <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-800 z-20 bg-white rounded-full p-2 shadow-sm">
-                <i class="fas fa-times"></i>
+        <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="modalBackdrop"></div>
+        
+        <!-- Modal Content Box -->
+        <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 no-scrollbar" id="modalContent">
+            
+            <button id="closeModal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-900 z-20 bg-white/80 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center shadow-sm focus:outline-none">
+                <i class="fas fa-times text-lg"></i>
             </button>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
@@ -283,39 +257,42 @@
                 </div>
                 <div class="p-8 md:p-12 flex flex-col justify-center">
                     <span id="modalSeries" class="text-sm font-semibold text-accent uppercase tracking-wider mb-2"></span>
-                    <h2 id="modalTitle" class="font-serif text-3xl font-bold text-primary mb-2"></h2>
-                    <p class="text-gray-600 mb-6" id="modalDesc"></p>
+                    <h2 id="modalTitle" class="font-serif text-3xl font-bold text-primary mb-3"></h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed" id="modalDesc"></p>
                     
-                    <div class="mb-6">
-                        <h4 class="text-sm font-medium text-gray-900 mb-3">Select Colorway</h4>
-                        <div class="flex gap-3" id="modalColors">
-                            <!-- Color buttons injected here -->
+                    <div class="mb-8">
+                        <h4 class="text-sm font-medium text-gray-900 mb-3 uppercase tracking-wide">Select Colorway</h4>
+                        <div class="flex gap-4" id="modalColors">
+                            <!-- JS injects color buttons here -->
                         </div>
                     </div>
 
                     <div class="mb-8">
-                        <h4 class="text-sm font-medium text-gray-900 mb-3">Select Club Type</h4>
+                        <h4 class="text-sm font-medium text-gray-900 mb-3 uppercase tracking-wide">Select Club Type</h4>
                         <div class="grid grid-cols-2 gap-4">
-                            <label class="cursor-pointer">
+                            <label class="cursor-pointer group">
                                 <input type="radio" name="clubType" value="wood" class="peer sr-only" checked>
-                                <div class="rounded-lg border-2 border-gray-200 p-4 text-center peer-checked:border-primary peer-checked:bg-gray-50 transition-all">
-                                    <span class="block font-medium">Wood</span>
-                                    <span class="block text-sm text-gray-500">RM 109</span>
+                                <div class="rounded-xl border-2 border-gray-200 p-4 text-center peer-checked:border-primary peer-checked:bg-gray-50 group-hover:border-gray-300 transition-all">
+                                    <span class="block font-semibold text-gray-900">Wood</span>
+                                    <span class="block text-sm text-gray-500 mt-1">RM 109</span>
                                 </div>
                             </label>
-                            <label class="cursor-pointer">
+                            <label class="cursor-pointer group">
                                 <input type="radio" name="clubType" value="driver" class="peer sr-only">
-                                <div class="rounded-lg border-2 border-gray-200 p-4 text-center peer-checked:border-primary peer-checked:bg-gray-50 transition-all">
-                                    <span class="block font-medium">Driver</span>
-                                    <span class="block text-sm text-gray-500">RM 119</span>
+                                <div class="rounded-xl border-2 border-gray-200 p-4 text-center peer-checked:border-primary peer-checked:bg-gray-50 group-hover:border-gray-300 transition-all">
+                                    <span class="block font-semibold text-gray-900">Driver</span>
+                                    <span class="block text-sm text-gray-500 mt-1">RM 119</span>
                                 </div>
                             </label>
                         </div>
                     </div>
                     
                     <div class="mt-auto pt-6 border-t border-gray-100 flex items-center justify-between">
-                        <div class="font-bold text-3xl text-primary" id="modalPrice">RM 109</div>
-                        <button id="addToCartModalBtn" class="bg-primary text-white px-8 py-3 rounded-lg font-medium hover:bg-gray-800 transition-colors shadow-md">
+                        <div>
+                            <p class="text-xs text-gray-400 mb-1">Total Price</p>
+                            <div class="font-bold text-3xl text-primary" id="modalPrice">RM 109</div>
+                        </div>
+                        <button id="addToCartModalBtn" class="bg-primary text-white px-8 py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors shadow-lg active:scale-95 focus:outline-none">
                             Add to Cart
                         </button>
                     </div>
@@ -325,15 +302,16 @@
     </div>
 
     <script>
-        // --- Data ---
+        // Data Configuration
+        // Note: Using %0A instead of \n for URL encoding stability
         const products = [
             {
                 id: 'earthy',
                 series: 'Earthy Tweed',
                 desc: 'Classic tweed texture bringing a touch of tradition to your bag. Perfect for the purist.',
                 colors: [
-                    { name: 'Oatmeal', hex: '#d2b48c', img: 'https://placehold.co/600x800/d2b48c/ffffff?text=Earthy+Tweed\nOatmeal' },
-                    { name: 'Forest', hex: '#228b22', img: 'https://placehold.co/600x800/228b22/ffffff?text=Earthy+Tweed\nForest' }
+                    { name: 'Oatmeal', hex: '#d2b48c', img: 'https://placehold.co/600x800/d2b48c/ffffff?text=Earthy+Tweed%0AOatmeal' },
+                    { name: 'Forest', hex: '#228b22', img: 'https://placehold.co/600x800/228b22/ffffff?text=Earthy+Tweed%0AForest' }
                 ]
             },
             {
@@ -341,8 +319,8 @@
                 series: 'Azure Wave',
                 desc: 'Dynamic patterns inspired by coastal waters. Stand out on the fairway with vibrant hues.',
                 colors: [
-                    { name: 'Deep Sea', hex: '#00008b', img: 'https://placehold.co/600x800/00008b/ffffff?text=Azure+Wave\nDeep+Sea' },
-                    { name: 'Sky Crest', hex: '#87ceeb', img: 'https://placehold.co/600x800/87ceeb/1F2937?text=Azure+Wave\nSky+Crest' }
+                    { name: 'Deep Sea', hex: '#00008b', img: 'https://placehold.co/600x800/00008b/ffffff?text=Azure+Wave%0ADeep+Sea' },
+                    { name: 'Sky Crest', hex: '#87ceeb', img: 'https://placehold.co/600x800/87ceeb/1F2937?text=Azure+Wave%0ASky+Crest' }
                 ]
             },
             {
@@ -350,168 +328,162 @@
                 series: 'Black Bone',
                 desc: 'Sleek, minimalist, and menacing. For the modern golfer who prefers a clean, stealthy aesthetic.',
                 colors: [
-                    { name: 'Pitch Black', hex: '#000000', img: 'https://placehold.co/600x800/000000/ffffff?text=Black+Bone\nPitch+Black' },
-                    { name: 'Ivory Ash', hex: '#f0fff0', img: 'https://placehold.co/600x800/f0fff0/1F2937?text=Black+Bone\nIvory+Ash' }
+                    { name: 'Pitch Black', hex: '#000000', img: 'https://placehold.co/600x800/000000/ffffff?text=Black+Bone%0APitch+Black' },
+                    { name: 'Ivory Ash', hex: '#f0fff0', img: 'https://placehold.co/600x800/f0fff0/1F2937?text=Black+Bone%0AIvory+Ash' }
                 ]
             }
         ];
 
-        const PRICES = {
-            wood: 109,
-            driver: 119
-        };
+        const PRICES = { wood: 109, driver: 119 };
         const BUNDLE_PRICE = 218;
 
-        // State
+        // Application State
         let cart = [];
         let currentModalProduct = null;
         let selectedColorIndex = 0;
 
-        // --- Initialization ---
+        // Bootstrapping the app securely
         document.addEventListener('DOMContentLoaded', () => {
-            document.getElementById('year').textContent = new Date().getFullYear();
-            renderProductGrid();
-            setupCountdown();
-            setupEventListeners();
-            updateCartUI();
+            try {
+                document.getElementById('year').textContent = new Date().getFullYear();
+                renderProductGrid();
+                setupCountdown();
+                setupEventListeners();
+                updateCartUI();
+            } catch (e) {
+                console.error("Initialization Error: ", e);
+            }
         });
 
-        // --- Render Functions ---
         function renderProductGrid() {
             const grid = document.getElementById('productGrid');
-            grid.innerHTML = products.map((product, index) => `
+            if(!grid) return;
+            
+            grid.innerHTML = products.map((product) => `
                 <div class="product-card group cursor-pointer" onclick="openModal('${product.id}')">
                     <div class="relative bg-gray-100 rounded-2xl overflow-hidden aspect-[4/5] mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-300">
                         <img src="${product.colors[0].img}" alt="${product.series}" class="product-img w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-10 transition-all duration-300 flex items-center justify-center">
-                            <span class="bg-white text-primary px-6 py-2 rounded-full font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-lg">
-                                Quick View
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                            <span class="bg-white text-primary px-8 py-3 rounded-full font-bold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl">
+                                Select Options
                             </span>
                         </div>
                     </div>
-                    <div>
+                    <div class="px-2">
                         <div class="flex justify-between items-start mb-2">
                             <h3 class="font-serif text-2xl font-bold text-primary">${product.series}</h3>
                             <div class="flex gap-1 pt-1">
-                                <span class="w-4 h-4 rounded-full border border-gray-300 shadow-sm" style="background-color: ${product.colors[0].hex}"></span>
-                                <span class="w-4 h-4 rounded-full border border-gray-300 shadow-sm" style="background-color: ${product.colors[1].hex}"></span>
+                                <span class="w-5 h-5 rounded-full border-2 border-white shadow-md" style="background-color: ${product.colors[0].hex}"></span>
+                                <span class="w-5 h-5 rounded-full border-2 border-white shadow-md -ml-2" style="background-color: ${product.colors[1].hex}"></span>
                             </div>
                         </div>
                         <p class="text-gray-600 text-sm mb-3 line-clamp-2">${product.desc}</p>
-                        <p class="font-medium text-gray-900">From RM ${PRICES.wood}</p>
+                        <p class="font-semibold text-primary">From RM ${PRICES.wood}</p>
                     </div>
                 </div>
             `).join('');
         }
 
-        // --- Countdown Logic ---
         function setupCountdown() {
-            // Set launch date: Sept 25th, current year, 00:00:00
+            const countdownEl = document.getElementById('countdown');
+            if(!countdownEl) return;
+
             const now = new Date();
-            let launchDate = new Date(now.getFullYear(), 8, 25, 0, 0, 0); // Month is 0-indexed (8 = Sept)
-            
-            // If we are past Sept 25th this year, set it to next year (or handle differently)
+            let launchDate = new Date(now.getFullYear(), 8, 25, 0, 0, 0); 
             if (now.getTime() > launchDate.getTime()) {
                 launchDate.setFullYear(now.getFullYear() + 1);
             }
 
-            const countdownEl = document.getElementById('countdown');
-
             function update() {
-                const currentTime = new Date().getTime();
-                const distance = launchDate.getTime() - currentTime;
-
+                const distance = launchDate.getTime() - new Date().getTime();
                 if (distance < 0) {
-                    countdownEl.innerHTML = "<span class='text-white'>We are LIVE!</span>";
+                    countdownEl.innerHTML = "<span class='text-white bg-green-500 px-4 py-1 rounded-full'>We are LIVE!</span>";
                     return;
                 }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                countdownEl.innerHTML = `
-                    <span>${days.toString().padStart(2, '0')}d</span> : 
-                    <span>${hours.toString().padStart(2, '0')}h</span> : 
-                    <span>${minutes.toString().padStart(2, '0')}m</span> : 
-                    <span>${seconds.toString().padStart(2, '0')}s</span>
-                `;
+                const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const s = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                countdownEl.innerHTML = `<span>${d}d</span> : <span>${h}h</span> : <span>${m}m</span> : <span>${s}s</span>`;
             }
-
             update();
             setInterval(update, 1000);
         }
 
-        // --- Modal Logic ---
         function openModal(productId) {
             currentModalProduct = products.find(p => p.id === productId);
-            selectedColorIndex = 0; // Reset to first color
-
+            selectedColorIndex = 0; 
             if (!currentModalProduct) return;
 
-            // Populate Modal
+            // Fill Modal Texts
             document.getElementById('modalSeries').textContent = currentModalProduct.series;
             document.getElementById('modalTitle').textContent = currentModalProduct.series;
             document.getElementById('modalDesc').textContent = currentModalProduct.desc;
             updateModalImage();
             
-            // Render Color Buttons
+            // Build Color Selectors
             const colorsContainer = document.getElementById('modalColors');
             colorsContainer.innerHTML = currentModalProduct.colors.map((color, index) => `
                 <button onclick="selectColor(${index})" 
-                        class="w-10 h-10 rounded-full border-2 focus:outline-none transition-all ${index === selectedColorIndex ? 'border-primary ring-2 ring-primary ring-offset-2 scale-110' : 'border-transparent shadow-sm'}"
+                        class="w-12 h-12 rounded-full focus:outline-none transition-all ${index === selectedColorIndex ? 'border-4 border-white ring-2 ring-primary scale-110 shadow-md' : 'border-2 border-gray-200 shadow-sm'}"
                         style="background-color: ${color.hex}"
                         title="${color.name}"
                         id="colorBtn-${index}">
                 </button>
             `).join('');
 
-            // Reset radio buttons to Wood
+            // Reset Default Selection
             document.querySelector('input[name="clubType"][value="wood"]').checked = true;
             updateModalPrice();
 
-            // Show Modal
+            // Toggle CSS classes to show modal safely
             const modal = document.getElementById('productModal');
             const backdrop = document.getElementById('modalBackdrop');
             const content = document.getElementById('modalContent');
             
             modal.classList.remove('hidden');
-            // Trigger reflow
-            void modal.offsetWidth; 
+            modal.classList.add('flex'); // Add flex layout
             
-            content.classList.remove('scale-95', 'opacity-0');
-            content.classList.add('scale-100', 'opacity-100');
+            // Allow browser to register display:flex before fading in
+            setTimeout(() => {
+                backdrop.classList.remove('opacity-0');
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
             
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+            document.body.style.overflow = 'hidden'; 
         }
 
         function closeModal() {
             const modal = document.getElementById('productModal');
+            const backdrop = document.getElementById('modalBackdrop');
             const content = document.getElementById('modalContent');
             
+            // Fade out
+            backdrop.classList.add('opacity-0');
             content.classList.remove('scale-100', 'opacity-100');
             content.classList.add('scale-95', 'opacity-0');
 
+            // Hide element after fade out completes
             setTimeout(() => {
+                modal.classList.remove('flex');
                 modal.classList.add('hidden');
                 document.body.style.overflow = '';
-            }, 300); // match transition duration
+            }, 300); 
         }
 
         function selectColor(index) {
             selectedColorIndex = index;
             updateModalImage();
-            
-            // Update button styles
             currentModalProduct.colors.forEach((_, i) => {
                 const btn = document.getElementById(`colorBtn-${i}`);
                 if (i === index) {
-                    btn.classList.add('border-primary', 'ring-2', 'ring-primary', 'ring-offset-2', 'scale-110');
-                    btn.classList.remove('border-transparent');
+                    btn.classList.add('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110', 'shadow-md');
+                    btn.classList.remove('border-2', 'border-gray-200', 'shadow-sm');
                 } else {
-                    btn.classList.remove('border-primary', 'ring-2', 'ring-primary', 'ring-offset-2', 'scale-110');
-                    btn.classList.add('border-transparent');
+                    btn.classList.remove('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110', 'shadow-md');
+                    btn.classList.add('border-2', 'border-gray-200', 'shadow-sm');
                 }
             });
         }
@@ -527,27 +499,21 @@
             document.getElementById('modalPrice').textContent = `RM ${PRICES[type]}`;
         }
 
-        // --- Cart Logic ---
         function addToCart() {
             const type = document.querySelector('input[name="clubType"]:checked').value;
             const color = currentModalProduct.colors[selectedColorIndex];
             
-            const item = {
-                id: `${currentModalProduct.id}-${type}-${color.name}`,
-                seriesId: currentModalProduct.id,
+            cart.push({
                 series: currentModalProduct.series,
-                type: type, // 'wood' or 'driver'
+                type: type,
                 color: color.name,
                 price: PRICES[type],
                 img: color.img
-            };
+            });
 
-            cart.push(item);
             updateCartUI();
             closeModal();
             openCart();
-            
-            // Show toast/notification (optional, skipping for brevity, sidebar opens instead)
         }
 
         function removeFromCart(index) {
@@ -556,18 +522,13 @@
         }
 
         function calculateTotal() {
-            // Logic for Bundle Pricing
-            // A bundle is 1 Wood + 1 Driver (doesn't matter which series)
             let woods = cart.filter(item => item.type === 'wood').length;
             let drivers = cart.filter(item => item.type === 'driver').length;
             
             let bundlesCount = Math.min(woods, drivers);
-            let remainingWoods = woods - bundlesCount;
-            let remainingDrivers = drivers - bundlesCount;
-
             let total = (bundlesCount * BUNDLE_PRICE) + 
-                        (remainingWoods * PRICES.wood) + 
-                        (remainingDrivers * PRICES.driver);
+                        ((woods - bundlesCount) * PRICES.wood) + 
+                        ((drivers - bundlesCount) * PRICES.driver);
 
             return { total, bundlesCount };
         }
@@ -575,72 +536,61 @@
         function updateCartUI() {
             const cartItemsEl = document.getElementById('cartItems');
             const cartCountEl = document.getElementById('cartCount');
-            const emptyMsgEl = document.getElementById('emptyCartMsg');
             const checkoutBtn = document.getElementById('checkoutBtn');
             const totalEl = document.getElementById('cartTotal');
             const bundleNotice = document.getElementById('bundleNotice');
 
-            // Update Badge
+            // Hard reset UI based on cart contents
             if (cart.length > 0) {
                 cartCountEl.textContent = cart.length;
                 cartCountEl.classList.remove('hidden');
-                emptyMsgEl.classList.add('hidden');
                 checkoutBtn.disabled = false;
+                
+                cartItemsEl.innerHTML = cart.map((item, index) => `
+                    <div class="flex gap-4 border-b border-gray-100 pb-4 last:border-0 items-center">
+                        <img src="${item.img}" alt="${item.series}" class="w-24 h-24 object-cover rounded-xl bg-gray-100 border border-gray-200">
+                        <div class="flex-grow">
+                            <h4 class="font-bold text-gray-900">${item.series}</h4>
+                            <p class="text-sm text-gray-500 capitalize mt-1">${item.type} &bull; ${item.color}</p>
+                            <div class="flex justify-between items-center mt-2">
+                                <p class="font-bold text-primary text-lg">RM ${item.price}</p>
+                                <button onclick="removeFromCart(${index})" class="text-gray-400 hover:text-red-500 bg-gray-50 p-2 rounded-full transition-colors">
+                                    <i class="fas fa-trash-alt text-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
             } else {
                 cartCountEl.classList.add('hidden');
-                emptyMsgEl.classList.remove('hidden');
                 checkoutBtn.disabled = true;
-            }
-
-            // Render Items
-            const itemsHtml = cart.map((item, index) => `
-                <div class="flex gap-4 border-b pb-4 last:border-0">
-                    <img src="${item.img}" alt="${item.series}" class="w-20 h-20 object-cover rounded-md bg-gray-100">
-                    <div class="flex-grow">
-                        <div class="flex justify-between">
-                            <h4 class="font-medium text-gray-900">${item.series}</h4>
-                            <button onclick="removeFromCart(${index})" class="text-gray-400 hover:text-red-500">
-                                <i class="fas fa-trash-alt text-sm"></i>
-                            </button>
-                        </div>
-                        <p class="text-sm text-gray-500 capitalize">${item.type} &bull; ${item.color}</p>
-                        <p class="font-medium text-gray-900 mt-1">RM ${item.price}</p>
+                cartItemsEl.innerHTML = `
+                    <div class="flex flex-col items-center justify-center h-full text-center text-gray-400 mt-10">
+                        <i class="fas fa-shopping-bag text-5xl mb-4 opacity-20"></i>
+                        <p class="font-medium text-gray-600">Your cart is empty.</p>
+                        <p class="text-sm mt-1">Ready to hit the links?</p>
                     </div>
-                </div>
-            `).join('');
-            
-            // Only update innerHTML if not empty to preserve empty state message
-            if (cart.length > 0) {
-                cartItemsEl.innerHTML = itemsHtml;
-            } else {
-                 cartItemsEl.innerHTML = `<div class="text-center text-gray-500 mt-10" id="emptyCartMsg">
-                    <p>Your cart is empty.</p>
-                    <p class="text-sm mt-2">Ready to hit the links?</p>
-                </div>`;
+                `;
             }
 
-            // Update Total
             const { total, bundlesCount } = calculateTotal();
             totalEl.textContent = `RM ${total}`;
 
             if (bundlesCount > 0) {
                 bundleNotice.classList.remove('hidden');
-                bundleNotice.innerHTML = `<i class="fas fa-tag mr-1"></i> ${bundlesCount} Bundle discount(s) applied!`;
+                bundleNotice.innerHTML = `<i class="fas fa-check-circle mr-1"></i> ${bundlesCount} Bundle discount(s) applied!`;
             } else {
                 bundleNotice.classList.add('hidden');
             }
         }
 
-        // --- Sidebar Logic ---
         function openCart() {
             const sidebar = document.getElementById('cartSidebar');
             const overlay = document.getElementById('cartOverlay');
             
             overlay.classList.remove('hidden');
-            // Trigger reflow
-            void overlay.offsetWidth;
+            void overlay.offsetWidth; // Force DOM repaint
             overlay.classList.remove('opacity-0');
-            
             sidebar.classList.remove('translate-x-full');
             document.body.style.overflow = 'hidden';
         }
@@ -658,70 +608,65 @@
             }, 300);
         }
 
-        // --- Event Listeners Setup ---
         function setupEventListeners() {
-            // Cart Toggles
+            // Cart toggles
             document.getElementById('cartBtn').addEventListener('click', openCart);
             document.getElementById('closeCart').addEventListener('click', closeCart);
             document.getElementById('cartOverlay').addEventListener('click', closeCart);
 
-            // Mobile Menu Toggle
+            // Mobile menu logic
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
-            const mobileLinks = document.querySelectorAll('.mobile-link');
-
+            
             mobileMenuBtn.addEventListener('click', () => {
                 mobileMenu.classList.toggle('hidden');
                 const icon = mobileMenuBtn.querySelector('i');
                 if (mobileMenu.classList.contains('hidden')) {
-                    icon.classList.remove('fa-times');
-                    icon.classList.add('fa-bars');
+                    icon.classList.replace('fa-times', 'fa-bars');
                 } else {
-                    icon.classList.remove('fa-bars');
-                    icon.classList.add('fa-times');
+                    icon.classList.replace('fa-bars', 'fa-times');
                 }
             });
 
-            // Close mobile menu when a link is clicked
-            mobileLinks.forEach(link => {
+            document.querySelectorAll('.mobile-link').forEach(link => {
                 link.addEventListener('click', () => {
                     mobileMenu.classList.add('hidden');
-                    mobileMenuBtn.querySelector('i').classList.remove('fa-times');
-                    mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+                    mobileMenuBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
                 });
             });
 
-            // Modal Toggles
+            // Modal logic
             document.getElementById('closeModal').addEventListener('click', closeModal);
             document.getElementById('modalBackdrop').addEventListener('click', closeModal);
             
-            // Radio button changes in modal
-            const radios = document.querySelectorAll('input[name="clubType"]');
-            radios.forEach(radio => {
+            document.querySelectorAll('input[name="clubType"]').forEach(radio => {
                 radio.addEventListener('change', updateModalPrice);
             });
-
-            // Add to Cart
             document.getElementById('addToCartModalBtn').addEventListener('click', addToCart);
 
-            // Checkout (WhatsApp Integration)
+            // WhatsApp Checkout implementation
             document.getElementById('checkoutBtn').addEventListener('click', () => {
                 if(cart.length === 0) return;
                 
-                // 1. Replace with your actual business WhatsApp number 
-                // IMPORTANT: Include country code without '+' or '00' (e.g., 60 for Malaysia)
+                // IMPORTANT: Replace with your actual WhatsApp business number
                 const phoneNumber = '60123456789'; 
                 
-                // 2. Build the order message
                 let message = "🏌️‍♂️ *New Order from Barrel Headcovers*\n\n";
                 message += "*Order Details:*\n";
-                
                 cart.forEach((item, index) => {
                     message += `${index + 1}. ${item.series} - ${item.color} (${item.type.toUpperCase()}) : RM ${item.price}\n`;
                 });
                 
                 const { total, bundlesCount } = calculateTotal();
+                message += `\n*Subtotal:* RM ${total}\n`;
+                if(bundlesCount > 0) message += `*Discount:* ${bundlesCount} Bundle(s) Applied! ✅\n`;
+                message += "\n*Total to Pay:* RM " + total + "\n\n";
+                message += "Hi! I would like to place this order. Please provide payment instructions (DuitNow/Bank Transfer).";
                 
-                cart.forEach((item, index) => {
-                    message += `${index + 1}. ${item.series} - ${item.color} (${item.type.toUpperCase()}) : RM ${item.price}\n`;
-                });
+                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+            });
+        }
+    </script>
+</body>
+</html>
