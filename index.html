@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,7 +48,7 @@
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center">
                     <a href="#" class="font-serif text-3xl font-bold text-primary tracking-tighter">
-                       HEATH<span class="text-accent">.</span>
+                        HEATH<span class="text-accent">.</span>
                     </a>
                 </div>
                 
@@ -155,22 +156,24 @@
 
     <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
     
-    <div id="cartSidebar" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
-        <!-- Header: Fixed at top -->
-        <div class="p-6 border-b flex justify-between items-center bg-gray-50 shrink-0">
+    <!-- FIX: Ensure the sidebar is exactly 100vh and uses flex-col -->
+    <div id="cartSidebar" class="fixed top-0 right-0 h-[100dvh] w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        
+        <!-- Header (Fixed at top) -->
+        <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
             <h2 class="font-serif text-2xl font-bold text-primary">Your Cart</h2>
             <button id="closeCart" class="text-gray-500 hover:text-gray-800 p-2 focus:outline-none">
                 <i class="fas fa-times text-xl"></i>
             </button>
         </div>
         
-        <!-- Scrollable Body: Cart Items + Delivery Form -->
-        <div class="flex-grow overflow-y-auto no-scrollbar">
+        <!-- Scrollable Middle Section (flex-1 lets it take remaining space) -->
+        <div class="flex-1 overflow-y-auto no-scrollbar">
             <!-- JS injects cart items here -->
             <div id="cartItems" class="p-6 space-y-4">
             </div>
 
-            <!-- Delivery Details & Shipping (Now scrolls with the items) -->
+            <!-- Delivery Details Form (Now scrolls WITH the items) -->
             <div class="p-6 border-t bg-gray-50/50">
                 <div class="flex justify-between items-center mb-4">
                     <span class="text-gray-600">Subtotal</span>
@@ -180,7 +183,6 @@
                     <i class="fas fa-check-circle mr-1"></i> Bundle discount applied!
                 </div>
                 
-                <!-- Delivery Details Form -->
                 <div class="mb-4 space-y-3">
                     <h3 class="text-sm font-medium text-gray-700">Delivery Details</h3>
                     <input type="text" id="custName" placeholder="Full Name" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
@@ -217,7 +219,7 @@
 
                 <div id="formError" class="text-xs text-red-500 mb-3 hidden font-medium text-center">Please fill in all delivery details above.</div>
 
-                <!-- Shipping Selection -->
+                <!-- Shipping Selection (Single Visual Option) -->
                 <div class="mb-2">
                     <label class="block text-sm font-medium text-gray-700 mb-2">Shipping Destination</label>
                     <div class="grid grid-cols-2 gap-3">
@@ -238,10 +240,10 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> <!-- End of scrollable area -->
 
-        <!-- Footer: Checkout Button Fixed at Bottom -->
-        <div class="p-6 border-t bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] shrink-0">
+        <!-- Footer (Fixed at bottom) -->
+        <div class="p-6 border-t bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex-shrink-0">
             <button id="checkoutBtn" class="w-full bg-primary text-white py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex justify-center items-center gap-2">
                 Proceed to Payment
             </button>
@@ -530,9 +532,6 @@
                 }
             });
         }
-    </script>
-</body>
-</html>
     </script>
 </body>
 </html>
