@@ -1,4 +1,4 @@
-xport default async function handler(req, res) {
+export default async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
     }
@@ -26,22 +26,24 @@ xport default async function handler(req, res) {
 
         const hitpayUrl = 'https://api.sandbox.hit-pay.com/v1/payment-requests';
         
-        // We use the address object explicitly supported by HitPay's payment-requests API
+        // Format address into the purpose field to ensure HitPay accepts it
+        // HitPay's v1 endpoint is strict, so merging it into the purpose description works perfectly!
+        const fullAddress = `${customer.address}, ${customer.city}, ${customer.postcode}, ${customer.state}`;
+        let orderPurpose = `Order (${zoneName}) - ${fullAddress}`;
+        
+        // HitPay has a 255 character limit for the purpose field
+        if (orderPurpose.length > 255) {
+            orderPurpose = orderPurpose.substring(0, 252) + '...';
+        }
+
         const hitpayPayload = {
             amount: total,
             currency: 'MYR',
-            reference_number: 'BARREL-' + Date.now(), 
-            purpose: `Barrel Headcovers (${zoneName})`,
+            reference_number: 'Heathgolf-' + Date.now(), 
+            purpose: orderPurpose,
             name: customer.name,
             email: customer.email,
             phone: customer.phone,
-            address: {
-                line1: customer.address,
-                city: customer.city,
-                state: customer.state,
-                postal_code: customer.postcode,
-                country: 'MY'
-            },
             redirect_url: 'https://' + req.headers.host + '/?status=success' 
         };
 
