@@ -176,6 +176,41 @@
                 <i class="fas fa-check-circle mr-1"></i> Bundle discount applied!
             </div>
             
+            <!-- Delivery Details Form -->
+            <div class="mb-4 space-y-3">
+                <h3 class="text-sm font-medium text-gray-700">Delivery Details</h3>
+                <input type="text" id="custName" placeholder="Full Name" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+                <input type="email" id="custEmail" placeholder="Email Address" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+                <input type="tel" id="custPhone" placeholder="Phone Number" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+                
+                <div class="space-y-2">
+                    <input type="text" id="custAddress" placeholder="Street Address (e.g. No. 12, Jalan Sultan)" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+                    <div class="grid grid-cols-2 gap-2">
+                        <input type="text" id="custCity" placeholder="City" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+                        <input type="text" id="custPostcode" placeholder="Postcode" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+                    </div>
+                    <select id="custState" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+                        <option value="" disabled selected>Select State...</option>
+                        <option value="Johor">Johor</option>
+                        <option value="Kedah">Kedah</option>
+                        <option value="Kelantan">Kelantan</option>
+                        <option value="Melaka">Melaka</option>
+                        <option value="Negeri Sembilan">Negeri Sembilan</option>
+                        <option value="Pahang">Pahang</option>
+                        <option value="Perak">Perak</option>
+                        <option value="Perlis">Perlis</option>
+                        <option value="Penang">Penang</option>
+                        <option value="Sabah">Sabah</option>
+                        <option value="Sarawak">Sarawak</option>
+                        <option value="Selangor">Selangor</option>
+                        <option value="Terengganu">Terengganu</option>
+                        <option value="Kuala Lumpur">Kuala Lumpur</option>
+                        <option value="Labuan">Labuan</option>
+                        <option value="Putrajaya">Putrajaya</option>
+                    </select>
+                </div>
+            </div>
+
             <!-- Shipping Dropdown -->
             <div class="mb-4">
                 <label for="shippingSelect" class="block text-sm font-medium text-gray-700 mb-1">Shipping Destination</label>
@@ -184,6 +219,8 @@
                     <option value="east">East Malaysia (RM 15)</option>
                 </select>
             </div>
+
+            <div id="formError" class="text-xs text-red-500 mb-3 hidden font-medium text-center">Please fill in all delivery details above.</div>
 
             <button id="checkoutBtn" class="w-full bg-primary text-white py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex justify-center items-center gap-2">
                 Proceed to Payment
@@ -425,6 +462,22 @@
 
             document.getElementById('checkoutBtn').addEventListener('click', async () => {
                 if(cart.length === 0) return;
+                
+                const custName = document.getElementById('custName').value.trim();
+                const custEmail = document.getElementById('custEmail').value.trim();
+                const custPhone = document.getElementById('custPhone').value.trim();
+                const custAddress = document.getElementById('custAddress').value.trim();
+                const custCity = document.getElementById('custCity').value.trim();
+                const custPostcode = document.getElementById('custPostcode').value.trim();
+                const custState = document.getElementById('custState').value;
+                const formError = document.getElementById('formError');
+
+                if(!custName || !custEmail || !custPhone || !custAddress || !custCity || !custPostcode || !custState) {
+                    formError.classList.remove('hidden');
+                    return;
+                }
+                formError.classList.add('hidden');
+
                 const btn = document.getElementById('checkoutBtn');
                 const shippingZone = document.getElementById('shippingSelect').value;
                 btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
@@ -434,7 +487,19 @@
                     const response = await fetch('/api/checkout', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ cart: cart, shippingZone: shippingZone })
+                        body: JSON.stringify({ 
+                            cart: cart, 
+                            shippingZone: shippingZone,
+                            customer: { 
+                                name: custName, 
+                                email: custEmail, 
+                                phone: custPhone, 
+                                address: custAddress,
+                                city: custCity,
+                                postcode: custPostcode,
+                                state: custState
+                            }
+                        })
                     });
                     const data = await response.json();
                     if (data.url) window.location.href = data.url;
