@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -185,7 +184,7 @@
                 
                 <div class="mb-4 space-y-3">
                     <h3 class="text-sm font-medium text-gray-700">Delivery Details</h3>
-                    <input type="text" id="custName" placeholder="Full Name" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+                    <input type="text" id="custName" placeholder="Name" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
                     <input type="email" id="custEmail" placeholder="Email Address" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
                     <input type="tel" id="custPhone" placeholder="Phone Number" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
                     
@@ -495,9 +494,11 @@
                 const formError = document.getElementById('formError');
 
                 if(!custName || !custEmail || !custPhone || !custAddress || !custCity || !custPostcode || !custState) {
+                    formError.textContent = 'Please fill in all delivery details above.';
                     formError.classList.remove('hidden');
                     return;
                 }
+
                 // NEW CODE: Check if the email looks like a real email address
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(custEmail)) {
@@ -505,7 +506,7 @@
                     formError.classList.remove('hidden');
                     return;
                 }
-                
+
                 formError.classList.add('hidden');
 
                 const btn = document.getElementById('checkoutBtn');
@@ -539,6 +540,10 @@
                     setTimeout(() => { btn.innerHTML = 'Proceed to Payment'; btn.disabled = false; }, 3000);
                 }
             });
+        }
+    </script>
+</body>
+</html>
         }
     </script>
 </body>
