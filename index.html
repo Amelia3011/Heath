@@ -7,6 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <script>
         tailwind.config = {
             theme: {
@@ -62,18 +63,16 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="#" class="font-serif text-3xl font-bold text-primary tracking-tighter">
-                        HEATH<span class="text-accent">.</span>
+                       HEATH<span class="text-accent">.</span>
                     </a>
                 </div>
                 
-                <!-- Desktop Navigation -->
                 <nav class="hidden md:flex space-x-8">
                     <a href="#home" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Home</a>
                     <a href="#collections" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Collections</a>
                     <a href="#about" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">About Us</a>
                 </nav>
 
-                <!-- Cart Icon & Mobile Menu Button -->
                 <div class="flex items-center space-x-4">
                     <button id="cartBtn" class="text-gray-600 hover:text-primary relative p-2" aria-label="Cart">
                         <i class="fas fa-shopping-bag text-xl"></i>
@@ -85,7 +84,6 @@
                 </div>
             </div>
 
-            <!-- Mobile Navigation Menu -->
             <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg pb-4 transition-all duration-300">
                 <div class="px-4 pt-2 pb-3 space-y-1">
                     <a href="#home" class="mobile-link block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Home</a>
@@ -142,7 +140,6 @@
                     <!-- Products inject here -->
                 </div>
 
-                <!-- Bundle Notice -->
                 <div class="mt-20 bg-gray-50 rounded-2xl p-8 md:p-12 text-center shadow-inner border border-gray-100">
                     <h3 class="font-serif text-3xl font-bold text-primary mb-4">The Complete Set</h3>
                     <p class="text-gray-600 mb-8 max-w-xl mx-auto">Match your Wood and Driver headcovers for a unified look on the course. Purchase any Wood + Driver combo for a special bundle price.</p>
@@ -200,13 +197,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
             <div class="flex flex-col md:flex-row justify-between items-center gap-6 border-b border-gray-800 pb-8 mb-8">
                 <div class="font-serif text-2xl font-bold text-white tracking-tighter">
-                    BARREL<span class="text-accent">.</span>
+                    HEATH<span class="text-accent">.</span>
                 </div>
                 <div class="text-sm border border-gray-700 px-4 py-2 rounded-full">
                     SSM Registered Business
                 </div>
             </div>
-            <p>&copy; <span id="year"></span> Barrel Headcovers. All rights reserved.</p>
+            <p>&copy; <span id="year"></span> Heath Studio. All rights reserved.</p>
         </div>
     </footer>
 
@@ -232,14 +229,13 @@
             <div class="text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-md mb-4 hidden border border-green-100" id="bundleNotice">
                 <i class="fas fa-check-circle mr-1"></i> Bundle discount applied!
             </div>
-            <button id="checkoutBtn" class="w-full bg-primary text-white py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md">
-                Order via WhatsApp
+            <button id="checkoutBtn" class="w-full bg-primary text-white py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex justify-center items-center gap-2">
+                Proceed to Payment
             </button>
-            <p class="text-xs text-center text-gray-400 mt-4"><i class="fab fa-whatsapp mr-1"></i> Secure checkout directly with us.</p>
+            <p class="text-xs text-center text-gray-400 mt-4"><i class="fas fa-lock mr-1"></i> Secure checkout via HitPay (FPX, DuitNow, Cards)</p>
         </div>
     </div>
 
-    <!-- Note: Initialized as hidden. We use JS to toggle 'hidden' and 'flex' safely. -->
     <div id="productModal" class="fixed inset-0 z-[80] hidden items-center justify-center">
         <!-- Backdrop -->
         <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="modalBackdrop"></div>
@@ -303,7 +299,6 @@
 
     <script>
         // Data Configuration
-        // Note: Using %0A instead of \n for URL encoding stability
         const products = [
             {
                 id: 'earthy',
@@ -342,7 +337,6 @@
         let currentModalProduct = null;
         let selectedColorIndex = 0;
 
-        // Bootstrapping the app securely
         document.addEventListener('DOMContentLoaded', () => {
             try {
                 document.getElementById('year').textContent = new Date().getFullYear();
@@ -416,13 +410,11 @@
             selectedColorIndex = 0; 
             if (!currentModalProduct) return;
 
-            // Fill Modal Texts
             document.getElementById('modalSeries').textContent = currentModalProduct.series;
             document.getElementById('modalTitle').textContent = currentModalProduct.series;
             document.getElementById('modalDesc').textContent = currentModalProduct.desc;
             updateModalImage();
             
-            // Build Color Selectors
             const colorsContainer = document.getElementById('modalColors');
             colorsContainer.innerHTML = currentModalProduct.colors.map((color, index) => `
                 <button onclick="selectColor(${index})" 
@@ -433,19 +425,16 @@
                 </button>
             `).join('');
 
-            // Reset Default Selection
             document.querySelector('input[name="clubType"][value="wood"]').checked = true;
             updateModalPrice();
 
-            // Toggle CSS classes to show modal safely
             const modal = document.getElementById('productModal');
             const backdrop = document.getElementById('modalBackdrop');
             const content = document.getElementById('modalContent');
             
             modal.classList.remove('hidden');
-            modal.classList.add('flex'); // Add flex layout
+            modal.classList.add('flex');
             
-            // Allow browser to register display:flex before fading in
             setTimeout(() => {
                 backdrop.classList.remove('opacity-0');
                 content.classList.remove('scale-95', 'opacity-0');
@@ -460,12 +449,10 @@
             const backdrop = document.getElementById('modalBackdrop');
             const content = document.getElementById('modalContent');
             
-            // Fade out
             backdrop.classList.add('opacity-0');
             content.classList.remove('scale-100', 'opacity-100');
             content.classList.add('scale-95', 'opacity-0');
 
-            // Hide element after fade out completes
             setTimeout(() => {
                 modal.classList.remove('flex');
                 modal.classList.add('hidden');
@@ -540,7 +527,6 @@
             const totalEl = document.getElementById('cartTotal');
             const bundleNotice = document.getElementById('bundleNotice');
 
-            // Hard reset UI based on cart contents
             if (cart.length > 0) {
                 cartCountEl.textContent = cart.length;
                 cartCountEl.classList.remove('hidden');
@@ -589,7 +575,7 @@
             const overlay = document.getElementById('cartOverlay');
             
             overlay.classList.remove('hidden');
-            void overlay.offsetWidth; // Force DOM repaint
+            void overlay.offsetWidth;
             overlay.classList.remove('opacity-0');
             sidebar.classList.remove('translate-x-full');
             document.body.style.overflow = 'hidden';
@@ -609,12 +595,10 @@
         }
 
         function setupEventListeners() {
-            // Cart toggles
             document.getElementById('cartBtn').addEventListener('click', openCart);
             document.getElementById('closeCart').addEventListener('click', closeCart);
             document.getElementById('cartOverlay').addEventListener('click', closeCart);
 
-            // Mobile menu logic
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
             const mobileMenu = document.getElementById('mobileMenu');
             
@@ -635,7 +619,6 @@
                 });
             });
 
-            // Modal logic
             document.getElementById('closeModal').addEventListener('click', closeModal);
             document.getElementById('modalBackdrop').addEventListener('click', closeModal);
             
@@ -644,27 +627,47 @@
             });
             document.getElementById('addToCartModalBtn').addEventListener('click', addToCart);
 
-            // WhatsApp Checkout implementation
-            document.getElementById('checkoutBtn').addEventListener('click', () => {
+            document.getElementById('checkoutBtn').addEventListener('click', async () => {
                 if(cart.length === 0) return;
                 
-                // IMPORTANT: Replace with your actual WhatsApp business number
-                const phoneNumber = '60182757370'; 
+                const btn = document.getElementById('checkoutBtn');
+                const originalText = btn.innerHTML;
                 
-                let message = "🏌️‍♂️ *New Order from Barrel Headcovers*\n\n";
-                message += "*Order Details:*\n";
-                cart.forEach((item, index) => {
-                    message += `${index + 1}. ${item.series} - ${item.color} (${item.type.toUpperCase()}) : RM ${item.price}\n`;
-                });
-                
-                const { total, bundlesCount } = calculateTotal();
-                message += `\n*Subtotal:* RM ${total}\n`;
-                if(bundlesCount > 0) message += `*Discount:* ${bundlesCount} Bundle(s) Applied! ✅\n`;
-                message += "\n*Total to Pay:* RM " + total + "\n\n";
-                message += "Hi! I would like to place this order. Please provide payment instructions (DuitNow/Bank Transfer).";
-                
-                const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-                window.open(whatsappUrl, '_blank');
+                // Show loading state
+                btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i> Loading secure checkout...';
+                btn.disabled = true;
+
+                try {
+                    // Send cart data to our Vercel Serverless Function that we created
+                    const response = await fetch('/api/checkout', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ cart: cart })
+                    });
+
+                    const data = await response.json();
+
+                    if (data.url) {
+                        // Redirect customer directly to the secure HitPay link
+                        window.location.href = data.url;
+                    } else {
+                        console.error('Checkout error:', data);
+                        btn.innerHTML = '<i class="fas fa-exclamation-circle"></i> Error creating payment';
+                        setTimeout(() => {
+                            btn.innerHTML = originalText;
+                            btn.disabled = false;
+                        }, 3000);
+                    }
+                } catch (error) {
+                    console.error('Error during checkout:', error);
+                    btn.innerHTML = '<i class="fas fa-exclamation-circle"></i> Connection Error';
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                    }, 3000);
+                }
             });
         }
     </script>
