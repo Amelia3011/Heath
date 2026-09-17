@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HEATH GOLF | Handcrafted Accessories</title>
+    <title>Heath Golf | Handcrafted Accessories</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -156,84 +156,92 @@
     <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
     
     <div id="cartSidebar" class="fixed top-0 right-0 h-full w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
-        <div class="p-6 border-b flex justify-between items-center bg-gray-50">
+        <!-- Header: Fixed at top -->
+        <div class="p-6 border-b flex justify-between items-center bg-gray-50 shrink-0">
             <h2 class="font-serif text-2xl font-bold text-primary">Your Cart</h2>
             <button id="closeCart" class="text-gray-500 hover:text-gray-800 p-2 focus:outline-none">
                 <i class="fas fa-times text-xl"></i>
             </button>
         </div>
         
-        <div id="cartItems" class="flex-grow overflow-y-auto p-6 space-y-4 no-scrollbar">
+        <!-- Scrollable Body: Cart Items + Delivery Form -->
+        <div class="flex-grow overflow-y-auto no-scrollbar">
             <!-- JS injects cart items here -->
+            <div id="cartItems" class="p-6 space-y-4">
+            </div>
+
+            <!-- Delivery Details & Shipping (Now scrolls with the items) -->
+            <div class="p-6 border-t bg-gray-50/50">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-600">Subtotal</span>
+                    <span class="font-bold text-2xl text-primary" id="cartTotal">RM 0</span>
+                </div>
+                <div class="text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-md mb-4 hidden border border-green-100" id="bundleNotice">
+                    <i class="fas fa-check-circle mr-1"></i> Bundle discount applied!
+                </div>
+                
+                <!-- Delivery Details Form -->
+                <div class="mb-4 space-y-3">
+                    <h3 class="text-sm font-medium text-gray-700">Delivery Details</h3>
+                    <input type="text" id="custName" placeholder="Full Name" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+                    <input type="email" id="custEmail" placeholder="Email Address" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+                    <input type="tel" id="custPhone" placeholder="Phone Number" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+                    
+                    <div class="space-y-2">
+                        <input type="text" id="custAddress" placeholder="Street Address (e.g. No. 12, Jalan Sultan)" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="text" id="custCity" placeholder="City" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+                            <input type="text" id="custPostcode" placeholder="Postcode" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+                        </div>
+                        <select id="custState" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+                            <option value="" disabled selected>Select State...</option>
+                            <option value="Johor">Johor</option>
+                            <option value="Kedah">Kedah</option>
+                            <option value="Kelantan">Kelantan</option>
+                            <option value="Melaka">Melaka</option>
+                            <option value="Negeri Sembilan">Negeri Sembilan</option>
+                            <option value="Pahang">Pahang</option>
+                            <option value="Perak">Perak</option>
+                            <option value="Perlis">Perlis</option>
+                            <option value="Penang">Penang</option>
+                            <option value="Sabah">Sabah</option>
+                            <option value="Sarawak">Sarawak</option>
+                            <option value="Selangor">Selangor</option>
+                            <option value="Terengganu">Terengganu</option>
+                            <option value="Kuala Lumpur">Kuala Lumpur</option>
+                            <option value="Labuan">Labuan</option>
+                            <option value="Putrajaya">Putrajaya</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div id="formError" class="text-xs text-red-500 mb-3 hidden font-medium text-center">Please fill in all delivery details above.</div>
+
+                <!-- Shipping Selection -->
+                <div class="mb-2">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Shipping Destination</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="cursor-pointer group">
+                            <input type="radio" name="shippingZone" value="west" class="peer sr-only" checked onchange="updateCartUI()">
+                            <div class="rounded-xl border-2 border-gray-200 p-3 text-center peer-checked:border-primary peer-checked:bg-gray-50 group-hover:border-gray-300 transition-all">
+                                <span class="block font-semibold text-gray-900 text-sm">West Malaysia</span>
+                                <span class="block text-xs text-gray-500 mt-1">RM 10</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group">
+                            <input type="radio" name="shippingZone" value="east" class="peer sr-only" onchange="updateCartUI()">
+                            <div class="rounded-xl border-2 border-gray-200 p-3 text-center peer-checked:border-primary peer-checked:bg-gray-50 group-hover:border-gray-300 transition-all">
+                                <span class="block font-semibold text-gray-900 text-sm">East Malaysia</span>
+                                <span class="block text-xs text-gray-500 mt-1">RM 15</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div class="border-t p-6 bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
-            <div class="flex justify-between items-center mb-4">
-                <span class="text-gray-600">Subtotal</span>
-                <span class="font-bold text-2xl text-primary" id="cartTotal">RM 0</span>
-            </div>
-            <div class="text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-md mb-4 hidden border border-green-100" id="bundleNotice">
-                <i class="fas fa-check-circle mr-1"></i> Bundle discount applied!
-            </div>
-            
-            <!-- Delivery Details Form -->
-            <div class="mb-4 space-y-3">
-                <h3 class="text-sm font-medium text-gray-700">Delivery Details</h3>
-                <input type="text" id="custName" placeholder="Full Name" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
-                <input type="email" id="custEmail" placeholder="Email Address" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
-                <input type="tel" id="custPhone" placeholder="Phone Number" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
-                
-                <div class="space-y-2">
-                    <input type="text" id="custAddress" placeholder="Street Address (e.g. No. 12, Jalan Sultan)" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
-                    <div class="grid grid-cols-2 gap-2">
-                        <input type="text" id="custCity" placeholder="City" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
-                        <input type="text" id="custPostcode" placeholder="Postcode" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
-                    </div>
-                    <select id="custState" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
-                        <option value="" disabled selected>Select State...</option>
-                        <option value="Johor">Johor</option>
-                        <option value="Kedah">Kedah</option>
-                        <option value="Kelantan">Kelantan</option>
-                        <option value="Melaka">Melaka</option>
-                        <option value="Negeri Sembilan">Negeri Sembilan</option>
-                        <option value="Pahang">Pahang</option>
-                        <option value="Perak">Perak</option>
-                        <option value="Perlis">Perlis</option>
-                        <option value="Penang">Penang</option>
-                        <option value="Sabah">Sabah</option>
-                        <option value="Sarawak">Sarawak</option>
-                        <option value="Selangor">Selangor</option>
-                        <option value="Terengganu">Terengganu</option>
-                        <option value="Kuala Lumpur">Kuala Lumpur</option>
-                        <option value="Labuan">Labuan</option>
-                        <option value="Putrajaya">Putrajaya</option>
-                    </select>
-                </div>
-            </div>
-
-            <div id="formError" class="text-xs text-red-500 mb-3 hidden font-medium text-center">Please fill in all delivery details above.</div>
-
-            <!-- Shipping Selection -->
-            <div class="mb-4">
-                <label class="block text-sm font-medium text-gray-700 mb-2">Shipping Destination</label>
-                <div class="grid grid-cols-2 gap-3">
-                    <label class="cursor-pointer group">
-                        <input type="radio" name="shippingZone" value="west" class="peer sr-only" checked onchange="updateCartUI()">
-                        <div class="rounded-xl border-2 border-gray-200 p-3 text-center peer-checked:border-primary peer-checked:bg-gray-50 group-hover:border-gray-300 transition-all">
-                            <span class="block font-semibold text-gray-900 text-sm">West Malaysia</span>
-                            <span class="block text-xs text-gray-500 mt-1">RM 10</span>
-                        </div>
-                    </label>
-                    <label class="cursor-pointer group">
-                        <input type="radio" name="shippingZone" value="east" class="peer sr-only" onchange="updateCartUI()">
-                        <div class="rounded-xl border-2 border-gray-200 p-3 text-center peer-checked:border-primary peer-checked:bg-gray-50 group-hover:border-gray-300 transition-all">
-                            <span class="block font-semibold text-gray-900 text-sm">East Malaysia</span>
-                            <span class="block text-xs text-gray-500 mt-1">RM 15</span>
-                        </div>
-                    </label>
-                </div>
-            </div>
-
+        <!-- Footer: Checkout Button Fixed at Bottom -->
+        <div class="p-6 border-t bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] shrink-0">
             <button id="checkoutBtn" class="w-full bg-primary text-white py-4 rounded-xl font-bold hover:bg-gray-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex justify-center items-center gap-2">
                 Proceed to Payment
             </button>
@@ -522,6 +530,9 @@
                 }
             });
         }
+    </script>
+</body>
+</html>
     </script>
 </body>
 </html>
