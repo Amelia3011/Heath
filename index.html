@@ -46,13 +46,13 @@
 </head>
 <body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen relative">
 
-<header class="bg-white shadow-sm sticky top-0 z-50">
+<header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-0">
                 
                 <!-- 1. LEFT SIDE (Hamburger Menu) -->
                 <div class="flex-1 flex items-center justify-start">
-                    <button id="mobileMenuBtn" class="text-[#4c111f] hover:opacity-80 transition-opacity p-2 focus:outline-none" aria-label="Menu">
+                    <button id="mobileMenuBtn" class="text-[#fffaf1] hover:opacity-80 transition-opacity p-2 focus:outline-none" aria-label="Menu">
                         <i class="fas fa-bars text-xl md:text-2xl"></i>
                     </button>
                 </div>
@@ -66,7 +66,7 @@
 
               <!-- 3. RIGHT SIDE (Cart Icon) -->
                 <div class="flex-1 flex items-center justify-end">
-                    <button id="cartBtn" class="text-[#4c111f] hover:opacity-80 transition-opacity relative p-2 group" aria-label="Cart">
+                    <button id="cartBtn" class="text-[#fffaf1] hover:opacity-80 transition-opacity relative p-2 group" aria-label="Cart">
                         <!-- Custom Golf Bag Icon -->
                         <svg class="w-8 h-8 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M10 7V4l-1.5-1"></path>
@@ -105,6 +105,26 @@
                     </div>
                 </div>
             </div>
+        </section>
+
+        <!-- NEW: Cinematic Video/GIF Divider Section -->
+        <section class="w-full h-48 md:h-80 lg:h-96 relative overflow-hidden bg-primary border-t border-gray-200">
+            <!-- 
+                If you are using an MP4 Video (Highly Recommended), name your file "divider.mp4" 
+                and upload it to GitHub. It will automatically play here.
+            -->
+            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-80">
+                <source src="divider.mp4" type="video/mp4">
+            </video>
+            
+            <!-- 
+                If you MUST use a GIF, delete the entire <video> block above this, 
+                uncomment the <img> line below, and name your file "divider.gif" 
+            -->
+            <!-- <img src="divider.gif" alt="Lifestyle Divider" class="absolute inset-0 w-full h-full object-cover opacity-80"> -->
+            
+            <!-- Optional subtle overlay to make it blend with the brand vibe -->
+            <div class="absolute inset-0 bg-black/20 mix-blend-multiply"></div>
         </section>
 
         <section id="collections" class="relative py-24 hero-bg border-t border-gray-100">
