@@ -33,9 +33,7 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        .hero-pattern { background-color: #f3f4f6; background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23e5e7eb' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
-        .product-card:hover .product-img { transform: scale(1.05); }
-        .product-img { transition: transform 0.3s ease-in-out; }
+        .hero-bg { background-image: url('IMG_2050.JPG'); background-size: cover; background-position: center; background-repeat: no-repeat; }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -92,8 +90,8 @@
     </header>
 
     <main class="flex-grow">
-        <section id="home" class="relative hero-pattern pt-20 pb-32 lg:pt-32 lg:pb-48 overflow-hidden">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <section id="home" class="relative hero-bg pt-20 pb-32 lg:pt-32 lg:pb-48 overflow-hidden">
+            <div class="absolute inset-0 bg-white/70"></div>
                 <div class="text-center max-w-3xl mx-auto flex flex-col items-center">
                     <span class="text-accent font-semibold tracking-wider uppercase text-sm mb-4 block">Launching Sept 25th</span>
                     <h1 class="font-serif text-5xl md:text-7xl font-bold text-primary mb-6 leading-tight">
