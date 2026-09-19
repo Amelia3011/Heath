@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms & Conditions | HEATH GOLF</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Afacad:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Afacad', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#4c111f',
+                        secondary: '#4B5563',
+                        accent: '#D97706',
+                        'earthy-1': '#8B7355',
+                        'earthy-2': '#A0522D',
+                        'azure-1': '#4682B4',
+                        'azure-2': '#000080',
+                        'bone-1': '#F5F5DC',
+                        'bone-2': '#2F4F4F'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen relative">
+
+    <!-- HEADER -->
+    <header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-0">
+
+                <!-- LEFT SIDE - Hamburger Menu -->
+                <div class="flex-1 flex items-center justify-start">
+                    <button
+                        id="mobileMenuBtn"
+                        class="text-[#fffaf1] hover:opacity-80 transition-opacity p-2 focus:outline-none"
+                        aria-label="Menu"
+                    >
+                        <i class="fas fa-bars text-xl md:text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- CENTER SIDE - Logo -->
+                <div class="flex-shrink-0 flex items-center justify-center -my-6 md:-my-8">
+                    <a href="index.html" class="block">
+                        <img
+                            src="Heath logo 2.png"
+                            alt="Heath Logo"
+                            class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain"
+                            onerror="this.onerror=null; this.src='https://placehold.co/200x100/4c111f/ffffff?text=HEATH+LOGO'"
+                        >
+                    </a>
+                </div>
+
+                <!-- RIGHT SIDE - Cart Icon -->
+                <div class="flex-1 flex items-center justify-end">
+                    <button
+                        id="cartBtn"
+                        class="text-[#fffaf1] hover:opacity-80 transition-opacity relative p-2 group"
+                        aria-label="Cart"
+                    >
+                        <!-- Custom Golf Bag Icon -->
+                        <svg
+                            class="w-8 h-8 transition-transform group-hover:scale-110"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M10 7V4l-1.5-1"></path>
+                            <path d="M14 7V3l-1.5-1"></path>
+                            <path d="M8 7v13.5A1.5 1.5 0 0 0 9.5 22h5a1.5 1.5 0 0 0 1.5-1.5V7"></path>
+                            <path d="M7 7h10v2H7z"></path>
+                            <path d="M9 13h2v5H9z"></path>
+                            <path d="M16 10v6c1.5 0 2-1.5 2-3s-.5-3-2-3z"></path>
+                        </svg>
+
+                        <span
+                            id="cartCount"
+                            class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/4 bg-accent rounded-full hidden"
+                        >
+                            0
+                        </span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow py-16 md:py-24 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-sm p-8 md:p-12 border border-gray-100">
+            
+            <h1 class="font-serif text-4xl md:text-5xl font-bold text-[#4c111f] mb-8 text-center">
+                Terms & Conditions
+            </h1>
+
+            <div class="prose prose-lg max-w-none text-gray-700">
+                <p class="leading-relaxed mb-4 text-lg">
+                    Welcome to Heath.
+                </p>
+                <p class="leading-relaxed mb-4">
+                    These Terms & Conditions govern your use of the Heath website and your purchase of products from us. By accessing our website or placing an order, you agree to be bound by these terms.
+                </p>
+                <p class="leading-relaxed mb-10">
+                    Please read them carefully before making a purchase.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    1. About Heath
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    Heath is a Malaysia-based brand creating handcrafted golf accessories and products.
+                    Throughout these Terms & Conditions, “Heath”, “we”, “us” or “our” refers to Heath, while “you” or “your” refers to the person accessing our website or placing an order.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    2. Our Products
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    Each Heath product is handcrafted and may feature subtle variations in stitching, fabric placement, texture, colour, or finish.
+                    These variations are a natural part of the handmade process and contribute to the character of each piece.
+                </p>
+                <p class="leading-relaxed mb-4">
+                    We make every effort to display our products, colours, dimensions, and details as accurately as possible. However, slight differences may occur due to screen settings, photography, materials, and the handmade nature of our products.
+                    Product availability may be limited, and we reserve the right to discontinue or modify products without prior notice.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    3. Orders & Purchases
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    By placing an order through our website, you confirm that:
+                </p>
+                <ul class="list-disc pl-6 marker:text-[#4c111f] space-y-2 mb-4">
+                    <li>The information provided is accurate and complete.</li>
+                    <li>You are authorised to use the payment method provided.</li>
+                    <li>You have reviewed your order before completing your purchase.</li>
+                </ul>
+                <p class="leading-relaxed mb-4">
+                    Once an order has been placed, you will receive an order confirmation.
+                    We reserve the right to cancel or decline an order in circumstances including, but not limited to:
+                </p>
+                <ul class="list-disc pl-6 marker:text-[#4c111f] space-y-2 mb-4">
+                    <li>Product availability issues</li>
+                    <li>Pricing or listing errors</li>
+                    <li>Payment issues</li>
+                    <li>Suspected fraudulent or unauthorised transactions</li>
+                    <li>Incorrect customer or shipping information</li>
+                </ul>
+                <p class="leading-relaxed mb-4">
+                    If we cancel an order after payment has been received, you will be entitled to a refund of the amount paid for the cancelled order.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    4. Pricing & Payment
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    All prices displayed on the Heath website are stated in Malaysian Ringgit (MYR/RM) unless otherwise indicated.
+                    Prices may be changed at any time without prior notice. Any price change will not affect an order that has already been successfully placed and confirmed.
+                </p>
+                <p class="leading-relaxed mb-4">
+                    Payment must be successfully completed before an order is processed.
+                    We are not responsible for additional charges imposed by your bank, payment provider, or card issuer.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    5. Shipping & Delivery
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    We aim to process and dispatch orders within the timeframe stated on our website.
+                    Delivery times are estimates and may vary depending on the destination, courier, customs procedures, public holidays, or circumstances outside our control.
+                </p>
+                <p class="leading-relaxed mb-4">
+                    You are responsible for providing an accurate and complete delivery address. Heath is not responsible for delays, additional shipping charges, or failed deliveries resulting from incorrect or incomplete information provided at checkout.
+                </p>
+                <p class="leading-relaxed mb-4">
+                    For international orders, the recipient may be responsible for applicable customs duties, import taxes, or other charges imposed by the destination country.
+                    Please refer to our Shipping Policy for further information.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    6. Returns, Exchanges & Refunds
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    Returns, exchanges, and refunds are subject to our Returns, Exchanges & Refunds Policy.
+                    By placing an order with Heath, you acknowledge and agree to the conditions outlined in that policy.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    7. Handmade Products & Care
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    Our products are designed and handcrafted with care. Proper use and care are important to maintaining their condition.
+                    Heath is not responsible for damage resulting from misuse, accidents, improper care, alterations, washing, modification, or use outside the product’s intended purpose.
+                </p>
+                <p class="leading-relaxed mb-4">
+                    Normal wear and tear is not considered a manufacturing defect.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    8. Intellectual Property
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    All content appearing on the Heath website is owned by or licensed to Heath unless otherwise stated.
+                    This includes, but is not limited to:
+                </p>
+                <ul class="list-disc pl-6 marker:text-[#4c111f] space-y-2 mb-4">
+                    <li>The Heath name and logo</li>
+                    <li>Product designs</li>
+                    <li>Photography</li>
+                    <li>Product descriptions</li>
+                    <li>Graphics</li>
+                    <li>Website design</li>
+                    <li>Written content</li>
+                </ul>
+                <p class="leading-relaxed mb-4">
+                    You may not reproduce, copy, modify, distribute, or use any Heath content or design for commercial purposes without our prior written permission.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    9. Website Use
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    You agree to use the Heath website responsibly and lawfully. You must not:
+                </p>
+                <ul class="list-disc pl-6 marker:text-[#4c111f] space-y-2 mb-4">
+                    <li>Use the website for fraudulent or unlawful purposes</li>
+                    <li>Attempt to gain unauthorised access to the website or its systems</li>
+                    <li>Interfere with the operation or security of the website</li>
+                    <li>Copy or reproduce website content without permission</li>
+                    <li>Use automated systems to extract or collect website content without our permission</li>
+                </ul>
+                <p class="leading-relaxed mb-4">
+                    We reserve the right to restrict or terminate access to the website where we reasonably believe these terms have been breached.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    10. Third-Party Services & Links
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    Our website may use third-party services, including payment providers, delivery services, analytics tools, and other external platforms.
+                    We are not responsible for the policies, availability, content, or practices of third-party services.
+                    Where applicable, your use of those services may also be subject to their own terms and privacy policies.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    11. Website Availability & Information
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    We aim to keep the information on our website accurate and up to date.
+                    However, we do not guarantee that the website will always be available, error-free, or free from interruptions.
+                </p>
+                <p class="leading-relaxed mb-4">
+                    Information, product availability, pricing, and website content may occasionally contain errors or require updates. We reserve the right to correct errors and update information when necessary.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    12. Limitation of Liability
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    To the extent permitted by applicable law, Heath will not be responsible for losses or damages arising from circumstances outside our reasonable control, including delivery delays, courier disruptions, technical failures, payment-provider issues, or events beyond our control.
+                </p>
+                <p class="leading-relaxed mb-4">
+                    Nothing in these Terms & Conditions is intended to exclude or limit any rights or protections that cannot legally be excluded or limited under applicable law.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    13. Privacy
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    Your personal information is handled in accordance with our Privacy Policy.
+                    By using our website and placing an order, you acknowledge that your information may be collected and processed as described in our Privacy Policy.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    14. Changes to These Terms
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    We may update these Terms & Conditions from time to time to reflect changes to our business, products, services, or applicable requirements.
+                    The latest version will always be made available on our website. Your continued use of the website after an updated version is published constitutes acceptance of the revised terms.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    15. Governing Law
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    These Terms & Conditions are governed by the laws of Malaysia.
+                    Any matters arising from or relating to these Terms & Conditions will be subject to the applicable laws and jurisdiction of Malaysia.
+                </p>
+
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 border-b border-gray-100 pb-2">
+                    16. Contact Us
+                </h2>
+                <p class="leading-relaxed mb-4">
+                    If you have any questions regarding these Terms & Conditions, please contact us at:<br>
+                    <a href="mailto:heath.flog@gmail.com" class="text-[#4c111f] font-medium underline underline-offset-4 hover:opacity-80 transition-opacity">
+                        heath.flog@gmail.com
+                    </a>
+                </p>
+                <p class="leading-relaxed mb-4 font-serif italic text-lg text-gray-500 mt-8 text-center">
+                    Heath <br>
+                    Golf, considered differently.
+                </p>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#2f0a13] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+                <div class="text-center md:text-left">
+                    <p class="font-serif text-2xl font-semibold">
+                        HEATH STUDIO
+                    </p>
+
+                    <p class="text-sm text-gray-300 mt-1">
+                        Considered differently.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-4 text-sm">
+                    <a
+                        href="terms.html"
+                        class="text-white underline-offset-4 underline transition-colors"
+                    >
+                        Terms & Conditions
+                    </a>
+                    <span class="text-gray-500">|</span>
+                    <a
+                        href="return-policy.html"
+                        class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors"
+                    >
+                        Return & Refund Policy
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 mt-8 pt-6 text-center">
+                <p class="text-xs text-gray-400">
+                    © 2026 HEATH STUDIO. All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+    <!-- MENU OVERLAY -->
+    <div
+        id="menuOverlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"
+    ></div>
+
+    <!-- LEFT SIDEBAR MENU -->
+    <div
+        id="sideMenu"
+        class="fixed top-0 left-0 h-[100dvh] w-[250px] sm:w-[300px] bg-white shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col"
+    >
+        <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
+            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">
+                Menu
+            </h2>
+            <button
+                id="closeMenuBtn"
+                class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none"
+                aria-label="Close menu"
+            >
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+
+        <div class="flex-1 px-6 pt-6 space-y-2 overflow-y-auto no-scrollbar">
+
+            <a href="index.html#home" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">
+                Home
+            </a>
+
+            <a href="index.html#collections" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">
+                Collections
+            </a>
+
+            <a href="index.html#about" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">
+                About Us
+            </a>
+
+            <!-- Collapsible Help Menu -->
+            <div class="border-b border-gray-100">
+                <button
+                    id="helpMenuBtn"
+                    class="w-full flex justify-between items-center py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 transition-all focus:outline-none"
+                >
+                    <span>Help</span>
+                    <i class="fas fa-chevron-down text-sm transition-transform duration-300 rotate-180" id="helpMenuIcon"></i>
+                </button>
+                <div id="helpSubMenu" class="flex flex-col pl-4 pb-2 space-y-2 mt-1">
+                    <a
+                        href="terms.html"
+                        class="menu-link block py-2 text-base font-bold text-[#4c111f] transition-all"
+                    >
+                        Terms & Conditions
+                    </a>
+                    <a
+                        href="return-policy.html"
+                        class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all"
+                    >
+                        Return & Refund Policy
+                    </a>
+                    <a
+                        href="shipping-policy.html"
+                        class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all"
+                    >
+                        Shipping Policy
+                    </a>
+                    <a
+                        href="privacy-policy.html"
+                        class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all"
+                    >
+                        Privacy Policy
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- CART OVERLAY -->
+    <div
+        id="cartOverlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"
+    ></div>
+
+    <!-- CART SIDEBAR -->
+    <div
+        id="cartSidebar"
+        class="fixed top-0 right-0 h-[100dvh] w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col"
+    >
+        <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
+            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">
+                Your Cart
+            </h2>
+            <button
+                id="closeCart"
+                class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none"
+                aria-label="Close cart"
+            >
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+
+        <div class="flex-1 flex flex-col items-center justify-center text-center p-6 text-gray-500">
+            <i class="fas fa-shopping-bag text-4xl mb-4 opacity-50"></i>
+            <p>Your cart is currently empty.</p>
+            <a href="index.html#collections" class="mt-6 bg-[#4c111f] text-white px-6 py-2 rounded-full hover:opacity-90 transition-opacity">
+                Shop Now
+            </a>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setupEventListeners();
+        });
+
+        // ================================
+        // CART SIDEBAR (Basic Toggle for Subpage)
+        // ================================
+        function openCart() {
+            document.getElementById('cartOverlay').classList.remove('hidden', 'opacity-0');
+            document.getElementById('cartSidebar').classList.remove('translate-x-full');
+        }
+
+        function closeCart() {
+            document.getElementById('cartSidebar').classList.add('translate-x-full');
+            document.getElementById('cartOverlay').classList.add('opacity-0');
+            setTimeout(() => {
+                document.getElementById('cartOverlay').classList.add('hidden');
+            }, 300);
+        }
+
+        // ================================
+        // MENU OVERLAY
+        // ================================
+        function openMenu() {
+            document.getElementById('menuOverlay').classList.remove('hidden', 'opacity-0');
+            document.getElementById('sideMenu').classList.remove('-translate-x-full');
+        }
+
+        function closeMenu() {
+            document.getElementById('sideMenu').classList.add('-translate-x-full');
+            document.getElementById('menuOverlay').classList.add('opacity-0');
+            setTimeout(() => {
+                document.getElementById('menuOverlay').classList.add('hidden');
+            }, 300);
+        }
+
+        // ================================
+        // EVENT LISTENERS
+        // ================================
+        function setupEventListeners() {
+            // Cart
+            document.getElementById('cartBtn').addEventListener('click', openCart);
+            document.getElementById('closeCart').addEventListener('click', closeCart);
+            document.getElementById('cartOverlay').addEventListener('click', closeCart);
+
+            // Menu
+            document.getElementById('mobileMenuBtn').addEventListener('click', openMenu);
+            document.getElementById('closeMenuBtn').addEventListener('click', closeMenu);
+            document.getElementById('menuOverlay').addEventListener('click', closeMenu);
+
+            // Collapsible Help Menu Toggle
+            const helpMenuBtn = document.getElementById('helpMenuBtn');
+            const helpSubMenu = document.getElementById('helpSubMenu');
+            const helpMenuIcon = document.getElementById('helpMenuIcon');
+
+            if (helpMenuBtn) {
+                helpMenuBtn.addEventListener('click', () => {
+                    helpSubMenu.classList.toggle('hidden');
+                    helpSubMenu.classList.toggle('flex');
+                    helpMenuIcon.classList.toggle('rotate-180');
+                });
+            }
+
+            document.querySelectorAll('.menu-link').forEach(link => {
+                link.addEventListener('click', closeMenu);
+            });
+        }
+    </script>
+</body>
+</html>
