@@ -33,7 +33,13 @@
     </script>
     <style>
         html { scroll-behavior: smooth; }
-        .hero-bg { background-image: url('Heath w BG.pdf.png'); background-size: cover; background-position: center; background-repeat: no-repeat; }
+        .hero-bg { 
+            background-image: url('Heath w BG.pdf.png'); 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat; 
+            background-attachment: fixed; 
+        }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -112,8 +118,12 @@
             </div>
         </section>
 
-        <section id="collections" class="py-24 bg-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="collections" class="relative py-24 hero-bg border-t border-gray-100">
+            <!-- The same white tint overlay so your text stays perfectly readable -->
+            <div class="absolute inset-0 bg-white/70"></div>
+            
+            <!-- 'relative z-10' ensures the content sits on top of the background and overlay -->
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-16">
                     <h2 class="font-serif text-4xl font-bold text-primary mb-4">Our First Collection</h2>
                     <p class="text-gray-600 max-w-2xl mx-auto">Three distinct series, meticulously crafted for style and protection. Available for Drivers and Woods. Bundle up to save.</p>
