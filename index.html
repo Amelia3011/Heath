@@ -44,20 +44,24 @@
 
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4 md:py-5">
+            <div class="flex justify-between items-center py-2 md:py-3">
                 
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="flex items-center block">
-                        <img src="Heath logo 1.png" alt="Heath Logo" class="h-40 sm:h-8 md:h-16 lg:h-20 w-auto max-w-[200px] md:max-w-none object-contain">
+                <!-- 1. LEFT SIDE (Logo) - Uses flex-1 to balance the layout -->
+                <div class="flex-1 flex items-center justify-start">
+                    <a href="#" class="block">
+                        <img src="Heath logo 1.png" alt="Heath Logo" class="h-22 sm:h-16 md:h-20 lg:h-24 w-auto max-w-[200px] md:max-w-none object-contain">
+                    </a>
                 </div>
                 
-                <nav class="hidden md:flex space-x-8 items-center mt-1">
+                <!-- 2. CENTER SIDE (Navigation Links) - Locked perfectly in the middle -->
+                <nav class="hidden md:flex flex-shrink-0 space-x-8 items-center mt-1">
                     <a href="#home" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Home</a>
                     <a href="#collections" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">Collections</a>
                     <a href="#about" class="text-gray-600 hover:text-primary px-3 py-2 text-sm font-medium transition-colors">About Us</a>
                 </nav>
 
-                <div class="flex items-center space-x-4">
+                <!-- 3. RIGHT SIDE (Cart & Menu Icons) - Uses flex-1 to balance the layout -->
+                <div class="flex-1 flex items-center justify-end space-x-4">
                     <button id="cartBtn" class="text-gray-600 hover:text-primary relative p-2" aria-label="Cart">
                         <i class="fas fa-shopping-bag text-xl"></i>
                         <span id="cartCount" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/4 bg-accent rounded-full hidden">0</span>
@@ -66,6 +70,7 @@
                         <i class="fas fa-bars text-xl"></i>
                     </button>
                 </div>
+
             </div>
 
             <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg pb-4 transition-all duration-300">
