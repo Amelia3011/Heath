@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -91,6 +90,7 @@
                             src="Heath logo 2.png"
                             alt="Heath Logo"
                             class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain"
+                            onerror="this.onerror=null; this.src='https://placehold.co/200x100/4c111f/ffffff?text=HEATH+LOGO'"
                         >
                     </a>
                 </div>
@@ -179,6 +179,7 @@
                 src="divider.GIF"
                 alt="Lifestyle Divider"
                 class="absolute inset-0 w-full h-full object-cover opacity-80"
+                onerror="this.onerror=null; this.src='https://placehold.co/1200x400/4c111f/ffffff?text=LIFESTYLE+IMAGE'"
             >
 
             <div class="absolute inset-0 bg-black/20 mix-blend-multiply"></div>
@@ -224,6 +225,7 @@
                 src="Untitled design.png"
                 alt="Golf course green"
                 class="absolute inset-0 w-full h-full object-cover"
+                onerror="this.onerror=null; this.src='https://placehold.co/1200x500/228b22/ffffff?text=GOLF+GREEN'"
             >
         </section>
 
@@ -281,23 +283,19 @@
                 </div>
 
                 <div class="flex flex-wrap justify-center gap-4 text-sm">
-
                     <a
-                        href="T&C.html"
+                        href="terms.html"
                         class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors"
                     >
                         Terms & Conditions
                     </a>
-
                     <span class="text-gray-500">|</span>
-
                     <a
-                        href="T&C.html"
+                        href="return-policy.html"
                         class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors"
                     >
                         Return & Refund Policy
                     </a>
-
                 </div>
 
             </div>
@@ -325,11 +323,9 @@
     >
 
         <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
-
             <h2 class="font-serif text-2xl font-bold text-[#4c111f]">
                 Menu
             </h2>
-
             <button
                 id="closeMenuBtn"
                 class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none"
@@ -337,45 +333,58 @@
             >
                 <i class="fas fa-times text-xl"></i>
             </button>
-
         </div>
 
-        <div class="flex-1 px-6 pt-6 space-y-2">
+        <div class="flex-1 px-6 pt-6 space-y-2 overflow-y-auto no-scrollbar">
 
-            <a
-                href="#home"
-                class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all"
-            >
+            <a href="#home" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">
                 Home
             </a>
 
-            <a
-                href="#collections"
-                class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all"
-            >
+            <a href="#collections" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">
                 Collections
             </a>
 
-            <a
-                href="#about"
-                class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all"
-            >
+            <a href="#about" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">
                 About Us
             </a>
 
-            <a
-                href="T&C.html"
-                class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all"
-            >
-                Terms & Conditions
-            </a>
-
-            <a
-                href="T&C.html"
-                class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all"
-            >
-                Return & Refund Policy
-            </a>
+            <!-- Collapsible Help Menu -->
+            <div class="border-b border-gray-100">
+                <button
+                    id="helpMenuBtn"
+                    class="w-full flex justify-between items-center py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 transition-all focus:outline-none"
+                >
+                    <span>Help</span>
+                    <i class="fas fa-chevron-down text-sm transition-transform duration-300" id="helpMenuIcon"></i>
+                </button>
+                <div id="helpSubMenu" class="hidden flex-col pl-4 pb-2 space-y-2 mt-1">
+                    <a
+                        href="terms.html"
+                        class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all"
+                    >
+                        Terms & Conditions
+                    </a>
+                    <a
+                        href="return-policy.html"
+                        class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all"
+                    >
+                        Return & Refund Policy
+                    </a>
+                    <a
+                        href="shipping-policy.html"
+                        class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all"
+                    >
+                        Shipping Policy
+                    </a>
+                    <a
+                        href="privacy-policy.html"
+                        class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all"
+                    >
+                        Privacy Policy
+                    </a>
+                </div>
+            </div>
 
         </div>
     </div>
@@ -910,7 +919,6 @@
 
         });
 
-
         // ================================
         // PRODUCT GRID
         // ================================
@@ -983,7 +991,6 @@
             `).join('');
 
         }
-
 
         // ================================
         // PRODUCT MODAL
@@ -1385,7 +1392,6 @@
 
         }
 
-
         // ================================
         // MENU
         // ================================
@@ -1487,6 +1493,20 @@
                     'click',
                     closeMenu
                 );
+
+            
+            // Collapsible Help Menu Toggle
+            const helpMenuBtn = document.getElementById('helpMenuBtn');
+            const helpSubMenu = document.getElementById('helpSubMenu');
+            const helpMenuIcon = document.getElementById('helpMenuIcon');
+
+            if (helpMenuBtn) {
+                helpMenuBtn.addEventListener('click', () => {
+                    helpSubMenu.classList.toggle('hidden');
+                    helpSubMenu.classList.toggle('flex');
+                    helpMenuIcon.classList.toggle('rotate-180');
+                });
+            }
 
 
             document.querySelectorAll(
