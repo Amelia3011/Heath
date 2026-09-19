@@ -46,7 +46,7 @@
 </head>
 <body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen relative">
 
-<header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
+    <header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-0">
                 
@@ -57,7 +57,7 @@
                     </button>
                 </div>
                 
-                <!-- 2. CENTER SIDE (Logo) - Uses negative margins for the image padding fix -->
+                <!-- 2. CENTER SIDE (Logo) -->
                 <div class="flex-shrink-0 flex items-center justify-center -my-6 md:-my-8">
                     <a href="#" class="block">
                         <img src="Heath logo 2.png" alt="Heath Logo" class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain">
@@ -85,21 +85,18 @@
     </header>
 
     <main class="flex-grow">
-       <section id="home" class="relative hero-bg pt-20 pb-32 lg:pt-32 lg:pb-48 overflow-hidden">
+        <section id="home" class="relative hero-bg pt-20 pb-32 lg:pt-32 lg:pb-48 overflow-hidden">
             <div class="absolute inset-0 bg-white/15"></div>
             
             <!-- This is the missing wrapper. 'relative z-10' pulls the text above the white overlay -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center max-w-3xl mx-auto flex flex-col items-center">
                     <span class="text-accent font-semibold tracking-wider uppercase text-sm mb-4 block">Launching Sept 25th</span>
-                    <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#4c111f] mb-6 leading-tight">
-                        Golf, Considered Differently. <br> 
+                    <h1 class="font-serif text-5xl md:text-7xl font-bold text-primary mb-6 leading-tight">
+                        Elevate Your Game. <br> Protect Your Woods.
                     </h1>
                     <p class="text-xl text-gray-600 mb-10 font-light">
-                        Handcrafted headcovers designed with character, precision, and a considered approach to the game.
-                    </h1>
-                    <p class="text-xl text-gray-600 mb-10 font-bold">
-                        Limited first collection, 40 pieces only.
+                        Premium, handcrafted barrel headcovers for the modern golfer. Limited first drop of 40 units. Secure yours on launch day.
                     </p>
                     <div class="flex justify-center gap-4">
                         <a href="#collections" class="bg-[#4c111f] text-white px-8 py-4 rounded-full font-medium hover:opacity-80 transition-opacity shadow-lg">
@@ -110,50 +107,47 @@
             </div>
         </section>
 
-        <!-- NEW: Cinematic Video/GIF Divider Section -->
-        <section class="w-full h-48 md:h-80 lg:h-96 relative overflow-hidden bg-primary border-t border-gray-200">
-            <!-- 
-                If you MUST use a GIF, delete the entire <video> block above this, 
-                uncomment the <img> line below, and name your file "divider.gif" 
-            -->
-            <img src="divider.GIF" alt="Lifestyle Divider" class="absolute inset-0 w-full h-full object-cover opacity-80"> -->
-            
-            <!-- Optional subtle overlay to make it blend with the brand vibe -->
-            <div class="absolute inset-0 bg-black/20 mix-blend-multiply"></div>
-        </section>
+<!-- NEW: Cinematic Video/GIF Divider Section -->
+        <section class="w-full h-48 md:h-80 lg:h-96 relative overflow-hidden bg-primary border-t border-gray-200">
+            <!-- 
+                If you MUST use a GIF, delete the entire <video> block above this, 
+                uncomment the <img> line below, and name your file "divider.gif" 
+            -->
+            <img src="divider.GIF" alt="Lifestyle Divider" class="absolute inset-0 w-full h-full object-cover opacity-80"> -->
+            
+            <!-- Optional subtle overlay to make it blend with the brand vibe -->
+            <div class="absolute inset-0 bg-black/20 mix-blend-multiply"></div>
+        </section>
 
         <section id="collections" class="relative py-24 hero-bg border-t border-gray-100">
-            <!-- The same white tint overlay so your text stays perfectly readable -->
             <div class="absolute inset-0 bg-white/10"></div>
             
-            <!-- 'relative z-10' ensures the content sits on top of the background and overlay -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center mb-16">
+                <div class="text-center mb-8 md:mb-16">
                     <h2 class="font-serif text-4xl font-bold text-primary mb-4">Our First Collection</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">Three distinct series, meticulously crafted for style and protection. Available for Drivers and Woods. Bundle up to save.</p>
+                    <p class="text-gray-600 max-w-2xl mx-auto hidden md:block">Three distinct series, meticulously crafted for style and protection. Available for Drivers and Woods. Bundle up to save.</p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10" id="productGrid">
+                <!-- CRITICAL FIX: grid-cols-3 forces all 3 products side-by-side on mobile! -->
+                <div class="grid grid-cols-3 gap-2 md:gap-10" id="productGrid">
                     <!-- Products inject here via JS -->
                 </div>
-
-                <!-- Update this section for the full-width golf green image -->
-            </div> <!-- Close the previous max-w container early -->
+            </div> 
         </section>
 
         <!-- Full-Width Golf Green Image Divider -->
-        <section class="w-full h-64 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-gray-100">
+        <section class="w-full h-48 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-gray-100">
             <img src="Untitled design.png" alt="Golf course green" class="absolute inset-0 w-full h-full object-cover">
         </section>
 
         <!-- About Section -->
-        <section id="about" class="py-24 bg-[#4c111f] text-white">
+        <section id="about" class="py-24 bg-primary text-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     <div>
-                        <h2 class="font-serif text-4xl font-bold mb-6">The House of Heath</h2>
+                        <h2 class="font-serif text-4xl font-bold mb-6">Crafted for the Course</h2>
                         <p class="text-gray-300 mb-6 leading-relaxed">
-                            Born in Malaysia, Heath was created with a belief that the details matter. We look beyond the equipment itself to the pieces that accompany the game thoughtfully designed objects that reflect individuality, taste, and a love for golf.
+                            Barrel was born out of a desire for golf accessories that blend classic aesthetics with modern durability. We believe your clubs deserve protection that looks as good as it performs.
                         </p>
                         <div class="flex gap-4">
                             <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors">
@@ -183,6 +177,7 @@
         </div>
     </div>
 
+    <!-- Cart Overlay & Sidebar -->
     <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
     
     <div id="cartSidebar" class="fixed top-0 right-0 h-[100dvh] w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
@@ -368,7 +363,7 @@
                     </div>
                     <div class="px-0.5 md:px-2">
                         <h3 class="font-serif text-[11px] sm:text-sm md:text-2xl font-bold text-primary mb-0.5 md:mb-2 leading-tight">${product.series}</h3>
-                        <p class="text-gray-600 text-[9px] sm:text-xs md:text-sm mb-1 md:mb-3 leading-snug line-clamp-2 md:line-clamp-none hidden sm:block">${product.desc}</p>
+                        <p class="text-gray-600 text-[9px] sm:text-xs md:text-sm mb-1 md:mb-3 leading-snug line-clamp-2 md:line-clamp-none hidden md:block">${product.desc}</p>
                         <p class="font-semibold text-primary text-[10px] sm:text-sm md:text-base">From RM ${PRICES.wood}</p>
                     </div>
                 </div>
@@ -536,17 +531,15 @@
                 const custState = document.getElementById('custState').value;
                 const formError = document.getElementById('formError');
 
-                // Advanced validation block
                 if(!custName || !custEmail || !custPhone || !custAddress || !custCity || !custPostcode || !custState) {
                     formError.innerHTML = 'Please fill in all delivery details above.';
                     formError.classList.remove('hidden');
                     return;
                 }
 
-                // Strict email check to prevent HitPay from throwing a 400 Bad Request error
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(custEmail)) {
-                    formError.innerHTML = 'Please enter a valid email address (e.g., name@email.com). HitPay requires a real email format to process the payment.';
+                    formError.innerHTML = 'Please enter a valid email address (e.g., name@email.com).';
                     formError.classList.remove('hidden');
                     return;
                 }
@@ -582,7 +575,6 @@
                     if (response.ok && data.url) {
                         window.location.href = data.url;
                     } else {
-                        // Display the exact error from HitPay
                         let errorMsg = data.error || 'Failed to create payment link.';
                         if (data.details && data.details.message) errorMsg += ` (${data.details.message})`;
                         
