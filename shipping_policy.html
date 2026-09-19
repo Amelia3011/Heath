@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipping Policy | HEATH GOLF</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Afacad:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Afacad', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#4c111f',
+                        secondary: '#4B5563',
+                        accent: '#D97706',
+                        'earthy-1': '#8B7355',
+                        'earthy-2': '#A0522D',
+                        'azure-1': '#4682B4',
+                        'azure-2': '#000080',
+                        'bone-1': '#F5F5DC',
+                        'bone-2': '#2F4F4F'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen relative">
+
+    <!-- HEADER -->
+    <header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-0">
+
+                <!-- LEFT SIDE - Hamburger Menu -->
+                <div class="flex-1 flex items-center justify-start">
+                    <button
+                        id="mobileMenuBtn"
+                        class="text-[#fffaf1] hover:opacity-80 transition-opacity p-2 focus:outline-none"
+                        aria-label="Menu"
+                    >
+                        <i class="fas fa-bars text-xl md:text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- CENTER SIDE - Logo -->
+                <div class="flex-shrink-0 flex items-center justify-center -my-6 md:-my-8">
+                    <a href="index.html" class="block">
+                        <img
+                            src="Heath logo 2.png"
+                            alt="Heath Logo"
+                            class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain"
+                            onerror="this.onerror=null; this.src='https://placehold.co/200x100/4c111f/ffffff?text=HEATH+LOGO'"
+                        >
+                    </a>
+                </div>
+
+                <!-- RIGHT SIDE - Cart Icon -->
+                <div class="flex-1 flex items-center justify-end">
+                    <button
+                        id="cartBtn"
+                        class="text-[#fffaf1] hover:opacity-80 transition-opacity relative p-2 group"
+                        aria-label="Cart"
+                    >
+                        <!-- Custom Golf Bag Icon -->
+                        <svg
+                            class="w-8 h-8 transition-transform group-hover:scale-110"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M10 7V4l-1.5-1"></path>
+                            <path d="M14 7V3l-1.5-1"></path>
+                            <path d="M8 7v13.5A1.5 1.5 0 0 0 9.5 22h5a1.5 1.5 0 0 0 1.5-1.5V7"></path>
+                            <path d="M7 7h10v2H7z"></path>
+                            <path d="M9 13h2v5H9z"></path>
+                            <path d="M16 10v6c1.5 0 2-1.5 2-3s-.5-3-2-3z"></path>
+                        </svg>
+
+                        <span
+                            id="cartCount"
+                            class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/4 bg-accent rounded-full hidden"
+                        >
+                            0
+                        </span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="flex-grow">
+        <div class="max-w-4xl mx-auto py-16 px-4 sm:px-6 lg:px-8 bg-white my-8 shadow-sm rounded-lg">
+            
+            <h1 class="font-serif text-3xl md:text-4xl font-bold text-[#4c111f] mb-8">
+                Shipping Policy
+            </h1>
+
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                At Heath, every order is carefully prepared and packed before it leaves our studio. We work to make sure your piece reaches you safely and in the same condition it left us.
+            </p>
+
+            <h2 class="font-serif text-xl font-bold text-[#4c111f] mt-8 mb-4">
+                1. Order Processing
+            </h2>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                Orders are generally processed and prepared for shipment within 3–5 business days.
+            </p>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                As our products are handcrafted and produced in limited quantities, processing times may occasionally vary. If there is an unexpected delay with your order, we will do our best to keep you informed.
+            </p>
+
+            <h2 class="font-serif text-xl font-bold text-[#4c111f] mt-8 mb-4">
+                2. Delivery
+            </h2>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                Once your order has been dispatched, you will receive shipping information where tracking is available.
+            </p>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                Delivery times are estimates and may vary depending on your location, courier service, public holidays, weather, customs procedures, and other circumstances outside of Heath’s control.
+            </p>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                Heath is not responsible for delays caused by the courier or other circumstances beyond our reasonable control.
+            </p>
+
+            <h2 class="font-serif text-xl font-bold text-[#4c111f] mt-8 mb-4">
+                3. Shipping Address
+            </h2>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                Please ensure that your shipping information is accurate and complete before placing your order.
+            </p>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                Heath is not responsible for failed deliveries, delays, or additional shipping costs resulting from an incorrect or incomplete address provided by the customer.
+            </p>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                If you notice an error in your shipping address after placing an order, please contact us as soon as possible at <a href="mailto:heath.flog@gmail.com" class="text-[#4c111f] font-medium hover:underline">heath.flog@gmail.com</a>. We will do our best to assist, but we cannot guarantee that changes can be made once an order has been processed or dispatched.
+            </p>
+
+            <h2 class="font-serif text-xl font-bold text-[#4c111f] mt-8 mb-4">
+                4. International Orders
+            </h2>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                We currently ship internationally where available.
+            </p>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                International customers are responsible for any customs duties, import taxes, clearance fees, or other charges imposed by the destination country.
+            </p>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                These charges are not included in the product or shipping price unless explicitly stated at checkout.
+            </p>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                Customs policies vary between countries, and Heath has no control over charges imposed by local authorities.
+            </p>
+
+            <h2 class="font-serif text-xl font-bold text-[#4c111f] mt-8 mb-4">
+                5. Lost or Damaged Packages
+            </h2>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                If your package arrives damaged, please contact us at <a href="mailto:heath.flog@gmail.com" class="text-[#4c111f] font-medium hover:underline">heath.flog@gmail.com</a> as soon as possible with your order number and clear photos of the package and product.
+            </p>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                If your tracking information indicates that a package has been delivered but you have not received it, please contact us so we can assist with the available delivery information.
+            </p>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                Heath will work with the relevant courier where appropriate, but we cannot guarantee recovery of packages once they have been confirmed as delivered.
+            </p>
+
+            <h2 class="font-serif text-xl font-bold text-[#4c111f] mt-8 mb-4">
+                6. Shipping Restrictions
+            </h2>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                Certain destinations may not be available for delivery due to courier restrictions, customs regulations, or other logistical limitations.
+            </p>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                If we are unable to ship your order to your selected destination, we will contact you and arrange an appropriate solution, which may include a refund.
+            </p>
+
+            <h2 class="font-serif text-xl font-bold text-[#4c111f] mt-8 mb-4">
+                7. Contact Us
+            </h2>
+            <p class="text-gray-700 mb-4 leading-relaxed">
+                If you have any questions about your order or shipping, please contact us at:<br>
+                <a href="mailto:heath.flog@gmail.com" class="text-[#4c111f] font-medium hover:underline mt-2 inline-block">heath.flog@gmail.com</a>
+            </p>
+
+            <div class="mt-12 pt-8 border-t border-gray-100">
+                <p class="font-serif text-xl font-bold text-[#4c111f]">Heath</p>
+                <p class="text-gray-600 italic">Golf, considered differently.</p>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#2f0a13] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+                <div class="text-center md:text-left">
+                    <p class="font-serif text-2xl font-semibold">
+                        HEATH STUDIO
+                    </p>
+                    <p class="text-sm text-gray-300 mt-1">
+                        Considered differently.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-4 text-sm">
+                    <a
+                        href="T&C.html"
+                        class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors"
+                    >
+                        Terms & Conditions
+                    </a>
+                    <span class="text-gray-500">|</span>
+                    <a
+                        href="T&C.html"
+                        class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors"
+                    >
+                        Return & Refund Policy
+                    </a>
+                    <span class="text-gray-500">|</span>
+                    <a
+                        href="shipping-policy.html"
+                        class="text-white font-medium underline-offset-4 underline transition-colors"
+                    >
+                        Shipping Policy
+                    </a>
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 mt-8 pt-6 text-center">
+                <p class="text-xs text-gray-400">
+                    © 2026 HEATH STUDIO. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MENU OVERLAY -->
+    <div
+        id="menuOverlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"
+    ></div>
+
+    <!-- LEFT SIDEBAR MENU -->
+    <div
+        id="sideMenu"
+        class="fixed top-0 left-0 h-[100dvh] w-[250px] sm:w-[300px] bg-white shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col"
+    >
+        <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
+            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">
+                Menu
+            </h2>
+            <button
+                id="closeMenuBtn"
+                class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none"
+                aria-label="Close menu"
+            >
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+
+        <div class="flex-1 px-6 pt-6 space-y-2">
+            <!-- Navigating back to main index.html file -->
+            <a href="index.html#home" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Home</a>
+            <a href="index.html#collections" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Collections</a>
+            <a href="index.html#about" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">About Us</a>
+            <a href="T&C.html" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Terms & Conditions</a>
+            <a href="T&C.html" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Return & Refund Policy</a>
+            <a href="shipping-policy.html" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Shipping Policy</a>
+        </div>
+    </div>
+
+
+    <!-- CART OVERLAY -->
+    <div
+        id="cartOverlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"
+    ></div>
+
+    <!-- CART SIDEBAR (Kept empty for consistency with header, since purchasing is done on index) -->
+    <div
+        id="cartSidebar"
+        class="fixed top-0 right-0 h-[100dvh] w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col"
+    >
+        <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
+            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">
+                Your Cart
+            </h2>
+            <button
+                id="closeCart"
+                class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none"
+                aria-label="Close cart"
+            >
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+
+        <div class="flex-1 overflow-y-auto no-scrollbar flex items-center justify-center p-6">
+            <div class="text-center">
+                <p class="text-gray-400 mb-4">Return to the homepage to shop our collection.</p>
+                <a href="index.html#collections" class="bg-[#4c111f] text-white px-6 py-2 rounded-lg font-medium hover:opacity-80 transition-opacity">
+                    Shop Now
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // MENU LOGIC
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const closeMenuBtn = document.getElementById('closeMenuBtn');
+            const menuOverlay = document.getElementById('menuOverlay');
+            const sideMenu = document.getElementById('sideMenu');
+
+            function openMenu() {
+                menuOverlay.classList.remove('hidden', 'opacity-0');
+                sideMenu.classList.remove('-translate-x-full');
+            }
+
+            function closeMenu() {
+                sideMenu.classList.add('-translate-x-full');
+                menuOverlay.classList.add('opacity-0');
+                setTimeout(() => {
+                    menuOverlay.classList.add('hidden');
+                }, 300);
+            }
+
+            mobileMenuBtn.addEventListener('click', openMenu);
+            closeMenuBtn.addEventListener('click', closeMenu);
+            menuOverlay.addEventListener('click', closeMenu);
+
+            // CART LOGIC
+            const cartBtn = document.getElementById('cartBtn');
+            const closeCartBtn = document.getElementById('closeCart');
+            const cartOverlay = document.getElementById('cartOverlay');
+            const cartSidebar = document.getElementById('cartSidebar');
+
+            function openCart() {
+                cartOverlay.classList.remove('hidden', 'opacity-0');
+                cartSidebar.classList.remove('translate-x-full');
+            }
+
+            function closeCart() {
+                cartSidebar.classList.add('translate-x-full');
+                cartOverlay.classList.add('opacity-0');
+                setTimeout(() => {
+                    cartOverlay.classList.add('hidden');
+                }, 300);
+            }
+
+            cartBtn.addEventListener('click', openCart);
+            closeCartBtn.addEventListener('click', closeCart);
+            cartOverlay.addEventListener('click', closeCart);
+
+        });
+    </script>
+</body>
+</html>
