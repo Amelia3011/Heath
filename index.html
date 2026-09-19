@@ -60,7 +60,7 @@
                 <!-- 2. CENTER SIDE (Logo) - Uses negative margins for the image padding fix -->
                 <div class="flex-shrink-0 flex items-center justify-center -my-6 md:-my-8">
                     <a href="#" class="block">
-                        <img src="Heath logo 2.png" alt="Heath Logo" class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain">
+                        <img src="Heath logo 1.png" alt="Heath Logo" class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain">
                     </a>
                 </div>
 
@@ -107,21 +107,13 @@
             </div>
         </section>
 
-         <!-- NEW: Cinematic Video/GIF Divider Section -->
-        <section class="w-full h-48 md:h-80 lg:h-96 relative overflow-hidden bg-primary border-t border-gray-200">
-            <!-- 
-                If you are using an MP4 Video (Highly Recommended), name your file "divider.mp4" 
-                and upload it to GitHub. It will automatically play here.
-            -->
-            <video autoplay loop muted playsinline class="absolute inset-0 w-full h-full object-cover opacity-80">
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-            </video>
-            
+        <!-- NEW: Cinematic Video/GIF Divider Section -->
+        <section class="w-full h-48 md:h-80 lg:h-96 relative overflow-hidden bg-primary border-t border-gray-200"> 
             <!-- 
                 If you MUST use a GIF, delete the entire <video> block above this, 
                 uncomment the <img> line below, and name your file "divider.gif" 
             -->
-            <!-- <img src="divider.gif" alt="Lifestyle Divider" class="absolute inset-0 w-full h-full object-cover opacity-80"> -->
+            <img src="divider.gif" alt="Lifestyle Divider" class="absolute inset-0 w-full h-full object-cover opacity-80"> -->
             
             <!-- Optional subtle overlay to make it blend with the brand vibe -->
             <div class="absolute inset-0 bg-black/20 mix-blend-multiply"></div>
@@ -377,18 +369,18 @@
             const grid = document.getElementById('productGrid');
             grid.innerHTML = products.map((product) => `
                 <div class="product-card group cursor-pointer" onclick="openModal('${product.id}')">
-                    <div class="relative bg-gray-100 rounded-2xl overflow-hidden aspect-[4/5] mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-300">
+                    <div class="relative bg-gray-100 rounded-xl md:rounded-2xl overflow-hidden aspect-[4/5] mb-3 md:mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-300">
                         <img src="${product.colors[0].img}" alt="${product.series}" class="product-img w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
-                            <span class="bg-white text-primary px-8 py-3 rounded-full font-bold opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl">
-                                Select Options
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center p-2">
+                            <span class="bg-white text-primary px-4 py-2 md:px-8 md:py-3 rounded-full font-bold text-xs md:text-base opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl text-center">
+                                <span class="hidden md:inline">Select </span>Options
                             </span>
                         </div>
                     </div>
-                    <div class="px-2">
-                        <h3 class="font-serif text-2xl font-bold text-primary mb-2">${product.series}</h3>
-                        <p class="text-gray-600 text-sm mb-3">${product.desc}</p>
-                        <p class="font-semibold text-primary">From RM ${PRICES.wood}</p>
+                    <div class="px-1 md:px-2">
+                        <h3 class="font-serif text-lg md:text-2xl font-bold text-primary mb-1 md:mb-2 leading-tight">${product.series}</h3>
+                        <p class="text-gray-600 text-xs md:text-sm mb-2 md:mb-3 leading-snug">${product.desc}</p>
+                        <p class="font-semibold text-primary text-sm md:text-base">From RM ${PRICES.wood}</p>
                     </div>
                 </div>
             `).join('');
