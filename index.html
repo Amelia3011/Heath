@@ -81,15 +81,6 @@
                 </div>
 
             </div>
-
-             <!-- Dropdown Menu (Now active for both Mobile and Desktop) -->
-             <div id="mobileMenu" class="hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg pb-4 transition-all duration-300">
-                <div class="px-4 pt-2 pb-3 space-y-1 text-center">
-                    <a href="#home" class="mobile-link block px-3 py-3 text-base font-medium text-[#4c111f] hover:opacity-80 hover:bg-gray-50 rounded-md transition-all">Home</a>
-                    <a href="#collections" class="mobile-link block px-3 py-3 text-base font-medium text-[#4c111f] hover:opacity-80 hover:bg-gray-50 rounded-md transition-all">Collections</a>
-                    <a href="#about" class="mobile-link block px-3 py-3 text-base font-medium text-[#4c111f] hover:opacity-80 hover:bg-gray-50 rounded-md transition-all">About Us</a>
-                </div>
-            </div>
         </div>
     </header>
 
@@ -174,6 +165,23 @@
             </div>
         </section>
     </main>
+
+    <!-- Menu Overlay & Left Sidebar -->
+    <div id="menuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
+    
+    <div id="sideMenu" class="fixed top-0 left-0 h-[100dvh] w-[250px] sm:w-[300px] bg-white shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
+            <h2 class="font-serif text-2xl font-bold text-primary">Menu</h2>
+            <button id="closeMenuBtn" class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        <div class="flex-1 px-6 pt-6 space-y-2">
+            <a href="#home" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Home</a>
+            <a href="#collections" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Collections</a>
+            <a href="#about" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">About Us</a>
+        </div>
+    </div>
 
     <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
     
@@ -486,6 +494,17 @@
             setTimeout(() => { document.getElementById('cartOverlay').classList.add('hidden'); }, 300);
         }
 
+        function openMenu() {
+            document.getElementById('menuOverlay').classList.remove('hidden', 'opacity-0');
+            document.getElementById('sideMenu').classList.remove('-translate-x-full');
+        }
+
+        function closeMenu() {
+            document.getElementById('sideMenu').classList.add('-translate-x-full');
+            document.getElementById('menuOverlay').classList.add('opacity-0');
+            setTimeout(() => { document.getElementById('menuOverlay').classList.add('hidden'); }, 300);
+        }
+
         function setupEventListeners() {
             document.getElementById('cartBtn').addEventListener('click', openCart);
             document.getElementById('closeCart').addEventListener('click', closeCart);
@@ -493,8 +512,12 @@
             document.getElementById('closeModal').addEventListener('click', closeModal);
             
             const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            mobileMenuBtn.addEventListener('click', () => {
-                document.getElementById('mobileMenu').classList.toggle('hidden');
+            mobileMenuBtn.addEventListener('click', openMenu);
+            document.getElementById('closeMenuBtn').addEventListener('click', closeMenu);
+            document.getElementById('menuOverlay').addEventListener('click', closeMenu);
+            
+            document.querySelectorAll('.menu-link').forEach(link => {
+                link.addEventListener('click', closeMenu);
             });
 
             document.querySelectorAll('input[name="clubType"]').forEach(r => r.addEventListener('change', updateModalPrice));
