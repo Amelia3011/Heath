@@ -1,82 +1,212 @@
-Returns, Exchanges & Refunds
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Returns, Exchanges &amp; Refunds | HEATH GOLF</title>
 
-At Heath, every piece is carefully handcrafted and inspected before it leaves our studio. Because our products are handmade and produced in limited quantities, we have a simple return, exchange and refund policy designed to keep the process fair for both you and us.
+    <script src="https://cdn.tailwindcss.com"></script>
 
-1. Returns & Refunds
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        rel="stylesheet"
+    >
 
-We offer a 7-day return period from the date your order is delivered.
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Afacad:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
 
-To be eligible for a return, items must be:
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Afacad', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#4c111f',
+                        accent: '#D97706'
+                    }
+                }
+            }
+        }
+    </script>
 
-	•	Unused and in original condition
-	•	Returned with all original packaging and tags
-	•	Accompanied by proof of purchase
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
 
-Returned products must arrive back to us in new and saleable condition and will be inspected upon receipt.
+        body {
+            font-family: 'Afacad', sans-serif;
+        }
 
-Customers are responsible for return shipping costs. A 10% restocking fee will be deducted from the approved refund amount.
+        .policy-content h1 {
+            font-family: 'Playfair Display', serif;
+            color: #4c111f;
+            font-size: 2.5rem;
+            line-height: 1.15;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
 
-Refunds will be issued to the original payment method once the returned item has been received and approved.
+        .policy-content h2 {
+            font-family: 'Playfair Display', serif;
+            color: #4c111f;
+            font-size: 1.7rem;
+            line-height: 1.25;
+            font-weight: 700;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
 
-Original shipping fees are non-refundable for customer-initiated returns.
+        .policy-content p {
+            color: #4b5563;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
 
-Returns are not accepted for:
+        .policy-content ul {
+            margin: 0.75rem 0 1.25rem 1.5rem;
+            color: #4b5563;
+            list-style: disc;
+        }
 
-	•	Change of mind
-	•	Incorrect product selection
-	•	Normal wear and tear
-	•	Damage caused after delivery
-	•	Items that have been used, altered, washed, or modified
+        .policy-content li {
+            line-height: 1.8;
+            margin-bottom: 0.35rem;
+        }
 
-To request a return, please contact us at heath.flog@gmail.com with your order number and reason for the return.
+        @media (max-width: 640px) {
+            .policy-content h1 {
+                font-size: 2rem;
+            }
 
-Please note that returns sent without prior approval will not be accepted.
+            .policy-content h2 {
+                font-size: 1.45rem;
+            }
+        }
+    </style>
+</head>
 
-2. Exchanges
+<body class="bg-[#faf9f7] text-gray-800 min-h-screen flex flex-col">
 
-We offer exchanges for items that arrive damaged, defective, or incorrect.
+    <!-- Header -->
+    <header class="bg-[#4c111f] shadow-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
 
-If you receive the wrong item or an item with a manufacturing defect, please contact us within 7 days of delivery.
+                <a href="index.html" class="flex items-center gap-3">
+                    <span class="text-white font-serif text-2xl font-bold tracking-wide">
+                        HEATH GOLF
+                    </span>
+                </a>
 
-Exchanges are subject to product availability. As our pieces are released in limited quantities, an identical replacement may not always be available. If a replacement is unavailable, we may offer an alternative solution or refund.
+                <a
+                    href="index.html"
+                    class="text-white/90 hover:text-white text-sm font-medium transition-colors"
+                >
+                    <i class="fas fa-arrow-left mr-2"></i>
+                    Back to Store
+                </a>
 
-For approved exchanges resulting from an error on our part, Heath will cover reasonable return shipping costs.
+            </div>
+        </div>
+    </header>
 
-No restocking fee will apply to approved exchanges involving defective, damaged, or incorrect items.
+    <!-- Policy -->
+    <main class="flex-grow">
+        <section class="py-12 sm:py-16 lg:py-20">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
 
-3. Damaged or Incorrect Orders
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 px-6 py-8 sm:px-10 sm:py-12 lg:px-14">
+                    <div class="policy-content">
+                        <h1>Returns, Exchanges &amp; Refunds</h1>
+                    <p>At Heath, every piece is carefully handcrafted and inspected before it leaves our studio. Because our products are handmade and produced in limited quantities, we have a simple return, exchange and refund policy designed to keep the process fair for both you and us.</p>
+                    <h2>1. Returns &amp; Refunds</h2>
+                    <p>We offer a 7-day return period from the date your order is delivered.</p>
+                    <p>To be eligible for a return, items must be:</p>
+                    <ul><li>Unused and in original condition</li><li>Returned with all original packaging and tags</li><li>Accompanied by proof of purchase</li></ul>
+                    <p>Returned products must arrive back to us in new and saleable condition and will be inspected upon receipt.</p>
+                    <p>Customers are responsible for return shipping costs. A 10% restocking fee will be deducted from the approved refund amount.</p>
+                    <p>Refunds will be issued to the original payment method once the returned item has been received and approved.</p>
+                    <p>Original shipping fees are non-refundable for customer-initiated returns.</p>
+                    <p>Returns are not accepted for:</p>
+                    <ul><li>Change of mind</li><li>Incorrect product selection</li><li>Normal wear and tear</li><li>Damage caused after delivery</li><li>Items that have been used, altered, washed, or modified</li></ul>
+                    <p>To request a return, please contact us at heath.flog@gmail.com with your order number and reason for the return.</p>
+                    <p>Please note that returns sent without prior approval will not be accepted.</p>
+                    <h2>2. Exchanges</h2>
+                    <p>We offer exchanges for items that arrive damaged, defective, or incorrect.</p>
+                    <p>If you receive the wrong item or an item with a manufacturing defect, please contact us within 7 days of delivery.</p>
+                    <p>Exchanges are subject to product availability. As our pieces are released in limited quantities, an identical replacement may not always be available. If a replacement is unavailable, we may offer an alternative solution or refund.</p>
+                    <p>For approved exchanges resulting from an error on our part, Heath will cover reasonable return shipping costs.</p>
+                    <p>No restocking fee will apply to approved exchanges involving defective, damaged, or incorrect items.</p>
+                    <h2>3. Damaged or Incorrect Orders</h2>
+                    <p>Please inspect your order as soon as it arrives.</p>
+                    <p>If your item arrives damaged, defective, or different from what you ordered, please contact us within 7 days of delivery with:</p>
+                    <ul><li>Your order number</li><li>A description of the issue</li><li>Clear photos of the item</li><li>Photos of the packaging, if applicable</li></ul>
+                    <p>Please do not send the item back before receiving instructions from us.</p>
+                    <p>Cases involving damaged, defective, or incorrect items will be reviewed separately and may qualify for a replacement or full refund, depending on the circumstances.</p>
+                    <h2>4. Handmade Products</h2>
+                    <p>Heath pieces are handmade, and each piece may have subtle variations in stitching, fabric placement, texture, or finish.</p>
+                    <p>These variations are a natural part of the handmade process and are not considered defects.</p>
+                    <h2>5. Sale &amp; Limited-Edition Items</h2>
+                    <p>Sale items, promotional items, and limited-edition pieces may be subject to different return, exchange, or refund conditions.</p>
+                    <p>Any special conditions will be clearly stated at the time of purchase.</p>
+                    <h2>6. How to Contact Us</h2>
+                    <p>For any return, exchange, or refund request, please contact us at:</p>
+                    <p>heath.flog@gmail.com</p>
+                    <p>Please include your order number and a brief description of your request.</p>
+                    <p>We review each case individually and aim to resolve genuine issues fairly and promptly.</p>
+                    </div>
+                </div>
 
-Please inspect your order as soon as it arrives.
+            </div>
+        </section>
+    </main>
 
-If your item arrives damaged, defective, or different from what you ordered, please contact us within 7 days of delivery with:
+    <!-- Footer -->
+    <footer class="bg-[#2f0a13] text-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-	•	Your order number
-	•	A description of the issue
-	•	Clear photos of the item
-	•	Photos of the packaging, if applicable
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
 
-Please do not send the item back before receiving instructions from us.
+                <p class="text-sm text-gray-300 text-center sm:text-left">
+                    © 2026 HEATH GOLF. All rights reserved.
+                </p>
 
-Cases involving damaged, defective, or incorrect items will be reviewed separately and may qualify for a replacement or full refund, depending on the circumstances.
+                <div class="flex items-center gap-4 text-sm">
+                    <a
+                        href="index.html"
+                        class="text-gray-300 hover:text-white transition-colors"
+                    >
+                        Store
+                    </a>
 
-4. Handmade Products
+                    <span class="text-gray-500">|</span>
 
-Heath pieces are handmade, and each piece may have subtle variations in stitching, fabric placement, texture, or finish.
+                    <a
+                        href="terms.html"
+                        class="text-gray-300 hover:text-white transition-colors"
+                    >
+                        Terms &amp; Conditions
+                    </a>
 
-These variations are a natural part of the handmade process and are not considered defects.
+                    <span class="text-gray-500">|</span>
 
-5. Sale & Limited-Edition Items
+                    <a
+                        href="return-policy.html"
+                        class="text-gray-300 hover:text-white transition-colors"
+                    >
+                        Return Policy
+                    </a>
+                </div>
 
-Sale items, promotional items, and limited-edition pieces may be subject to different return, exchange, or refund conditions.
+            </div>
+        </div>
+    </footer>
 
-Any special conditions will be clearly stated at the time of purchase.
-
-6. How to Contact Us
-
-For any return, exchange, or refund request, please contact us at:
-
-heath.flog@gmail.com
-
-Please include your order number and a brief description of your request.
-
-We review each case individually and aim to resolve genuine issues fairly and promptly.
+</body>
+</html>
