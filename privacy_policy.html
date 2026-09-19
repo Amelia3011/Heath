@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | HEATH GOLF</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Afacad:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Afacad', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: '#4c111f',
+                        secondary: '#4B5563',
+                        accent: '#D97706',
+                        'earthy-1': '#8B7355',
+                        'earthy-2': '#A0522D',
+                        'azure-1': '#4682B4',
+                        'azure-2': '#000080',
+                        'bone-1': '#F5F5DC',
+                        'bone-2': '#2F4F4F'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+
+<body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen relative">
+
+    <!-- HEADER -->
+    <header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-0">
+
+                <!-- LEFT SIDE - Hamburger Menu -->
+                <div class="flex-1 flex items-center justify-start">
+                    <button
+                        id="mobileMenuBtn"
+                        class="text-[#fffaf1] hover:opacity-80 transition-opacity p-2 focus:outline-none"
+                        aria-label="Menu"
+                    >
+                        <i class="fas fa-bars text-xl md:text-2xl"></i>
+                    </button>
+                </div>
+
+                <!-- CENTER SIDE - Logo -->
+                <div class="flex-shrink-0 flex items-center justify-center -my-6 md:-my-8">
+                    <a href="index.html" class="block">
+                        <img
+                            src="Heath logo 2.png"
+                            alt="Heath Logo"
+                            class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain"
+                            onerror="this.onerror=null; this.src='https://placehold.co/200x100/4c111f/ffffff?text=HEATH+LOGO'"
+                        >
+                    </a>
+                </div>
+
+                <!-- RIGHT SIDE - Cart Icon -->
+                <div class="flex-1 flex items-center justify-end">
+                    <button
+                        id="cartBtn"
+                        class="text-[#fffaf1] hover:opacity-80 transition-opacity relative p-2 group"
+                        aria-label="Cart"
+                    >
+                        <!-- Custom Golf Bag Icon -->
+                        <svg
+                            class="w-8 h-8 transition-transform group-hover:scale-110"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
+                            <path d="M10 7V4l-1.5-1"></path>
+                            <path d="M14 7V3l-1.5-1"></path>
+                            <path d="M8 7v13.5A1.5 1.5 0 0 0 9.5 22h5a1.5 1.5 0 0 0 1.5-1.5V7"></path>
+                            <path d="M7 7h10v2H7z"></path>
+                            <path d="M9 13h2v5H9z"></path>
+                            <path d="M16 10v6c1.5 0 2-1.5 2-3s-.5-3-2-3z"></path>
+                        </svg>
+
+                        <span
+                            id="cartCount"
+                            class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/4 bg-accent rounded-full hidden"
+                        >
+                            0
+                        </span>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow bg-white py-16 md:py-24">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="mb-12 text-center">
+                <h1 class="font-serif text-4xl md:text-5xl font-bold text-[#4c111f] mb-4">Privacy Policy</h1>
+                <p class="text-gray-500">Last Updated: September 2026</p>
+            </div>
+
+            <div class="prose prose-lg max-w-none text-gray-700">
+                
+                <!-- Section 1 -->
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 pb-2 border-b border-gray-100">1. Introduction</h2>
+                <p class="mb-4">
+                    Welcome to HEATH STUDIO ("we," "our," or "us"). We respect your privacy and are committed to protecting your personal data. This Privacy Policy will inform you as to how we look after your personal data when you visit our website (regardless of where you visit it from) and tell you about your privacy rights and how the law protects you.
+                </p>
+                <p class="mb-4">
+                    By accessing or using our website and services, you agree to the terms of this Privacy Policy. If you do not agree with the terms outlined herein, please discontinue use of our site.
+                </p>
+
+                <!-- Section 2 -->
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 pb-2 border-b border-gray-100">2. Information We Collect</h2>
+                <p class="mb-4">We may collect, use, store, and transfer different kinds of personal data about you which we have grouped together as follows:</p>
+                <ul class="list-disc pl-6 mb-4 space-y-2">
+                    <li><strong>Identity Data:</strong> includes first name, last name, username or similar identifier, and title.</li>
+                    <li><strong>Contact Data:</strong> includes billing address, delivery address, email address, and telephone numbers.</li>
+                    <li><strong>Financial Data:</strong> includes bank account and payment card details (processed securely via our payment gateways).</li>
+                    <li><strong>Transaction Data:</strong> includes details about payments to and from you and other details of products you have purchased from us.</li>
+                    <li><strong>Technical Data:</strong> includes internet protocol (IP) address, your login data, browser type and version, time zone setting and location, and other technology on the devices you use to access this website.</li>
+                </ul>
+
+                <!-- Section 3 -->
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 pb-2 border-b border-gray-100">3. How We Use Your Information</h2>
+                <p class="mb-4">We will only use your personal data when the law allows us to. Most commonly, we will use your personal data in the following circumstances:</p>
+                <ul class="list-disc pl-6 mb-4 space-y-2">
+                    <li>Where we need to perform the contract we are about to enter into or have entered into with you (e.g., processing your order).</li>
+                    <li>Where it is necessary for our legitimate interests (or those of a third party) and your interests and fundamental rights do not override those interests.</li>
+                    <li>Where we need to comply with a legal or regulatory obligation.</li>
+                    <li>To provide you with customer support and handle any returns or refunds.</li>
+                </ul>
+
+                <!-- Section 4 -->
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 pb-2 border-b border-gray-100">4. Cookies and Tracking Technologies</h2>
+                <p class="mb-4">
+                    Our website uses cookies and similar tracking technologies to distinguish you from other users of our website. This helps us to provide you with a good experience when you browse our website and also allows us to improve our site. You can set your browser to refuse all or some browser cookies, or to alert you when websites set or access cookies. If you disable or refuse cookies, please note that some parts of this website may become inaccessible or not function properly.
+                </p>
+
+                <!-- Section 5 -->
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 pb-2 border-b border-gray-100">5. Sharing of Your Information</h2>
+                <p class="mb-4">We may have to share your personal data with the parties set out below for the purposes outlined in Section 3:</p>
+                <ul class="list-disc pl-6 mb-4 space-y-2">
+                    <li>Service providers acting as processors who provide IT and system administration services.</li>
+                    <li>Professional advisers including lawyers, bankers, auditors, and insurers.</li>
+                    <li>Logistics and shipping partners (e.g., Courier services) to deliver your purchased products.</li>
+                    <li>Regulators and other authorities who require reporting of processing activities in certain circumstances.</li>
+                </ul>
+
+                <!-- Section 6 -->
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 pb-2 border-b border-gray-100">6. Third-Party Services and Payment Processing</h2>
+                <p class="mb-4">
+                    We use third-party payment processors, such as HitPay, to process financial transactions. When you make a purchase, your payment information is provided directly to our third-party payment processors whose use of your personal information is governed by their Privacy Policy. We do not store your full credit card details on our servers.
+                </p>
+
+                <!-- Section 7 -->
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 pb-2 border-b border-gray-100">7. Data Security</h2>
+                <p class="mb-4">
+                    We have put in place appropriate security measures to prevent your personal data from being accidentally lost, used, or accessed in an unauthorized way, altered, or disclosed. In addition, we limit access to your personal data to those employees, agents, contractors, and other third parties who have a business need to know. They will only process your personal data on our instructions and they are subject to a duty of confidentiality.
+                </p>
+
+                <!-- Section 8 -->
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 pb-2 border-b border-gray-100">8. Data Retention</h2>
+                <p class="mb-4">
+                    We will only retain your personal data for as long as necessary to fulfill the purposes we collected it for, including for the purposes of satisfying any legal, accounting, or reporting requirements. To determine the appropriate retention period for personal data, we consider the amount, nature, and sensitivity of the personal data, the potential risk of harm from unauthorized use or disclosure, and applicable legal requirements.
+                </p>
+
+                <!-- Section 9 -->
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 pb-2 border-b border-gray-100">9. Your Rights and Choices</h2>
+                <p class="mb-4">Under certain circumstances, you have rights under data protection laws in relation to your personal data, including the right to:</p>
+                <ul class="list-disc pl-6 mb-4 space-y-2">
+                    <li>Request access to your personal data.</li>
+                    <li>Request correction of the personal data that we hold about you.</li>
+                    <li>Request erasure of your personal data.</li>
+                    <li>Object to processing of your personal data.</li>
+                    <li>Request restriction of processing of your personal data.</li>
+                    <li>Request the transfer of your personal data to you or to a third party.</li>
+                    <li>Withdraw consent at any time where we are relying on consent to process your personal data.</li>
+                </ul>
+
+                <!-- Section 10 -->
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 pb-2 border-b border-gray-100">10. Children's Privacy</h2>
+                <p class="mb-4">
+                    Our website is not intended for children under the age of 16, and we do not knowingly collect data relating to children. If we become aware that we have collected personal data from a child without verification of parental consent, we take steps to remove that information from our servers.
+                </p>
+
+                <!-- Section 11 -->
+                <h2 class="font-serif text-2xl font-bold text-[#4c111f] mt-10 mb-4 pb-2 border-b border-gray-100">11. Changes to This Privacy Policy</h2>
+                <p class="mb-4">
+                    We keep our Privacy Policy under regular review. Any changes we make to our Privacy Policy in the future will be posted on this page and, where appropriate, notified to you by email. Please check back frequently to see any updates or changes to our Privacy Policy.
+                </p>
+                <p class="mb-8">
+                    If you have any questions about this Privacy Policy, please contact us via our official communication channels.
+                </p>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#2f0a13] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="text-center md:text-left">
+                    <p class="font-serif text-2xl font-semibold">
+                        HEATH STUDIO
+                    </p>
+                    <p class="text-sm text-gray-300 mt-1">
+                        Considered differently.
+                    </p>
+                </div>
+                <div class="flex flex-wrap justify-center gap-4 text-sm">
+                    <a href="terms.html" class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors">
+                        Terms & Conditions
+                    </a>
+                    <span class="text-gray-500">|</span>
+                    <a href="return-policy.html" class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors">
+                        Return & Refund Policy
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-white/10 mt-8 pt-6 text-center">
+                <p class="text-xs text-gray-400">
+                    © 2026 HEATH STUDIO. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MENU OVERLAY -->
+    <div id="menuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
+
+    <!-- LEFT SIDEBAR MENU -->
+    <div id="sideMenu" class="fixed top-0 left-0 h-[100dvh] w-[250px] sm:w-[300px] bg-white shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
+            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">Menu</h2>
+            <button id="closeMenuBtn" class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none" aria-label="Close menu">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        <div class="flex-1 px-6 pt-6 space-y-2 overflow-y-auto no-scrollbar">
+            <a href="index.html#home" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">
+                Home
+            </a>
+            <a href="index.html#collections" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">
+                Collections
+            </a>
+            <a href="index.html#about" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">
+                About Us
+            </a>
+
+            <!-- Collapsible Help Menu -->
+            <div class="border-b border-gray-100">
+                <button id="helpMenuBtn" class="w-full flex justify-between items-center py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 transition-all focus:outline-none">
+                    <span>Help</span>
+                    <i class="fas fa-chevron-down text-sm transition-transform duration-300" id="helpMenuIcon"></i>
+                </button>
+                <div id="helpSubMenu" class="hidden flex-col pl-4 pb-2 space-y-2 mt-1">
+                    <a href="terms.html" class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all">
+                        Terms & Conditions
+                    </a>
+                    <a href="return-policy.html" class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all">
+                        Return & Refund Policy
+                    </a>
+                    <a href="shipping-policy.html" class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all">
+                        Shipping Policy
+                    </a>
+                    <a href="privacy-policy.html" class="menu-link block py-2 text-base font-medium text-[#4c111f] transition-all">
+                        Privacy Policy
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CART OVERLAY -->
+    <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
+
+    <!-- CART SIDEBAR -->
+    <div id="cartSidebar" class="fixed top-0 right-0 h-[100dvh] w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+        <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
+            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">Your Cart</h2>
+            <button id="closeCart" class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none" aria-label="Close cart">
+                <i class="fas fa-times text-xl"></i>
+            </button>
+        </div>
+        <div class="flex-1 overflow-y-auto no-scrollbar flex items-center justify-center p-6">
+            <p class="text-center text-gray-400">
+                Cart viewing is limited on policy pages. <br>Please return to the <a href="index.html" class="text-[#4c111f] underline">Home Page</a> to manage your cart.
+            </p>
+        </div>
+        <div class="p-6 border-t bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex-shrink-0">
+            <a href="index.html" class="w-full block text-center bg-[#4c111f] text-white py-4 rounded-xl font-bold hover:bg-[#4c111f]/90 transition-colors shadow-md">
+                Return to Shop
+            </a>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            setupEventListeners();
+        });
+
+        // ================================
+        // MENU OVERLAY LOGIC
+        // ================================
+        function openMenu() {
+            document.getElementById('menuOverlay').classList.remove('hidden', 'opacity-0');
+            document.getElementById('sideMenu').classList.remove('-translate-x-full');
+        }
+
+        function closeMenu() {
+            document.getElementById('sideMenu').classList.add('-translate-x-full');
+            document.getElementById('menuOverlay').classList.add('opacity-0');
+            setTimeout(() => {
+                document.getElementById('menuOverlay').classList.add('hidden');
+            }, 300);
+        }
+
+        // ================================
+        // CART OVERLAY LOGIC
+        // ================================
+        function openCart() {
+            document.getElementById('cartOverlay').classList.remove('hidden', 'opacity-0');
+            document.getElementById('cartSidebar').classList.remove('translate-x-full');
+        }
+
+        function closeCart() {
+            document.getElementById('cartSidebar').classList.add('translate-x-full');
+            document.getElementById('cartOverlay').classList.add('opacity-0');
+            setTimeout(() => {
+                document.getElementById('cartOverlay').classList.add('hidden');
+            }, 300);
+        }
+
+        // ================================
+        // EVENT LISTENERS
+        // ================================
+        function setupEventListeners() {
+            
+            // Cart Toggles
+            const cartBtn = document.getElementById('cartBtn');
+            const closeCartBtn = document.getElementById('closeCart');
+            const cartOverlay = document.getElementById('cartOverlay');
+
+            if(cartBtn) cartBtn.addEventListener('click', openCart);
+            if(closeCartBtn) closeCartBtn.addEventListener('click', closeCart);
+            if(cartOverlay) cartOverlay.addEventListener('click', closeCart);
+
+            // Menu Toggles
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const closeMenuBtn = document.getElementById('closeMenuBtn');
+            const menuOverlay = document.getElementById('menuOverlay');
+
+            if(mobileMenuBtn) mobileMenuBtn.addEventListener('click', openMenu);
+            if(closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenu);
+            if(menuOverlay) menuOverlay.addEventListener('click', closeMenu);
+            
+            // Collapsible Help Menu Toggle
+            const helpMenuBtn = document.getElementById('helpMenuBtn');
+            const helpSubMenu = document.getElementById('helpSubMenu');
+            const helpMenuIcon = document.getElementById('helpMenuIcon');
+
+            if (helpMenuBtn && helpSubMenu && helpMenuIcon) {
+                helpMenuBtn.addEventListener('click', () => {
+                    helpSubMenu.classList.toggle('hidden');
+                    helpSubMenu.classList.toggle('flex');
+                    helpMenuIcon.classList.toggle('rotate-180');
+                });
+            }
+
+            // Close Menu on Link Click
+            document.querySelectorAll('.menu-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    closeMenu();
+                });
+            });
+        }
+    </script>
+</body>
+</html>
