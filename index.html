@@ -108,7 +108,7 @@
         </section>
 
         <!-- NEW: Cinematic Video/GIF Divider Section -->
-        <section class="w-full h-48 md:h-80 lg:h-96 relative overflow-hidden bg-primary border-t border-gray-200"> 
+        <section class="w-full h-48 md:h-80 lg:h-96 relative overflow-hidden bg-primary border-t border-gray-200">
             <!-- 
                 If you MUST use a GIF, delete the entire <video> block above this, 
                 uncomment the <img> line below, and name your file "divider.gif" 
@@ -122,6 +122,7 @@
         <section id="collections" class="relative py-24 hero-bg border-t border-gray-100">
             <!-- The same white tint overlay so your text stays perfectly readable -->
             <div class="absolute inset-0 bg-white/10"></div>
+            
             <!-- 'relative z-10' ensures the content sits on top of the background and overlay -->
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center mb-16">
@@ -142,6 +143,7 @@
             <img src="Untitled design.png" alt="Golf course green" class="absolute inset-0 w-full h-full object-cover">
         </section>
 
+        <!-- About Section -->
         <section id="about" class="py-24 bg-primary text-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -352,18 +354,19 @@
             const grid = document.getElementById('productGrid');
             grid.innerHTML = products.map((product) => `
                 <div class="product-card group cursor-pointer" onclick="openModal('${product.id}')">
-                    <div class="relative bg-gray-100 rounded-xl md:rounded-2xl overflow-hidden aspect-[4/5] mb-3 md:mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-300">
+                    <div class="relative bg-gray-100 rounded-lg md:rounded-2xl overflow-hidden aspect-[4/5] mb-2 md:mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-300">
                         <img src="${product.colors[0].img}" alt="${product.series}" class="product-img w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center p-2">
-                            <span class="bg-white text-primary px-4 py-2 md:px-8 md:py-3 rounded-full font-bold text-xs md:text-base opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl text-center">
-                                <span class="hidden md:inline">Select </span>Options
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center p-1 md:p-2">
+                            <span class="bg-white text-primary px-2 py-1 md:px-8 md:py-3 rounded-full font-bold text-[9px] md:text-base opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl text-center leading-tight">
+                                <span class="hidden md:inline">Select Options</span>
+                                <span class="md:hidden">View</span>
                             </span>
                         </div>
                     </div>
-                    <div class="px-1 md:px-2">
-                        <h3 class="font-serif text-lg md:text-2xl font-bold text-primary mb-1 md:mb-2 leading-tight">${product.series}</h3>
-                        <p class="text-gray-600 text-xs md:text-sm mb-2 md:mb-3 leading-snug">${product.desc}</p>
-                        <p class="font-semibold text-primary text-sm md:text-base">From RM ${PRICES.wood}</p>
+                    <div class="px-0.5 md:px-2">
+                        <h3 class="font-serif text-[11px] sm:text-sm md:text-2xl font-bold text-primary mb-0.5 md:mb-2 leading-tight">${product.series}</h3>
+                        <p class="text-gray-600 text-[9px] sm:text-xs md:text-sm mb-1 md:mb-3 leading-snug line-clamp-2 md:line-clamp-none hidden sm:block">${product.desc}</p>
+                        <p class="font-semibold text-primary text-[10px] sm:text-sm md:text-base">From RM ${PRICES.wood}</p>
                     </div>
                 </div>
             `).join('');
