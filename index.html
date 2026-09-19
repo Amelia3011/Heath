@@ -46,26 +46,26 @@
 </head>
 <body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen relative">
 
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+<header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-0">
                 
-                <!-- 1. LEFT SIDE (Logo) - Uses negative margins to pull the header tighter around the image's invisible padding -->
-                <div class="flex-1 flex items-center justify-start -my-6 md:-my-8">
+                <!-- 1. LEFT SIDE (Hamburger Menu) -->
+                <div class="flex-1 flex items-center justify-start">
+                    <button id="mobileMenuBtn" class="text-[#4c111f] hover:opacity-80 transition-opacity p-2 focus:outline-none" aria-label="Menu">
+                        <i class="fas fa-bars text-xl md:text-2xl"></i>
+                    </button>
+                </div>
+                
+                <!-- 2. CENTER SIDE (Logo) - Uses negative margins for the image padding fix -->
+                <div class="flex-shrink-0 flex items-center justify-center -my-6 md:-my-8">
                     <a href="#" class="block">
                         <img src="Heath logo 1.png" alt="Heath Logo" class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain">
                     </a>
                 </div>
-                
-                <!-- 2. CENTER SIDE (Navigation Links) - Locked perfectly in the middle -->
-                <nav class="hidden md:flex flex-shrink-0 space-x-8 items-center mt-1">
-                    <a href="#home" class="text-[#4c111f] hover:opacity-80 px-3 py-2 text-sm font-medium transition-all">Home</a>
-                    <a href="#collections" class="text-[#4c111f] hover:opacity-80 px-3 py-2 text-sm font-medium transition-all">Collections</a>
-                    <a href="#about" class="text-[#4c111f] hover:opacity-80 px-3 py-2 text-sm font-medium transition-all">About Us</a>
-                </nav>
 
-              <!-- 3. RIGHT SIDE (Cart & Menu Icons) - Uses flex-1 to balance the layout -->
-                <div class="flex-1 flex items-center justify-end space-x-4">
+              <!-- 3. RIGHT SIDE (Cart Icon) -->
+                <div class="flex-1 flex items-center justify-end">
                     <button id="cartBtn" class="text-[#4c111f] hover:opacity-80 transition-opacity relative p-2 group" aria-label="Cart">
                         <!-- Custom Golf Bag Icon -->
                         <svg class="w-8 h-8 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -78,15 +78,13 @@
                         </svg>
                         <span id="cartCount" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/4 bg-accent rounded-full hidden">0</span>
                     </button>
-                    <button id="mobileMenuBtn" class="md:hidden text-[#4c111f] hover:opacity-80 transition-opacity p-2 focus:outline-none" aria-label="Menu">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
                 </div>
 
             </div>
 
-             <div id="mobileMenu" class="md:hidden hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg pb-4 transition-all duration-300">
-                <div class="px-4 pt-2 pb-3 space-y-1">
+             <!-- Dropdown Menu (Now active for both Mobile and Desktop) -->
+             <div id="mobileMenu" class="hidden bg-white border-t border-gray-100 absolute w-full left-0 shadow-lg pb-4 transition-all duration-300">
+                <div class="px-4 pt-2 pb-3 space-y-1 text-center">
                     <a href="#home" class="mobile-link block px-3 py-3 text-base font-medium text-[#4c111f] hover:opacity-80 hover:bg-gray-50 rounded-md transition-all">Home</a>
                     <a href="#collections" class="mobile-link block px-3 py-3 text-base font-medium text-[#4c111f] hover:opacity-80 hover:bg-gray-50 rounded-md transition-all">Collections</a>
                     <a href="#about" class="mobile-link block px-3 py-3 text-base font-medium text-[#4c111f] hover:opacity-80 hover:bg-gray-50 rounded-md transition-all">About Us</a>
