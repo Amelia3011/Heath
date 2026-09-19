@@ -1,13 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HEATH GOLF | Handcrafted Accessories</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Afacad:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
+
+    <link
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Afacad:wght@300;400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
     <script>
         tailwind.config = {
             theme: {
@@ -17,9 +27,9 @@
                         serif: ['Playfair Display', 'serif'],
                     },
                     colors: {
-                        primary: '#4c111f', 
+                        primary: '#4c111f',
                         secondary: '#4B5563',
-                        accent: '#D97706', 
+                        accent: '#D97706',
                         'earthy-1': '#8B7355',
                         'earthy-2': '#A0522D',
                         'azure-1': '#4682B4',
@@ -31,44 +41,77 @@
             }
         }
     </script>
+
     <style>
-        html { scroll-behavior: smooth; }
-        .hero-bg { 
-            background-image: url('Heath w BG.pdf.png'); 
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat; 
-            background-attachment: fixed; 
+        html {
+            scroll-behavior: smooth;
         }
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .hero-bg {
+            background-image: url('Heath w BG.pdf.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     </style>
 </head>
+
 <body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen relative">
 
+    <!-- HEADER -->
     <header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-0">
-                
-                <!-- 1. LEFT SIDE (Hamburger Menu) -->
+
+                <!-- LEFT SIDE - Hamburger Menu -->
                 <div class="flex-1 flex items-center justify-start">
-                    <button id="mobileMenuBtn" class="text-[#fffaf1] hover:opacity-80 transition-opacity p-2 focus:outline-none" aria-label="Menu">
+                    <button
+                        id="mobileMenuBtn"
+                        class="text-[#fffaf1] hover:opacity-80 transition-opacity p-2 focus:outline-none"
+                        aria-label="Menu"
+                    >
                         <i class="fas fa-bars text-xl md:text-2xl"></i>
                     </button>
                 </div>
-                
-                <!-- 2. CENTER SIDE (Logo) -->
+
+                <!-- CENTER SIDE - Logo -->
                 <div class="flex-shrink-0 flex items-center justify-center -my-6 md:-my-8">
                     <a href="#" class="block">
-                        <img src="Heath logo 2.png" alt="Heath Logo" class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain">
+                        <img
+                            src="Heath logo 2.png"
+                            alt="Heath Logo"
+                            class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain"
+                        >
                     </a>
                 </div>
 
-              <!-- 3. RIGHT SIDE (Cart Icon) -->
+                <!-- RIGHT SIDE - Cart Icon -->
                 <div class="flex-1 flex items-center justify-end">
-                    <button id="cartBtn" class="text-[#fffaf1] hover:opacity-80 transition-opacity relative p-2 group" aria-label="Cart">
+                    <button
+                        id="cartBtn"
+                        class="text-[#fffaf1] hover:opacity-80 transition-opacity relative p-2 group"
+                        aria-label="Cart"
+                    >
                         <!-- Custom Golf Bag Icon -->
-                        <svg class="w-8 h-8 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <svg
+                            class="w-8 h-8 transition-transform group-hover:scale-110"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        >
                             <path d="M10 7V4l-1.5-1"></path>
                             <path d="M14 7V3l-1.5-1"></path>
                             <path d="M8 7v13.5A1.5 1.5 0 0 0 9.5 22h5a1.5 1.5 0 0 0 1.5-1.5V7"></path>
@@ -76,7 +119,13 @@
                             <path d="M9 13h2v5H9z"></path>
                             <path d="M16 10v6c1.5 0 2-1.5 2-3s-.5-3-2-3z"></path>
                         </svg>
-                        <span id="cartCount" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/4 bg-accent rounded-full hidden">0</span>
+
+                        <span
+                            id="cartCount"
+                            class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/4 bg-accent rounded-full hidden"
+                        >
+                            0
+                        </span>
                     </button>
                 </div>
 
@@ -84,142 +133,390 @@
         </div>
     </header>
 
+    <!-- MAIN -->
     <main class="flex-grow">
-        <section id="home" class="relative hero-bg pt-20 pb-32 lg:pt-32 lg:pb-48 overflow-hidden">
+
+        <!-- HERO SECTION -->
+        <section
+            id="home"
+            class="relative hero-bg pt-20 pb-32 lg:pt-32 lg:pb-48 overflow-hidden"
+        >
             <div class="absolute inset-0 bg-white/15"></div>
-            
-            <!-- This is the missing wrapper. 'relative z-10' pulls the text above the white overlay -->
+
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center max-w-3xl mx-auto flex flex-col items-center">
+
                     <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#4c111f] mb-6 leading-tight">
-                        Golf, Considered Differently. 
+                        Golf, Considered Differently.
                     </h1>
-                    <p class="text-xl text-gray-600 mb-10 font-light">
-                       Handcrafted headcovers designed with character, precision, and a considered approach to the game.
-                    </h1>
-                    <p class="text-xl text-gray-600 mb-10 font-Bold">
+
+                    <p class="text-xl text-gray-600 mb-6 font-light">
+                        Handcrafted headcovers designed with character, precision,
+                        and a considered approach to the game.
+                    </p>
+
+                    <p class="text-xl text-gray-700 mb-10 font-bold">
                         Limited first collection, 40 pieces only.
                     </p>
+
                     <div class="flex justify-center gap-4">
-                        <a href="#collections" class="bg-[#4c111f] text-white px-8 py-4 rounded-full font-medium hover:opacity-80 transition-opacity shadow-lg">
+                        <a
+                            href="#collections"
+                            class="bg-[#4c111f] text-white px-8 py-4 rounded-full font-medium hover:opacity-80 transition-opacity shadow-lg"
+                        >
                             Shop The Drop
                         </a>
                     </div>
+
                 </div>
             </div>
         </section>
 
-<!-- NEW: Cinematic Video/GIF Divider Section -->
-        <section class="w-full h-48 md:h-80 lg:h-96 relative overflow-hidden bg-primary border-t border-gray-200">
-            <!-- 
-                If you MUST use a GIF, delete the entire <video> block above this, 
-                uncomment the <img> line below, and name your file "divider.gif" 
-            -->
-            <img src="divider.GIF" alt="Lifestyle Divider" class="absolute inset-0 w-full h-full object-cover opacity-80"> -->
-            
-            <!-- Optional subtle overlay to make it blend with the brand vibe -->
-            <div class="absolute inset-0 bg-black/20 mix-blend-multiply"></div>
-        </section>
+        <!-- CINEMATIC VIDEO / GIF DIVIDER -->
+        <section class="w-full h-48 md:h-80 lg:h-96 relative overflow-hidden bg-primary border-t border-gray-200">
 
-        <section id="collections" class="relative py-24 hero-bg border-t border-gray-100">
+            <img
+                src="divider.GIF"
+                alt="Lifestyle Divider"
+                class="absolute inset-0 w-full h-full object-cover opacity-80"
+            >
+
+            <div class="absolute inset-0 bg-black/20 mix-blend-multiply"></div>
+
+        </section>
+
+        <!-- COLLECTIONS SECTION -->
+        <section
+            id="collections"
+            class="relative py-24 hero-bg border-t border-gray-100"
+        >
             <div class="absolute inset-0 bg-white/10"></div>
-            
+
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
                 <div class="text-center mb-8 md:mb-16">
-                    <h2 class="font-serif text-4xl font-bold text-[#4c111f] mb-4">Our First Collection</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto hidden md:block">Three distinct series, meticulously crafted for style and protection. Available for Drivers and Woods. Bundle up to save.</p>
+                    <h2 class="font-serif text-4xl font-bold text-[#4c111f] mb-4">
+                        Our First Collection
+                    </h2>
+
+                    <p class="text-gray-600 max-w-2xl mx-auto hidden md:block">
+                        Three distinct series, meticulously crafted for style and protection.
+                        Available for Drivers and Woods. Bundle up to save.
+                    </p>
                 </div>
 
-                <!-- CRITICAL FIX: grid-cols-3 forces all 3 products side-by-side on mobile! -->
-                <div class="grid grid-cols-3 gap-2 md:gap-10" id="productGrid">
-                    <!-- Products inject here via JS -->
+                <!-- Product Grid -->
+                <div
+                    class="grid grid-cols-3 gap-2 md:gap-10"
+                    id="productGrid"
+                >
+                    <!-- Products injected here via JS -->
                 </div>
-            </div> 
+
+            </div>
         </section>
 
-        <!-- Full-Width Golf Green Image Divider -->
-        <section class="w-full h-48 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-gray-100">
-            <img src="Untitled design.png" alt="Golf course green" class="absolute inset-0 w-full h-full object-cover">
+        <!-- FULL-WIDTH GOLF GREEN IMAGE DIVIDER -->
+        <section
+            class="w-full h-48 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-gray-100"
+        >
+            <img
+                src="Untitled design.png"
+                alt="Golf course green"
+                class="absolute inset-0 w-full h-full object-cover"
+            >
         </section>
 
-        <!-- About Section -->
+        <!-- ABOUT SECTION -->
         <section id="about" class="py-24 bg-[#4c111f] text-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+
                     <div>
-                        <h2 class="font-serif text-4xl font-bold mb-6">The House of Heath</h2>
+                        <h2 class="font-serif text-4xl font-bold mb-6">
+                            The House of Heath
+                        </h2>
+
                         <p class="text-gray-300 mb-6 leading-relaxed">
-                            Born in Malaysia, Heath was created with a belief that the details matter. We look beyond the equipment itself to the pieces that accompany the game thoughtfully designed objects that reflect individuality, taste, and a love for golf.
+                            Born in Malaysia, Heath was created with a belief that the
+                            details matter. We look beyond the equipment itself to the
+                            pieces that accompany the game — thoughtfully designed objects
+                            that reflect individuality, taste, and a love for golf.
                         </p>
+
                         <div class="flex gap-4">
-                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors">
+
+                            <a
+                                href="#"
+                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
+                                aria-label="Instagram"
+                            >
                                 <i class="fab fa-instagram text-xl"></i>
                             </a>
+
                         </div>
                     </div>
+
                 </div>
             </div>
         </section>
+
     </main>
 
-    <!-- Menu Overlay & Left Sidebar -->
-    <div id="menuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
-    
-    <div id="sideMenu" class="fixed top-0 left-0 h-[100dvh] w-[250px] sm:w-[300px] bg-white shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
+    <!-- FOOTER -->
+    <footer class="bg-[#2f0a13] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+
+                <div class="text-center md:text-left">
+                    <p class="font-serif text-xl font-semibold">
+                        HEATH GOLF
+                    </p>
+
+                    <p class="text-sm text-gray-300 mt-1">
+                        Handcrafted accessories, considered differently.
+                    </p>
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-4 text-sm">
+
+                    <a
+                        href="terms.html"
+                        class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors"
+                    >
+                        Terms & Conditions
+                    </a>
+
+                    <span class="text-gray-500">|</span>
+
+                    <a
+                        href="return-policy.html"
+                        class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors"
+                    >
+                        Return Policy
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="border-t border-white/10 mt-8 pt-6 text-center">
+                <p class="text-xs text-gray-400">
+                    © 2026 HEATH GOLF. All rights reserved.
+                </p>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <!-- MENU OVERLAY -->
+    <div
+        id="menuOverlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"
+    ></div>
+
+    <!-- LEFT SIDEBAR MENU -->
+    <div
+        id="sideMenu"
+        class="fixed top-0 left-0 h-[100dvh] w-[250px] sm:w-[300px] bg-white shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col"
+    >
+
         <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
-            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">Menu</h2>
-            <button id="closeMenuBtn" class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none">
+
+            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">
+                Menu
+            </h2>
+
+            <button
+                id="closeMenuBtn"
+                class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none"
+                aria-label="Close menu"
+            >
                 <i class="fas fa-times text-xl"></i>
             </button>
+
         </div>
+
         <div class="flex-1 px-6 pt-6 space-y-2">
-            <a href="#home" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Home</a>
-            <a href="#collections" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Collections</a>
-            <a href="#about" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">About Us</a>
+
+            <a
+                href="#home"
+                class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all"
+            >
+                Home
+            </a>
+
+            <a
+                href="#collections"
+                class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all"
+            >
+                Collections
+            </a>
+
+            <a
+                href="#about"
+                class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all"
+            >
+                About Us
+            </a>
+
+            <a
+                href="T&C.html"
+                class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all"
+            >
+                Terms & Conditions
+            </a>
+
+            <a
+                href="T&C.html"
+                class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all"
+            >
+                Return Policy
+            </a>
+
         </div>
     </div>
 
-    <!-- Cart Overlay & Sidebar -->
-    <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
-    
-    <div id="cartSidebar" class="fixed top-0 right-0 h-[100dvh] w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
-        
+
+    <!-- CART OVERLAY -->
+    <div
+        id="cartOverlay"
+        class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"
+    ></div>
+
+    <!-- CART SIDEBAR -->
+    <div
+        id="cartSidebar"
+        class="fixed top-0 right-0 h-[100dvh] w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col"
+    >
+
+        <!-- Cart Header -->
         <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
-            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">Your Cart</h2>
-            <button id="closeCart" class="text-gray-500 hover:text-[#4c111f]-800 p-2 focus:outline-none">
+
+            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">
+                Your Cart
+            </h2>
+
+            <button
+                id="closeCart"
+                class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none"
+                aria-label="Close cart"
+            >
                 <i class="fas fa-times text-xl"></i>
             </button>
+
         </div>
-        
+
+        <!-- Cart Content -->
         <div class="flex-1 overflow-y-auto no-scrollbar">
-            <div id="cartItems" class="p-6 space-y-4">
+
+            <div
+                id="cartItems"
+                class="p-6 space-y-4"
+            >
                 <!-- JS injects cart items here -->
             </div>
 
+            <!-- Cart Summary -->
             <div class="p-6 border-t bg-gray-50/50">
+
                 <div class="flex justify-between items-center mb-4">
-                    <span class="text-gray-600">Subtotal</span>
-                    <span class="font-bold text-2xl text-primary" id="cartTotal">RM 0</span>
+
+                    <span class="text-gray-600">
+                        Subtotal
+                    </span>
+
+                    <span
+                        class="font-bold text-2xl text-primary"
+                        id="cartTotal"
+                    >
+                        RM 0
+                    </span>
+
                 </div>
-                <div class="text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-md mb-4 hidden border border-green-100" id="bundleNotice">
-                    <i class="fas fa-check-circle mr-1"></i> Bundle discount applied!
+
+                <!-- Bundle Notice -->
+                <div
+                    class="text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-md mb-4 hidden border border-green-100"
+                    id="bundleNotice"
+                >
+                    <i class="fas fa-check-circle mr-1"></i>
+                    Bundle discount applied!
                 </div>
-                
-                <!-- Delivery Details Form -->
+
+                <!-- Delivery Details -->
                 <div class="mb-4 space-y-3">
-                    <h3 class="text-sm font-medium text-[#4c111f]-700">Delivery Details</h3>
-                    <input type="text" id="custName" placeholder="Full Name" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
-                    <input type="email" id="custEmail" placeholder="Email Address" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
-                    <input type="tel" id="custPhone" placeholder="Phone Number" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
-                    
+
+                    <h3 class="text-sm font-medium text-[#4c111f]">
+                        Delivery Details
+                    </h3>
+
+                    <input
+                        type="text"
+                        id="custName"
+                        placeholder="Full Name"
+                        class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
+                        required
+                    >
+
+                    <input
+                        type="email"
+                        id="custEmail"
+                        placeholder="Email Address"
+                        class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
+                        required
+                    >
+
+                    <input
+                        type="tel"
+                        id="custPhone"
+                        placeholder="Phone Number"
+                        class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
+                        required
+                    >
+
                     <div class="space-y-2">
-                        <input type="text" id="custAddress" placeholder="Street Address (e.g. No. 12, Jalan Sultan)" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+
+                        <input
+                            type="text"
+                            id="custAddress"
+                            placeholder="Street Address (e.g. No. 12, Jalan Sultan)"
+                            class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
+                            required
+                        >
+
                         <div class="grid grid-cols-2 gap-2">
-                            <input type="text" id="custCity" placeholder="City" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
-                            <input type="text" id="custPostcode" placeholder="Postcode" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
+
+                            <input
+                                type="text"
+                                id="custCity"
+                                placeholder="City"
+                                class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
+                                required
+                            >
+
+                            <input
+                                type="text"
+                                id="custPostcode"
+                                placeholder="Postcode"
+                                class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
+                                required
+                            >
+
                         </div>
-                        <select id="custState" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm" required>
-                            <option value="" disabled selected>Select State...</option>
+
+                        <select
+                            id="custState"
+                            class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
+                            required
+                        >
+                            <option value="" disabled selected>
+                                Select State...
+                            </option>
+
                             <option value="Johor">Johor</option>
                             <option value="Kedah">Kedah</option>
                             <option value="Kelantan">Kelantan</option>
@@ -237,362 +534,1261 @@
                             <option value="Labuan">Labuan</option>
                             <option value="Putrajaya">Putrajaya</option>
                         </select>
+
                     </div>
                 </div>
 
-                <div id="formError" class="text-xs text-red-500 mb-3 hidden font-medium text-center">Please fill in all delivery details above.</div>
+                <!-- Form Error -->
+                <div
+                    id="formError"
+                    class="text-xs text-red-500 mb-3 hidden font-medium text-center"
+                >
+                    Please fill in all delivery details above.
+                </div>
 
-                <!-- Shipping Selection Radio Buttons -->
+                <!-- SHIPPING SELECTION -->
                 <div class="mb-2">
-                    <label class="block text-sm font-medium text-[#4c111f]-700 mb-2">Shipping Destination</label>
+
+                    <label class="block text-sm font-medium text-[#4c111f] mb-2">
+                        Shipping Destination
+                    </label>
+
                     <div class="grid grid-cols-2 gap-3">
+
+                        <!-- West Malaysia -->
                         <label class="cursor-pointer group">
-                            <input type="radio" name="shippingZone" value="west" class="peer sr-only" checked onchange="updateCartUI()">
-                            <div class="rounded-xl border-2 border-[#4c111f]-200 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]-50 group-hover:border-[#4c111f]-300 transition-all">
-                                <span class="block font-semibold text-[#4c111f]-900 text-sm">West Malaysia</span>
-                                <span class="block text-xs text-[#4c111f]-500 mt-1">RM 10</span>
+
+                            <input
+                                type="radio"
+                                name="shippingZone"
+                                value="west"
+                                class="peer sr-only"
+                                checked
+                                onchange="updateCartUI()"
+                            >
+
+                            <div
+                                class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all"
+                            >
+                                <span class="block font-semibold text-[#4c111f] text-sm">
+                                    West Malaysia
+                                </span>
+
+                                <span class="block text-xs text-[#4c111f]/70 mt-1">
+                                    RM 10
+                                </span>
                             </div>
+
                         </label>
+
+                        <!-- East Malaysia -->
                         <label class="cursor-pointer group">
-                            <input type="radio" name="shippingZone" value="east" class="peer sr-only" onchange="updateCartUI()">
-                            <div class="rounded-xl border-2 border-[#4c111f]-200 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]-50 group-hover:border-[#4c111f]-300 transition-all">
-                                <span class="block font-semibold text-[#4c111f]-900 text-sm">East Malaysia</span>
-                                <span class="block text-xs text-[#4c111f]-500 mt-1">RM 15</span>
+
+                            <input
+                                type="radio"
+                                name="shippingZone"
+                                value="east"
+                                class="peer sr-only"
+                                onchange="updateCartUI()"
+                            >
+
+                            <div
+                                class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all"
+                            >
+                                <span class="block font-semibold text-[#4c111f] text-sm">
+                                    East Malaysia
+                                </span>
+
+                                <span class="block text-xs text-[#4c111f]/70 mt-1">
+                                    RM 15
+                                </span>
                             </div>
+
                         </label>
+
                     </div>
                 </div>
-            </div>
-        </div> 
 
-        <div class="p-6 border-t bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex-shrink-0">
-            <button id="checkoutBtn" class="w-full bg-[#4c111f] text-white py-4 rounded-xl font-bold hover:bg-[#4c111f]-800 transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex justify-center items-center gap-2">
+            </div>
+        </div>
+
+        <!-- CHECKOUT FOOTER -->
+        <div
+            class="p-6 border-t bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex-shrink-0"
+        >
+
+            <button
+                id="checkoutBtn"
+                class="w-full bg-[#4c111f] text-white py-4 rounded-xl font-bold hover:bg-[#4c111f] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex justify-center items-center gap-2"
+            >
                 Proceed to Payment
             </button>
-            <p class="text-xs text-center text-[#4c111f]-400 mt-4"><i class="fas fa-lock mr-1"></i> Secure checkout via HitPay</p>
+
+            <!-- TERMS & RETURN POLICY AGREEMENT -->
+            <p class="text-xs text-center text-gray-500 mt-3 leading-relaxed">
+
+                By proceeding to payment, you agree to our
+
+                <a
+                    href="terms.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[#4c111f] font-medium underline hover:opacity-70"
+                >
+                    Terms & Conditions
+                </a>
+
+                and
+
+                <a
+                    href="return-policy.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-[#4c111f] font-medium underline hover:opacity-70"
+                >
+                    Return Policy
+                </a>.
+
+            </p>
+
+            <!-- SECURITY NOTE -->
+            <p class="text-xs text-center text-[#4c111f]/60 mt-3">
+                <i class="fas fa-lock mr-1"></i>
+                Secure checkout via HitPay
+            </p>
+
         </div>
     </div>
 
-    <!-- Product Modal Pop-up -->
-    <div id="productModal" class="fixed inset-0 z-[80] hidden items-center justify-center">
-        <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="modalBackdrop"></div>
-        <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 no-scrollbar" id="modalContent">
-            
-            <button id="closeModal" class="absolute top-4 right-4 text-[#4c111f]-500 hover:text-[#4c111f]-900 z-20 bg-white/80 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center shadow-sm focus:outline-none">
+
+    <!-- PRODUCT MODAL -->
+    <div
+        id="productModal"
+        class="fixed inset-0 z-[80] hidden items-center justify-center"
+    >
+
+        <div
+            class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 opacity-0"
+            id="modalBackdrop"
+        ></div>
+
+        <div
+            class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 no-scrollbar"
+            id="modalContent"
+        >
+
+            <!-- Close Modal -->
+            <button
+                id="closeModal"
+                class="absolute top-4 right-4 text-[#4c111f]/60 hover:text-[#4c111f] z-20 bg-white/80 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center shadow-sm focus:outline-none"
+                aria-label="Close product modal"
+            >
                 <i class="fas fa-times text-lg"></i>
             </button>
-            
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+
+                <!-- Product Image -->
                 <div class="bg-gray-100 min-h-[300px] flex items-center justify-center p-8 relative">
-                    <img id="modalImg" src="" alt="Product" class="max-w-full h-auto object-contain drop-shadow-xl rounded-lg">
+
+                    <img
+                        id="modalImg"
+                        src=""
+                        alt="Product"
+                        class="max-w-full h-auto object-contain drop-shadow-xl rounded-lg"
+                    >
+
                 </div>
+
+                <!-- Product Information -->
                 <div class="p-8 md:p-12 flex flex-col justify-center">
-                    <span id="modalSeries" class="text-sm font-semibold text-accent uppercase tracking-wider mb-2"></span>
-                    <h2 id="modalTitle" class="font-serif text-3xl font-bold text-[#4c111f] mb-3"></h2>
-                    <p class="text-[#4c111f]-600 mb-8 leading-relaxed" id="modalDesc"></p>
-                    
+
+                    <span
+                        id="modalSeries"
+                        class="text-sm font-semibold text-accent uppercase tracking-wider mb-2"
+                    ></span>
+
+                    <h2
+                        id="modalTitle"
+                        class="font-serif text-3xl font-bold text-[#4c111f] mb-3"
+                    ></h2>
+
+                    <p
+                        class="text-[#4c111f]/70 mb-8 leading-relaxed"
+                        id="modalDesc"
+                    ></p>
+
+                    <!-- Colorway -->
                     <div class="mb-8">
-                        <h4 class="text-sm font-medium text-[#4c111f]-900 mb-3 uppercase tracking-wide">Select Colorway</h4>
-                        <div class="flex gap-4" id="modalColors"></div>
+
+                        <h4 class="text-sm font-medium text-[#4c111f] mb-3 uppercase tracking-wide">
+                            Select Colorway
+                        </h4>
+
+                        <div
+                            class="flex gap-4"
+                            id="modalColors"
+                        ></div>
+
                     </div>
 
+                    <!-- Club Type -->
                     <div class="mb-8">
-                        <h4 class="text-sm font-medium text-[#4c111f]-900 mb-3 uppercase tracking-wide">Select Club Type</h4>
+
+                        <h4 class="text-sm font-medium text-[#4c111f] mb-3 uppercase tracking-wide">
+                            Select Club Type
+                        </h4>
+
                         <div class="grid grid-cols-2 gap-4">
+
+                            <!-- Wood -->
                             <label class="cursor-pointer group">
-                                <input type="radio" name="clubType" value="wood" class="peer sr-only" checked>
-                                <div class="rounded-xl border-2 border-[#4c111f]-200 p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]-50 group-hover:border-[#4c111f]-300 transition-all">
-                                    <span class="block font-semibold text-[#4c111f]-900">Wood</span>
-                                    <span class="block text-sm text-[#4c111f]-500 mt-1">RM 109</span>
+
+                                <input
+                                    type="radio"
+                                    name="clubType"
+                                    value="wood"
+                                    class="peer sr-only"
+                                    checked
+                                >
+
+                                <div
+                                    class="rounded-xl border-2 border-[#4c111f]/20 p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all"
+                                >
+                                    <span class="block font-semibold text-[#4c111f]">
+                                        Wood
+                                    </span>
+
+                                    <span class="block text-sm text-[#4c111f]/70 mt-1">
+                                        RM 109
+                                    </span>
+
                                 </div>
+
                             </label>
+
+                            <!-- Driver -->
                             <label class="cursor-pointer group">
-                                <input type="radio" name="clubType" value="driver" class="peer sr-only">
-                                <div class="rounded-xl border-2 border-[#4c111f]-200 p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]-50 group-hover:border-[#4c111f]-300 transition-all">
-                                    <span class="block font-semibold text-[#4c111f]-900">Driver</span>
-                                    <span class="block text-sm text-[#4c111f]-500 mt-1">RM 119</span>
+
+                                <input
+                                    type="radio"
+                                    name="clubType"
+                                    value="driver"
+                                    class="peer sr-only"
+                                >
+
+                                <div
+                                    class="rounded-xl border-2 border-[#4c111f]/20 p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all"
+                                >
+                                    <span class="block font-semibold text-[#4c111f]">
+                                        Driver
+                                    </span>
+
+                                    <span class="block text-sm text-[#4c111f]/70 mt-1">
+                                        RM 119
+                                    </span>
+
                                 </div>
+
                             </label>
+
                         </div>
                     </div>
-                    
-                    <div class="mt-auto pt-6 border-t border-[#4c111f]-100 flex items-center justify-between">
+
+                    <!-- Price + Add to Cart -->
+                    <div
+                        class="mt-auto pt-6 border-t border-[#4c111f]/10 flex items-center justify-between"
+                    >
+
                         <div>
-                            <p class="text-xs text-[#4c111f]-400 mb-1">Total Price</p>
-                            <div class="font-bold text-3xl text-[#4c111f]" id="modalPrice">RM 109</div>
+
+                            <p class="text-xs text-[#4c111f]/50 mb-1">
+                                Total Price
+                            </p>
+
+                            <div
+                                class="font-bold text-3xl text-[#4c111f]"
+                                id="modalPrice"
+                            >
+                                RM 109
+                            </div>
+
                         </div>
-                        <button id="addToCartModalBtn" class="bg-[#4c111f] text-white px-8 py-4 rounded-xl font-bold hover:bg-[#4c111f]-800 transition-colors shadow-lg active:scale-95 focus:outline-none">
+
+                        <button
+                            id="addToCartModalBtn"
+                            class="bg-[#4c111f] text-white px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-colors shadow-lg active:scale-95 focus:outline-none"
+                        >
                             Add to Cart
                         </button>
+
                     </div>
+
                 </div>
             </div>
+
         </div>
     </div>
 
+
+    <!-- JAVASCRIPT -->
     <script>
+
         const products = [
-            { id: 'earthy', series: 'Earthy Tweed', desc: 'Classic tweed texture bringing a touch of tradition to your bag.', colors: [{ name: 'Oatmeal', hex: '#d2b48c', img: 'https://placehold.co/600x800/d2b48c/ffffff?text=Earthy+Tweed%0AOatmeal' }, { name: 'Forest', hex: '#228b22', img: 'https://placehold.co/600x800/228b22/ffffff?text=Earthy+Tweed%0AForest' }] },
-            { id: 'azure', series: 'Azure Wave', desc: 'Dynamic patterns inspired by coastal waters.', colors: [{ name: 'Deep Sea', hex: '#00008b', img: 'https://placehold.co/600x800/00008b/ffffff?text=Azure+Wave%0ADeep+Sea' }, { name: 'Sky Crest', hex: '#87ceeb', img: 'https://placehold.co/600x800/87ceeb/1F2937?text=Azure+Wave%0ASky+Crest' }] },
-            { id: 'bone', series: 'Black Bone', desc: 'Sleek, minimalist, and menacing.', colors: [{ name: 'Pitch Black', hex: '#000000', img: 'https://placehold.co/600x800/000000/ffffff?text=Black+Bone%0APitch+Black' }, { name: 'Ivory Ash', hex: '#f0fff0', img: 'https://placehold.co/600x800/f0fff0/1F2937?text=Black+Bone%0AIvory+Ash' }] }
+            {
+                id: 'earthy',
+                series: 'Earthy Tweed',
+                desc: 'Classic tweed texture bringing a touch of tradition to your bag.',
+                colors: [
+                    {
+                        name: 'Oatmeal',
+                        hex: '#d2b48c',
+                        img: 'https://placehold.co/600x800/d2b48c/ffffff?text=Earthy+Tweed%0AOatmeal'
+                    },
+                    {
+                        name: 'Forest',
+                        hex: '#228b22',
+                        img: 'https://placehold.co/600x800/228b22/ffffff?text=Earthy+Tweed%0AForest'
+                    }
+                ]
+            },
+
+            {
+                id: 'azure',
+                series: 'Azure Wave',
+                desc: 'Dynamic patterns inspired by coastal waters.',
+                colors: [
+                    {
+                        name: 'Deep Sea',
+                        hex: '#00008b',
+                        img: 'https://placehold.co/600x800/00008b/ffffff?text=Azure+Wave%0ADeep+Sea'
+                    },
+                    {
+                        name: 'Sky Crest',
+                        hex: '#87ceeb',
+                        img: 'https://placehold.co/600x800/87ceeb/1F2937?text=Azure+Wave%0ASky+Crest'
+                    }
+                ]
+            },
+
+            {
+                id: 'bone',
+                series: 'Black Bone',
+                desc: 'Sleek, minimalist, and menacing.',
+                colors: [
+                    {
+                        name: 'Pitch Black',
+                        hex: '#000000',
+                        img: 'https://placehold.co/600x800/000000/ffffff?text=Black+Bone%0APitch+Black'
+                    },
+                    {
+                        name: 'Ivory Ash',
+                        hex: '#f0fff0',
+                        img: 'https://placehold.co/600x800/f0fff0/1F2937?text=Black+Bone%0AIvory+Ash'
+                    }
+                ]
+            }
         ];
 
-        const PRICES = { wood: 109, driver: 119 };
+        const PRICES = {
+            wood: 109,
+            driver: 119
+        };
+
         const BUNDLE_PRICE = 218;
 
         let cart = [];
         let currentModalProduct = null;
         let selectedColorIndex = 0;
 
+
         document.addEventListener('DOMContentLoaded', () => {
+
             renderProductGrid();
             setupEventListeners();
             updateCartUI();
+
         });
 
+
+        // ================================
+        // PRODUCT GRID
+        // ================================
+
         function renderProductGrid() {
+
             const grid = document.getElementById('productGrid');
+
             grid.innerHTML = products.map((product) => `
-                <div class="product-card group cursor-pointer" onclick="openModal('${product.id}')">
-                    <div class="relative bg-gray-100 rounded-lg md:rounded-2xl overflow-hidden aspect-[4/5] mb-2 md:mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-300">
-                        <img src="${product.colors[0].img}" alt="${product.series}" class="product-img w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center p-1 md:p-2">
-                            <span class="bg-white text-primary px-2 py-1 md:px-8 md:py-3 rounded-full font-bold text-[9px] md:text-base opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl text-center leading-tight">
-                                <span class="hidden md:inline">Select Options</span>
-                                <span class="md:hidden">View</span>
+
+                <div
+                    class="product-card group cursor-pointer"
+                    onclick="openModal('${product.id}')"
+                >
+
+                    <div
+                        class="relative bg-gray-100 rounded-lg md:rounded-2xl overflow-hidden aspect-[4/5] mb-2 md:mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-300"
+                    >
+
+                        <img
+                            src="${product.colors[0].img}"
+                            alt="${product.series}"
+                            class="product-img w-full h-full object-cover"
+                        >
+
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center p-1 md:p-2"
+                        >
+
+                            <span
+                                class="bg-white text-primary px-2 py-1 md:px-8 md:py-3 rounded-full font-bold text-[9px] md:text-base opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl text-center leading-tight"
+                            >
+
+                                <span class="hidden md:inline">
+                                    Select Options
+                                </span>
+
+                                <span class="md:hidden">
+                                    View
+                                </span>
+
                             </span>
+
                         </div>
+
                     </div>
+
                     <div class="px-0.5 md:px-2">
-                        <h3 class="font-serif text-[11px] sm:text-sm md:text-2xl font-bold text-primary mb-0.5 md:mb-2 leading-tight">${product.series}</h3>
-                        <p class="text-gray-600 text-[9px] sm:text-xs md:text-sm mb-1 md:mb-3 leading-snug line-clamp-2 md:line-clamp-none hidden md:block">${product.desc}</p>
-                        <p class="font-semibold text-primary text-[10px] sm:text-sm md:text-base">From RM ${PRICES.wood}</p>
+
+                        <h3
+                            class="font-serif text-[11px] sm:text-sm md:text-2xl font-bold text-primary mb-0.5 md:mb-2 leading-tight"
+                        >
+                            ${product.series}
+                        </h3>
+
+                        <p
+                            class="text-gray-600 text-[9px] sm:text-xs md:text-sm mb-1 md:mb-3 leading-snug line-clamp-2 md:line-clamp-none hidden md:block"
+                        >
+                            ${product.desc}
+                        </p>
+
+                        <p class="font-semibold text-primary text-[10px] sm:text-sm md:text-base">
+                            From RM ${PRICES.wood}
+                        </p>
+
                     </div>
+
                 </div>
+
             `).join('');
+
         }
+
+
+        // ================================
+        // PRODUCT MODAL
+        // ================================
 
         function openModal(productId) {
-            currentModalProduct = products.find(p => p.id === productId);
-            selectedColorIndex = 0;
-            
-            document.getElementById('modalSeries').textContent = currentModalProduct.series;
-            document.getElementById('modalTitle').textContent = currentModalProduct.series;
-            document.getElementById('modalDesc').textContent = currentModalProduct.desc;
-            updateModalImage();
-            
-            document.getElementById('modalColors').innerHTML = currentModalProduct.colors.map((color, index) => `
-                <button onclick="selectColor(${index})" class="w-12 h-12 rounded-full transition-all ${index === selectedColorIndex ? 'border-4 border-white ring-2 ring-primary scale-110' : 'border-2 border-gray-200'}" style="background-color: ${color.hex}" id="colorBtn-${index}"></button>
-            `).join('');
 
-            document.querySelector('input[name="clubType"][value="wood"]').checked = true;
+            currentModalProduct = products.find(
+                p => p.id === productId
+            );
+
+            selectedColorIndex = 0;
+
+            document.getElementById('modalSeries').textContent =
+                currentModalProduct.series;
+
+            document.getElementById('modalTitle').textContent =
+                currentModalProduct.series;
+
+            document.getElementById('modalDesc').textContent =
+                currentModalProduct.desc;
+
+            updateModalImage();
+
+            document.getElementById('modalColors').innerHTML =
+                currentModalProduct.colors.map((color, index) => `
+
+                    <button
+                        onclick="selectColor(${index})"
+                        class="w-12 h-12 rounded-full transition-all ${
+                            index === selectedColorIndex
+                                ? 'border-4 border-white ring-2 ring-primary scale-110'
+                                : 'border-2 border-gray-200'
+                        }"
+                        style="background-color: ${color.hex}"
+                        id="colorBtn-${index}"
+                        aria-label="${color.name}"
+                    ></button>
+
+                `).join('');
+
+            document.querySelector(
+                'input[name="clubType"][value="wood"]'
+            ).checked = true;
+
             updateModalPrice();
 
-            document.getElementById('productModal').classList.remove('hidden');
-            document.getElementById('productModal').classList.add('flex');
+            document.getElementById('productModal')
+                .classList.remove('hidden');
+
+            document.getElementById('productModal')
+                .classList.add('flex');
+
             setTimeout(() => {
-                document.getElementById('modalBackdrop').classList.remove('opacity-0');
-                document.getElementById('modalContent').classList.remove('scale-95', 'opacity-0');
+
+                document.getElementById('modalBackdrop')
+                    .classList.remove('opacity-0');
+
+                document.getElementById('modalContent')
+                    .classList.remove(
+                        'scale-95',
+                        'opacity-0'
+                    );
+
             }, 10);
+
             document.body.style.overflow = 'hidden';
+
         }
+
 
         function closeModal() {
-            document.getElementById('modalBackdrop').classList.add('opacity-0');
-            document.getElementById('modalContent').classList.add('scale-95', 'opacity-0');
+
+            document.getElementById('modalBackdrop')
+                .classList.add('opacity-0');
+
+            document.getElementById('modalContent')
+                .classList.add(
+                    'scale-95',
+                    'opacity-0'
+                );
+
             setTimeout(() => {
-                document.getElementById('productModal').classList.remove('flex');
-                document.getElementById('productModal').classList.add('hidden');
+
+                document.getElementById('productModal')
+                    .classList.remove('flex');
+
+                document.getElementById('productModal')
+                    .classList.add('hidden');
+
                 document.body.style.overflow = '';
+
             }, 300);
+
         }
+
 
         function selectColor(index) {
+
             selectedColorIndex = index;
+
             updateModalImage();
+
             currentModalProduct.colors.forEach((_, i) => {
-                const btn = document.getElementById(`colorBtn-${i}`);
-                if (i === index) btn.classList.add('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110');
-                else btn.classList.remove('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110');
+
+                const btn =
+                    document.getElementById(`colorBtn-${i}`);
+
+                if (i === index) {
+
+                    btn.classList.add(
+                        'border-4',
+                        'border-white',
+                        'ring-2',
+                        'ring-primary',
+                        'scale-110'
+                    );
+
+                } else {
+
+                    btn.classList.remove(
+                        'border-4',
+                        'border-white',
+                        'ring-2',
+                        'ring-primary',
+                        'scale-110'
+                    );
+
+                }
+
             });
+
         }
 
-        function updateModalImage() { document.getElementById('modalImg').src = currentModalProduct.colors[selectedColorIndex].img; }
-        function updateModalPrice() { document.getElementById('modalPrice').textContent = `RM ${PRICES[document.querySelector('input[name="clubType"]:checked').value]}`; }
+
+        function updateModalImage() {
+
+            document.getElementById('modalImg').src =
+                currentModalProduct
+                    .colors[selectedColorIndex]
+                    .img;
+
+        }
+
+
+        function updateModalPrice() {
+
+            const selectedClub =
+                document.querySelector(
+                    'input[name="clubType"]:checked'
+                ).value;
+
+            document.getElementById('modalPrice').textContent =
+                `RM ${PRICES[selectedClub]}`;
+
+        }
+
+
+        // ================================
+        // CART
+        // ================================
 
         function addToCart() {
-            const type = document.querySelector('input[name="clubType"]:checked').value;
-            const color = currentModalProduct.colors[selectedColorIndex];
-            cart.push({ series: currentModalProduct.series, type: type, color: color.name, price: PRICES[type], img: color.img });
+
+            const type =
+                document.querySelector(
+                    'input[name="clubType"]:checked'
+                ).value;
+
+            const color =
+                currentModalProduct.colors[
+                    selectedColorIndex
+                ];
+
+            cart.push({
+                series: currentModalProduct.series,
+                type: type,
+                color: color.name,
+                price: PRICES[type],
+                img: color.img
+            });
+
             updateCartUI();
+
             closeModal();
+
             openCart();
+
         }
 
-        function removeFromCart(index) { cart.splice(index, 1); updateCartUI(); }
+
+        function removeFromCart(index) {
+
+            cart.splice(index, 1);
+
+            updateCartUI();
+
+        }
+
 
         function updateCartUI() {
-            const cartItemsEl = document.getElementById('cartItems');
-            const cartCountEl = document.getElementById('cartCount');
-            const checkoutBtn = document.getElementById('checkoutBtn');
-            const totalEl = document.getElementById('cartTotal');
-            const bundleNotice = document.getElementById('bundleNotice');
+
+            const cartItemsEl =
+                document.getElementById('cartItems');
+
+            const cartCountEl =
+                document.getElementById('cartCount');
+
+            const checkoutBtn =
+                document.getElementById('checkoutBtn');
+
+            const totalEl =
+                document.getElementById('cartTotal');
+
+            const bundleNotice =
+                document.getElementById('bundleNotice');
+
 
             if (cart.length > 0) {
-                cartCountEl.textContent = cart.length;
+
+                cartCountEl.textContent =
+                    cart.length;
+
                 cartCountEl.classList.remove('hidden');
+
                 checkoutBtn.disabled = false;
-                
-                cartItemsEl.innerHTML = cart.map((item, index) => `
-                    <div class="flex gap-4 border-b border-gray-100 pb-4 items-center">
-                        <img src="${item.img}" class="w-20 h-20 object-cover rounded-xl border">
-                        <div class="flex-grow">
-                            <h4 class="font-bold">${item.series}</h4>
-                            <p class="text-xs text-gray-500 capitalize">${item.type} &bull; ${item.color}</p>
-                            <div class="flex justify-between items-center mt-1">
-                                <p class="font-bold text-primary">RM ${item.price}</p>
-                                <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-600"><i class="fas fa-trash-alt"></i></button>
+
+
+                cartItemsEl.innerHTML =
+                    cart.map((item, index) => `
+
+                        <div
+                            class="flex gap-4 border-b border-gray-100 pb-4 items-center"
+                        >
+
+                            <img
+                                src="${item.img}"
+                                class="w-20 h-20 object-cover rounded-xl border"
+                                alt="${item.series}"
+                            >
+
+                            <div class="flex-grow">
+
+                                <h4 class="font-bold">
+                                    ${item.series}
+                                </h4>
+
+                                <p class="text-xs text-gray-500 capitalize">
+                                    ${item.type} &bull; ${item.color}
+                                </p>
+
+                                <div
+                                    class="flex justify-between items-center mt-1"
+                                >
+
+                                    <p class="font-bold text-primary">
+                                        RM ${item.price}
+                                    </p>
+
+                                    <button
+                                        onclick="removeFromCart(${index})"
+                                        class="text-red-400 hover:text-red-600"
+                                        aria-label="Remove item"
+                                    >
+                                        <i class="fas fa-trash-alt"></i>
+                                    </button>
+
+                                </div>
+
                             </div>
+
                         </div>
-                    </div>
-                `).join('');
+
+                    `).join('');
+
             } else {
+
                 cartCountEl.classList.add('hidden');
+
                 checkoutBtn.disabled = true;
-                cartItemsEl.innerHTML = `<p class="text-center text-gray-400 mt-10">Your cart is empty.</p>`;
+
+                cartItemsEl.innerHTML = `
+                    <p class="text-center text-gray-400 mt-10">
+                        Your cart is empty.
+                    </p>
+                `;
+
             }
 
-            let woods = cart.filter(i => i.type === 'wood').length;
-            let drivers = cart.filter(i => i.type === 'driver').length;
-            let bundlesCount = Math.min(woods, drivers);
-            let productsTotal = (bundlesCount * BUNDLE_PRICE) + ((woods - bundlesCount) * PRICES.wood) + ((drivers - bundlesCount) * PRICES.driver);
 
-            const shippingZone = document.querySelector('input[name="shippingZone"]:checked').value;
-            let shippingFee = shippingZone === 'west' ? 10 : 15;
-            let finalTotal = cart.length > 0 ? (productsTotal + shippingFee) : 0;
+            // Bundle calculation
 
-            totalEl.textContent = `RM ${finalTotal}`;
-            
+            let woods =
+                cart.filter(
+                    i => i.type === 'wood'
+                ).length;
+
+            let drivers =
+                cart.filter(
+                    i => i.type === 'driver'
+                ).length;
+
+            let bundlesCount =
+                Math.min(
+                    woods,
+                    drivers
+                );
+
+            let productsTotal =
+                (bundlesCount * BUNDLE_PRICE) +
+                ((woods - bundlesCount) * PRICES.wood) +
+                ((drivers - bundlesCount) * PRICES.driver);
+
+
+            // Shipping
+
+            const shippingZone =
+                document.querySelector(
+                    'input[name="shippingZone"]:checked'
+                ).value;
+
+            let shippingFee =
+                shippingZone === 'west'
+                    ? 10
+                    : 15;
+
+            let finalTotal =
+                cart.length > 0
+                    ? productsTotal + shippingFee
+                    : 0;
+
+
+            totalEl.textContent =
+                `RM ${finalTotal}`;
+
+
+            // Bundle notice
+
             if (bundlesCount > 0) {
-                bundleNotice.classList.remove('hidden');
-                bundleNotice.innerHTML = `<i class="fas fa-check-circle mr-1"></i> ${bundlesCount} Bundle discount(s) applied!`;
+
+                bundleNotice.classList.remove(
+                    'hidden'
+                );
+
+                bundleNotice.innerHTML = `
+                    <i class="fas fa-check-circle mr-1"></i>
+                    ${bundlesCount} Bundle discount(s) applied!
+                `;
+
             } else {
-                bundleNotice.classList.add('hidden');
+
+                bundleNotice.classList.add(
+                    'hidden'
+                );
+
             }
+
         }
+
+
+        // ================================
+        // CART SIDEBAR
+        // ================================
 
         function openCart() {
-            document.getElementById('cartOverlay').classList.remove('hidden', 'opacity-0');
-            document.getElementById('cartSidebar').classList.remove('translate-x-full');
+
+            document.getElementById('cartOverlay')
+                .classList.remove(
+                    'hidden',
+                    'opacity-0'
+                );
+
+            document.getElementById('cartSidebar')
+                .classList.remove(
+                    'translate-x-full'
+                );
+
         }
+
 
         function closeCart() {
-            document.getElementById('cartSidebar').classList.add('translate-x-full');
-            document.getElementById('cartOverlay').classList.add('opacity-0');
-            setTimeout(() => { document.getElementById('cartOverlay').classList.add('hidden'); }, 300);
+
+            document.getElementById('cartSidebar')
+                .classList.add(
+                    'translate-x-full'
+                );
+
+            document.getElementById('cartOverlay')
+                .classList.add(
+                    'opacity-0'
+                );
+
+            setTimeout(() => {
+
+                document.getElementById('cartOverlay')
+                    .classList.add('hidden');
+
+            }, 300);
+
         }
+
+
+        // ================================
+        // MENU
+        // ================================
 
         function openMenu() {
-            document.getElementById('menuOverlay').classList.remove('hidden', 'opacity-0');
-            document.getElementById('sideMenu').classList.remove('-translate-x-full');
+
+            document.getElementById('menuOverlay')
+                .classList.remove(
+                    'hidden',
+                    'opacity-0'
+                );
+
+            document.getElementById('sideMenu')
+                .classList.remove(
+                    '-translate-x-full'
+                );
+
         }
+
 
         function closeMenu() {
-            document.getElementById('sideMenu').classList.add('-translate-x-full');
-            document.getElementById('menuOverlay').classList.add('opacity-0');
-            setTimeout(() => { document.getElementById('menuOverlay').classList.add('hidden'); }, 300);
+
+            document.getElementById('sideMenu')
+                .classList.add(
+                    '-translate-x-full'
+                );
+
+            document.getElementById('menuOverlay')
+                .classList.add(
+                    'opacity-0'
+                );
+
+            setTimeout(() => {
+
+                document.getElementById('menuOverlay')
+                    .classList.add('hidden');
+
+            }, 300);
+
         }
+
+
+        // ================================
+        // EVENT LISTENERS
+        // ================================
 
         function setupEventListeners() {
-            document.getElementById('cartBtn').addEventListener('click', openCart);
-            document.getElementById('closeCart').addEventListener('click', closeCart);
-            document.getElementById('cartOverlay').addEventListener('click', closeCart);
-            document.getElementById('closeModal').addEventListener('click', closeModal);
-            
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            mobileMenuBtn.addEventListener('click', openMenu);
-            document.getElementById('closeMenuBtn').addEventListener('click', closeMenu);
-            document.getElementById('menuOverlay').addEventListener('click', closeMenu);
-            
-            document.querySelectorAll('.menu-link').forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
 
-            document.querySelectorAll('input[name="clubType"]').forEach(r => r.addEventListener('change', updateModalPrice));
-            document.getElementById('addToCartModalBtn').addEventListener('click', addToCart);
+            // Cart
 
-            document.getElementById('checkoutBtn').addEventListener('click', async () => {
-                if(cart.length === 0) return;
-                
-                const custName = document.getElementById('custName').value.trim();
-                const custEmail = document.getElementById('custEmail').value.trim();
-                const custPhone = document.getElementById('custPhone').value.trim();
-                const custAddress = document.getElementById('custAddress').value.trim();
-                const custCity = document.getElementById('custCity').value.trim();
-                const custPostcode = document.getElementById('custPostcode').value.trim();
-                const custState = document.getElementById('custState').value;
-                const formError = document.getElementById('formError');
+            document.getElementById('cartBtn')
+                .addEventListener(
+                    'click',
+                    openCart
+                );
 
-                if(!custName || !custEmail || !custPhone || !custAddress || !custCity || !custPostcode || !custState) {
-                    formError.innerHTML = 'Please fill in all delivery details above.';
-                    formError.classList.remove('hidden');
-                    return;
-                }
+            document.getElementById('closeCart')
+                .addEventListener(
+                    'click',
+                    closeCart
+                );
 
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(custEmail)) {
-                    formError.innerHTML = 'Please enter a valid email address (e.g., name@email.com).';
-                    formError.classList.remove('hidden');
-                    return;
-                }
+            document.getElementById('cartOverlay')
+                .addEventListener(
+                    'click',
+                    closeCart
+                );
 
-                formError.classList.add('hidden');
 
-                const btn = document.getElementById('checkoutBtn');
-                const shippingZone = document.querySelector('input[name="shippingZone"]:checked').value;
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-                btn.disabled = true;
+            // Modal
 
-                try {
-                    const response = await fetch('/api/checkout', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ 
-                            cart: cart, 
-                            shippingZone: shippingZone,
-                            customer: { 
-                                name: custName, 
-                                email: custEmail, 
-                                phone: custPhone, 
-                                address: custAddress,
-                                city: custCity,
-                                postcode: custPostcode,
-                                state: custState
-                            }
-                        })
-                    });
-                    
-                    const data = await response.json();
-                    
-                    if (response.ok && data.url) {
-                        window.location.href = data.url;
-                    } else {
-                        let errorMsg = data.error || 'Failed to create payment link.';
-                        if (data.details && data.details.message) errorMsg += ` (${data.details.message})`;
-                        
-                        formError.innerHTML = `<strong>Checkout Error:</strong> ${errorMsg}<br><span class="text-xs text-gray-500">Please check your Vercel API Key or HitPay settings.</span>`;
-                        formError.classList.remove('hidden');
-                        btn.innerHTML = 'Proceed to Payment';
-                        btn.disabled = false;
+            document.getElementById('closeModal')
+                .addEventListener(
+                    'click',
+                    closeModal
+                );
+
+
+            // Menu
+
+            const mobileMenuBtn =
+                document.getElementById(
+                    'mobileMenuBtn'
+                );
+
+            mobileMenuBtn.addEventListener(
+                'click',
+                openMenu
+            );
+
+            document.getElementById('closeMenuBtn')
+                .addEventListener(
+                    'click',
+                    closeMenu
+                );
+
+            document.getElementById('menuOverlay')
+                .addEventListener(
+                    'click',
+                    closeMenu
+                );
+
+
+            document.querySelectorAll(
+                '.menu-link'
+            ).forEach(link => {
+
+                link.addEventListener(
+                    'click',
+                    () => {
+
+                        // Only close drawer for same-page anchors.
+                        // External policy pages can open normally.
+                        if (
+                            link.getAttribute('href')
+                                .startsWith('#')
+                        ) {
+                            closeMenu();
+                        } else {
+                            closeMenu();
+                        }
+
                     }
-                } catch (error) {
-                    formError.innerHTML = '<strong>Server Error:</strong> Could not connect to Vercel backend. Ensure api/checkout.js exists.';
-                    formError.classList.remove('hidden');
-                    btn.innerHTML = 'Proceed to Payment';
-                    btn.disabled = false;
-                }
+                );
+
             });
+
+
+            // Club Type
+
+            document.querySelectorAll(
+                'input[name="clubType"]'
+            ).forEach(radio => {
+
+                radio.addEventListener(
+                    'change',
+                    updateModalPrice
+                );
+
+            });
+
+
+            // Add to Cart
+
+            document.getElementById(
+                'addToCartModalBtn'
+            ).addEventListener(
+                'click',
+                addToCart
+            );
+
+
+            // ================================
+            // CHECKOUT
+            // ================================
+
+            document.getElementById(
+                'checkoutBtn'
+            ).addEventListener(
+                'click',
+                async () => {
+
+                    if (cart.length === 0) {
+                        return;
+                    }
+
+
+                    const custName =
+                        document.getElementById(
+                            'custName'
+                        ).value.trim();
+
+                    const custEmail =
+                        document.getElementById(
+                            'custEmail'
+                        ).value.trim();
+
+                    const custPhone =
+                        document.getElementById(
+                            'custPhone'
+                        ).value.trim();
+
+                    const custAddress =
+                        document.getElementById(
+                            'custAddress'
+                        ).value.trim();
+
+                    const custCity =
+                        document.getElementById(
+                            'custCity'
+                        ).value.trim();
+
+                    const custPostcode =
+                        document.getElementById(
+                            'custPostcode'
+                        ).value.trim();
+
+                    const custState =
+                        document.getElementById(
+                            'custState'
+                        ).value;
+
+                    const formError =
+                        document.getElementById(
+                            'formError'
+                        );
+
+
+                    // Required fields
+
+                    if (
+                        !custName ||
+                        !custEmail ||
+                        !custPhone ||
+                        !custAddress ||
+                        !custCity ||
+                        !custPostcode ||
+                        !custState
+                    ) {
+
+                        formError.innerHTML =
+                            'Please fill in all delivery details above.';
+
+                        formError.classList.remove(
+                            'hidden'
+                        );
+
+                        return;
+                    }
+
+
+                    // Email validation
+
+                    const emailRegex =
+                        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                    if (
+                        !emailRegex.test(
+                            custEmail
+                        )
+                    ) {
+
+                        formError.innerHTML =
+                            'Please enter a valid email address (e.g., name@email.com).';
+
+                        formError.classList.remove(
+                            'hidden'
+                        );
+
+                        return;
+                    }
+
+
+                    formError.classList.add(
+                        'hidden'
+                    );
+
+
+                    const btn =
+                        document.getElementById(
+                            'checkoutBtn'
+                        );
+
+                    const shippingZone =
+                        document.querySelector(
+                            'input[name="shippingZone"]:checked'
+                        ).value;
+
+
+                    btn.innerHTML = `
+                        <i class="fas fa-spinner fa-spin"></i>
+                        Processing...
+                    `;
+
+                    btn.disabled = true;
+
+
+                    try {
+
+                        const response =
+                            await fetch(
+                                '/api/checkout',
+                                {
+                                    method: 'POST',
+
+                                    headers: {
+                                        'Content-Type':
+                                            'application/json'
+                                    },
+
+                                    body: JSON.stringify({
+
+                                        cart: cart,
+
+                                        shippingZone:
+                                            shippingZone,
+
+                                        customer: {
+
+                                            name:
+                                                custName,
+
+                                            email:
+                                                custEmail,
+
+                                            phone:
+                                                custPhone,
+
+                                            address:
+                                                custAddress,
+
+                                            city:
+                                                custCity,
+
+                                            postcode:
+                                                custPostcode,
+
+                                            state:
+                                                custState
+
+                                        }
+
+                                    })
+                                }
+                            );
+
+
+                        const data =
+                            await response.json();
+
+
+                        if (
+                            response.ok &&
+                            data.url
+                        ) {
+
+                            window.location.href =
+                                data.url;
+
+                        } else {
+
+                            let errorMsg =
+                                data.error ||
+                                'Failed to create payment link.';
+
+                            if (
+                                data.details &&
+                                data.details.message
+                            ) {
+
+                                errorMsg +=
+                                    ` (${data.details.message})`;
+
+                            }
+
+
+                            formError.innerHTML = `
+                                <strong>Checkout Error:</strong>
+                                ${errorMsg}
+                                <br>
+                                <span class="text-xs text-gray-500">
+                                    Please check your Vercel API Key or HitPay settings.
+                                </span>
+                            `;
+
+                            formError.classList.remove(
+                                'hidden'
+                            );
+
+                            btn.innerHTML =
+                                'Proceed to Payment';
+
+                            btn.disabled =
+                                false;
+
+                        }
+
+                    } catch (error) {
+
+                        formError.innerHTML = `
+                            <strong>Server Error:</strong>
+                            Could not connect to Vercel backend.
+                            Ensure api/checkout.js exists.
+                        `;
+
+                        formError.classList.remove(
+                            'hidden'
+                        );
+
+                        btn.innerHTML =
+                            'Proceed to Payment';
+
+                        btn.disabled =
+                            false;
+
+                    }
+
+                }
+            );
+
         }
+
     </script>
+
 </body>
 </html>
