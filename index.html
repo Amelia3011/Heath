@@ -309,6 +309,7 @@
                         class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors"
                     >
                         Privacy Policy
+                    </a>
                 </div>
 
             </div>
@@ -634,22 +635,21 @@
             </div>
         </div>
 
-        <!-- CHECKOUT FOOTER -->
-        <div
-            class="p-6 border-t bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex-shrink-0"
-        >
+        <!-- CHECKOUT FOOTER (WHATSAPP UPDATE) -->
+        <div class="p-6 border-t bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex-shrink-0">
 
             <button
                 id="checkoutBtn"
-                class="w-full bg-[#4c111f] text-white py-4 rounded-xl font-bold hover:bg-[#4c111f] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex justify-center items-center gap-2"
+                class="w-full bg-[#25D366] text-white py-4 rounded-xl font-bold hover:bg-[#128C7E] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex justify-center items-center gap-2 text-lg"
             >
-                Proceed to Payment
+                <i class="fab fa-whatsapp text-xl"></i>
+                Order via WhatsApp
             </button>
 
             <!-- TERMS & RETURN POLICY AGREEMENT -->
             <p class="text-xs text-center text-gray-500 mt-3 leading-relaxed">
 
-                By proceeding to payment, you agree to our
+                By proceeding to order, you agree to our
 
                 <a
                     href="T&C1.html"
@@ -674,9 +674,8 @@
             </p>
 
             <!-- SECURITY NOTE -->
-            <p class="text-xs text-center text-[#4c111f]/60 mt-3">
-                <i class="fas fa-lock mr-1"></i>
-                Secure checkout via HitPay
+            <p class="text-xs text-center text-gray-500 mt-3">
+                Complete your order manually via our official WhatsApp.
             </p>
 
         </div>
@@ -1572,250 +1571,108 @@
 
 
             // ================================
-            // CHECKOUT
+            // WHATSAPP CHECKOUT LOGIC
             // ================================
 
             document.getElementById(
                 'checkoutBtn'
             ).addEventListener(
                 'click',
-                async () => {
+                () => {
 
                     if (cart.length === 0) {
                         return;
                     }
 
+                    const custName = document.getElementById('custName').value.trim();
+                    const custEmail = document.getElementById('custEmail').value.trim();
+                    const custPhone = document.getElementById('custPhone').value.trim();
+                    const custAddress = document.getElementById('custAddress').value.trim();
+                    const custCity = document.getElementById('custCity').value.trim();
+                    const custPostcode = document.getElementById('custPostcode').value.trim();
+                    const custState = document.getElementById('custState').value;
+                    const formError = document.getElementById('formError');
 
-                    const custName =
-                        document.getElementById(
-                            'custName'
-                        ).value.trim();
-
-                    const custEmail =
-                        document.getElementById(
-                            'custEmail'
-                        ).value.trim();
-
-                    const custPhone =
-                        document.getElementById(
-                            'custPhone'
-                        ).value.trim();
-
-                    const custAddress =
-                        document.getElementById(
-                            'custAddress'
-                        ).value.trim();
-
-                    const custCity =
-                        document.getElementById(
-                            'custCity'
-                        ).value.trim();
-
-                    const custPostcode =
-                        document.getElementById(
-                            'custPostcode'
-                        ).value.trim();
-
-                    const custState =
-                        document.getElementById(
-                            'custState'
-                        ).value;
-
-                    const formError =
-                        document.getElementById(
-                            'formError'
-                        );
-
-
-                    // Required fields
-
-                    if (
-                        !custName ||
-                        !custEmail ||
-                        !custPhone ||
-                        !custAddress ||
-                        !custCity ||
-                        !custPostcode ||
-                        !custState
-                    ) {
-
-                        formError.innerHTML =
-                            'Please fill in all delivery details above.';
-
-                        formError.classList.remove(
-                            'hidden'
-                        );
-
+                    // 1. Basic field Validation
+                    if (!custName || !custEmail || !custPhone || !custAddress || !custCity || !custPostcode || !custState) {
+                        formError.innerHTML = 'Please fill in all delivery details above.';
+                        formError.classList.remove('hidden');
                         return;
                     }
 
-
-                    // Email validation
-
-                    const emailRegex =
-                        /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-                    if (
-                        !emailRegex.test(
-                            custEmail
-                        )
-                    ) {
-
-                        formError.innerHTML =
-                            'Please enter a valid email address (e.g., name@email.com).';
-
-                        formError.classList.remove(
-                            'hidden'
-                        );
-
+                    // 2. Email Validation
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRegex.test(custEmail)) {
+                        formError.innerHTML = 'Please enter a valid email address (e.g., name@email.com).';
+                        formError.classList.remove('hidden');
                         return;
                     }
 
+                    formError.classList.add('hidden');
 
-                    formError.classList.add(
-                        'hidden'
-                    );
+                    const btn = document.getElementById('checkoutBtn');
+                    const shippingZone = document.querySelector('input[name="shippingZone"]:checked').value;
+                    const zoneName = shippingZone === 'west' ? "West Malaysia" : "East Malaysia";
 
+                    // 3. Process Cart Totals & Bundles for the Message
+                    let woods = cart.filter(i => i.type === 'wood').length;
+                    let drivers = cart.filter(i => i.type === 'driver').length;
+                    let bundlesCount = Math.min(woods, drivers);
+                    let productsTotal = (bundlesCount * BUNDLE_PRICE) + ((woods - bundlesCount) * PRICES.wood) + ((drivers - bundlesCount) * PRICES.driver);
+                    let shippingFee = shippingZone === 'west' ? 10 : 15;
+                    let finalTotal = productsTotal + shippingFee;
 
-                    const btn =
-                        document.getElementById(
-                            'checkoutBtn'
-                        );
+                    let bundleText = bundlesCount > 0 ? `\n* Bundles applied: ${bundlesCount} (Saved RM ${bundlesCount * ((PRICES.wood + PRICES.driver) - BUNDLE_PRICE)})` : '';
+                    
+                    // Format Cart Items
+                    let cartDetails = cart.map((item, index) => {
+                        let capitalizedType = item.type.charAt(0).toUpperCase() + item.type.slice(1);
+                        return `${index + 1}. ${item.series} (${capitalizedType}) - Color: ${item.color} - RM ${item.price}`;
+                    }).join('\n');
 
-                    const shippingZone =
-                        document.querySelector(
-                            'input[name="shippingZone"]:checked'
-                        ).value;
+                    // 4. Construct WhatsApp Message Structure
+                    let message = `*NEW ORDER - HEATH STUDIO* 🏌️‍♂️
 
+*Customer Details:*
+Name: ${custName}
+Email: ${custEmail}
+Phone: ${custPhone}
 
-                    btn.innerHTML = `
-                        <i class="fas fa-spinner fa-spin"></i>
-                        Processing...
-                    `;
+*Delivery Address:*
+${custAddress}
+${custPostcode} ${custCity}
+${custState}
+Shipping: ${zoneName} (RM ${shippingFee})
 
+*Order Summary:*
+${cartDetails}${bundleText}
+
+*Grand Total: RM ${finalTotal}*
+
+Hi Heath Studio! Please confirm my order and provide payment/transfer instructions!`;
+
+                    // ==========================================
+                    // ⚠️ CHANGE THIS TO YOUR WHATSAPP NUMBER ⚠️
+                    // Format: Country Code + Number (No '+' or '-' symbols)
+                    // Example: Malaysia number 012-345 6789 becomes "60123456789"
+                    // ==========================================
+                    const businessPhoneNumber = "60123456789"; 
+                    
+                    const encodedMessage = encodeURIComponent(message);
+                    const whatsappUrl = `https://wa.me/${businessPhoneNumber}?text=${encodedMessage}`;
+
+                    // Update UI to show redirecting state
+                    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting to WhatsApp...';
                     btn.disabled = true;
 
-
-                    try {
-
-                        const response =
-                            await fetch(
-                                '/api/checkout',
-                                {
-                                    method: 'POST',
-
-                                    headers: {
-                                        'Content-Type':
-                                            'application/json'
-                                    },
-
-                                    body: JSON.stringify({
-
-                                        cart: cart,
-
-                                        shippingZone:
-                                            shippingZone,
-
-                                        customer: {
-
-                                            name:
-                                                custName,
-
-                                            email:
-                                                custEmail,
-
-                                            phone:
-                                                custPhone,
-
-                                            address:
-                                                custAddress,
-
-                                            city:
-                                                custCity,
-
-                                            postcode:
-                                                custPostcode,
-
-                                            state:
-                                                custState
-
-                                        }
-
-                                    })
-                                }
-                            );
-
-
-                        const data =
-                            await response.json();
-
-
-                        if (
-                            response.ok &&
-                            data.url
-                        ) {
-
-                            window.location.href =
-                                data.url;
-
-                        } else {
-
-                            let errorMsg =
-                                data.error ||
-                                'Failed to create payment link.';
-
-                            if (
-                                data.details &&
-                                data.details.message
-                            ) {
-
-                                errorMsg +=
-                                    ` (${data.details.message})`;
-
-                            }
-
-
-                            formError.innerHTML = `
-                                <strong>Checkout Error:</strong>
-                                ${errorMsg}
-                                <br>
-                                <span class="text-xs text-gray-500">
-                                    Please check your Vercel API Key or HitPay settings.
-                                </span>
-                            `;
-
-                            formError.classList.remove(
-                                'hidden'
-                            );
-
-                            btn.innerHTML =
-                                'Proceed to Payment';
-
-                            btn.disabled =
-                                false;
-
-                        }
-
-                    } catch (error) {
-
-                        formError.innerHTML = `
-                            <strong>Server Error:</strong>
-                            Could not connect to Vercel backend.
-                            Ensure api/checkout.js exists.
-                        `;
-
-                        formError.classList.remove(
-                            'hidden'
-                        );
-
-                        btn.innerHTML =
-                            'Proceed to Payment';
-
-                        btn.disabled =
-                            false;
-
-                    }
-
+                    // Redirect after a short delay
+                    setTimeout(() => {
+                        window.location.href = whatsappUrl;
+                        
+                        // Reset button state in case they hit "back"
+                        btn.innerHTML = '<i class="fab fa-whatsapp text-xl"></i> Order via WhatsApp';
+                        btn.disabled = false;
+                    }, 800);
                 }
             );
 
