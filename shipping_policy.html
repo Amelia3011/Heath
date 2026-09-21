@@ -222,174 +222,19 @@
         </div>
     </main>
 
-    <!-- FOOTER -->
+     <!-- Footer -->
     <footer class="bg-[#2f0a13] text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
 
-                <div class="text-center md:text-left">
-                    <p class="font-serif text-2xl font-semibold">
-                        HEATH STUDIO
-                    </p>
-                    <p class="text-sm text-gray-300 mt-1">
-                        Considered differently.
-                    </p>
-                </div>
+            <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
 
-                <div class="flex flex-wrap justify-center gap-4 text-sm">
-                    <a
-                        href="T&C.html"
-                        class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors"
-                    >
-                        Terms & Conditions
-                    </a>
-                    <span class="text-gray-500">|</span>
-                    <a
-                        href="T&C.html"
-                        class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors"
-                    >
-                        Return & Refund Policy
-                    </a>
-                    <span class="text-gray-500">|</span>
-                    <a
-                        href="shipping-policy.html"
-                        class="text-white font-medium underline-offset-4 underline transition-colors"
-                    >
-                        Shipping Policy
-                    </a>
-                </div>
-
-            </div>
-
-            <div class="border-t border-white/10 mt-8 pt-6 text-center">
-                <p class="text-xs text-gray-400">
+                <p class="text-sm text-gray-300 text-center sm:text-left">
                     © 2026 HEATH STUDIO. All rights reserved.
                 </p>
+
             </div>
         </div>
     </footer>
 
-    <!-- MENU OVERLAY -->
-    <div
-        id="menuOverlay"
-        class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"
-    ></div>
-
-    <!-- LEFT SIDEBAR MENU -->
-    <div
-        id="sideMenu"
-        class="fixed top-0 left-0 h-[100dvh] w-[250px] sm:w-[300px] bg-white shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col"
-    >
-        <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
-            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">
-                Menu
-            </h2>
-            <button
-                id="closeMenuBtn"
-                class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none"
-                aria-label="Close menu"
-            >
-                <i class="fas fa-times text-xl"></i>
-            </button>
-        </div>
-
-        <div class="flex-1 px-6 pt-6 space-y-2">
-            <!-- Navigating back to main index.html file -->
-            <a href="index.html#home" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Home</a>
-            <a href="index.html#collections" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Collections</a>
-            <a href="index.html#about" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">About Us</a>
-            <a href="T&C.html" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Terms & Conditions</a>
-            <a href="T&C.html" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Return & Refund Policy</a>
-            <a href="shipping-policy.html" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Shipping Policy</a>
-        </div>
-    </div>
-
-
-    <!-- CART OVERLAY -->
-    <div
-        id="cartOverlay"
-        class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"
-    ></div>
-
-    <!-- CART SIDEBAR (Kept empty for consistency with header, since purchasing is done on index) -->
-    <div
-        id="cartSidebar"
-        class="fixed top-0 right-0 h-[100dvh] w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col"
-    >
-        <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
-            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">
-                Your Cart
-            </h2>
-            <button
-                id="closeCart"
-                class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none"
-                aria-label="Close cart"
-            >
-                <i class="fas fa-times text-xl"></i>
-            </button>
-        </div>
-
-        <div class="flex-1 overflow-y-auto no-scrollbar flex items-center justify-center p-6">
-            <div class="text-center">
-                <p class="text-gray-400 mb-4">Return to the homepage to shop our collection.</p>
-                <a href="index.html#collections" class="bg-[#4c111f] text-white px-6 py-2 rounded-lg font-medium hover:opacity-80 transition-opacity">
-                    Shop Now
-                </a>
-            </div>
-        </div>
-    </div>
-
-    <!-- JAVASCRIPT -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            
-            // MENU LOGIC
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const closeMenuBtn = document.getElementById('closeMenuBtn');
-            const menuOverlay = document.getElementById('menuOverlay');
-            const sideMenu = document.getElementById('sideMenu');
-
-            function openMenu() {
-                menuOverlay.classList.remove('hidden', 'opacity-0');
-                sideMenu.classList.remove('-translate-x-full');
-            }
-
-            function closeMenu() {
-                sideMenu.classList.add('-translate-x-full');
-                menuOverlay.classList.add('opacity-0');
-                setTimeout(() => {
-                    menuOverlay.classList.add('hidden');
-                }, 300);
-            }
-
-            mobileMenuBtn.addEventListener('click', openMenu);
-            closeMenuBtn.addEventListener('click', closeMenu);
-            menuOverlay.addEventListener('click', closeMenu);
-
-            // CART LOGIC
-            const cartBtn = document.getElementById('cartBtn');
-            const closeCartBtn = document.getElementById('closeCart');
-            const cartOverlay = document.getElementById('cartOverlay');
-            const cartSidebar = document.getElementById('cartSidebar');
-
-            function openCart() {
-                cartOverlay.classList.remove('hidden', 'opacity-0');
-                cartSidebar.classList.remove('translate-x-full');
-            }
-
-            function closeCart() {
-                cartSidebar.classList.add('translate-x-full');
-                cartOverlay.classList.add('opacity-0');
-                setTimeout(() => {
-                    cartOverlay.classList.add('hidden');
-                }, 300);
-            }
-
-            cartBtn.addEventListener('click', openCart);
-            closeCartBtn.addEventListener('click', closeCart);
-            cartOverlay.addEventListener('click', closeCart);
-
-        });
-    </script>
 </body>
 </html>
