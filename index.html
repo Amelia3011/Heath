@@ -852,7 +852,7 @@
                             Select Club Type
                         </h4>
 
-                        <div class="grid grid-cols-2 gap-4">
+                        <div class="grid grid-cols-2 gap-4" id="modalClubTypes">
 
                             <!-- Wood -->
                             <label class="cursor-pointer group">
@@ -863,6 +863,7 @@
                                     value="wood"
                                     class="peer sr-only"
                                     checked
+                                    onchange="selectClubType()"
                                 >
 
                                 <div
@@ -888,6 +889,7 @@
                                     name="clubType"
                                     value="driver"
                                     class="peer sr-only"
+                                    onchange="selectClubType()"
                                 >
 
                                 <div
@@ -951,22 +953,22 @@
                 id: 'earthy',
                 series: 'Earthy Tweed',
                 desc: 'Classic tweed texture bringing a touch of tradition to your bag.',
+                // The images array here is for the grid card autoloop slideshow
+                slideshowImages: ['ET3.png', 'ET4.png', 'ET5.png', 'ET6.png'],
                 colors: [
                     {
                         name: 'Autumn',
                         hex: '#894E35',
-                        images: [
-                            'ET3.png',
-                            'ET4.png'
-                        ]
+                        // Specific images for the modal based on selection
+                        woodImg: 'AW.png', 
+                        driverImg: 'AD.png'
                     },
                     {
                         name: 'Moss',
                         hex: '#5E564C',
-                        images: [
-                            'ET3.png',
-                            'ET4.png'
-                        ]
+                        // Specific images for the modal based on selection
+                        woodImg: 'MW.png',
+                        driverImg: 'MD.png'
                     }
                 ]
             },
@@ -975,22 +977,22 @@
                 id: 'azure',
                 series: 'Azure Wave',
                 desc: 'Dynamic patterns inspired by coastal waters.',
+                // The images array here is for the grid card autoloop slideshow
+                slideshowImages: ['AZ3.png', 'AZ4.png', 'AZ5.png', 'AZ6'],
                 colors: [
                     {
                         name: 'Deep Sea',
                         hex: '#30506E',
-                        images: [
-                            'AZ3.png',
-                            'AZ4.png'
-                        ]
+                        // Specific images for the modal based on selection
+                        woodImg: 'AZdeepw.png',
+                        driverImg: 'AZ_deepd.png'
                     },
                     {
                         name: 'Sky Crest',
                         hex: '#A1C8D5',
-                        images: [
-                            'AZ3.png',
-                            'AZ4.png'
-                        ]
+                        // Specific images for the modal based on selection
+                        woodImg: 'AZskyw.png',
+                        driverImg: 'AZskyd.png'
                     }
                 ]
             },
@@ -999,22 +1001,22 @@
                 id: 'bone',
                 series: 'Black & Bone',
                 desc: 'Sleek, minimalist, and menacing.',
+                // The images array here is for the grid card autoloop slideshow
+                slideshowImages: ['BW2.png', 'BW3.png', 'BW4.png', 'BW5'],
                 colors: [
                     {
                         name: 'Black',
                         hex: '#000000',
-                        images: [
-                            'BW2.png',
-                            'BW3.png'
-                        ]
+                        // Specific images for the modal based on selection
+                        woodImg: 'BBw.png',
+                        driverImg: 'BBd.png'
                     },
                     {
                         name: 'Bone',
                         hex: '#f3DEC7',
-                        images: [
-                            'BW2.png',
-                            'BW3.png'
-                        ]
+                        // Specific images for the modal based on selection
+                        woodImg: 'Bonew.png',
+                        driverImg: 'Boned.png'
                     }
                 ]
             }
@@ -1052,7 +1054,7 @@
 
         function startHoverSlideshow(productId, cardElement) {
             const product = products.find(p => p.id === productId);
-            const images = product.colors[0].images;
+            const images = product.slideshowImages; // Use slideshow images
             const imgEl = cardElement.querySelector('.product-img');
             
             if (!imgEl || images.length <= 1) return;
@@ -1081,7 +1083,7 @@
             const product = products.find(p => p.id === productId);
             const imgEl = cardElement.querySelector('.product-img');
             if (imgEl && product) {
-                imgEl.src = product.colors[0].images[0];
+                imgEl.src = product.slideshowImages[0]; // Use slideshow images
             }
         }
         
@@ -1135,7 +1137,7 @@
                         class="relative bg-gray-100 rounded-lg md:rounded-2xl overflow-hidden aspect-[4/5] mb-2 md:mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-300"
                     >
                         <img
-                            src="${product.colors[0].images[0]}"
+                            src="${product.slideshowImages[0]}"
                             alt="${product.series}"
                             class="product-img w-full h-full object-cover transition-opacity duration-300"
                         >
@@ -1191,6 +1193,9 @@
                 currentModalProduct.series;
             document.getElementById('modalDesc').textContent =
                 currentModalProduct.desc;
+
+            // Ensure Wood is selected by default when opening modal
+            document.querySelector('input[name="clubType"][value="wood"]').checked = true;
 
             updateModalImage();
 
@@ -1250,9 +1255,22 @@
                 }
             });
         }
+        
+        function selectClubType() {
+            updateModalImage();
+            updateModalPrice();
+        }
 
         function updateModalImage() {
-            document.getElementById('modalImg').src = currentModalProduct.colors[selectedColorIndex].images[0];
+            const selectedClub = document.querySelector('input[name="clubType"]:checked').value;
+            const colorData = currentModalProduct.colors[selectedColorIndex];
+            
+            // Determine which image to show based on the selected club type for this specific colorway
+            if (selectedClub === 'wood') {
+                document.getElementById('modalImg').src = colorData.woodImg;
+            } else {
+                document.getElementById('modalImg').src = colorData.driverImg;
+            }
         }
 
         function updateModalPrice() {
@@ -1267,13 +1285,16 @@
         function addToCart() {
             const type = document.querySelector('input[name="clubType"]:checked').value;
             const color = currentModalProduct.colors[selectedColorIndex];
+            
+            // Determine which image to use for the cart thumbnail
+            const cartImg = type === 'wood' ? color.woodImg : color.driverImg;
 
             cart.push({
                 series: currentModalProduct.series,
                 type: type,
                 color: color.name,
                 price: PRICES[type],
-                img: color.images[0]
+                img: cartImg // Use the specific image for the cart
             });
 
             updateCartUI();
@@ -1476,9 +1497,7 @@
             });
 
             // Club Type
-            document.querySelectorAll('input[name="clubType"]').forEach(radio => {
-                radio.addEventListener('change', updateModalPrice);
-            });
+            // Removed the old event listeners here as we added onchange="selectClubType()" directly to the HTML inputs
 
             // Add to Cart
             document.getElementById('addToCartModalBtn').addEventListener('click', addToCart);
