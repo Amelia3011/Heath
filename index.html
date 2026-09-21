@@ -659,7 +659,7 @@
                 </button>
 
                 <div class="text-center mb-6">
-                    <h3 class="font-serif text-2xl font-bold text-duitnow-blue">Scan to Pay</h3>
+                    <h3 class="font-serif text-2xl font-bold text-primary">Scan to Pay</h3>
                     <p class="text-gray-500 text-sm mt-1">Screenshot this QR code and upload it to your banking app or e-wallet to complete your purchase.</p>
                 </div>
 
@@ -900,7 +900,7 @@
                                     </span>
 
                                     <span class="block text-sm text-[#4c111f]/70 mt-1">
-                                        RM 119
+                                        RM 129
                                     </span>
 
                                 </div>
@@ -956,14 +956,20 @@
                 desc: 'Classic tweed texture bringing a touch of tradition to your bag.',
                 colors: [
                     {
-                        name: 'Oatmeal',
-                        hex: '#d2b48c',
-                        img: 'https://placehold.co/600x800/d2b48c/ffffff?text=Earthy+Tweed%0AOatmeal'
+                        name: 'Autumn',
+                        hex: '#894E35',
+                        images: [
+                            'ET3.png',
+                            'ET4.png'
+                        ]
                     },
                     {
-                        name: 'Forest',
-                        hex: '#228b22',
-                        img: 'https://placehold.co/600x800/228b22/ffffff?text=Earthy+Tweed%0AForest'
+                        name: 'Moss',
+                        hex: '#5E564C',
+                        images: [
+                            'ET3.png',
+                            'ET4.png'
+                        ]
                     }
                 ]
             },
@@ -975,31 +981,43 @@
                 colors: [
                     {
                         name: 'Deep Sea',
-                        hex: '#00008b',
-                        img: 'https://placehold.co/600x800/00008b/ffffff?text=Azure+Wave%0ADeep+Sea'
+                        hex: '#30506E',
+                        images: [
+                            'AZ3.png',
+                            'AZ4.png'
+                        ]
                     },
                     {
                         name: 'Sky Crest',
-                        hex: '#87ceeb',
-                        img: 'https://placehold.co/600x800/87ceeb/1F2937?text=Azure+Wave%0ASky+Crest'
+                        hex: '#A1C8D5',
+                        images: [
+                            'AZ3.png',
+                            'AZ4.png'
+                        ]
                     }
                 ]
             },
 
             {
                 id: 'bone',
-                series: 'Black Bone',
+                series: 'Black & Bone',
                 desc: 'Sleek, minimalist, and menacing.',
                 colors: [
                     {
-                        name: 'Pitch Black',
+                        name: 'Black',
                         hex: '#000000',
-                        img: 'https://placehold.co/600x800/000000/ffffff?text=Black+Bone%0APitch+Black'
+                        images: [
+                            'BW2.png',
+                            'BW3.png'
+                        ]
                     },
                     {
-                        name: 'Ivory Ash',
-                        hex: '#f0fff0',
-                        img: 'https://placehold.co/600x800/f0fff0/1F2937?text=Black+Bone%0AIvory+Ash'
+                        name: 'Bone',
+                        hex: '#f3DEC7',
+                        images: [
+                            'BW2.png',
+                            'BW3.png'
+                        ]
                     }
                 ]
             }
@@ -1007,10 +1025,10 @@
 
         const PRICES = {
             wood: 109,
-            driver: 119
+            driver: 129
         };
 
-        const BUNDLE_PRICE = 218;
+        const BUNDLE_PRICE = 228;
 
         let cart = [];
         let currentModalProduct = null;
@@ -1031,8 +1049,45 @@
         });
 
         // ================================
-        // PRODUCT GRID
+        // PRODUCT GRID & HOVER SLIDESHOW
         // ================================
+        
+        let hoverIntervals = {};
+
+        function startHoverSlideshow(productId, cardElement) {
+            const product = products.find(p => p.id === productId);
+            const images = product.colors[0].images;
+            const imgEl = cardElement.querySelector('.product-img');
+            
+            if (!imgEl || images.length <= 1) return;
+
+            let currentIndex = 0;
+            
+            // Clear any existing interval to prevent speeding up
+            if (hoverIntervals[productId]) {
+                clearInterval(hoverIntervals[productId]);
+            }
+
+            // Change image every 800ms
+            hoverIntervals[productId] = setInterval(() => {
+                currentIndex = (currentIndex + 1) % images.length;
+                imgEl.src = images[currentIndex];
+            }, 800); 
+        }
+
+        function stopHoverSlideshow(productId, cardElement) {
+            if (hoverIntervals[productId]) {
+                clearInterval(hoverIntervals[productId]);
+                delete hoverIntervals[productId];
+            }
+            
+            // Reset to the very first image when mouse leaves
+            const product = products.find(p => p.id === productId);
+            const imgEl = cardElement.querySelector('.product-img');
+            if (imgEl && product) {
+                imgEl.src = product.colors[0].images[0];
+            }
+        }
 
         function renderProductGrid() {
 
@@ -1043,6 +1098,10 @@
                 <div
                     class="product-card group cursor-pointer"
                     onclick="openModal('${product.id}')"
+                    onmouseenter="startHoverSlideshow('${product.id}', this)"
+                    onmouseleave="stopHoverSlideshow('${product.id}', this)"
+                    ontouchstart="startHoverSlideshow('${product.id}', this)"
+                    ontouchend="stopHoverSlideshow('${product.id}', this)"
                 >
 
                     <div
@@ -1050,9 +1109,9 @@
                     >
 
                         <img
-                            src="${product.colors[0].img}"
+                            src="${product.colors[0].images[0]}"
                             alt="${product.series}"
-                            class="product-img w-full h-full object-cover"
+                            class="product-img w-full h-full object-cover transition-opacity duration-300"
                         >
 
                         <div
@@ -1242,7 +1301,7 @@
             document.getElementById('modalImg').src =
                 currentModalProduct
                     .colors[selectedColorIndex]
-                    .img;
+                    .images[0];
 
         }
 
@@ -1281,7 +1340,7 @@
                 type: type,
                 color: color.name,
                 price: PRICES[type],
-                img: color.img
+                img: color.images[0]
             });
 
             updateCartUI();
