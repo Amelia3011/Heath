@@ -17,6 +17,9 @@
         rel="stylesheet"
     >
 
+    <!-- QRCode.js Library for dynamic QR generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
     <script>
         tailwind.config = {
             theme: {
@@ -34,7 +37,10 @@
                         'azure-1': '#4682B4',
                         'azure-2': '#000080',
                         'bone-1': '#F5F5DC',
-                        'bone-2': '#2F4F4F'
+                        'bone-2': '#2F4F4F',
+                        // DuitNow specific colors
+                        'duitnow-pink': '#ED1164', 
+                        'duitnow-blue': '#161C68'
                     }
                 }
             }
@@ -61,6 +67,16 @@
         .no-scrollbar {
             -ms-overflow-style: none;
             scrollbar-width: none;
+        }
+
+        /* Pulse animation for the QR container to draw attention */
+        @keyframes subtle-pulse {
+            0% { box-shadow: 0 0 0 0 rgba(237, 17, 100, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(237, 17, 100, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(237, 17, 100, 0); }
+        }
+        .qr-pulse {
+            animation: subtle-pulse 2s infinite;
         }
     </style>
 </head>
@@ -419,7 +435,7 @@
         <!-- Cart Header -->
         <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
 
-            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">
+            <h2 class="font-serif text-2xl font-bold text-[#4c111f]" id="cartTitle">
                 Your Cart
             </h2>
 
@@ -433,221 +449,293 @@
 
         </div>
 
-        <!-- Cart Content -->
-        <div class="flex-1 overflow-y-auto no-scrollbar">
+        <!-- Cart Content (Toggleable View) -->
+        <div class="flex-1 overflow-y-auto no-scrollbar relative" id="cartContentArea">
 
-            <div
-                id="cartItems"
-                class="p-6 space-y-4"
-            >
-                <!-- JS injects cart items here -->
-            </div>
-
-            <!-- Cart Summary -->
-            <div class="p-6 border-t bg-gray-50/50">
-
-                <div class="flex justify-between items-center mb-4">
-
-                    <span class="text-gray-600">
-                        Subtotal
-                    </span>
-
-                    <span
-                        class="font-bold text-2xl text-primary"
-                        id="cartTotal"
-                    >
-                        RM 0
-                    </span>
-
-                </div>
-
-                <!-- Bundle Notice -->
+            <!-- VIEW 1: STANDARD CART & FORM -->
+            <div id="cartFormView" class="w-full transition-opacity duration-300 opacity-100 absolute top-0 left-0 h-full overflow-y-auto no-scrollbar">
+                
                 <div
-                    class="text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-md mb-4 hidden border border-green-100"
-                    id="bundleNotice"
+                    id="cartItems"
+                    class="p-6 space-y-4"
                 >
-                    <i class="fas fa-check-circle mr-1"></i>
-                    Bundle discount applied!
+                    <!-- JS injects cart items here -->
                 </div>
 
-                <!-- Delivery Details -->
-                <div class="mb-4 space-y-3">
+                <!-- Cart Summary -->
+                <div class="p-6 border-t bg-gray-50/50">
 
-                    <h3 class="text-sm font-medium text-[#4c111f]">
-                        Delivery Details
-                    </h3>
+                    <div class="flex justify-between items-center mb-4">
 
-                    <input
-                        type="text"
-                        id="custName"
-                        placeholder="Full Name"
-                        class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
-                        required
+                        <span class="text-gray-600">
+                            Subtotal
+                        </span>
+
+                        <span
+                            class="font-bold text-2xl text-primary"
+                            id="cartTotal"
+                        >
+                            RM 0
+                        </span>
+
+                    </div>
+
+                    <!-- Bundle Notice -->
+                    <div
+                        class="text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-md mb-4 hidden border border-green-100"
+                        id="bundleNotice"
                     >
+                        <i class="fas fa-check-circle mr-1"></i>
+                        Bundle discount applied!
+                    </div>
 
-                    <input
-                        type="email"
-                        id="custEmail"
-                        placeholder="Email Address"
-                        class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
-                        required
-                    >
+                    <!-- Delivery Details -->
+                    <div class="mb-4 space-y-3">
 
-                    <input
-                        type="tel"
-                        id="custPhone"
-                        placeholder="Phone Number"
-                        class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
-                        required
-                    >
-
-                    <div class="space-y-2">
+                        <h3 class="text-sm font-medium text-[#4c111f]">
+                            Delivery Details
+                        </h3>
 
                         <input
                             type="text"
-                            id="custAddress"
-                            placeholder="Street Address (e.g. No. 12, Jalan Sultan)"
+                            id="custName"
+                            placeholder="Full Name"
                             class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
                             required
                         >
 
-                        <div class="grid grid-cols-2 gap-2">
+                        <input
+                            type="email"
+                            id="custEmail"
+                            placeholder="Email Address"
+                            class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
+                            required
+                        >
+
+                        <input
+                            type="tel"
+                            id="custPhone"
+                            placeholder="Phone Number"
+                            class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
+                            required
+                        >
+
+                        <div class="space-y-2">
 
                             <input
                                 type="text"
-                                id="custCity"
-                                placeholder="City"
+                                id="custAddress"
+                                placeholder="Street Address (e.g. No. 12, Jalan Sultan)"
                                 class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
                                 required
                             >
 
-                            <input
-                                type="text"
-                                id="custPostcode"
-                                placeholder="Postcode"
+                            <div class="grid grid-cols-2 gap-2">
+
+                                <input
+                                    type="text"
+                                    id="custCity"
+                                    placeholder="City"
+                                    class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
+                                    required
+                                >
+
+                                <input
+                                    type="text"
+                                    id="custPostcode"
+                                    placeholder="Postcode"
+                                    class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
+                                    required
+                                >
+
+                            </div>
+
+                            <select
+                                id="custState"
                                 class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
                                 required
                             >
+                                <option value="" disabled selected>
+                                    Select State...
+                                </option>
+
+                                <option value="Johor">Johor</option>
+                                <option value="Kedah">Kedah</option>
+                                <option value="Kelantan">Kelantan</option>
+                                <option value="Melaka">Melaka</option>
+                                <option value="Negeri Sembilan">Negeri Sembilan</option>
+                                <option value="Pahang">Pahang</option>
+                                <option value="Perak">Perak</option>
+                                <option value="Perlis">Perlis</option>
+                                <option value="Penang">Penang</option>
+                                <option value="Sabah">Sabah</option>
+                                <option value="Sarawak">Sarawak</option>
+                                <option value="Selangor">Selangor</option>
+                                <option value="Terengganu">Terengganu</option>
+                                <option value="Kuala Lumpur">Kuala Lumpur</option>
+                                <option value="Labuan">Labuan</option>
+                                <option value="Putrajaya">Putrajaya</option>
+                            </select>
 
                         </div>
-
-                        <select
-                            id="custState"
-                            class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
-                            required
-                        >
-                            <option value="" disabled selected>
-                                Select State...
-                            </option>
-
-                            <option value="Johor">Johor</option>
-                            <option value="Kedah">Kedah</option>
-                            <option value="Kelantan">Kelantan</option>
-                            <option value="Melaka">Melaka</option>
-                            <option value="Negeri Sembilan">Negeri Sembilan</option>
-                            <option value="Pahang">Pahang</option>
-                            <option value="Perak">Perak</option>
-                            <option value="Perlis">Perlis</option>
-                            <option value="Penang">Penang</option>
-                            <option value="Sabah">Sabah</option>
-                            <option value="Sarawak">Sarawak</option>
-                            <option value="Selangor">Selangor</option>
-                            <option value="Terengganu">Terengganu</option>
-                            <option value="Kuala Lumpur">Kuala Lumpur</option>
-                            <option value="Labuan">Labuan</option>
-                            <option value="Putrajaya">Putrajaya</option>
-                        </select>
-
                     </div>
-                </div>
 
-                <!-- Form Error -->
-                <div
-                    id="formError"
-                    class="text-xs text-red-500 mb-3 hidden font-medium text-center"
-                >
-                    Please fill in all delivery details above.
-                </div>
+                    <!-- Form Error -->
+                    <div
+                        id="formError"
+                        class="text-xs text-red-500 mb-3 hidden font-medium text-center"
+                    >
+                        Please fill in all delivery details above.
+                    </div>
 
-                <!-- SHIPPING SELECTION -->
-                <div class="mb-2">
+                    <!-- SHIPPING SELECTION -->
+                    <div class="mb-2">
 
-                    <label class="block text-sm font-medium text-[#4c111f] mb-2">
-                        Shipping Destination
-                    </label>
-
-                    <div class="grid grid-cols-2 gap-3">
-
-                        <!-- West Malaysia -->
-                        <label class="cursor-pointer group">
-
-                            <input
-                                type="radio"
-                                name="shippingZone"
-                                value="west"
-                                class="peer sr-only"
-                                checked
-                                onchange="updateCartUI()"
-                            >
-
-                            <div
-                                class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all"
-                            >
-                                <span class="block font-semibold text-[#4c111f] text-sm">
-                                    West Malaysia
-                                </span>
-
-                                <span class="block text-xs text-[#4c111f]/70 mt-1">
-                                    RM 10
-                                </span>
-                            </div>
-
+                        <label class="block text-sm font-medium text-[#4c111f] mb-2">
+                            Shipping Destination
                         </label>
 
-                        <!-- East Malaysia -->
-                        <label class="cursor-pointer group">
+                        <div class="grid grid-cols-2 gap-3">
 
-                            <input
-                                type="radio"
-                                name="shippingZone"
-                                value="east"
-                                class="peer sr-only"
-                                onchange="updateCartUI()"
-                            >
+                            <!-- West Malaysia -->
+                            <label class="cursor-pointer group">
 
-                            <div
-                                class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all"
-                            >
-                                <span class="block font-semibold text-[#4c111f] text-sm">
-                                    East Malaysia
-                                </span>
+                                <input
+                                    type="radio"
+                                    name="shippingZone"
+                                    value="west"
+                                    class="peer sr-only"
+                                    checked
+                                    onchange="updateCartUI()"
+                                >
 
-                                <span class="block text-xs text-[#4c111f]/70 mt-1">
-                                    RM 15
-                                </span>
-                            </div>
+                                <div
+                                    class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all"
+                                >
+                                    <span class="block font-semibold text-[#4c111f] text-sm">
+                                        West Malaysia
+                                    </span>
 
-                        </label>
+                                    <span class="block text-xs text-[#4c111f]/70 mt-1">
+                                        RM 10
+                                    </span>
+                                </div>
 
+                            </label>
+
+                            <!-- East Malaysia -->
+                            <label class="cursor-pointer group">
+
+                                <input
+                                    type="radio"
+                                    name="shippingZone"
+                                    value="east"
+                                    class="peer sr-only"
+                                    onchange="updateCartUI()"
+                                >
+
+                                <div
+                                    class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all"
+                                >
+                                    <span class="block font-semibold text-[#4c111f] text-sm">
+                                        East Malaysia
+                                    </span>
+
+                                    <span class="block text-xs text-[#4c111f]/70 mt-1">
+                                        RM 15
+                                    </span>
+                                </div>
+
+                            </label>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- VIEW 2: DUITNOW QR CHECKOUT -->
+            <div id="qrCheckoutView" class="w-full transition-opacity duration-300 opacity-0 pointer-events-none absolute top-0 left-0 h-full bg-white flex flex-col p-6 overflow-y-auto no-scrollbar">
+                
+                <button id="backToCartBtn" class="text-sm text-gray-500 hover:text-primary mb-4 flex items-center gap-2 self-start">
+                    <i class="fas fa-arrow-left"></i> Back to Details
+                </button>
+
+                <div class="text-center mb-6">
+                    <h3 class="font-serif text-2xl font-bold text-duitnow-blue">Scan to Pay</h3>
+                    <p class="text-gray-500 text-sm mt-1">Screenshot this QR code and upload it to your banking app or e-wallet to complete your purchase.</p>
+                </div>
+
+                <!-- DuitNow QR Container -->
+                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 mx-auto mb-6 w-full max-w-sm qr-pulse">
+                    
+                    <!-- DuitNow Logo Header -->
+                    <div class="flex justify-center mb-4">
+                        <!-- Standard DuitNow QR colors: #ED1164 (Pink), #161C68 (Navy) -->
+                        <div class="flex items-center gap-2 font-bold text-2xl tracking-tighter">
+                            <span class="text-duitnow-blue">Duit</span><span class="text-duitnow-pink">Now</span>
+                            <span class="bg-duitnow-blue text-white text-xs px-1.5 py-0.5 rounded uppercase ml-1">QR</span>
+                        </div>
+                    </div>
+
+                    <!-- The generated QR Code -->
+                    <div id="qrcode" class="flex justify-center mb-4 bg-white p-2 border-4 border-duitnow-pink rounded-xl"></div>
+                    
+                    <!-- Payment Details below QR -->
+                    <div class="text-center bg-gray-50 rounded-lg p-3 border border-gray-100">
+                        <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Total Amount Due</p>
+                        <p class="text-3xl font-bold text-duitnow-blue" id="qrTotalAmount">RM 0.00</p>
+                        <p class="text-xs text-gray-500 mt-2">Pay to: <span class="font-semibold text-gray-700">HEATH STUDIO</span></p>
+                    </div>
+
+                </div>
+
+                <!-- Instructions Steps -->
+                <div class="space-y-4 mb-8">
+                    <h4 class="text-sm font-bold text-gray-700 uppercase tracking-wide border-b pb-2">How to pay via screenshot:</h4>
+                    
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-full bg-duitnow-pink text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</div>
+                        <p class="text-sm text-gray-600">Take a <strong>screenshot</strong> of this entire page, making sure the QR code is clearly visible.</p>
+                    </div>
+                    
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-full bg-duitnow-pink text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</div>
+                        <p class="text-sm text-gray-600">Open your preferred <strong>banking app</strong> or <strong>e-wallet</strong> (Maybank, CIMB, TNG, Boost, etc.).</p>
+                    </div>
+
+                    <div class="flex items-start gap-3">
+                        <div class="w-6 h-6 rounded-full bg-duitnow-pink text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</div>
+                        <p class="text-sm text-gray-600">Select "Scan QR" and tap the <strong>Gallery / Image icon</strong> to upload your screenshot.</p>
                     </div>
                 </div>
 
             </div>
+
         </div>
 
-        <!-- CHECKOUT FOOTER (WHATSAPP UPDATE) -->
-        <div class="p-6 border-t bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex-shrink-0">
+        <!-- CHECKOUT FOOTER (DYNAMIC BASED ON VIEW) -->
+        <div class="p-6 border-t bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex-shrink-0" id="cartFooter">
 
+            <!-- Default Button (Proceed to Payment) -->
             <button
                 id="checkoutBtn"
-                class="w-full bg-[#25D366] text-white py-4 rounded-xl font-bold hover:bg-[#128C7E] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex justify-center items-center gap-2 text-lg"
+                class="w-full bg-[#4c111f] text-white py-4 rounded-xl font-bold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex justify-center items-center gap-2 text-lg"
+            >
+                Proceed to Payment
+            </button>
+
+            <!-- Confirm Order Button (Only visible in QR View) -->
+            <button
+                id="confirmOrderBtn"
+                class="w-full bg-[#25D366] text-white py-4 rounded-xl font-bold hover:bg-[#128C7E] transition-colors shadow-md hidden justify-center items-center gap-2 text-lg"
             >
                 <i class="fab fa-whatsapp text-xl"></i>
-                Order via WhatsApp
+                I've Paid! Send Details via WhatsApp
             </button>
 
             <!-- TERMS & RETURN POLICY AGREEMENT -->
-            <p class="text-xs text-center text-gray-500 mt-3 leading-relaxed">
+            <p class="text-xs text-center text-gray-500 mt-3 leading-relaxed" id="termsNotice">
 
                 By proceeding to order, you agree to our
 
@@ -674,8 +762,8 @@
             </p>
 
             <!-- SECURITY NOTE -->
-            <p class="text-xs text-center text-gray-500 mt-3">
-                Complete your order manually via our official WhatsApp.
+            <p class="text-xs text-center text-gray-500 mt-3" id="securityNotice">
+                Payments secured by DuitNow QR network.
             </p>
 
         </div>
@@ -921,6 +1009,11 @@
         let cart = [];
         let currentModalProduct = null;
         let selectedColorIndex = 0;
+        
+        // Cart View State
+        let isQRViewOpen = false;
+        let qrCodeInstance = null;
+        let calculatedFinalTotal = 0; // Store total for the QR generation
 
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -1289,6 +1382,11 @@
                         Your cart is empty.
                     </p>
                 `;
+                
+                // If they empty the cart while in QR view, boot them back to standard view
+                if(isQRViewOpen) {
+                    toggleCartView(false);
+                }
 
             }
 
@@ -1329,14 +1427,14 @@
                     ? 10
                     : 15;
 
-            let finalTotal =
+            calculatedFinalTotal =
                 cart.length > 0
                     ? productsTotal + shippingFee
                     : 0;
 
 
             totalEl.textContent =
-                `RM ${finalTotal}`;
+                `RM ${calculatedFinalTotal}`;
 
 
             // Bundle notice
@@ -1364,7 +1462,7 @@
 
 
         // ================================
-        // CART SIDEBAR
+        // CART SIDEBAR & VIEWS
         // ================================
 
         function openCart() {
@@ -1396,13 +1494,92 @@
                 );
 
             setTimeout(() => {
-
-                document.getElementById('cartOverlay')
-                    .classList.add('hidden');
-
+                document.getElementById('cartOverlay').classList.add('hidden');
+                // Reset cart view if they close the sidebar while on QR screen
+                if(isQRViewOpen) {
+                    toggleCartView(false);
+                }
             }, 300);
 
         }
+        
+        // Toggles between the form view and the DuitNow QR view
+        function toggleCartView(showQR) {
+            const formView = document.getElementById('cartFormView');
+            const qrView = document.getElementById('qrCheckoutView');
+            
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            const confirmOrderBtn = document.getElementById('confirmOrderBtn');
+            const termsNotice = document.getElementById('termsNotice');
+            const securityNotice = document.getElementById('securityNotice');
+            const cartTitle = document.getElementById('cartTitle');
+            
+            isQRViewOpen = showQR;
+            
+            if(showQR) {
+                // Hide Form, Show QR
+                formView.classList.replace('opacity-100', 'opacity-0');
+                formView.classList.add('pointer-events-none');
+                
+                qrView.classList.replace('opacity-0', 'opacity-100');
+                qrView.classList.remove('pointer-events-none');
+                
+                // Swap buttons and text
+                checkoutBtn.classList.add('hidden');
+                checkoutBtn.classList.remove('flex');
+                
+                confirmOrderBtn.classList.remove('hidden');
+                confirmOrderBtn.classList.add('flex');
+                
+                termsNotice.classList.add('hidden');
+                securityNotice.classList.remove('hidden');
+                
+                cartTitle.textContent = "Payment";
+                
+            } else {
+                // Hide QR, Show Form
+                qrView.classList.replace('opacity-100', 'opacity-0');
+                qrView.classList.add('pointer-events-none');
+                
+                formView.classList.replace('opacity-0', 'opacity-100');
+                formView.classList.remove('pointer-events-none');
+                
+                // Swap buttons and text
+                confirmOrderBtn.classList.add('hidden');
+                confirmOrderBtn.classList.remove('flex');
+                
+                checkoutBtn.classList.remove('hidden');
+                checkoutBtn.classList.add('flex');
+                
+                termsNotice.classList.remove('hidden');
+                securityNotice.classList.add('hidden');
+                
+                cartTitle.textContent = "Your Cart";
+            }
+        }
+        
+        // Generate the DuitNow QR Code using qrcode.js
+        function generateDuitNowQR(amount) {
+            const qrContainer = document.getElementById('qrcode');
+            qrContainer.innerHTML = ''; // Clear previous QR
+            
+            // In a real scenario, this would be a specific DuitNow string provided by HitPay or your bank.
+            // For now, we encode a generic string representing the transaction to simulate the QR structure.
+            const dummyPayload = `DUITNOW_MOCK_PAYMENT_HEATHSTUDIO_RM${amount.toFixed(2)}_${Date.now()}`;
+            
+            qrCodeInstance = new QRCode(qrContainer, {
+                text: dummyPayload,
+                width: 180,
+                height: 180,
+                colorDark : "#161C68", // DuitNow Blue
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+            
+            // Update the display amount
+            document.getElementById('qrTotalAmount').textContent = `RM ${amount.toFixed(2)}`;
+        }
+
 
         // ================================
         // MENU
@@ -1568,10 +1745,16 @@
                 'click',
                 addToCart
             );
+            
+            
+            // Back button in QR View
+            document.getElementById('backToCartBtn').addEventListener('click', () => {
+                toggleCartView(false);
+            });
 
 
             // ================================
-            // WHATSAPP CHECKOUT LOGIC
+            // STEP 1: PROCEED TO PAYMENT (Form Validation -> Show QR)
             // ================================
 
             document.getElementById(
@@ -1610,18 +1793,43 @@
 
                     formError.classList.add('hidden');
 
-                    const btn = document.getElementById('checkoutBtn');
+                    // 3. Generate QR Code with current total
+                    generateDuitNowQR(calculatedFinalTotal);
+                    
+                    // 4. Switch to QR View
+                    toggleCartView(true);
+                }
+            );
+            
+            
+            // ================================
+            // STEP 2: CONFIRM ORDER (WhatsApp Redirect)
+            // ================================
+            
+            document.getElementById(
+                'confirmOrderBtn'
+            ).addEventListener(
+                'click',
+                () => {
+                    const btn = document.getElementById('confirmOrderBtn');
+                    
+                    // Re-gather details for the message
+                    const custName = document.getElementById('custName').value.trim();
+                    const custEmail = document.getElementById('custEmail').value.trim();
+                    const custPhone = document.getElementById('custPhone').value.trim();
+                    const custAddress = document.getElementById('custAddress').value.trim();
+                    const custCity = document.getElementById('custCity').value.trim();
+                    const custPostcode = document.getElementById('custPostcode').value.trim();
+                    const custState = document.getElementById('custState').value;
+                    
                     const shippingZone = document.querySelector('input[name="shippingZone"]:checked').value;
                     const zoneName = shippingZone === 'west' ? "West Malaysia" : "East Malaysia";
+                    let shippingFee = shippingZone === 'west' ? 10 : 15;
 
-                    // 3. Process Cart Totals & Bundles for the Message
                     let woods = cart.filter(i => i.type === 'wood').length;
                     let drivers = cart.filter(i => i.type === 'driver').length;
                     let bundlesCount = Math.min(woods, drivers);
-                    let productsTotal = (bundlesCount * BUNDLE_PRICE) + ((woods - bundlesCount) * PRICES.wood) + ((drivers - bundlesCount) * PRICES.driver);
-                    let shippingFee = shippingZone === 'west' ? 10 : 15;
-                    let finalTotal = productsTotal + shippingFee;
-
+                    
                     let bundleText = bundlesCount > 0 ? `\n* Bundles applied: ${bundlesCount} (Saved RM ${bundlesCount * ((PRICES.wood + PRICES.driver) - BUNDLE_PRICE)})` : '';
                     
                     // Format Cart Items
@@ -1631,7 +1839,9 @@
                     }).join('\n');
 
                     // 4. Construct WhatsApp Message Structure
-                    let message = `*NEW ORDER - HEATH STUDIO* 🏌️‍♂️
+                    let message = `*NEW ORDER - HEATH STUDIO (DUITNOW QR)* 📸⛳️
+
+I have successfully scanned and paid the DuitNow QR code on your website. Here is my payment receipt screenshot (attached below) and my order details:
 
 *Customer Details:*
 Name: ${custName}
@@ -1647,14 +1857,12 @@ Shipping: ${zoneName} (RM ${shippingFee})
 *Order Summary:*
 ${cartDetails}${bundleText}
 
-*Grand Total: RM ${finalTotal}*
+*Total Paid: RM ${calculatedFinalTotal}*
 
-Hi Heath Studio! Please confirm my order and provide payment/transfer instructions!`;
+Hi Heath Studio! I'm attaching my DuitNow receipt here. Please confirm my order!`;
 
                     // ==========================================
                     // ⚠️ CHANGE THIS TO YOUR WHATSAPP NUMBER ⚠️
-                    // Format: Country Code + Number (No '+' or '-' symbols)
-                    // Example: Malaysia number 012-345 6789 becomes "60123456789"
                     // ==========================================
                     const businessPhoneNumber = "601112985037"; 
                     
@@ -1662,7 +1870,7 @@ Hi Heath Studio! Please confirm my order and provide payment/transfer instructio
                     const whatsappUrl = `https://wa.me/${businessPhoneNumber}?text=${encodedMessage}`;
 
                     // Update UI to show redirecting state
-                    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Redirecting to WhatsApp...';
+                    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp...';
                     btn.disabled = true;
 
                     // Redirect after a short delay
@@ -1670,11 +1878,11 @@ Hi Heath Studio! Please confirm my order and provide payment/transfer instructio
                         window.location.href = whatsappUrl;
                         
                         // Reset button state in case they hit "back"
-                        btn.innerHTML = '<i class="fab fa-whatsapp text-xl"></i> Order via WhatsApp';
+                        btn.innerHTML = '<i class="fab fa-whatsapp text-xl"></i> I\'ve Paid! Send Details via WhatsApp';
                         btn.disabled = false;
                     }, 800);
                 }
-            );
+            )
 
         }
 
