@@ -97,12 +97,14 @@
     <header class="bg-[#4c111f] shadow-md">
         <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
-
-                <a href="index.html" class="flex items-center gap-3">
-                    <span class="text-white font-serif text-2xl font-bold tracking-wide">
-                        HEATH GOLF
-                    </span>
-                </a>
+               <div class="flex-shrink-0 flex items-center justify-center -my-6 md:-my-8">
+                    <a href="index.html" class="block">
+                        <img
+                            src="Heath logo 2.png"
+                            alt="Heath Logo"
+                            class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain"
+                            onerror="this.onerror=null; this.src='https://placehold.co/200x100/4c111f/ffffff?text=HEATH+LOGO'"
+                        >
 
                 <a
                     href="index.html"
@@ -111,72 +113,6 @@
                     <i class="fas fa-arrow-left mr-2"></i>
                     Back to Store
                 </a>
-
-            </div>
-        </div>
-    </header>
-
-    <!-- HEADER -->
-    <header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-0">
-
-                <!-- LEFT SIDE - Hamburger Menu -->
-                <div class="flex-1 flex items-center justify-start">
-                    <button
-                        id="mobileMenuBtn"
-                        class="text-[#fffaf1] hover:opacity-80 transition-opacity p-2 focus:outline-none"
-                        aria-label="Menu"
-                    >
-                        <i class="fas fa-bars text-xl md:text-2xl"></i>
-                    </button>
-                </div>
-
-                <!-- CENTER SIDE - Logo -->
-                <div class="flex-shrink-0 flex items-center justify-center -my-6 md:-my-8">
-                    <a href="index.html" class="block">
-                        <img
-                            src="Heath logo 2.png"
-                            alt="Heath Logo"
-                            class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain"
-                            onerror="this.onerror=null; this.src='https://placehold.co/200x100/4c111f/ffffff?text=HEATH+LOGO'"
-                        >
-                    </a>
-                </div>
-
-                <!-- RIGHT SIDE - Cart Icon -->
-                <div class="flex-1 flex items-center justify-end">
-                    <button
-                        id="cartBtn"
-                        class="text-[#fffaf1] hover:opacity-80 transition-opacity relative p-2 group"
-                        aria-label="Cart"
-                    >
-                        <!-- Custom Golf Bag Icon -->
-                        <svg
-                            class="w-8 h-8 transition-transform group-hover:scale-110"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
-                            <path d="M10 7V4l-1.5-1"></path>
-                            <path d="M14 7V3l-1.5-1"></path>
-                            <path d="M8 7v13.5A1.5 1.5 0 0 0 9.5 22h5a1.5 1.5 0 0 0 1.5-1.5V7"></path>
-                            <path d="M7 7h10v2H7z"></path>
-                            <path d="M9 13h2v5H9z"></path>
-                            <path d="M16 10v6c1.5 0 2-1.5 2-3s-.5-3-2-3z"></path>
-                        </svg>
-
-                        <span
-                            id="cartCount"
-                            class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/4 bg-accent rounded-full hidden"
-                        >
-                            0
-                        </span>
-                    </button>
-                </div>
 
             </div>
         </div>
