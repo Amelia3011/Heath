@@ -500,7 +500,7 @@
                             type="text"
                             id="custName"
                             placeholder="Full Name"
-                            class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
+                            class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base"
                             required
                         >
 
@@ -508,7 +508,7 @@
                             type="email"
                             id="custEmail"
                             placeholder="Email Address"
-                            class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
+                            class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base"
                             required
                         >
 
@@ -516,7 +516,7 @@
                             type="tel"
                             id="custPhone"
                             placeholder="Phone Number"
-                            class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
+                            class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base"
                             required
                         >
 
@@ -526,7 +526,33 @@
                                 type="text"
                                 id="custAddress"
                                 placeholder="Street Address (e.g. No. 12, Jalan Sultan)"
-                                class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm"
+                                class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base"
+                                required
+                            >
+
+                            <div class="grid grid-cols-2 gap-2">
+
+                                <input
+                                    type="text"
+                                    id="custCity"
+                                    placeholder="City"
+                                    class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base"
+                                    required
+                                >
+
+                                <input
+                                    type="text"
+                                    id="custPostcode"
+                                    placeholder="Postcode"
+                                    class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base"
+                                    required
+                                >
+
+                            </div>
+
+                            <select
+                                id="custState"
+                                class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base"
                                 required
                             >
 
