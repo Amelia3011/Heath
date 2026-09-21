@@ -213,12 +213,12 @@
                         Our First Collection
                     </h2>
 
-                    <p class="text-gray-600 max-w-2xl mx-auto hidden md:block">
+                    <p class="text-gray-600 max-w-2xl mx-auto">
                         Three distinct series, meticulously crafted for style and protection.
                         Available for Drivers and Woods. Bundle up to save.
                     </p>
                 </div>
-
+                
                 <!-- Product Grid -->
                 <div
                     class="grid grid-cols-3 gap-2 md:gap-10"
@@ -786,7 +786,7 @@
         ></div>
 
         <div
-            class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 no-scrollbar"
+            class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 no-scrollbar flex flex-col md:block"
             id="modalContent"
         >
 
@@ -1059,11 +1059,11 @@
                 clearInterval(hoverIntervals[productId]);
             }
 
-            // Change image every 800ms
+            // Change image every 600ms
             hoverIntervals[productId] = setInterval(() => {
                 currentIndex = (currentIndex + 1) % images.length;
                 imgEl.src = images[currentIndex];
-            }, 800); 
+            }, 600); 
         }
 
         function stopHoverSlideshow(productId, cardElement) {
@@ -1139,7 +1139,7 @@
                             class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center p-1 md:p-2"
                         >
                             <span
-                                class="bg-white text-primary px-2 py-1 md:px-8 md:py-3 rounded-full font-bold text-[9px] md:text-base opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl text-center leading-tight"
+                                class="bg-white text-primary px-2 py-1 md:px-8 md:py-3 rounded-full font-bold text-[10px] sm:text-xs md:text-base opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl text-center leading-tight"
                             >
                                 <span class="hidden md:inline">
                                     Select Options
@@ -1153,16 +1153,16 @@
 
                     <div class="px-0.5 md:px-2">
                         <h3
-                            class="font-serif text-[11px] sm:text-sm md:text-2xl font-bold text-primary mb-0.5 md:mb-2 leading-tight"
+                            class="font-serif text-[13px] sm:text-base md:text-2xl font-bold text-primary mb-0.5 md:mb-2 leading-tight"
                         >
                             ${product.series}
                         </h3>
                         <p
-                            class="text-gray-600 text-[9px] sm:text-xs md:text-sm mb-1 md:mb-3 leading-snug line-clamp-2 md:line-clamp-none hidden md:block"
+                            class="text-gray-600 text-[11px] sm:text-sm mb-1 md:mb-3 leading-snug line-clamp-2 md:line-clamp-none"
                         >
                             ${product.desc}
                         </p>
-                        <p class="font-semibold text-primary text-[10px] sm:text-sm md:text-base">
+                        <p class="font-semibold text-primary text-[12px] sm:text-sm md:text-base">
                             From RM ${PRICES.wood}
                         </p>
                     </div>
