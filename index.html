@@ -954,21 +954,21 @@
                 series: 'Earthy Tweed',
                 desc: 'Classic tweed texture bringing a touch of tradition to your bag.',
                 // The images array here is for the grid card autoloop slideshow
-                slideshowImages: ['ET3.png', 'ET4.png', 'Untitled Design - 8.png', 'Untitled Design - 7.png'],
+                slideshowImages: ['ET3.png', 'ET4.png', 'ET1.png'],
                 colors: [
                     {
                         name: 'Autumn',
                         hex: '#894E35',
                         // Specific images for the modal based on selection
-                        woodImg: 'Untitled Design - 10.png', 
-                        driverImg: 'Untitled Design - 9.png'
+                        woodImg: 'ET_Autumn_Wood.png', 
+                        driverImg: 'ET_Autumn_Driver.png'
                     },
                     {
                         name: 'Moss',
                         hex: '#5E564C',
                         // Specific images for the modal based on selection
-                        woodImg: 'Untitled Design - 12.png',
-                        driverImg: 'Untitled Design - 11.png'
+                        woodImg: 'ET_Moss_Wood.png',
+                        driverImg: 'ET_Moss_Driver.png'
                     }
                 ]
             },
@@ -978,21 +978,21 @@
                 series: 'Azure Wave',
                 desc: 'Dynamic patterns inspired by coastal waters.',
                 // The images array here is for the grid card autoloop slideshow
-                slideshowImages: ['AZ3.png', 'AZ4.png', 'Untitled Design - 1.png', 'Untitled Design - 2.png'],
+                slideshowImages: ['AZ3.png', 'AZ4.png', 'AZ1.png'],
                 colors: [
                     {
                         name: 'Deep Sea',
                         hex: '#30506E',
                         // Specific images for the modal based on selection
-                        woodImg: 'Untitled Design - 4.png',
-                        driverImg: 'Untitled Design - 3.png'
+                        woodImg: 'AZ_DeepSea_Wood.png',
+                        driverImg: 'AZ_DeepSea_Driver.png'
                     },
                     {
                         name: 'Sky Crest',
                         hex: '#A1C8D5',
                         // Specific images for the modal based on selection
-                        woodImg: 'Untitled Design - 6.png',
-                        driverImg: 'Untitled Design - 5.png'
+                        woodImg: 'AZ_SkyCrest_Wood.png',
+                        driverImg: 'AZ_SkyCrest_Driver.png'
                     }
                 ]
             },
@@ -1002,14 +1002,14 @@
                 series: 'Black & Bone',
                 desc: 'Sleek, minimalist, and menacing.',
                 // The images array here is for the grid card autoloop slideshow
-                slideshowImages: ['BW2.png', 'BW3.png', 'Untitled Design - 13.png'],
+                slideshowImages: ['BW2.png', 'BW3.png', 'BW1.png'],
                 colors: [
                     {
-                        name: 'Black & Bone',
+                        name: 'Black & Bone Dual-Tone',
                         bgStyle: 'background: linear-gradient(to right, #000000 50%, #f3DEC7 50%);',
                         // Specific images for the modal based on selection
-                        woodImg: 'Untitled Design - 15.png',
-                        driverImg: 'Untitled Design - 14.png'
+                        woodImg: 'BW_Black_Wood.png', 
+                        driverImg: 'BW_Black_Driver.png'
                     }
                 ]
             }
@@ -1193,21 +1193,23 @@
             updateModalImage();
 
             document.getElementById('modalColors').innerHTML =
-                currentModalProduct.colors.map((color, index) => `
-                    <button
-                        onclick="selectColor(${index})"
-                        class="w-12 h-12 rounded-full transition-all ${
-                            index === selectedColorIndex
-                                ? 'border-4 border-white ring-2 ring-primary scale-110'
-                                : 'border-2 border-gray-200'
-                        }"
-                        style="background-color: ${color.hex}"
-                        id="colorBtn-${index}"
-                        aria-label="${color.name}"
-                    ></button>
-                `).join('');
+            currentModalProduct.colors.map((color, index) => `
 
-            document.querySelector(
+                <button
+                    onclick="selectColor(${index})"
+                    class="w-12 h-12 rounded-full transition-all ${
+                        index === selectedColorIndex
+                            ? 'border-4 border-white ring-2 ring-primary scale-110'
+                            : 'border-2 border-gray-200'
+                    }"
+                    style="${color.bgStyle ? color.bgStyle : `background-color: ${color.hex}`}"
+                    id="colorBtn-${index}"
+                    aria-label="${color.name}"
+                ></button>
+
+            `).join('');
+
+        document.querySelector(
                 'input[name="clubType"][value="wood"]'
             ).checked = true;
 
