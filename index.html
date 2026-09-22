@@ -6,16 +6,8 @@
     <title>HEATH GOLF | Handcrafted Accessories</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <link
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        rel="stylesheet"
-    >
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Afacad:wght@300;400;500;600&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Afacad:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -35,7 +27,6 @@
                         'azure-2': '#000080',
                         'bone-1': '#F5F5DC',
                         'bone-2': '#2F4F4F',
-                        // DuitNow specific colors
                         'duitnow-pink': '#ED1164', 
                         'duitnow-blue': '#161C68'
                     }
@@ -45,11 +36,7 @@
     </script>
 
     <style>
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Generic background used for other sections */
+        html { scroll-behavior: smooth; }
         .hero-bg {
             background-image: url('Heath w BG.pdf.png');
             background-size: cover;
@@ -57,44 +44,26 @@
             background-repeat: no-repeat;
             background-attachment: fixed;
         }
-        
-        /* NEW: Custom class for the specific home background image */
         .home-bg-image {
-            /* REPLACE 'home-background.jpeg' WITH YOUR ACTUAL IMAGE FILENAME */
             background-image: url('home-background.jpeg'); 
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            /* Optional: uncomment below for a parallax scrolling effect */
-            /* background-attachment: fixed; */
         }
-        
-        /* NEW: Utility class to add a dimming overlay to background images */
         .bg-overlay {
             position: absolute;
             inset: 0;
-            background-color: rgba(255, 255, 255, 0.15); /* Adjust opacity here to make background darker/lighter */
+            background-color: rgba(255, 255, 255, 0.15); 
             z-index: 0;
         }
-
-        .no-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-
-        .no-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-
-        /* Pulse animation for the QR container to draw attention */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         @keyframes subtle-pulse {
             0% { box-shadow: 0 0 0 0 rgba(237, 17, 100, 0.4); }
             70% { box-shadow: 0 0 0 10px rgba(237, 17, 100, 0); }
             100% { box-shadow: 0 0 0 0 rgba(237, 17, 100, 0); }
         }
-        .qr-pulse {
-            animation: subtle-pulse 2s infinite;
-        }
+        .qr-pulse { animation: subtle-pulse 2s infinite; }
     </style>
 </head>
 
@@ -104,47 +73,19 @@
     <header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-0">
-
-                <!-- LEFT SIDE - Hamburger Menu -->
                 <div class="flex-1 flex items-center justify-start">
-                    <button
-                        id="mobileMenuBtn"
-                        class="text-[#fffaf1] hover:opacity-80 transition-opacity p-2 focus:outline-none"
-                        aria-label="Menu"
-                    >
+                    <button id="mobileMenuBtn" class="text-[#fffaf1] hover:opacity-80 transition-opacity p-2 focus:outline-none" aria-label="Menu">
                         <i class="fas fa-bars text-xl md:text-2xl"></i>
                     </button>
                 </div>
-
-                <!-- CENTER SIDE - Logo -->
                 <div class="flex-shrink-0 flex items-center justify-center -my-6 md:-my-8">
                     <a href="#" class="block">
-                        <img
-                            src="Heath logo 2.png"
-                            alt="Heath Logo"
-                            class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain"
-                            onerror="this.onerror=null; this.src='https://placehold.co/200x100/4c111f/ffffff?text=HEATH+LOGO'"
-                        >
+                        <img src="Heath logo 2.png" alt="Heath Logo" class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain" onerror="this.onerror=null; this.src='https://placehold.co/200x100/4c111f/ffffff?text=HEATH+LOGO'">
                     </a>
                 </div>
-
-                <!-- RIGHT SIDE - Cart Icon -->
                 <div class="flex-1 flex items-center justify-end">
-                    <button
-                        id="cartBtn"
-                        class="text-[#fffaf1] hover:opacity-80 transition-opacity relative p-2 group"
-                        aria-label="Cart"
-                    >
-                        <!-- Custom Golf Bag Icon -->
-                        <svg
-                            class="w-8 h-8 transition-transform group-hover:scale-110"
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        >
+                    <button id="cartBtn" class="text-[#fffaf1] hover:opacity-80 transition-opacity relative p-2 group" aria-label="Cart">
+                        <svg class="w-8 h-8 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M10 7V4l-1.5-1"></path>
                             <path d="M14 7V3l-1.5-1"></path>
                             <path d="M8 7v13.5A1.5 1.5 0 0 0 9.5 22h5a1.5 1.5 0 0 0 1.5-1.5V7"></path>
@@ -152,653 +93,291 @@
                             <path d="M9 13h2v5H9z"></path>
                             <path d="M16 10v6c1.5 0 2-1.5 2-3s-.5-3-2-3z"></path>
                         </svg>
-
-                        <span
-                            id="cartCount"
-                            class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/4 bg-accent rounded-full hidden"
-                        >
-                            0
-                        </span>
+                        <span id="cartCount" class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-white transform translate-x-1/2 -translate-y-1/4 bg-accent rounded-full hidden">0</span>
                     </button>
                 </div>
-
             </div>
         </div>
     </header>
 
     <!-- MAIN -->
     <main class="flex-grow">
-
-        <!-- HERO SECTION -->
-        <section
-            id="home"
-            class="relative pt-20 pb-32 lg:pt-32 lg:pb-48 overflow-hidden home-bg-image"
-        >
-            <!-- Overlay to ensure text readability -->
+        <section id="home" class="relative pt-20 pb-32 lg:pt-32 lg:pb-48 overflow-hidden home-bg-image">
             <div class="bg-overlay"></div>
-
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center max-w-3xl mx-auto flex flex-col items-center bg-white/60 backdrop-blur-sm p-8 rounded-2xl shadow-sm">
-
-                    <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#4c111f] mb-6 leading-tight drop-shadow-sm">
-                        Golf, Considered Differently.
-                    </h1>
-
-                    <p class="text-xl text-gray-800 mb-6 font-medium">
-                        Handcrafted headcovers designed with character, precision,
-                        and a considered approach to the game.
-                    </p>
-
-                    <p class="text-xl text-[#4c111f] mb-10 font-bold">
-                        Limited first collection, 40 pieces only.
-                    </p>
-
+                    <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#4c111f] mb-6 leading-tight drop-shadow-sm">Golf, Considered Differently.</h1>
+                    <p class="text-xl text-gray-800 mb-6 font-medium">Handcrafted headcovers designed with character, precision, and a considered approach to the game.</p>
+                    <p class="text-xl text-[#4c111f] mb-10 font-bold">Limited first collection, 40 pieces only.</p>
                     <div class="flex justify-center gap-4">
-                        <a
-                            href="#collections"
-                            class="bg-[#4c111f] text-white px-8 py-4 rounded-full font-medium hover:opacity-80 transition-opacity shadow-lg"
-                        >
-                            Shop The Drop
-                        </a>
+                        <a href="#collections" class="bg-[#4c111f] text-white px-8 py-4 rounded-full font-medium hover:opacity-80 transition-opacity shadow-lg">Shop The Drop</a>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- CINEMATIC VIDEO / GIF DIVIDER -->
         <section class="w-full h-48 md:h-80 lg:h-96 relative overflow-hidden bg-primary border-t border-gray-200">
-
-            <img
-                src="divider.GIF"
-                alt="Lifestyle Divider"
-                class="absolute inset-0 w-full h-full object-cover opacity-80"
-                onerror="this.onerror=null; this.src='https://placehold.co/1200x400/4c111f/ffffff?text=LIFESTYLE+IMAGE'"
-            >
-
+            <img src="divider.GIF" alt="Lifestyle Divider" class="absolute inset-0 w-full h-full object-cover opacity-80" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/4c111f/ffffff?text=LIFESTYLE+IMAGE'">
             <div class="absolute inset-0 bg-black/20 mix-blend-multiply"></div>
-
         </section>
 
-        <!-- COLLECTIONS SECTION -->
-        <section
-            id="collections"
-            class="relative py-24 hero-bg border-t border-gray-100"
-        >
+        <section id="collections" class="relative py-24 hero-bg border-t border-gray-100">
             <div class="absolute inset-0 bg-white/10"></div>
-
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-
                 <div class="text-center mb-8 md:mb-16">
-                    <h2 class="font-serif text-4xl font-bold text-[#4c111f] mb-4">
-                        THE ATTELIER COLLECTION
-                    </h2>
-
-                    <p class="text-gray-600 max-w-2xl mx-auto">
-                        Three distinct series, meticulously crafted for style and protection.
-                        Available for Drivers and Woods. Bundle up to save!
-                    </p>
+                    <h2 class="font-serif text-4xl font-bold text-[#4c111f] mb-4">THE ATTELIER COLLECTION</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Three distinct series, meticulously crafted for style and protection. Available for Drivers and Woods. Bundle up to save!</p>
                 </div>
-                
-                <!-- Product Grid -->
-                <div
-                    class="grid grid-cols-3 gap-2 md:gap-10"
-                    id="productGrid"
-                >
+                <div class="grid grid-cols-3 gap-2 md:gap-10" id="productGrid">
                     <!-- Products injected here via JS -->
                 </div>
-
             </div>
         </section>
 
-        <!-- FULL-WIDTH GOLF GREEN IMAGE DIVIDER -->
-        <section
-            class="w-full h-48 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-gray-100"
-        >
-            <img
-                src="Untitled design.png"
-                alt="Golf course green"
-                class="absolute inset-0 w-full h-full object-cover"
-                onerror="this.onerror=null; this.src='https://placehold.co/1200x500/228b22/ffffff?text=GOLF+GREEN'"
-            >
+        <section class="w-full h-48 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-gray-100">
+            <img src="Untitled design.png" alt="Golf course green" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/1200x500/228b22/ffffff?text=GOLF+GREEN'">
         </section>
 
-        <!-- ABOUT SECTION -->
         <section id="about" class="py-24 bg-[#4c111f] text-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-
                     <div>
-                        <h2 class="font-serif text-4xl font-bold mb-6">
-                            The House of Heath
-                        </h2>
-
-                        <p class="text-gray-300 mb-6 leading-relaxed">
-                            Born in Malaysia, Heath was created with a belief that the
-                            details matter. We look beyond the equipment itself to the
-                            pieces that accompany the game — thoughtfully designed objects
-                            that reflect individuality, taste, and a love for golf.
-                        </p>
-
+                        <h2 class="font-serif text-4xl font-bold mb-6">The House of Heath</h2>
+                        <p class="text-gray-300 mb-6 leading-relaxed">Born in Malaysia, Heath was created with a belief that the details matter. We look beyond the equipment itself to the pieces that accompany the game — thoughtfully designed objects that reflect individuality, taste, and a love for golf.</p>
                         <div class="flex gap-4">
-
-                            <a
-                                href="#"
-                                class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors"
-                                aria-label="Instagram"
-                            >
+                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors" aria-label="Instagram">
                                 <i class="fab fa-instagram text-xl"></i>
                             </a>
-
                         </div>
                     </div>
-
                 </div>
             </div>
         </section>
-
     </main>
 
-    <!-- FOOTER -->
     <footer class="bg-[#2f0a13] text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-
                 <div class="text-center md:text-left">
-                    <p class="font-serif text-xl font-semibold">
-                        HEATH STUDIO
-                    </p>
-
-                    <p class="text-sm text-gray-300 mt-1">
-                        Considered differently.
-                    </p>
+                    <p class="font-serif text-xl font-semibold">HEATH STUDIO</p>
+                    <p class="text-sm text-gray-300 mt-1">Considered differently.</p>
                 </div>
-
                 <div class="flex flex-wrap justify-center gap-4 text-sm">
-                    <a
-                        href="shipping_policy.html"
-                        class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors"
-                    >
-                        Shipping Policy
-                    </a>
+                    <a href="shipping_policy.html" class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors">Shipping Policy</a>
                     <span class="text-gray-500">|</span>
-                    <a
-                        href="Returnpolicy.html"
-                        class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors"
-                    >
-                        Return & Refund Policy
-                    </a>
+                    <a href="Returnpolicy.html" class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors">Return & Refund Policy</a>
                     <span class="text-gray-500">|</span>
-                    <a
-                        href="T&C1.html"
-                        class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors"
-                    >
-                        Terms & Condition
-                    </a>
+                    <a href="T&C1.html" class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors">Terms & Condition</a>
                     <span class="text-gray-500">|</span>
-                    <a
-                        href="privacy_policy.html"
-                        class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors"
-                    >
-                        Privacy Policy
-                    </a>
+                    <a href="privacy_policy.html" class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors">Privacy Policy</a>
                 </div>
-
             </div>
-
             <div class="border-t border-white/10 mt-8 pt-6 text-center">
-                <p class="text-xs text-gray-400">
-                    © 2026 HEATH STUDIO. All rights reserved.
-                </p>
+                <p class="text-xs text-gray-400">© 2026 HEATH STUDIO. All rights reserved.</p>
             </div>
-
         </div>
     </footer>
 
     <!-- MENU OVERLAY -->
-    <div
-        id="menuOverlay"
-        class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"
-    ></div>
+    <div id="menuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
 
     <!-- LEFT SIDEBAR MENU -->
-    <div
-        id="sideMenu"
-        class="fixed top-0 left-0 h-[100dvh] w-[250px] sm:w-[300px] bg-white shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col"
-    >
-
+    <div id="sideMenu" class="fixed top-0 left-0 h-[100dvh] w-[250px] sm:w-[300px] bg-white shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
         <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
-            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">
-                Menu
-            </h2>
-            <button
-                id="closeMenuBtn"
-                class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none"
-                aria-label="Close menu"
-            >
-                <i class="fas fa-times text-xl"></i>
-            </button>
+            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">Menu</h2>
+            <button id="closeMenuBtn" class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none" aria-label="Close menu"><i class="fas fa-times text-xl"></i></button>
         </div>
-
         <div class="flex-1 px-6 pt-6 space-y-2 overflow-y-auto no-scrollbar">
-
-            <a href="#home" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">
-                Home
-            </a>
-
-            <a href="#collections" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">
-                Collections
-            </a>
-
-            <a href="#about" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">
-                About Us
-            </a>
-
-            <!-- Collapsible Help Menu -->
+            <a href="#home" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Home</a>
+            <a href="#collections" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Collections</a>
+            <a href="#about" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">About Us</a>
             <div class="border-b border-gray-100">
-                <button
-                    id="helpMenuBtn"
-                    class="w-full flex justify-between items-center py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 transition-all focus:outline-none"
-                >
+                <button id="helpMenuBtn" class="w-full flex justify-between items-center py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 transition-all focus:outline-none">
                     <span>Help</span>
                     <i class="fas fa-chevron-down text-sm transition-transform duration-300" id="helpMenuIcon"></i>
                 </button>
                 <div id="helpSubMenu" class="hidden flex-col pl-4 pb-2 space-y-2 mt-1">
-                    <a
-                        href="T&C1.html"
-                        class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all"
-                    >
-                        Terms & Conditions
-                    </a>
-                    <a
-                        href="Returnpolicy.html"
-                        class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all"
-                    >
-                        Return & Refund Policy
-                    </a>
-                    <a
-                        href="shipping_policy.html"
-                        class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all"
-                    >
-                        Shipping Policy
-                    </a>
-                    <a
-                        href="privacy_policy.html"
-                        class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all"
-                    >
-                        Privacy Policy
-                    </a>
+                    <a href="T&C1.html" class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all">Terms & Conditions</a>
+                    <a href="Returnpolicy.html" class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all">Return & Refund Policy</a>
+                    <a href="shipping_policy.html" class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all">Shipping Policy</a>
+                    <a href="privacy_policy.html" class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all">Privacy Policy</a>
                 </div>
             </div>
-
         </div>
     </div>
 
     <!-- CART OVERLAY -->
-    <div
-        id="cartOverlay"
-        class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"
-    ></div>
+    <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
 
     <!-- CART SIDEBAR -->
-    <div
-        id="cartSidebar"
-        class="fixed top-0 right-0 h-[100dvh] w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col"
-    >
-
-        <!-- Cart Header -->
+    <div id="cartSidebar" class="fixed top-0 right-0 h-[100dvh] w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
         <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
-
-            <h2 class="font-serif text-2xl font-bold text-[#4c111f]" id="cartTitle">
-                Your Cart
-            </h2>
-
-            <button
-                id="closeCart"
-                class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none"
-                aria-label="Close cart"
-            >
-                <i class="fas fa-times text-xl"></i>
-            </button>
-
+            <h2 class="font-serif text-2xl font-bold text-[#4c111f]" id="cartTitle">Your Cart</h2>
+            <button id="closeCart" class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none" aria-label="Close cart"><i class="fas fa-times text-xl"></i></button>
         </div>
-
-        <!-- Cart Content (Toggleable View) -->
         <div class="flex-1 overflow-y-auto no-scrollbar relative" id="cartContentArea">
-
-            <!-- VIEW 1: STANDARD CART & FORM -->
             <div id="cartFormView" class="w-full transition-opacity duration-300 opacity-100 absolute top-0 left-0 h-full overflow-y-auto no-scrollbar">
-                
-                <div
-                    id="cartItems"
-                    class="p-6 space-y-4"
-                >
-                    <!-- JS injects cart items here -->
-                </div>
-
-                <!-- Cart Summary -->
+                <div id="cartItems" class="p-6 space-y-4"></div>
                 <div class="p-6 border-t bg-gray-50/50">
-
                     <div class="flex justify-between items-center mb-4">
-
-                        <span class="text-gray-600">
-                            Subtotal
-                        </span>
-
-                        <span
-                            class="font-bold text-2xl text-primary"
-                            id="cartTotal"
-                        >
-                            RM 0
-                        </span>
-
+                        <span class="text-gray-600">Subtotal</span>
+                        <span class="font-bold text-2xl text-primary" id="cartTotal">RM 0</span>
                     </div>
-
-                    <!-- Bundle Notice -->
-                    <div
-                        class="text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-md mb-4 hidden border border-green-100"
-                        id="bundleNotice"
-                    >
-                        <i class="fas fa-check-circle mr-1"></i>
-                        Bundle discount applied!
+                    <div class="text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-md mb-4 hidden border border-green-100" id="bundleNotice">
+                        <i class="fas fa-check-circle mr-1"></i> Bundle discount applied!
                     </div>
-
-                    <!-- Delivery Details -->
+                    
                     <div class="mb-4 space-y-3">
-
-                        <h3 class="text-sm font-medium text-[#4c111f]">
-                            Delivery Details
-                        </h3>
-
-                        <input
-                            type="text"
-                            id="custName"
-                            placeholder="Full Name"
-                            class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base"
-                            required
-                        >
-
-                        <input
-                            type="email"
-                            id="custEmail"
-                            placeholder="Email Address"
-                            class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base"
-                            required
-                        >
-
-                        <input
-                            type="tel"
-                            id="custPhone"
-                            placeholder="Phone Number"
-                            class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base"
-                            required
-                        >
-
+                        <h3 class="text-sm font-medium text-[#4c111f]">Delivery Details</h3>
+                        <input type="text" id="custName" placeholder="Full Name" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                        <input type="email" id="custEmail" placeholder="Email Address" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                        <input type="tel" id="custPhone" placeholder="Phone Number" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                         <div class="space-y-2">
-
-                            <input
-                                type="text"
-                                id="custAddress"
-                                placeholder="Street Address (e.g. No. 12, Jalan Sultan)"
-                                class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base"
-                                required
-                            >
-
+                            <input type="text" id="custAddress" placeholder="Street Address (e.g. No. 12, Jalan Sultan)" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                             <div class="grid grid-cols-2 gap-2">
-
-                                <input
-                                    type="text"
-                                    id="custCity"
-                                    placeholder="City"
-                                    class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base"
-                                    required
-                                >
-
-                                <input
-                                    type="text"
-                                    id="custPostcode"
-                                    placeholder="Postcode"
-                                    class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base"
-                                    required
-                                >
-
+                                <input type="text" id="custCity" placeholder="City" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                                <input type="text" id="custPostcode" placeholder="Postcode" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                             </div>
-
-                            <select
-                                id="custState"
-                                class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base"
-                                required
-                            >
-                                <option value="" disabled selected>
-                                    Select State...
-                                </option>
-
-                                <option value="Johor">Johor</option>
-                                <option value="Kedah">Kedah</option>
-                                <option value="Kelantan">Kelantan</option>
-                                <option value="Melaka">Melaka</option>
-                                <option value="Negeri Sembilan">Negeri Sembilan</option>
-                                <option value="Pahang">Pahang</option>
-                                <option value="Perak">Perak</option>
-                                <option value="Perlis">Perlis</option>
-                                <option value="Penang">Penang</option>
-                                <option value="Sabah">Sabah</option>
-                                <option value="Sarawak">Sarawak</option>
-                                <option value="Selangor">Selangor</option>
-                                <option value="Terengganu">Terengganu</option>
-                                <option value="Kuala Lumpur">Kuala Lumpur</option>
-                                <option value="Labuan">Labuan</option>
-                                <option value="Putrajaya">Putrajaya</option>
+                            <select id="custState" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                                <option value="" disabled selected>Select State...</option>
+                                <option value="Johor">Johor</option><option value="Kedah">Kedah</option><option value="Kelantan">Kelantan</option><option value="Melaka">Melaka</option><option value="Negeri Sembilan">Negeri Sembilan</option><option value="Pahang">Pahang</option><option value="Perak">Perak</option><option value="Perlis">Perlis</option><option value="Penang">Penang</option><option value="Sabah">Sabah</option><option value="Sarawak">Sarawak</option><option value="Selangor">Selangor</option><option value="Terengganu">Terengganu</option><option value="Kuala Lumpur">Kuala Lumpur</option><option value="Labuan">Labuan</option><option value="Putrajaya">Putrajaya</option>
                             </select>
-
                         </div>
                     </div>
-
-                    <!-- Form Error -->
-                    <div
-                        id="formError"
-                        class="text-xs text-red-500 mb-3 hidden font-medium text-center"
-                    >
-                        Please fill in all delivery details above.
-                    </div>
-
-                    <!-- SHIPPING SELECTION -->
+                    <div id="formError" class="text-xs text-red-500 mb-3 hidden font-medium text-center">Please fill in all delivery details above.</div>
+                    
                     <div class="mb-2">
-
-                        <label class="block text-sm font-medium text-[#4c111f] mb-2">
-                            Shipping Destination
-                        </label>
-
+                        <label class="block text-sm font-medium text-[#4c111f] mb-2">Shipping Destination</label>
                         <div class="grid grid-cols-2 gap-3">
-
-                            <!-- West Malaysia -->
                             <label class="cursor-pointer group">
-
-                                <input
-                                    type="radio"
-                                    name="shippingZone"
-                                    value="west"
-                                    class="peer sr-only"
-                                    checked
-                                    onchange="updateCartUI()"
-                                >
-
-                                <div
-                                    class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all"
-                                >
-                                    <span class="block font-semibold text-[#4c111f] text-sm">
-                                        West Malaysia
-                                    </span>
-
-                                    <span class="block text-xs text-[#4c111f]/70 mt-1">
-                                        RM 10
-                                    </span>
+                                <input type="radio" name="shippingZone" value="west" class="peer sr-only" checked onchange="updateCartUI()">
+                                <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
+                                    <span class="block font-semibold text-[#4c111f] text-sm">West Malaysia</span>
+                                    <span class="block text-xs text-[#4c111f]/70 mt-1">RM 10</span>
                                 </div>
-
                             </label>
-
-                            <!-- East Malaysia -->
                             <label class="cursor-pointer group">
-
-                                <input
-                                    type="radio"
-                                    name="shippingZone"
-                                    value="east"
-                                    class="peer sr-only"
-                                    onchange="updateCartUI()"
-                                >
-
-                                <div
-                                    class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all"
-                                >
-                                    <span class="block font-semibold text-[#4c111f] text-sm">
-                                        East Malaysia
-                                    </span>
-
-                                    <span class="block text-xs text-[#4c111f]/70 mt-1">
-                                        RM 15
-                                    </span>
+                                <input type="radio" name="shippingZone" value="east" class="peer sr-only" onchange="updateCartUI()">
+                                <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
+                                    <span class="block font-semibold text-[#4c111f] text-sm">East Malaysia</span>
+                                    <span class="block text-xs text-[#4c111f]/70 mt-1">RM 15</span>
                                 </div>
-
                             </label>
-
                         </div>
                     </div>
-
                 </div>
             </div>
 
-            <!-- VIEW 2: DUITNOW QR CHECKOUT -->
             <div id="qrCheckoutView" class="w-full transition-opacity duration-300 opacity-0 pointer-events-none absolute top-0 left-0 h-full bg-white flex flex-col p-6 overflow-y-auto no-scrollbar">
-                
                 <button id="backToCartBtn" class="text-sm text-gray-500 hover:text-primary mb-4 flex items-center gap-2 self-start">
                     <i class="fas fa-arrow-left"></i> Back to Details
                 </button>
-
                 <div class="text-center mb-6">
                     <h3 class="font-serif text-2xl font-bold text-primary">Scan to Pay</h3>
                     <p class="text-gray-500 text-sm mt-1">Screenshot this QR code and upload it to your banking app or e-wallet to complete your purchase.</p>
-                    
-                    <!-- NEW: Order ID Display added here -->
                     <p class="mt-3 font-bold text-gray-800 bg-gray-100/80 py-2 px-4 rounded-lg inline-block border border-gray-200 shadow-sm">
                         Order Ref: <span id="displayOrderID" class="text-duitnow-pink tracking-wider"></span>
                     </p>
                 </div>
-
-                <!-- DuitNow QR Container -->
                 <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 mx-auto mb-6 w-full max-w-sm qr-pulse">
-                    
-                    <!-- DuitNow Logo Header -->
                     <div class="flex justify-center mb-4">
-                        <!-- Standard DuitNow QR colors: #ED1164 (Pink), #161C68 (Navy) -->
                         <div class="flex items-center gap-2 font-bold text-2xl tracking-tighter">
                             <span class="text-duitnow-blue">Duit</span><span class="text-duitnow-pink">Now</span>
                             <span class="bg-duitnow-blue text-white text-xs px-1.5 py-0.5 rounded uppercase ml-1">QR</span>
                         </div>
                     </div>
-
-                    <!-- The generated QR Code -->
                     <div class="flex justify-center mb-4 bg-white p-2 border-4 border-duitnow-pink rounded-xl">
-                        <!-- REPLACE "duitnow.jpg" WITH YOUR ACTUAL IMAGE FILE NAME -->
-                        <img 
-                            id="qrcode-img" 
-                            src="duitnow.jpg" 
-                            alt="Heath Studio DuitNow QR" 
-                            class="w-48 h-48 object-contain"
-                            onerror="this.src='https://placehold.co/200x200/ED1164/ffffff?text=YOUR+QR+HERE'"
-                        >
+                        <img id="qrcode-img" src="duitnow.jpg" alt="Heath Studio DuitNow QR" class="w-48 h-48 object-contain" onerror="this.src='https://placehold.co/200x200/ED1164/ffffff?text=YOUR+QR+HERE'">
                     </div>
-                    
-                    <!-- Payment Details below QR -->
                     <div class="text-center bg-gray-50 rounded-lg p-3 border border-gray-100">
                         <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Total Amount Due</p>
                         <p class="text-3xl font-bold text-duitnow-blue" id="qrTotalAmount">RM 0.00</p>
                         <p class="text-xs text-gray-500 mt-2">Pay to: <span class="font-semibold text-gray-700">HEATH STUDIO</span></p>
                     </div>
-
                 </div>
-
-                <!-- Instructions Steps -->
                 <div class="space-y-4 mb-8">
                     <h4 class="text-sm font-bold text-gray-700 uppercase tracking-wide border-b pb-2">How to pay via screenshot:</h4>
-                    
                     <div class="flex items-start gap-3">
                         <div class="w-6 h-6 rounded-full bg-duitnow-pink text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</div>
                         <p class="text-sm text-gray-600">Take a <strong>screenshot</strong> of this entire page, making sure the QR code is clearly visible.</p>
                     </div>
-                    
                     <div class="flex items-start gap-3">
                         <div class="w-6 h-6 rounded-full bg-duitnow-pink text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</div>
-                        <p class="text-sm text-gray-600">Open your preferred <strong>banking app</strong> or <strong>e-wallet</strong> (Maybank, CIMB, TNG, Boost, etc.).</p>
+                        <p class="text-sm text-gray-600">Open your preferred <strong>banking app</strong> or <strong>e-wallet</strong>.</p>
                     </div>
-
                     <div class="flex items-start gap-3">
                         <div class="w-6 h-6 rounded-full bg-duitnow-pink text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</div>
                         <p class="text-sm text-gray-600">Select "Scan QR" and tap the <strong>Gallery / Image icon</strong> to upload your screenshot.</p>
                     </div>
                 </div>
-
             </div>
-
         </div>
 
-        <!-- CHECKOUT FOOTER (DYNAMIC BASED ON VIEW) -->
         <div class="p-6 border-t bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex-shrink-0" id="cartFooter">
-
-            <!-- Default Button (Proceed to Payment) -->
-            <button
-                id="checkoutBtn"
-                class="w-full bg-[#4c111f] text-white py-4 rounded-xl font-bold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex justify-center items-center gap-2 text-lg"
-            >
+            <button id="checkoutBtn" class="w-full bg-[#4c111f] text-white py-4 rounded-xl font-bold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex justify-center items-center gap-2 text-lg">
                 Proceed to Payment
             </button>
-
-            <!-- Confirm Order Button (Only visible in QR View) -->
-            <button
-                id="confirmOrderBtn"
-                class="w-full bg-[#25D366] text-white py-4 rounded-xl font-bold hover:bg-[#128C7E] transition-colors shadow-md hidden justify-center items-center gap-2 text-lg"
-            >
-                <i class="fab fa-whatsapp text-xl"></i>
-                I've Paid! Send Details via WhatsApp
+            <button id="confirmOrderBtn" class="w-full bg-[#25D366] text-white py-4 rounded-xl font-bold hover:bg-[#128C7E] transition-colors shadow-md hidden justify-center items-center gap-2 text-lg">
+                <i class="fab fa-whatsapp text-xl"></i> I've Paid! Send Details via WhatsApp
             </button>
-
-            <!-- TERMS & RETURN POLICY AGREEMENT -->
             <p class="text-xs text-center text-gray-500 mt-3 leading-relaxed" id="termsNotice">
-
-                By proceeding to order, you agree to our
-
-                <a
-                    href="T&C1.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-[#4c111f] font-medium underline hover:opacity-70"
-                >
-                    Terms & Conditions
-                </a>
-
-                and
-
-                <a
-                    href="Returnpolicy.html"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-[#4c111f] font-medium underline hover:opacity-70"
-                >
-                    Return & Refund Policy
-                </a>.
-
+                By proceeding to order, you agree to our <a href="T&C1.html" target="_blank" class="text-[#4c111f] font-medium underline hover:opacity-70">Terms & Conditions</a> and <a href="Returnpolicy.html" target="_blank" class="text-[#4c111f] font-medium underline hover:opacity-70">Return & Refund Policy</a>.
             </p>
-
-            <!-- SECURITY NOTE -->
-            <p class="text-xs text-center text-gray-500 mt-3" id="securityNotice">
-                Payments secured by DuitNow QR network.
-            </p>
-
+            <p class="text-xs text-center text-gray-500 mt-3" id="securityNotice">Payments secured by DuitNow QR network.</p>
         </div>
     </div>
 
+    <!-- PRODUCT MODAL -->
+    <div id="productModal" class="fixed inset-0 z-[80] hidden items-center justify-center">
+        <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="modalBackdrop"></div>
+        <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 no-scrollbar flex flex-col md:block" id="modalContent">
+            <button id="closeModal" class="absolute top-4 right-4 text-[#4c111f]/60 hover:text-[#4c111f] z-20 bg-white/80 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center shadow-sm focus:outline-none" aria-label="Close product modal">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
+                <div class="bg-gray-100 min-h-[300px] flex items-center justify-center p-8 relative h-[250px] sm:h-[300px] md:h-auto md:min-h-[400px] shrink-0">
+                    <img id="modalImg" src="" alt="Product" class="max-w-full h-full object-contain drop-shadow-xl rounded-lg">
+                </div>
+                <div class="p-8 md:p-12 flex flex-col justify-center">
+                    <span id="modalSeries" class="text-sm font-semibold text-accent uppercase tracking-wider mb-2"></span>
+                    <h2 id="modalTitle" class="font-serif text-3xl font-bold text-[#4c111f] mb-3"></h2>
+                    <p class="text-[#4c111f]/70 mb-8 leading-relaxed" id="modalDesc"></p>
+                    <div class="mb-8">
+                        <h4 class="text-sm font-medium text-[#4c111f] mb-3 uppercase tracking-wide">Select Colorway</h4>
+                        <div class="flex gap-4" id="modalColors"></div>
+                    </div>
+                    <div class="mb-8">
+                        <h4 class="text-sm font-medium text-[#4c111f] mb-3 uppercase tracking-wide">Select Club Type</h4>
+                        <div class="grid grid-cols-2 gap-4" id="modalClubTypes">
+                            <label class="cursor-pointer group">
+                                <input type="radio" name="clubType" value="wood" class="peer sr-only" checked onchange="selectClubType()">
+                                <div class="rounded-xl border-2 border-[#4c111f]/20 p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
+                                    <span class="block font-semibold text-[#4c111f]">Wood</span>
+                                    <span class="block text-sm text-[#4c111f]/70 mt-1">RM 109</span>
+                                </div>
+                            </label>
+                            <label class="cursor-pointer group">
+                                <input type="radio" name="clubType" value="driver" class="peer sr-only" onchange="selectClubType()">
+                                <div class="rounded-xl border-2 border-[#4c111f]/20 p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
+                                    <span class="block font-semibold text-[#4c111f]">Driver</span>
+                                    <span class="block text-sm text-[#4c111f]/70 mt-1">RM 129</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mt-auto pt-6 border-t border-[#4c111f]/10 flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-[#4c111f]/50 mb-1">Total Price</p>
+                            <div class="font-bold text-3xl text-[#4c111f]" id="modalPrice">RM 109</div>
+                        </div>
+                        <button id="addToCartModalBtn" class="bg-[#4c111f] text-white px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-colors shadow-lg active:scale-95 focus:outline-none">
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- FIREBASE MODULE FOR UNIVERSAL COUNTER -->
     <script type="module">
@@ -806,7 +385,6 @@
         import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
-        // Global variables provided by the environment
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'heath-studio-dev';
         const firebaseConfigStr = typeof __firebase_config !== 'undefined' ? __firebase_config : '{}';
         
@@ -818,7 +396,6 @@
             db = getFirestore(app);
             auth = getAuth(app);
 
-            // Authenticate user to allow database reads/writes
             async function authenticate() {
                 try {
                     if (typeof __initial_auth_token !== 'undefined') {
@@ -830,22 +407,19 @@
                     console.error("Firebase Auth Error:", error);
                 }
             }
-            
             authenticate();
         }
 
-        // Attach to window so the main script can use it
         window.generateUniversalOrderID = async function() {
             if (!db || !auth) return generateLocalFallbackID();
 
             if (!auth.currentUser) {
-                // Small delay if auth is still initializing
                 await new Promise(r => setTimeout(r, 800)); 
             }
             if (!auth.currentUser) return generateLocalFallbackID(); 
 
             try {
-                // Reference the global counter document in the database
+                // Fetch current count securely
                 const counterRef = doc(db, 'artifacts', appId, 'public', 'data', 'store_metadata', 'order_counter');
                 const docSnap = await getDoc(counterRef);
                 
@@ -855,8 +429,6 @@
                 }
                 
                 const newCount = currentCount + 1;
-                
-                // Save the incremented number back to the database
                 await setDoc(counterRef, { count: newCount }, { merge: true });
                 
                 return `HTHG-${newCount.toString().padStart(4, '0')}`;
@@ -867,13 +439,47 @@
             }
         };
 
-        // Fallback to local storage if running offline or config is missing
+        // Fallback for safety
         function generateLocalFallbackID() {
              let currentNumberStr = localStorage.getItem('heathStockOrderNumber');
              let nextNumber = currentNumberStr ? parseInt(currentNumberStr, 10) + 1 : 1;
              localStorage.setItem('heathStockOrderNumber', nextNumber.toString());
              return `HTHG-${nextNumber.toString().padStart(4, '0')}`;
         }
+
+        // HIDDEN RESET FUNCTION FOR LAUNCH DAY
+        window.resetOrderCounter = async function() {
+            console.log("Initiating Order Counter Reset...");
+            
+            // Reset Local Storage First
+            localStorage.removeItem('heathStockOrderNumber');
+            console.log("Local Storage order number reset successfully.");
+
+            // Reset Database Storage
+            if (db && auth && auth.currentUser) {
+                try {
+                    const counterRef = doc(db, 'artifacts', appId, 'public', 'data', 'store_metadata', 'order_counter');
+                    await setDoc(counterRef, { count: 0 }, { merge: true });
+                    console.log("✅ SUCCESS! Cloud order database has been wiped clean.");
+                    console.log("The very next order will now be HTHG-0001.");
+                    
+                    const btn = document.getElementById('checkoutBtn');
+                    if (btn) {
+                        const originalHtml = btn.innerHTML;
+                        btn.innerHTML = 'Database Reset to 0001! ✅';
+                        btn.classList.replace('bg-[#4c111f]', 'bg-green-600');
+                        setTimeout(() => {
+                            btn.innerHTML = originalHtml;
+                            btn.classList.replace('bg-green-600', 'bg-[#4c111f]');
+                        }, 3000);
+                    }
+                } catch (error) {
+                    console.error("Failed to reset cloud database:", error);
+                }
+            } else {
+                console.log("Cloud Database skipped (offline mode). The next order will be HTHG-0001 based on local storage.");
+            }
+        };
     </script>
 
     <!-- JAVASCRIPT -->
@@ -883,115 +489,60 @@
                 id: 'earthy',
                 series: 'Earthy Tweed',
                 desc: 'Classic tweed texture bringing a touch of tradition to your bag.',
-                // The images array here is for the grid card autoloop slideshow
                 slideshowImages: ['ET3.png', 'ET4.png', 'Untitled design - 7.png', 'Untitled design - 8.png', 'IMG_8051.jpeg'],
                 colors: [
-                    {
-                        name: 'Autumn',
-                        hex: '#894E35',
-                        // Specific images for the modal based on selection
-                        woodImg: 'Untitled design - 10.png', 
-                        driverImg: 'Untitled design - 9.png'
-                    },
-                    {
-                        name: 'Moss',
-                        hex: '#5E564C',
-                        // Specific images for the modal based on selection
-                        woodImg: 'Untitled design - 12.png',
-                        driverImg: 'Untitled design - 11.png'
-                    }
+                    { name: 'Autumn', hex: '#894E35', woodImg: 'Untitled design - 10.png', driverImg: 'Untitled design - 9.png' },
+                    { name: 'Moss', hex: '#5E564C', woodImg: 'Untitled design - 12.png', driverImg: 'Untitled design - 11.png' }
                 ]
             },
-
             {
                 id: 'azure',
                 series: 'Azure Wave',
                 desc: 'Dynamic patterns inspired by coastal waters.',
-                // The images array here is for the grid card autoloop slideshow
                 slideshowImages: ['AZ3.png', 'AZ4.png', 'Untitled design - 2.png', 'Untitled design - 1.png', 'IMG_8050.jpeg'],
                 colors: [
-                    {
-                        name: 'Deep Sea',
-                        hex: '#30506E',
-                        // Specific images for the modal based on selection
-                        woodImg: 'Untitled design - 4.png',
-                        driverImg: 'Untitled design - 3.png'
-                    },
-                    {
-                        name: 'Sky Crest',
-                        hex: '#A1C8D5',
-                        // Specific images for the modal based on selection
-                        woodImg: 'Untitled design - 6.png',
-                        driverImg: 'Untitled design - 5.png'
-                    }
+                    { name: 'Deep Sea', hex: '#30506E', woodImg: 'Untitled design - 4.png', driverImg: 'Untitled design - 3.png' },
+                    { name: 'Sky Crest', hex: '#A1C8D5', woodImg: 'Untitled design - 6.png', driverImg: 'Untitled design - 5.png' }
                 ]
             },
-
             {
                 id: 'Black & Bone',
                 series: 'Black & Bone',
                 desc: 'Sleek, minimalist, and menacing.',
-                // The images array here is for the grid card autoloop slideshow
                 slideshowImages: ['BW2.png', 'BW3.png', 'Untitled design - 13.jpeg', 'IMG_8049.jpeg', 'IMG_8009.jpeg'],
                 colors: [
-                    {
-                        name: 'Black & Bone',
-                        bgStyle: 'background: linear-gradient(to right, #000000 50%, #f3DEC7 50%);',
-                        // Specific images for the modal based on selection
-                        woodImg: 'Untitled design - 15.jpeg', 
-                        driverImg: 'Untitled design - 14.jpeg'
-                    }
+                    { name: 'Black & Bone', bgStyle: 'background: linear-gradient(to right, #000000 50%, #f3DEC7 50%);', woodImg: 'Untitled design - 15.jpeg', driverImg: 'Untitled design - 14.jpeg' }
                 ]
             }
         ];
 
-        const PRICES = {
-            wood: 109,
-            driver: 129
-        };
-
+        const PRICES = { wood: 109, driver: 129 };
         const BUNDLE_PRICE = 228;
 
         let cart = [];
         let currentModalProduct = null;
         let selectedColorIndex = 0;
-        
-        // Cart View State
         let isQRViewOpen = false;
-        let qrCodeInstance = null;
-        let calculatedFinalTotal = 0; // Store total for the QR generation
-        
-        // NEW: Store the generated Order ID
+        let calculatedFinalTotal = 0; 
         let currentOrderID = '';
+        let hoverIntervals = {};
 
         document.addEventListener('DOMContentLoaded', () => {
             renderProductGrid();
-            setupMobileAutoplay(); // Initializes mobile scroll observer
+            setupMobileAutoplay(); 
             setupEventListeners();
             updateCartUI();
         });
 
-        // ================================
-        // PRODUCT GRID & HOVER SLIDESHOW
-        // ================================
-        
-        let hoverIntervals = {};
-
         function startHoverSlideshow(productId, cardElement) {
             const product = products.find(p => p.id === productId);
-            const images = product.slideshowImages; // Use slideshow images
+            const images = product.slideshowImages; 
             const imgEl = cardElement.querySelector('.product-img');
             
             if (!imgEl || images.length <= 1) return;
-
             let currentIndex = 0;
             
-            // Clear any existing interval to prevent speeding up
-            if (hoverIntervals[productId]) {
-                clearInterval(hoverIntervals[productId]);
-            }
-
-            // Change image every 1500ms
+            if (hoverIntervals[productId]) clearInterval(hoverIntervals[productId]);
             hoverIntervals[productId] = setInterval(() => {
                 currentIndex = (currentIndex + 1) % images.length;
                 imgEl.src = images[currentIndex];
@@ -1003,150 +554,69 @@
                 clearInterval(hoverIntervals[productId]);
                 delete hoverIntervals[productId];
             }
-            
-            // Reset to the very first image when mouse leaves or scrolls out of view
             const product = products.find(p => p.id === productId);
             const imgEl = cardElement.querySelector('.product-img');
             if (imgEl && product) {
-                imgEl.src = product.slideshowImages[0]; // Use slideshow images
+                imgEl.src = product.slideshowImages[0];
             }
         }
         
-        // Automatically plays slideshow on mobile devices when scrolling
         function setupMobileAutoplay() {
-            // Check if device supports touch (mobile/tablet)
             const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-            if (!isTouchDevice) return; // Do nothing on desktop, rely on hover
+            if (!isTouchDevice) return; 
 
             const cards = document.querySelectorAll('.product-card');
-
-            // Setup observer to trigger when 40% of the card is visible
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.4 
-            };
-
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     const productId = entry.target.getAttribute('data-product-id');
-                    
                     if (entry.isIntersecting) {
-                        // Product scrolled into view
                         startHoverSlideshow(productId, entry.target);
                     } else {
-                        // Product scrolled out of view
                         stopHoverSlideshow(productId, entry.target);
                     }
                 });
-            }, observerOptions);
+            }, { root: null, rootMargin: '0px', threshold: 0.4 });
 
-            // Attach observer to each card
-            cards.forEach(card => {
-                observer.observe(card);
-            });
+            cards.forEach(card => observer.observe(card));
         }
 
         function renderProductGrid() {
             const grid = document.getElementById('productGrid');
-
             grid.innerHTML = products.map((product) => `
-                <div
-                    class="product-card group cursor-pointer"
-                    data-product-id="${product.id}"
-                    onclick="openModal('${product.id}')"
-                    onmouseenter="startHoverSlideshow('${product.id}', this)"
-                    onmouseleave="stopHoverSlideshow('${product.id}', this)"
-                >
-                    <div
-                        class="relative bg-gray-100 rounded-lg md:rounded-2xl overflow-hidden aspect-[4/5] mb-2 md:mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-300"
-                    >
-                        <img
-                            src="${product.slideshowImages[0]}"
-                            alt="${product.series}"
-                            class="product-img w-full h-full object-cover transition-opacity duration-300"
-                        >
-
-                        <div
-                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center p-1 md:p-2"
-                        >
-                            <span
-                                class="bg-white text-primary px-2 py-1 md:px-8 md:py-3 rounded-full font-bold text-[10px] sm:text-xs md:text-base opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl text-center leading-tight"
-                            >
-                                <span class="hidden md:inline">
-                                    Select Options
-                                </span>
-                                <span class="md:hidden">
-                                    View
-                                </span>
+                <div class="product-card group cursor-pointer" data-product-id="${product.id}" onclick="openModal('${product.id}')" onmouseenter="startHoverSlideshow('${product.id}', this)" onmouseleave="stopHoverSlideshow('${product.id}', this)">
+                    <div class="relative bg-gray-100 rounded-lg md:rounded-2xl overflow-hidden aspect-[4/5] mb-2 md:mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-300">
+                        <img src="${product.slideshowImages[0]}" alt="${product.series}" class="product-img w-full h-full object-cover transition-opacity duration-300">
+                        <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center p-1 md:p-2">
+                            <span class="bg-white text-primary px-2 py-1 md:px-8 md:py-3 rounded-full font-bold text-[10px] sm:text-xs md:text-base opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300 shadow-xl text-center leading-tight">
+                                <span class="hidden md:inline">Select Options</span>
+                                <span class="md:hidden">View</span>
                             </span>
                         </div>
                     </div>
-
                     <div class="px-0.5 md:px-2">
-                        <h3
-                            class="font-serif text-[15px] sm:text-base md:text-2xl font-bold text-primary mb-0.5 md:mb-2 leading-tight"
-                        >
-                            ${product.series}
-                        </h3>
-                        <p
-                            class="text-gray-600 text-[9px] sm:text-sm mb-1 md:mb-3 leading-snug line-clamp-2 md:line-clamp-none"
-                        >
-                            ${product.desc}
-                        </p>
-                        <p class="font-semibold text-primary text-[14px] md:text-xl md:text-base">
-                            From RM ${PRICES.wood}
-                        </p>
+                        <h3 class="font-serif text-[15px] sm:text-base md:text-2xl font-bold text-primary mb-0.5 md:mb-2 leading-tight">${product.series}</h3>
+                        <p class="text-gray-600 text-[9px] sm:text-sm mb-1 md:mb-3 leading-snug line-clamp-2 md:line-clamp-none">${product.desc}</p>
+                        <p class="font-semibold text-primary text-[14px] md:text-xl md:text-base">From RM ${PRICES.wood}</p>
                     </div>
                 </div>
             `).join('');
         }
 
-        // ================================
-        // PRODUCT MODAL
-        // ================================
-
-        function openModal(productId) {
-            currentModalProduct = products.find(
-                p => p.id === productId
-            );
+        // GLOBAL FUNCTION FIX: Ensuring openModal is globally accessible
+        window.openModal = function(productId) {
+            currentModalProduct = products.find(p => p.id === productId);
             selectedColorIndex = 0;
 
-            document.getElementById('modalSeries').textContent =
-                currentModalProduct.series;
-            
-            // Set the main title to the first colorway's name initially
-            document.getElementById('modalTitle').textContent =
-                currentModalProduct.colors[0].name;
-
-            document.getElementById('modalDesc').textContent =
-                currentModalProduct.desc;
-
-            // Ensure Wood is selected by default when opening modal
+            document.getElementById('modalSeries').textContent = currentModalProduct.series;
+            document.getElementById('modalTitle').textContent = currentModalProduct.colors[0].name;
+            document.getElementById('modalDesc').textContent = currentModalProduct.desc;
             document.querySelector('input[name="clubType"][value="wood"]').checked = true;
 
             updateModalImage();
 
-            document.getElementById('modalColors').innerHTML =
-            currentModalProduct.colors.map((color, index) => `
-
-                <button
-                    onclick="selectColor(${index})"
-                    class="w-12 h-12 rounded-full transition-all ${
-                        index === selectedColorIndex
-                            ? 'border-4 border-white ring-2 ring-primary scale-110'
-                            : 'border-2 border-gray-200'
-                    }"
-                    style="${color.bgStyle ? color.bgStyle : `background-color: ${color.hex}`}"
-                    id="colorBtn-${index}"
-                    aria-label="${color.name}"
-                ></button>
-
+            document.getElementById('modalColors').innerHTML = currentModalProduct.colors.map((color, index) => `
+                <button onclick="selectColor(${index})" class="w-12 h-12 rounded-full transition-all ${index === selectedColorIndex ? 'border-4 border-white ring-2 ring-primary scale-110' : 'border-2 border-gray-200'}" style="${color.bgStyle ? color.bgStyle : `background-color: ${color.hex}`}" id="colorBtn-${index}" aria-label="${color.name}"></button>
             `).join('');
-
-        document.querySelector(
-                'input[name="clubType"][value="wood"]'
-            ).checked = true;
 
             updateModalPrice();
 
@@ -1157,7 +627,6 @@
                 document.getElementById('modalBackdrop').classList.remove('opacity-0');
                 document.getElementById('modalContent').classList.remove('scale-95', 'opacity-0');
             }, 10);
-
             document.body.style.overflow = 'hidden';
         }
 
@@ -1172,25 +641,18 @@
             }, 300);
         }
 
-        function selectColor(index) {
+        window.selectColor = function(index) {
             selectedColorIndex = index;
             updateModalImage();
-            
-            // Dynamically update the main title text to match the selected colorway
-            document.getElementById('modalTitle').textContent = 
-                currentModalProduct.colors[index].name;
-
+            document.getElementById('modalTitle').textContent = currentModalProduct.colors[index].name;
             currentModalProduct.colors.forEach((_, i) => {
                 const btn = document.getElementById(`colorBtn-${i}`);
-                if (i === index) {
-                    btn.classList.add('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110');
-                } else {
-                    btn.classList.remove('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110');
-                }
+                if (i === index) btn.classList.add('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110');
+                else btn.classList.remove('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110');
             });
         }
         
-        function selectClubType() {
+        window.selectClubType = function() {
             updateModalImage();
             updateModalPrice();
         }
@@ -1198,13 +660,8 @@
         function updateModalImage() {
             const selectedClub = document.querySelector('input[name="clubType"]:checked').value;
             const colorData = currentModalProduct.colors[selectedColorIndex];
-            
-            // Determine which image to show based on the selected club type for this specific colorway
-            if (selectedClub === 'wood') {
-                document.getElementById('modalImg').src = colorData.woodImg;
-            } else {
-                document.getElementById('modalImg').src = colorData.driverImg;
-            }
+            if (selectedClub === 'wood') document.getElementById('modalImg').src = colorData.woodImg;
+            else document.getElementById('modalImg').src = colorData.driverImg;
         }
 
         function updateModalPrice() {
@@ -1212,15 +669,9 @@
             document.getElementById('modalPrice').textContent = `RM ${PRICES[selectedClub]}`;
         }
 
-        // ================================
-        // CART
-        // ================================
-
         function addToCart() {
             const type = document.querySelector('input[name="clubType"]:checked').value;
             const color = currentModalProduct.colors[selectedColorIndex];
-            
-            // Determine which image to use for the cart thumbnail
             const cartImg = type === 'wood' ? color.woodImg : color.driverImg;
 
             cart.push({
@@ -1228,7 +679,7 @@
                 type: type,
                 color: color.name,
                 price: PRICES[type],
-                img: cartImg // Use the specific image for the cart
+                img: cartImg
             });
 
             updateCartUI();
@@ -1236,12 +687,12 @@
             openCart();
         }
 
-        function removeFromCart(index) {
+        window.removeFromCart = function(index) {
             cart.splice(index, 1);
             updateCartUI();
         }
 
-        function updateCartUI() {
+        window.updateCartUI = function() {
             const cartItemsEl = document.getElementById('cartItems');
             const cartCountEl = document.getElementById('cartCount');
             const checkoutBtn = document.getElementById('checkoutBtn');
@@ -1252,7 +703,6 @@
                 cartCountEl.textContent = cart.length;
                 cartCountEl.classList.remove('hidden');
                 checkoutBtn.disabled = false;
-
                 cartItemsEl.innerHTML = cart.map((item, index) => `
                         <div class="flex gap-4 border-b border-gray-100 pb-4 items-center">
                             <img src="${item.img}" class="w-20 h-20 object-cover rounded-xl border" alt="${item.series}">
@@ -1261,9 +711,7 @@
                                 <p class="text-xs text-gray-500 capitalize">${item.type} &bull; ${item.color}</p>
                                 <div class="flex justify-between items-center mt-1">
                                     <p class="font-bold text-primary">RM ${item.price}</p>
-                                    <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-600" aria-label="Remove item">
-                                        <i class="fas fa-trash-alt"></i>
-                                    </button>
+                                    <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-600" aria-label="Remove item"><i class="fas fa-trash-alt"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -1272,26 +720,20 @@
                 cartCountEl.classList.add('hidden');
                 checkoutBtn.disabled = true;
                 cartItemsEl.innerHTML = `<p class="text-center text-gray-400 mt-10">Your cart is empty.</p>`;
-                
-                if(isQRViewOpen) {
-                    toggleCartView(false);
-                }
+                if(isQRViewOpen) toggleCartView(false);
             }
 
-            // Bundle calculation
             let woods = cart.filter(i => i.type === 'wood').length;
             let drivers = cart.filter(i => i.type === 'driver').length;
             let bundlesCount = Math.min(woods, drivers);
             let productsTotal = (bundlesCount * BUNDLE_PRICE) + ((woods - bundlesCount) * PRICES.wood) + ((drivers - bundlesCount) * PRICES.driver);
 
-            // Shipping
             const shippingZone = document.querySelector('input[name="shippingZone"]:checked').value;
             let shippingFee = shippingZone === 'west' ? 10 : 15;
 
             calculatedFinalTotal = cart.length > 0 ? productsTotal + shippingFee : 0;
             totalEl.textContent = `RM ${calculatedFinalTotal}`;
 
-            // Bundle notice
             if (bundlesCount > 0) {
                 bundleNotice.classList.remove('hidden');
                 bundleNotice.innerHTML = `<i class="fas fa-check-circle mr-1"></i> ${bundlesCount} Bundle discount(s) applied!`;
@@ -1299,10 +741,6 @@
                 bundleNotice.classList.add('hidden');
             }
         }
-
-        // ================================
-        // CART SIDEBAR & VIEWS
-        // ================================
 
         function openCart() {
             document.getElementById('cartOverlay').classList.remove('hidden', 'opacity-0');
@@ -1314,9 +752,7 @@
             document.getElementById('cartOverlay').classList.add('opacity-0');
             setTimeout(() => {
                 document.getElementById('cartOverlay').classList.add('hidden');
-                if(isQRViewOpen) {
-                    toggleCartView(false);
-                }
+                if(isQRViewOpen) toggleCartView(false);
             }, 300);
         }
         
@@ -1334,36 +770,26 @@
             if(showQR) {
                 formView.classList.replace('opacity-100', 'opacity-0');
                 formView.classList.add('pointer-events-none');
-                
                 qrView.classList.replace('opacity-0', 'opacity-100');
                 qrView.classList.remove('pointer-events-none');
-                
                 checkoutBtn.classList.add('hidden');
                 checkoutBtn.classList.remove('flex');
-                
                 confirmOrderBtn.classList.remove('hidden');
                 confirmOrderBtn.classList.add('flex');
-                
                 termsNotice.classList.add('hidden');
                 securityNotice.classList.remove('hidden');
-                
                 cartTitle.textContent = "Payment";
             } else {
                 qrView.classList.replace('opacity-100', 'opacity-0');
                 qrView.classList.add('pointer-events-none');
-                
                 formView.classList.replace('opacity-0', 'opacity-100');
                 formView.classList.remove('pointer-events-none');
-                
                 confirmOrderBtn.classList.add('hidden');
                 confirmOrderBtn.classList.remove('flex');
-                
                 checkoutBtn.classList.remove('hidden');
                 checkoutBtn.classList.add('flex');
-                
                 termsNotice.classList.remove('hidden');
                 securityNotice.classList.add('hidden');
-                
                 cartTitle.textContent = "Your Cart";
             }
         }
@@ -1371,20 +797,6 @@
         function generateDuitNowQR(amount) {
             document.getElementById('qrTotalAmount').textContent = `RM ${amount.toFixed(2)}`;
         }
-        
-        // NEW: Function to generate a random 6 character alphanumeric Order ID
-        function generateOrderID() {
-            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-            let result = 'HTH-';
-            for (let i = 0; i < 6; i++) {
-                result += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            return result;
-        }
-
-        // ================================
-        // MENU
-        // ================================
 
         function openMenu() {
             document.getElementById('menuOverlay').classList.remove('hidden', 'opacity-0');
@@ -1399,34 +811,36 @@
             }, 300);
         }
 
-        // ================================
-        // EVENT LISTENERS
-        // ================================
-
         function setupEventListeners() {
-
-            // Cart
             document.getElementById('cartBtn').addEventListener('click', openCart);
             document.getElementById('closeCart').addEventListener('click', closeCart);
             document.getElementById('cartOverlay').addEventListener('click', closeCart);
-
-            // Modal
             document.getElementById('closeModal').addEventListener('click', closeModal);
-
-            // Menu
             document.getElementById('mobileMenuBtn').addEventListener('click', openMenu);
-            // Add to Cart
-            document.getElementById('addToCartModalBtn').addEventListener('click', addToCart);
+            document.getElementById('closeMenuBtn').addEventListener('click', closeMenu);
+            document.getElementById('menuOverlay').addEventListener('click', closeMenu);
             
-            // Back button in QR View
-            document.getElementById('backToCartBtn').addEventListener('click', () => {
-                toggleCartView(false);
+            const helpMenuBtn = document.getElementById('helpMenuBtn');
+            const helpSubMenu = document.getElementById('helpSubMenu');
+            const helpMenuIcon = document.getElementById('helpMenuIcon');
+            if (helpMenuBtn) {
+                helpMenuBtn.addEventListener('click', () => {
+                    helpSubMenu.classList.toggle('hidden');
+                    helpSubMenu.classList.toggle('flex');
+                    helpMenuIcon.classList.toggle('rotate-180');
+                });
+            }
+
+            document.querySelectorAll('.menu-link').forEach(link => {
+                link.addEventListener('click', closeMenu);
             });
 
-            // STEP 1: PROCEED TO PAYMENT (Form Validation -> Show QR)
+            document.getElementById('addToCartModalBtn').addEventListener('click', addToCart);
+            document.getElementById('backToCartBtn').addEventListener('click', () => toggleCartView(false));
+
+            // Proceed to checkout and assign Sequential DB Order ID
             document.getElementById('checkoutBtn').addEventListener('click', async () => {
                 if (cart.length === 0) return;
-
                 const custName = document.getElementById('custName').value.trim();
                 const custEmail = document.getElementById('custEmail').value.trim();
                 const custPhone = document.getElementById('custPhone').value.trim();
@@ -1444,20 +858,19 @@
 
                 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
                 if (!emailRegex.test(custEmail)) {
-                    formError.innerHTML = 'Please enter a valid email address (e.g., name@email.com).';
+                    formError.innerHTML = 'Please enter a valid email address.';
                     formError.classList.remove('hidden');
                     return;
                 }
 
                 formError.classList.add('hidden');
                 
-                // Show loading state on button while fetching universal ID
                 const btn = document.getElementById('checkoutBtn');
                 const originalText = btn.innerHTML;
                 btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Securing Order ID...';
                 btn.disabled = true;
                 
-                // NEW: Generate Universal Sequential Order ID via Database
+                // Fetch the sequential order ID!
                 if (window.generateUniversalOrderID) {
                     currentOrderID = await window.generateUniversalOrderID();
                 } else {
@@ -1465,19 +878,16 @@
                 }
 
                 document.getElementById('displayOrderID').textContent = currentOrderID;
-                
                 generateDuitNowQR(calculatedFinalTotal);
                 toggleCartView(true);
 
-                // Reset button state
                 btn.innerHTML = originalText;
                 btn.disabled = false;
             });
             
-            // STEP 2: CONFIRM ORDER (WhatsApp Redirect)
+            // Confirm Order and send to WhatsApp
             document.getElementById('confirmOrderBtn').addEventListener('click', () => {
                 const btn = document.getElementById('confirmOrderBtn');
-                
                 const custName = document.getElementById('custName').value.trim();
                 const custEmail = document.getElementById('custEmail').value.trim();
                 const custPhone = document.getElementById('custPhone').value.trim();
@@ -1493,7 +903,6 @@
                 let woods = cart.filter(i => i.type === 'wood').length;
                 let drivers = cart.filter(i => i.type === 'driver').length;
                 let bundlesCount = Math.min(woods, drivers);
-                
                 let bundleText = bundlesCount > 0 ? `\n* Bundles applied: ${bundlesCount} (Saved RM ${bundlesCount * ((PRICES.wood + PRICES.driver) - BUNDLE_PRICE)})` : '';
                 
                 let cartDetails = cart.map((item, index) => {
@@ -1501,30 +910,7 @@
                     return `${index + 1}. ${item.series} (${capitalizedType}) - Color: ${item.color} - RM ${item.price}`;
                 }).join('\n');
 
-                // NEW: Included Order Ref in the message template
-                let message = `*NEW ORDER - HEATH STUDIO (DUITNOW QR)* 📸⛳️
-
-Order Ref: *${currentOrderID}*
-
-I have successfully scanned and paid the DuitNow QR code on your website. Here is my payment receipt screenshot (attached below) and my order details:
-
-*Customer Details:*
-Name: ${custName}
-Email: ${custEmail}
-Phone: ${custPhone}
-
-*Delivery Address:*
-${custAddress}
-${custPostcode} ${custCity}
-${custState}
-Shipping: ${zoneName} (RM ${shippingFee})
-
-*Order Summary:*
-${cartDetails}${bundleText}
-
-*Total Paid: RM ${calculatedFinalTotal}*
-
-Hi Heath Studio! I'm attaching my DuitNow receipt here. Please confirm my order!`;
+                let message = `*NEW ORDER - HEATH STUDIO (DUITNOW QR)* 📸⛳️\n\nOrder Ref: *${currentOrderID}*\n\nI have successfully scanned and paid the DuitNow QR code on your website. Here is my payment receipt screenshot (attached below) and my order details:\n\n*Customer Details:*\nName: ${custName}\nEmail: ${custEmail}\nPhone: ${custPhone}\n\n*Delivery Address:*\n${custAddress}\n${custPostcode} ${custCity}\n${custState}\nShipping: ${zoneName} (RM ${shippingFee})\n\n*Order Summary:*\n${cartDetails}${bundleText}\n\n*Total Paid: RM ${calculatedFinalTotal}*\n\nHi Heath Studio! I'm attaching my DuitNow receipt here. Please confirm my order!`;
 
                 const businessPhoneNumber = "601112985037"; 
                 const encodedMessage = encodeURIComponent(message);
