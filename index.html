@@ -101,12 +101,12 @@
     </header>
 
     <!-- MAIN -->
-l<!-- MAIN -->
-<main class="flex-grow">
-    <!-- Removed pb-32 / lg:pb-48 padding so the GIF sits directly under    <!-- GIF DIVIDER SECTION (Borders removed, font-size-0 to eliminate inline gap) -->
-   <section id="home" class="relative pt-20 lg:pt-32 overflow-hidden home-bg-image">
+<!-- MAIN -->
+<main class="flex-grow pt-0 mt-0">
+    <!-- HOME SECTION: Removed pt-20/pb-32 padding from container so header & GIF touch flush -->
+    <section id="home" class="relative overflow-hidden home-bg-image pt-20 lg:pt-28 pb-16">
         <div class="bg-overlay"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pb-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto flex flex-col items-center bg-white/3 backdrop-blur-sm p-8 rounded-2xl shadow-sm">
                 <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#4c111f] mb-6 leading-tight drop-shadow-sm">Golf, Considered Differently.</h1>
                 <p class="text-xl text-gray-800 mb-6 font-medium">Handcrafted headcovers designed with character, precision, and a considered approach to the game.</p>
@@ -118,20 +118,25 @@ l<!-- MAIN -->
         </div>
     </section>
 
-    <!-- GIF DIVIDER SECTION (Borders removed, font-size-0 to eliminate inline gap) -->
-    <section class="w-full relative overflow-hidden bg-primary leading-none text-[0px]">
-        <img src="divider.GIF" alt="Lifestyle Divider" class="w-full h-auto max-h-[1500px] object-cover block m-0 p-0" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/4c111f/ffffff?text=LIFESTYLE+IMAGE'">
+    <!-- GIF DIVIDER: Seamlessly stacked between sections without extra borders or padding -->
+    <section class="w-full relative overflow-hidden bg-primary p-0 m-0 leading-none">
+        <img src="divider.GIF" alt="Lifestyle Divider" class="w-full h-auto max-h-[450px] object-cover block m-0 p-0" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/4c111f/ffffff?text=LIFESTYLE+IMAGE'">
         <div class="absolute inset-0 bg-black/20 mix-blend-multiply pointer-events-none"></div>
     </section>
 
-    <!-- COLLECTIONS SECTION (Removed border-t) -->
-    <section id="collections" class="relative py-24 hero-bg">
+    <!-- COLLECTIONS SECTION -->
+    <section id="collections" class="relative py-20 hero-bg">
         <div class="absolute inset-0 bg-white/10"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center mb-8 md:mb-16">
-                <h2 class="font-serif text-4xl font-bold text-[#4c111f] mb-4">THE ATELIER COLLECTION</h2>
+                <h2 class="font-serif text-4xl font-bold text-[#4c111f] mb-4">THE ATTELIER COLLECTION</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">Three distinct series, meticulously crafted for style and protection. Available for Drivers and Woods. Bundle up to save!</p>
             </div>
+            <!-- Collection items go here -->
+        </div>
+    </section>
+</main>
+
 
 
                 <div class="grid grid-cols-3 gap-2 md:gap-10" id="productGrid">
