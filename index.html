@@ -49,12 +49,32 @@
             scroll-behavior: smooth;
         }
 
+        /* Generic background used for other sections */
         .hero-bg {
             background-image: url('Heath w BG.pdf.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
+        }
+        
+        /* NEW: Custom class for the specific home background image */
+        .home-bg-image {
+            /* REPLACE 'home-background.jpeg' WITH YOUR ACTUAL IMAGE FILENAME */
+            background-image: url('Home bg.png'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* Optional: uncomment below for a parallax scrolling effect */
+            /* background-attachment: fixed; */
+        }
+        
+        /* NEW: Utility class to add a dimming overlay to background images */
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background-color: rgba(255, 255, 255, 0.15); /* Adjust opacity here to make background darker/lighter */
+            z-index: 0;
         }
 
         .no-scrollbar::-webkit-scrollbar {
@@ -152,23 +172,24 @@
         <!-- HERO SECTION -->
         <section
             id="home"
-            class="relative hero-bg pt-20 pb-32 lg:pt-32 lg:pb-48 overflow-hidden"
+            class="relative pt-20 pb-32 lg:pt-32 lg:pb-48 overflow-hidden home-bg-image"
         >
-            <div class="absolute inset-0 bg-white/15"></div>
+            <!-- Overlay to ensure text readability -->
+            <div class="bg-overlay"></div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center max-w-3xl mx-auto flex flex-col items-center">
+                <div class="text-center max-w-3xl mx-auto flex flex-col items-center bg-white/60 backdrop-blur-sm p-8 rounded-2xl shadow-sm">
 
-                    <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#4c111f] mb-6 leading-tight">
+                    <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#4c111f] mb-6 leading-tight drop-shadow-sm">
                         Golf, Considered Differently.
                     </h1>
 
-                    <p class="text-xl text-gray-600 mb-6 font-light">
+                    <p class="text-xl text-gray-800 mb-6 font-medium">
                         Handcrafted headcovers designed with character, precision,
                         and a considered approach to the game.
                     </p>
 
-                    <p class="text-xl text-gray-700 mb-10 font-bold">
+                    <p class="text-xl text-[#4c111f] mb-10 font-bold">
                         Limited first collection, 40 pieces only.
                     </p>
 
@@ -802,13 +823,13 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
 
                 <!-- Product Image -->
-                <div class="bg-gray-100 min-h-[300px] flex items-center justify-center p-8 relative">
+                <div class="bg-gray-100 min-h-[300px] flex items-center justify-center p-8 relative h-[250px] sm:h-[300px] md:h-auto md:min-h-[400px] shrink-0">
 
                     <img
                         id="modalImg"
                         src=""
                         alt="Product"
-                        class="max-w-full h-auto object-contain drop-shadow-xl rounded-lg"
+                        class="max-w-full h-full object-contain drop-shadow-xl rounded-lg"
                     >
 
                 </div>
