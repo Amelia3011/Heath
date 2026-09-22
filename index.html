@@ -1203,14 +1203,17 @@
 
             document.getElementById('modalSeries').textContent =
                 currentModalProduct.series;
+            
+            // Set the main title to the first colorway's name initially
             document.getElementById('modalTitle').textContent =
-                currentModalProduct.series;
+                currentModalProduct.colors[0].name;
+
             document.getElementById('modalDesc').textContent =
                 currentModalProduct.desc;
 
             // Ensure Wood is selected by default when opening modal
             document.querySelector('input[name="clubType"][value="wood"]').checked = true;
-
+            
             updateModalImage();
 
             document.getElementById('modalColors').innerHTML =
@@ -1261,13 +1264,13 @@
         function selectColor(index) {
             selectedColorIndex = index;
             updateModalImage();
+            
+            // Dynamically update the main title text to match the selected colorway
+            document.getElementById('modalTitle').textContent = 
+                currentModalProduct.colors[index].name;
 
             currentModalProduct.colors.forEach((_, i) => {
                 const btn = document.getElementById(`colorBtn-${i}`);
-                if (i === index) {
-                    btn.classList.add('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110');
-                } else {
-                    btn.classList.remove('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110');
                 }
             });
         }
