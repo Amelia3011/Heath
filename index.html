@@ -90,33 +90,33 @@
 <body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen relative">
 
     <!-- HEADER -->
-    <header class="bg-[#4c111f] shadow-md sticky top-0 z-50"><!-- SCROLLING MARQUEE BANNER -->
-<div class="marquee-container w-full overflow-hidden bg-white/10 backdrop-blur-md py-3 border-y border-white/20 my-6">
-  <div class="animate-marquee flex items-center whitespace-nowrap text-white font-bold tracking-widest text-sm uppercase">
-    
-    <!-- FIRST SET -->
-    <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-    <span class="text-white/40">•</span>
-    <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-    <span class="text-white/40">•</span>
-    <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-    <span class="text-white/40">•</span>
-    <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-    <span class="text-white/40">•</span>
+    <header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
+        <!-- SCROLLING MARQUEE BANNER -->
+        <div class="marquee-container w-full overflow-hidden bg-white/10 backdrop-blur-md py-3 border-y border-white/20 my-6">
+          <div class="animate-marquee flex items-center whitespace-nowrap text-white font-bold tracking-widest text-sm uppercase">
+            <!-- FIRST SET -->
+            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="text-white/40">•</span>
+            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="text-white/40">•</span>
+            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="text-white/40">•</span>
+            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="text-white/40">•</span>
 
-    <!-- DUPLICATE SET (Required for seamless continuous infinite loop) -->
-    <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-    <span class="text-white/40">•</span>
-    <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-    <span class="text-white/40">•</span>
-    <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-    <span class="text-white/40">•</span>
-    <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-    <span class="text-white/40">•</span>
-
-  </div>
-</div>
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- DUPLICATE SET -->
+            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="text-white/40">•</span>
+            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="text-white/40">•</span>
+            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="text-white/40">•</span>
+            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="text-white/40">•</span>
+          </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center py-0">
                 <div class="flex-1 flex items-center justify-start">
                     <button id="mobileMenuBtn" class="text-[#fffaf1] hover:opacity-80 transition-opacity p-2 focus:outline-none" aria-label="Menu">
@@ -146,82 +146,95 @@
     </header>
 
     <!-- MAIN -->
-<main class="flex-grow pt-0 mt-0">
-    <!-- HOME SECTION: Removed pt-20/pb-32 padding from container so header & GIF touch flush -->
-    <section id="home" class="relative overflow-hidden home-bg-image pt-20 lg:pt-28 pb-16">
-        <div class="bg-overlay"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto flex flex-col items-center bg-white/3 backdrop-blur-sm p-8 rounded-2xl shadow-sm">
-                <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#4c111f] mb-6 leading-tight drop-shadow-sm">Golf, Considered Differently.</h1>
-                <p class="text-xl text-gray-800 mb-6 font-medium">Handcrafted headcovers designed with character, precision, and a considered approach to the game.</p>
-                <p class="text-xl text-[#4c111f] mb-10 font-bold">Limited first collection, 40 pieces only.</p>
-                <div class="flex justify-center gap-4">
-                    <a href="#collections" class="bg-[#4c111f] text-white px-8 py-4 rounded-full font-medium hover:opacity-80 transition-opacity shadow-lg">Shop The Drop</a>
+    <main class="flex-grow pt-0 mt-0">
+        
+        <!-- HOME SECTION -->
+        <section id="home" class="relative overflow-hidden home-bg-image pt-20 lg:pt-28 pb-16">
+            <div class="bg-overlay"></div>
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-3xl mx-auto flex flex-col items-center bg-white/3 backdrop-blur-sm p-8 rounded-2xl shadow-sm">
+                    <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#4c111f] mb-6 leading-tight drop-shadow-sm">Golf, Considered Differently.</h1>
+                    <p class="text-xl text-gray-800 mb-6 font-medium">Handcrafted headcovers designed with character, precision, and a considered approach to the game.</p>
+                    <p class="text-xl text-[#4c111f] mb-10 font-bold">Limited first collection, 40 pieces only.</p>
+                    <div class="flex justify-center gap-4">
+                        <a href="#collections" class="bg-[#4c111f] text-white px-8 py-4 rounded-full font-medium hover:opacity-80 transition-opacity shadow-lg">Shop The Drop</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- GIF DIVIDER: Seamlessly stacked between sections without extra borders or padding -->
-    <section class="w-full relative overflow-hidden bg-primary p-0 m-0 leading-none">
-        <img src="divider.GIF" alt="Lifestyle Divider" class="w-full h-auto max-h-[450px] object-cover block m-0 p-0" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/4c111f/ffffff?text=LIFESTYLE+IMAGE'">
-        <div class="absolute inset-0 bg-black/20 mix-blend-multiply pointer-events-none"></div>
-    </section>
+        <!-- GIF DIVIDER: Added mt-6 for a half-inch gap -->
+        <section class="w-full relative overflow-hidden bg-primary p-0 mt-6 leading-none">
+            <img src="divider.GIF" alt="Lifestyle Divider" class="w-full h-auto max-h-[450px] object-cover block m-0 p-0" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/4c111f/ffffff?text=LIFESTYLE+IMAGE'">
+            <div class="absolute inset-0 bg-black/20 mix-blend-multiply pointer-events-none"></div>
+        </section>
 
-    <!-- COLLECTIONS SECTION -->
-    <section id="collections" class="relative py-20 hero-bg">
-        <div class="absolute inset-0 bg-white/10"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-8 md:mb-16">
-                <h2 class="font-serif text-4xl font-bold text-[#4c111f] mb-4">THE ATTELIER COLLECTION</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">Three distinct series, meticulously crafted for style and protection. Available for Drivers and Woods. Bundle up to save!</p>
-            </div>
-    </section>
-</main>
-         <div class="grid grid-cols-3 gap-2 md:gap-10" id="productGrid">
+        <!-- COLLECTIONS SECTION -->
+        <section id="collections" class="relative py-20 hero-bg">
+            <div class="absolute inset-0 bg-white/10"></div>
+            
+            <!-- Added px-8 md:px-12 to push the grid inward from the edges (~1 inch) -->
+            <div class="max-w-7xl mx-auto px-8 md:px-12 relative z-10">
+                <div class="text-center mb-8 md:mb-16">
+                    <h2 class="font-serif text-4xl font-bold text-[#4c111f] mb-4">THE ATTELIER COLLECTION</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">Three distinct series, meticulously crafted for style and protection. Available for Drivers and Woods. Bundle up to save!</p>
+                </div>
+
+                <div class="grid grid-cols-3 gap-3 md:gap-10" id="productGrid">
                     <!-- Products injected here via JS -->
                 </div>
             </div>
         </section>
-<main class="flex-grow pt-0 mt-0">
-        <section class="w-full h-48 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-gray-100">
+
+        <!-- FULL-WIDTH GOLF GREEN IMAGE DIVIDER: Added mt-16 for a 2-inch gap -->
+        <section class="w-full h-48 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-gray-100 mt-16">
             <img src="Untitled design.png" alt="Golf course green" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/1200x500/228b22/ffffff?text=GOLF+GREEN'">
         </section>
-</main>
+
+        <!-- ABOUT SECTION -->
         <section id="about" class="py-24 bg-[#4c111f] text-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     <div>
                         <h2 class="font-serif text-4xl font-bold mb-6">The House of Heath</h2>
                         <p class="text-gray-300 mb-6 leading-relaxed">Born in Malaysia, Heath was created with a belief that the details matter. We look beyond the equipment itself to the pieces that accompany the game — thoughtfully designed objects that reflect individuality, taste, and a love for golf.</p>
-                        <div class="flex gap-4">
-                            <a href="#" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors" aria-label="Instagram">
-                                <i class="fab fa-instagram text-xl"></i>
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- FOOTER -->
     <footer class="bg-[#2f0a13] text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                
                 <div class="text-center md:text-left">
                     <p class="font-serif text-xl font-semibold">HEATH STUDIO</p>
                     <p class="text-sm text-gray-300 mt-1">Considered differently.</p>
+                    
+                    <!-- Social Media Icons (Footer Section) -->
+                    <div class="flex gap-4 mt-4 justify-center md:justify-start">
+                        <a href="https://instagram.com/heath.golf" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white hover:scale-110 transition-all" aria-label="Instagram">
+                            <i class="fab fa-instagram text-2xl"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@heathgolf.co?_r=1&_t=ZS-99xzQplElB2" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white hover:scale-110 transition-all" aria-label="TikTok">
+                            <i class="fab fa-tiktok text-2xl"></i>
+                        </a>
+                    </div>
                 </div>
-                <div class="flex flex-wrap justify-center gap-4 text-sm">
+
+                <div class="flex flex-wrap justify-center gap-4 text-sm mt-4 md:mt-0">
                     <a href="shipping_policy.html" class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors">Shipping Policy</a>
-                    <span class="text-gray-500">|</span>
+                    <span class="text-gray-500 hidden sm:inline">|</span>
                     <a href="Returnpolicy.html" class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors">Return & Refund Policy</a>
-                    <span class="text-gray-500">|</span>
+                    <span class="text-gray-500 hidden sm:inline">|</span>
                     <a href="T&C1.html" class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors">Terms & Condition</a>
-                    <span class="text-gray-500">|</span>
+                    <span class="text-gray-500 hidden sm:inline">|</span>
                     <a href="privacy_policy.html" class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors">Privacy Policy</a>
                 </div>
             </div>
+            
             <div class="border-t border-white/10 mt-8 pt-6 text-center">
                 <p class="text-xs text-gray-400">© 2026 HEATH STUDIO. All rights reserved.</p>
             </div>
