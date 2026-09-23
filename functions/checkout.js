@@ -2,11 +2,12 @@ export async function onRequestPost(context) {
     try {
         const bodyText = await context.request.text();
 
-        // ⚠️ TEMPORARY: Use your SANDBOX API Key here while testing
-        const HITPAY_API_KEY = "test_1554ccdaf16fec87c81079393854722844f09859a9c5c4fe6bde22d8d31f55db";
+        // ⚠️ FINAL STEP: Paste your LIVE HitPay API Key here!
+        // You can find this in your HitPay Dashboard under Developers > API Keys
+        const HITPAY_API_KEY = "live_92b0b068df82a71ea8999fe9ef30b74ac9cc612d276c1b8eb483c0a5ed957760";
 
-        // ⚠️ TEMPORARY: Point to the Sandbox API URL while testing
-        const response = await fetch("https://api.sandbox.hit-pay.com/v1/payment-requests", {
+        // ⚠️ LIVE ENDPOINT (Notice 'sandbox' is removed from the URL)
+        const response = await fetch("https://api.hit-pay.com/v1/payment-requests", {
             method: "POST",
             headers: {
                 "X-BUSINESS-API-KEY": HITPAY_API_KEY,
