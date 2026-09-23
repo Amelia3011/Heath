@@ -26,9 +26,7 @@
                         'azure-1': '#4682B4',
                         'azure-2': '#000080',
                         'bone-1': '#F5F5DC',
-                        'bone-2': '#2F4F4F',
-                        'duitnow-pink': '#ED1164', 
-                        'duitnow-blue': '#161C68'
+                        'bone-2': '#2F4F4F'
                     }
                 }
             }
@@ -57,44 +55,28 @@
             z-index: 0;
         }
         @keyframes marquee {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 25s linear infinite;
-}
-
-/* Pause ticker when user hovers over it */
-.marquee-container:hover .animate-marquee {
-  animation-play-state: paused;
-}
-
+            0% { transform: translateX(0%); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+        }
+        .marquee-container:hover .animate-marquee {
+            animation-play-state: paused;
+        }
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        @keyframes subtle-pulse {
-            0% { box-shadow: 0 0 0 0 rgba(237, 17, 100, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(237, 17, 100, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(237, 17, 100, 0); }
-        }
-        .qr-pulse { animation: subtle-pulse 2s infinite; }
     </style>
 </head>
 
 <body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen relative">
 
-    <!-- HEADER -->
     <header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
         <!-- SCROLLING MARQUEE BANNER -->
         <div class="marquee-container w-full overflow-hidden bg-white/10 backdrop-blur-md py-3 border-y border-white/20 my-6">
           <div class="animate-marquee flex items-center whitespace-nowrap text-white font-bold tracking-widest text-sm uppercase">
-            <!-- FIRST SET -->
             <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
             <span class="text-white/40">•</span>
             <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
@@ -103,8 +85,6 @@
             <span class="text-white/40">•</span>
             <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
             <span class="text-white/40">•</span>
-
-            <!-- DUPLICATE SET -->
             <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
             <span class="text-white/40">•</span>
             <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
@@ -145,10 +125,8 @@
         </div>
     </header>
 
-    <!-- MAIN -->
     <main class="flex-grow pt-0 mt-0">
         
-        <!-- HOME SECTION -->
         <section id="home" class="relative overflow-hidden home-bg-image pt-20 lg:pt-28 pb-24">
             <div class="bg-overlay"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -163,17 +141,14 @@
             </div>
         </section>
 
-        <!-- GIF DIVIDER: Removed mt-6. The gap is now created by pb-24 on the home section above it -->
         <section class="w-full relative overflow-hidden bg-primary p-0 leading-none">
             <img src="divider.GIF" alt="Lifestyle Divider" class="w-full h-auto max-h-[450px] object-cover block m-0 p-0" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/4c111f/ffffff?text=LIFESTYLE+IMAGE'">
             <div class="absolute inset-0 bg-black/20 mix-blend-multiply pointer-events-none"></div>
         </section>
 
-        <!-- COLLECTIONS SECTION: Added pb-36 to stretch the pattern down to create the gap -->
         <section id="collections" class="relative pt-20 pb-36 hero-bg">
             <div class="absolute inset-0 bg-white/10"></div>
             
-            <!-- Added px-8 md:px-12 to push the grid inward from the edges (~1 inch) -->
             <div class="max-w-7xl mx-auto px-8 md:px-12 relative z-10">
                 <div class="text-center mb-8 md:mb-16">
                     <h2 class="font-serif text-4xl font-bold text-[#4c111f] mb-4">THE ATELIER COLLECTION</h2>
@@ -186,12 +161,10 @@
             </div>
         </section>
 
-        <!-- FULL-WIDTH GOLF GREEN IMAGE DIVIDER: Removed mt-16, gap is handled by pb-36 above -->
         <section class="w-full h-48 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-[#4c111f]/20">
             <img src="Untitled design.png" alt="Golf course green" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/1200x500/228b22/ffffff?text=GOLF+GREEN'">
         </section>
 
-        <!-- ABOUT SECTION -->
         <section id="about" class="py-24 bg-[#4c111f] text-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -199,7 +172,6 @@
                         <h2 class="font-serif text-4xl font-bold mb-6">The House of Heath</h2>
                         <p class="text-gray-300 mb-6 leading-relaxed">Born in Malaysia, Heath was created with a belief that the details matter. We look beyond the equipment itself to the pieces that accompany the game — thoughtfully designed objects that reflect individuality, taste, and a love for golf.</p>
                         
-                        <!-- Social Media Icons (About Section) -->
                         <div class="flex gap-4">
                             <a href="https://instagram.com/heath.golf" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors shadow-sm" aria-label="Instagram">
                                 <i class="fab fa-instagram text-xl"></i>
@@ -208,14 +180,12 @@
                                 <i class="fab fa-tiktok text-xl"></i>
                             </a>
                         </div>
-
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="bg-[#2f0a13] text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -235,17 +205,14 @@
                     <a href="privacy_policy.html" class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors">Privacy Policy</a>
                 </div>
             </div>
-            
             <div class="border-t border-white/10 mt-8 pt-6 text-center">
                 <p class="text-xs text-gray-400">© 2026 HEATH STUDIO. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- MENU OVERLAY -->
     <div id="menuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
 
-    <!-- LEFT SIDEBAR MENU -->
     <div id="sideMenu" class="fixed top-0 left-0 h-[100dvh] w-[250px] sm:w-[300px] bg-white shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
         <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
             <h2 class="font-serif text-2xl font-bold text-[#4c111f]">Menu</h2>
@@ -270,128 +237,80 @@
         </div>
     </div>
 
-    <!-- CART OVERLAY -->
+    <!-- CART -->
     <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
 
-    <!-- CART SIDEBAR -->
     <div id="cartSidebar" class="fixed top-0 right-0 h-[100dvh] w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
         <div class="p-6 border-b flex justify-between items-center bg-gray-50 flex-shrink-0">
-            <h2 class="font-serif text-2xl font-bold text-[#4c111f]" id="cartTitle">Your Cart</h2>
+            <h2 class="font-serif text-2xl font-bold text-[#4c111f]">Your Cart</h2>
             <button id="closeCart" class="text-gray-500 hover:text-[#4c111f] p-2 focus:outline-none" aria-label="Close cart"><i class="fas fa-times text-xl"></i></button>
         </div>
-        <div class="flex-1 overflow-y-auto no-scrollbar relative" id="cartContentArea">
-            <div id="cartFormView" class="w-full transition-opacity duration-300 opacity-100 absolute top-0 left-0 h-full overflow-y-auto no-scrollbar">
-                <div id="cartItems" class="p-6 space-y-4"></div>
-                <div class="p-6 border-t bg-gray-50/50">
-                    <div class="flex justify-between items-center mb-4">
-                        <span class="text-gray-600">Subtotal</span>
-                        <span class="font-bold text-2xl text-primary" id="cartTotal">RM 0</span>
+        
+        <!-- Streamlined Cart Content without the old QR View -->
+        <div class="flex-1 overflow-y-auto no-scrollbar relative flex flex-col" id="cartContentArea">
+            <div id="cartItems" class="p-6 space-y-4"></div>
+            
+            <div class="p-6 border-t bg-gray-50/50 mt-auto">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-gray-600">Subtotal</span>
+                    <span class="font-bold text-2xl text-primary" id="cartTotal">RM 0</span>
+                </div>
+                <div class="text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-md mb-4 hidden border border-green-100" id="bundleNotice">
+                    <i class="fas fa-check-circle mr-1"></i> Bundle discount applied!
+                </div>
+                
+                <div class="mb-4 space-y-3">
+                    <h3 class="text-sm font-medium text-[#4c111f]">Delivery Details</h3>
+                    <input type="text" id="custName" placeholder="Full Name" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                    <input type="email" id="custEmail" placeholder="Email Address" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                    <input type="tel" id="custPhone" placeholder="Phone Number" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                    <div class="space-y-2">
+                        <input type="text" id="custAddress" placeholder="Street Address (e.g. No. 12, Jalan Sultan)" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                        <div class="grid grid-cols-2 gap-2">
+                            <input type="text" id="custCity" placeholder="City" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                            <input type="text" id="custPostcode" placeholder="Postcode" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                        </div>
+                        <select id="custState" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                            <option value="" disabled selected>Select State...</option>
+                            <option value="Johor">Johor</option><option value="Kedah">Kedah</option><option value="Kelantan">Kelantan</option><option value="Melaka">Melaka</option><option value="Negeri Sembilan">Negeri Sembilan</option><option value="Pahang">Pahang</option><option value="Perak">Perak</option><option value="Perlis">Perlis</option><option value="Penang">Penang</option><option value="Sabah">Sabah</option><option value="Sarawak">Sarawak</option><option value="Selangor">Selangor</option><option value="Terengganu">Terengganu</option><option value="Kuala Lumpur">Kuala Lumpur</option><option value="Labuan">Labuan</option><option value="Putrajaya">Putrajaya</option>
+                        </select>
                     </div>
-                    <div class="text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-md mb-4 hidden border border-green-100" id="bundleNotice">
-                        <i class="fas fa-check-circle mr-1"></i> Bundle discount applied!
-                    </div>
-                    
-                    <div class="mb-4 space-y-3">
-                        <h3 class="text-sm font-medium text-[#4c111f]">Delivery Details</h3>
-                        <input type="text" id="custName" placeholder="Full Name" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
-                        <input type="email" id="custEmail" placeholder="Email Address" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
-                        <input type="tel" id="custPhone" placeholder="Phone Number" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
-                        <div class="space-y-2">
-                            <input type="text" id="custAddress" placeholder="Street Address (e.g. No. 12, Jalan Sultan)" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
-                            <div class="grid grid-cols-2 gap-2">
-                                <input type="text" id="custCity" placeholder="City" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
-                                <input type="text" id="custPostcode" placeholder="Postcode" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                </div>
+                <div id="formError" class="text-xs text-red-500 mb-3 hidden font-medium text-center">Please fill in all delivery details above.</div>
+                
+                <div class="mb-2">
+                    <label class="block text-sm font-medium text-[#4c111f] mb-2">Shipping Destination</label>
+                    <div class="grid grid-cols-2 gap-3">
+                        <label class="cursor-pointer group">
+                            <input type="radio" name="shippingZone" value="west" class="peer sr-only" checked onchange="updateCartUI()">
+                            <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
+                                <span class="block font-semibold text-[#4c111f] text-sm">West Malaysia</span>
+                                <span class="block text-xs text-[#4c111f]/70 mt-1">RM 10</span>
                             </div>
-                            <select id="custState" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
-                                <option value="" disabled selected>Select State...</option>
-                                <option value="Johor">Johor</option><option value="Kedah">Kedah</option><option value="Kelantan">Kelantan</option><option value="Melaka">Melaka</option><option value="Negeri Sembilan">Negeri Sembilan</option><option value="Pahang">Pahang</option><option value="Perak">Perak</option><option value="Perlis">Perlis</option><option value="Penang">Penang</option><option value="Sabah">Sabah</option><option value="Sarawak">Sarawak</option><option value="Selangor">Selangor</option><option value="Terengganu">Terengganu</option><option value="Kuala Lumpur">Kuala Lumpur</option><option value="Labuan">Labuan</option><option value="Putrajaya">Putrajaya</option>
-                            </select>
-                        </div>
-                    </div>
-                    <div id="formError" class="text-xs text-red-500 mb-3 hidden font-medium text-center">Please fill in all delivery details above.</div>
-                    
-                    <div class="mb-2">
-                        <label class="block text-sm font-medium text-[#4c111f] mb-2">Shipping Destination</label>
-                        <div class="grid grid-cols-2 gap-3">
-                            <label class="cursor-pointer group">
-                                <input type="radio" name="shippingZone" value="west" class="peer sr-only" checked onchange="updateCartUI()">
-                                <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
-                                    <span class="block font-semibold text-[#4c111f] text-sm">West Malaysia</span>
-                                    <span class="block text-xs text-[#4c111f]/70 mt-1">RM 10</span>
-                                </div>
-                            </label>
-                            <label class="cursor-pointer group">
-                                <input type="radio" name="shippingZone" value="east" class="peer sr-only" onchange="updateCartUI()">
-                                <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
-                                    <span class="block font-semibold text-[#4c111f] text-sm">East Malaysia</span>
-                                    <span class="block text-xs text-[#4c111f]/70 mt-1">RM 15</span>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div id="qrCheckoutView" class="w-full transition-opacity duration-300 opacity-0 pointer-events-none absolute top-0 left-0 h-full bg-white flex flex-col p-6 overflow-y-auto no-scrollbar">
-                <button id="backToCartBtn" class="text-sm text-gray-500 hover:text-primary mb-4 flex items-center gap-2 self-start">
-                    <i class="fas fa-arrow-left"></i> Back to Details
-                </button>
-                <div class="text-center mb-6">
-                    <h3 class="font-serif text-2xl font-bold text-primary">Scan to Pay</h3>
-                    <p class="text-gray-500 text-sm mt-1">Screenshot this QR code and upload it to your banking app or e-wallet to complete your purchase.</p>
-                    <p class="mt-3 font-bold text-gray-800 bg-gray-100/80 py-2 px-4 rounded-lg inline-block border border-gray-200 shadow-sm">
-                        Order Ref: <span id="displayOrderID" class="text-duitnow-pink tracking-wider"></span>
-                    </p>
-                </div>
-                <div class="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 mx-auto mb-6 w-full max-w-sm qr-pulse">
-                    <div class="flex justify-center mb-4">
-                        <div class="flex items-center gap-2 font-bold text-2xl tracking-tighter">
-                            <span class="text-duitnow-blue">Duit</span><span class="text-duitnow-pink">Now</span>
-                            <span class="bg-duitnow-blue text-white text-xs px-1.5 py-0.5 rounded uppercase ml-1">QR</span>
-                        </div>
-                    </div>
-                    <div class="flex justify-center mb-4 bg-white p-2 border-4 border-duitnow-pink rounded-xl">
-                        <img id="duitnow.jpeg" src="duitnow.jpeg" alt="Heath Studio DuitNow QR" class="w-48 h-48 object-contain" onerror="this.src='https://placehold.co/200x200/ED1164/ffffff?text=YOUR+QR+HERE'">
-                    </div>
-                    <div class="text-center bg-gray-50 rounded-lg p-3 border border-gray-100">
-                        <p class="text-xs text-gray-500 uppercase tracking-wider mb-1">Total Amount Due</p>
-                        <p class="text-3xl font-bold text-duitnow-blue" id="qrTotalAmount">RM 0.00</p>
-                        <p class="text-xs text-gray-500 mt-2">Pay to: <span class="font-semibold text-gray-700">HEATH STUDIO</span></p>
-                    </div>
-                </div>
-                <div class="space-y-4 mb-8">
-                    <h4 class="text-sm font-bold text-gray-700 uppercase tracking-wide border-b pb-2">How to pay via screenshot:</h4>
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 rounded-full bg-duitnow-pink text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</div>
-                        <p class="text-sm text-gray-600">Take a <strong>screenshot</strong> of this entire page, making sure the QR code is clearly visible.</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 rounded-full bg-duitnow-pink text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</div>
-                        <p class="text-sm text-gray-600">Open your preferred <strong>banking app</strong> or <strong>e-wallet</strong>.</p>
-                    </div>
-                    <div class="flex items-start gap-3">
-                        <div class="w-6 h-6 rounded-full bg-duitnow-pink text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</div>
-                        <p class="text-sm text-gray-600">Select "Scan QR" and tap the <strong>Gallery / Image icon</strong> to upload your screenshot.</p>
+                        </label>
+                        <label class="cursor-pointer group">
+                            <input type="radio" name="shippingZone" value="east" class="peer sr-only" onchange="updateCartUI()">
+                            <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
+                                <span class="block font-semibold text-[#4c111f] text-sm">East Malaysia</span>
+                                <span class="block text-xs text-[#4c111f]/70 mt-1">RM 15</span>
+                            </div>
+                        </label>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="p-6 border-t bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex-shrink-0" id="cartFooter">
+        <div class="p-6 border-t bg-white shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] flex-shrink-0">
             <button id="checkoutBtn" class="w-full bg-[#4c111f] text-white py-4 rounded-xl font-bold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex justify-center items-center gap-2 text-lg">
                 Proceed to Payment
             </button>
-            <button id="confirmOrderBtn" class="w-full bg-[#25D366] text-white py-4 rounded-xl font-bold hover:bg-[#128C7E] transition-colors shadow-md hidden justify-center items-center gap-2 text-lg">
-                <i class="fab fa-whatsapp text-xl"></i> I've Paid! Send Details via WhatsApp
-            </button>
-            <p class="text-xs text-center text-gray-500 mt-3 leading-relaxed" id="termsNotice">
+            <p class="text-xs text-center text-gray-500 mt-3 leading-relaxed">
                 By proceeding to order, you agree to our <a href="T&C1.html" target="_blank" class="text-[#4c111f] font-medium underline hover:opacity-70">Terms & Conditions</a> and <a href="Returnpolicy.html" target="_blank" class="text-[#4c111f] font-medium underline hover:opacity-70">Return & Refund Policy</a>.
             </p>
-            <p class="text-xs text-center text-gray-500 mt-3" id="securityNotice">Payments secured by DuitNow QR network.</p>
+            <p class="text-xs text-center text-gray-500 mt-3"><i class="fas fa-lock mr-1"></i> Payments processed securely by HitPay.</p>
         </div>
     </div>
 
-    <!-- PRODUCT MODAL -->
     <div id="productModal" class="fixed inset-0 z-[80] hidden items-center justify-center">
         <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="modalBackdrop"></div>
         <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 no-scrollbar flex flex-col md:block" id="modalContent">
@@ -443,7 +362,6 @@
         </div>
     </div>
 
-    <!-- FIREBASE MODULE FOR UNIVERSAL COUNTER -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -510,43 +428,8 @@
              localStorage.setItem('heathStockOrderNumber', nextNumber.toString());
              return `HTHG-${nextNumber.toString().padStart(4, '0')}`;
         }
-
-        // HIDDEN RESET FUNCTION FOR LAUNCH DAY
-        window.resetOrderCounter = async function() {
-            console.log("Initiating Order Counter Reset...");
-            
-            // Reset Local Storage First
-            localStorage.removeItem('heathStockOrderNumber');
-            console.log("Local Storage order number reset successfully.");
-
-            // Reset Database Storage
-            if (db && auth && auth.currentUser) {
-                try {
-                    const counterRef = doc(db, 'artifacts', appId, 'public', 'data', 'store_metadata', 'order_counter');
-                    await setDoc(counterRef, { count: 0 }, { merge: true });
-                    console.log("✅ SUCCESS! Cloud order database has been wiped clean.");
-                    console.log("The very next order will now be HTHG-0001.");
-                    
-                    const btn = document.getElementById('checkoutBtn');
-                    if (btn) {
-                        const originalHtml = btn.innerHTML;
-                        btn.innerHTML = 'Database Reset to 0001! ✅';
-                        btn.classList.replace('bg-[#4c111f]', 'bg-green-600');
-                        setTimeout(() => {
-                            btn.innerHTML = originalHtml;
-                            btn.classList.replace('bg-green-600', 'bg-[#4c111f]');
-                        }, 3000);
-                    }
-                } catch (error) {
-                    console.error("Failed to reset cloud database:", error);
-                }
-            } else {
-                console.log("Cloud Database skipped (offline mode). The next order will be HTHG-0001 based on local storage.");
-            }
-        };
     </script>
 
-    <!-- JAVASCRIPT -->
     <script>
         const products = [
             {
@@ -586,7 +469,6 @@
         let cart = [];
         let currentModalProduct = null;
         let selectedColorIndex = 0;
-        let isQRViewOpen = false;
         let calculatedFinalTotal = 0; 
         let currentOrderID = '';
         let hoverIntervals = {};
@@ -666,14 +548,20 @@
             `).join('');
         }
 
-        // GLOBAL FUNCTION FIX: Ensuring openModal is globally accessible
         window.openModal = function(productId) {
             currentModalProduct = products.find(p => p.id === productId);
             selectedColorIndex = 0;
 
             document.getElementById('modalSeries').textContent = currentModalProduct.series;
+            
+            // Dynamic subtitle update
+            let descText = currentModalProduct.desc;
+            if (currentModalProduct.id !== 'Black & Bone') {
+                 descText = `Selected colorway: ${currentModalProduct.colors[0].name}. ${currentModalProduct.desc}`;
+            }
+            document.getElementById('modalDesc').textContent = descText;
+            
             document.getElementById('modalTitle').textContent = currentModalProduct.colors[0].name;
-            document.getElementById('modalDesc').textContent = currentModalProduct.desc;
             document.querySelector('input[name="clubType"][value="wood"]').checked = true;
 
             updateModalImage();
@@ -709,6 +597,14 @@
             selectedColorIndex = index;
             updateModalImage();
             document.getElementById('modalTitle').textContent = currentModalProduct.colors[index].name;
+            
+            // Dynamic Subtitle update on color change
+            let descText = currentModalProduct.desc;
+            if (currentModalProduct.id !== 'Black & Bone') {
+                 descText = `Selected colorway: ${currentModalProduct.colors[index].name}. ${currentModalProduct.desc}`;
+            }
+            document.getElementById('modalDesc').textContent = descText;
+
             currentModalProduct.colors.forEach((_, i) => {
                 const btn = document.getElementById(`colorBtn-${i}`);
                 if (i === index) btn.classList.add('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110');
@@ -784,7 +680,6 @@
                 cartCountEl.classList.add('hidden');
                 checkoutBtn.disabled = true;
                 cartItemsEl.innerHTML = `<p class="text-center text-gray-400 mt-10">Your cart is empty.</p>`;
-                if(isQRViewOpen) toggleCartView(false);
             }
 
             let woods = cart.filter(i => i.type === 'wood').length;
@@ -816,50 +711,7 @@
             document.getElementById('cartOverlay').classList.add('opacity-0');
             setTimeout(() => {
                 document.getElementById('cartOverlay').classList.add('hidden');
-                if(isQRViewOpen) toggleCartView(false);
             }, 300);
-        }
-        
-        function toggleCartView(showQR) {
-            const formView = document.getElementById('cartFormView');
-            const qrView = document.getElementById('qrCheckoutView');
-            const checkoutBtn = document.getElementById('checkoutBtn');
-            const confirmOrderBtn = document.getElementById('confirmOrderBtn');
-            const termsNotice = document.getElementById('termsNotice');
-            const securityNotice = document.getElementById('securityNotice');
-            const cartTitle = document.getElementById('cartTitle');
-            
-            isQRViewOpen = showQR;
-            
-            if(showQR) {
-                formView.classList.replace('opacity-100', 'opacity-0');
-                formView.classList.add('pointer-events-none');
-                qrView.classList.replace('opacity-0', 'opacity-100');
-                qrView.classList.remove('pointer-events-none');
-                checkoutBtn.classList.add('hidden');
-                checkoutBtn.classList.remove('flex');
-                confirmOrderBtn.classList.remove('hidden');
-                confirmOrderBtn.classList.add('flex');
-                termsNotice.classList.add('hidden');
-                securityNotice.classList.remove('hidden');
-                cartTitle.textContent = "Payment";
-            } else {
-                qrView.classList.replace('opacity-100', 'opacity-0');
-                qrView.classList.add('pointer-events-none');
-                formView.classList.replace('opacity-0', 'opacity-100');
-                formView.classList.remove('pointer-events-none');
-                confirmOrderBtn.classList.add('hidden');
-                confirmOrderBtn.classList.remove('flex');
-                checkoutBtn.classList.remove('hidden');
-                checkoutBtn.classList.add('flex');
-                termsNotice.classList.remove('hidden');
-                securityNotice.classList.add('hidden');
-                cartTitle.textContent = "Your Cart";
-            }
-        }
-        
-        function generateDuitNowQR(amount) {
-            document.getElementById('qrTotalAmount').textContent = `RM ${amount.toFixed(2)}`;
         }
 
         function openMenu() {
@@ -900,11 +752,13 @@
             });
 
             document.getElementById('addToCartModalBtn').addEventListener('click', addToCart);
-            document.getElementById('backToCartBtn').addEventListener('click', () => toggleCartView(false));
 
-            // Proceed to checkout and assign Sequential DB Order ID
+            // ==========================================
+            // HITPAY CHECKOUT INTEGRATION
+            // ==========================================
             document.getElementById('checkoutBtn').addEventListener('click', async () => {
                 if (cart.length === 0) return;
+                
                 const custName = document.getElementById('custName').value.trim();
                 const custEmail = document.getElementById('custEmail').value.trim();
                 const custPhone = document.getElementById('custPhone').value.trim();
@@ -914,6 +768,7 @@
                 const custState = document.getElementById('custState').value;
                 const formError = document.getElementById('formError');
 
+                // 1. Validation
                 if (!custName || !custEmail || !custPhone || !custAddress || !custCity || !custPostcode || !custState) {
                     formError.innerHTML = 'Please fill in all delivery details above.';
                     formError.classList.remove('hidden');
@@ -929,70 +784,74 @@
 
                 formError.classList.add('hidden');
                 
+                // Loading State
                 const btn = document.getElementById('checkoutBtn');
                 const originalText = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Securing Order ID...';
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Secure Payment...';
                 btn.disabled = true;
                 
-                // Fetch the sequential order ID!
+                // 2. Generate Universal Order ID
                 if (window.generateUniversalOrderID) {
                     currentOrderID = await window.generateUniversalOrderID();
                 } else {
                     currentOrderID = 'HTHG-' + Math.floor(Math.random() * 9000 + 1000); 
                 }
 
-                document.getElementById('displayOrderID').textContent = currentOrderID;
-                generateDuitNowQR(calculatedFinalTotal);
-                toggleCartView(true);
+                // 3. Format Cart Details for HitPay Description
+                let cartDetails = cart.map(item => `${item.series} (${item.type}) - ${item.color}`).join(', ');
 
-                btn.innerHTML = originalText;
-                btn.disabled = false;
-            });
-            
-            // Confirm Order and send to WhatsApp
-            document.getElementById('confirmOrderBtn').addEventListener('click', () => {
-                const btn = document.getElementById('confirmOrderBtn');
-                const custName = document.getElementById('custName').value.trim();
-                const custEmail = document.getElementById('custEmail').value.trim();
-                const custPhone = document.getElementById('custPhone').value.trim();
-                const custAddress = document.getElementById('custAddress').value.trim();
-                const custCity = document.getElementById('custCity').value.trim();
-                const custPostcode = document.getElementById('custPostcode').value.trim();
-                const custState = document.getElementById('custState').value;
+                // ================================================================
+                // ⚠️ IMPORTANT: REPLACE THIS WITH YOUR HITPAY LIVE API KEY ⚠️
+                // ================================================================
+                const hitpayApiKey = "live_92b0b068df82a71ea8999fe9ef30b74ac9cc612d276c1b8eb483c0a5ed957760"; 
                 
-                const shippingZone = document.querySelector('input[name="shippingZone"]:checked').value;
-                const zoneName = shippingZone === 'west' ? "West Malaysia" : "East Malaysia";
-                let shippingFee = shippingZone === 'west' ? 10 : 15;
-
-                let woods = cart.filter(i => i.type === 'wood').length;
-                let drivers = cart.filter(i => i.type === 'driver').length;
-                let bundlesCount = Math.min(woods, drivers);
-                let bundleText = bundlesCount > 0 ? `\n* Bundles applied: ${bundlesCount} (Saved RM ${bundlesCount * ((PRICES.wood + PRICES.driver) - BUNDLE_PRICE)})` : '';
+                // 4. Construct Payload
+                const payload = new URLSearchParams();
+                payload.append("amount", calculatedFinalTotal);
+                payload.append("currency", "MYR");
+                payload.append("reference_number", currentOrderID);
+                payload.append("name", custName);
+                payload.append("email", custEmail);
+                payload.append("phone", custPhone);
+                payload.append("purpose", `Heath Studio Order: ${cartDetails}`);
                 
-                let cartDetails = cart.map((item, index) => {
-                    let capitalizedType = item.type.charAt(0).toUpperCase() + item.type.slice(1);
-                    return `${index + 1}. ${item.series} (${capitalizedType}) - Color: ${item.color} - RM ${item.price}`;
-                }).join('\n');
+                // Redirect user back to success page after payment
+                const successUrl = window.location.origin + "/success.html";
+                payload.append("redirect_url", successUrl); 
 
-                let message = `*NEW ORDER - HEATH STUDIO (DUITNOW QR)* 📸⛳️\n\nOrder Ref: *${currentOrderID}*\n\nI have successfully scanned and paid the DuitNow QR code on your website. Here is my payment receipt screenshot (attached below) and my order details:\n\n*Customer Details:*\nName: ${custName}\nEmail: ${custEmail}\nPhone: ${custPhone}\n\n*Delivery Address:*\n${custAddress}\n${custPostcode} ${custCity}\n${custState}\nShipping: ${zoneName} (RM ${shippingFee})\n\n*Order Summary:*\n${cartDetails}${bundleText}\n\n*Total Paid: RM ${calculatedFinalTotal}*\n\nHi Heath Studio! I'm attaching my DuitNow receipt here. Please confirm my order!`;
+                // 5. Send API Request to HitPay
+                try {
+                    const response = await fetch("https://api.hit-pay.com/v1/payment-requests", {
+                        method: "POST",
+                        headers: {
+                            "X-BUSINESS-API-KEY": hitpayApiKey,
+                            "Content-Type": "application/x-www-form-urlencoded",
+                            "X-Requested-With": "XMLHttpRequest"
+                        },
+                        body: payload.toString()
+                    });
 
-                const businessPhoneNumber = "601112985037"; 
-                const encodedMessage = encodeURIComponent(message);
-                const whatsappUrl = `https://wa.me/${businessPhoneNumber}?text=${encodedMessage}`;
+                    const data = await response.json();
 
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Opening WhatsApp...';
-                btn.disabled = true;
-
-                setTimeout(() => {
-                    window.location.href = whatsappUrl;
-                    btn.innerHTML = '<i class="fab fa-whatsapp text-xl"></i> I\'ve Paid! Send Details via WhatsApp';
+                    if (response.ok && data.url) {
+                        // SUCCESS: Redirect the user to HitPay's secure checkout URL
+                        window.location.href = data.url;
+                    } else {
+                        // API ERROR
+                        console.error("HitPay API Error:", data);
+                        alert("Payment gateway error. Please contact support.");
+                        btn.innerHTML = originalText;
+                        btn.disabled = false;
+                    }
+                } catch (error) {
+                    // NETWORK ERROR
+                    console.error("Network Error:", error);
+                    alert("Network connection error. Please try again.");
+                    btn.innerHTML = originalText;
                     btn.disabled = false;
-                }, 800);
+                }
             });
         }
-    </script>
-</body>
-</html>
     </script>
 </body>
 </html>
