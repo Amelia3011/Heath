@@ -78,21 +78,21 @@
         <div class="marquee-container w-full overflow-hidden bg-white/10 backdrop-blur-md py-3 border-y border-white/20 my-6">
           <div class="animate-marquee flex items-center whitespace-nowrap text-white font-bold tracking-widest text-sm uppercase">
             <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-            <span class="text-white/40">⛳️⚪</span>
+            <span class="text-white/80 text-lg">⛳️</span>
             <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-            <span class="text-white/40">⛳️⚪</span>
+            <span class="text-white/80 text-lg">⛳️</span>
             <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-            <span class="text-white/40">⛳️⚪</span>
+            <span class="text-white/80 text-lg">⛳️</span>
             <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-            <span class="text-white/40">⛳️⚪</span>
+            <span class="text-white/80 text-lg">⛳️</span>
             <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-            <span class="text-white/40">⛳️⚪</span>
+            <span class="text-white/80 text-lg">⛳️</span>
             <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-            <span class="text-white/40">⛳️⚪</span>
+            <span class="text-white/80 text-lg">⛳️</span>
             <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-            <span class="text-white/40">⛳️⚪</span>
+            <span class="text-white/80 text-lg">⛳️</span>
             <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
-            <span class="text-white/40">⛳️⚪</span>
+            <span class="text-white/80 text-lg">⛳️</span>
           </div>
         </div>
         
@@ -257,29 +257,22 @@
                     <i class="fas fa-check-circle mr-1"></i> Bundle discount applied!
                 </div>
                 
-                <!-- UPDATED DELIVERY DETAILS SECTION -->
                 <div class="mb-4 space-y-3">
                     <h3 class="text-sm font-medium text-[#4c111f]">Delivery Details</h3>
-                    
                     <input type="text" id="custName" placeholder="Full Name" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                     <input type="email" id="custEmail" placeholder="Email Address" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                     <input type="tel" id="custPhone" placeholder="Phone Number" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                     
                     <div class="space-y-2">
-                        <!-- NEW: Country Dropdown -->
                         <select id="custCountry" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base font-semibold" required onchange="handleCountryChange()">
                             <option value="MY" selected>Malaysia</option>
                             <option value="SG">Singapore</option>
                         </select>
-                        
                         <input type="text" id="custAddress" placeholder="Street Address (e.g. No. 12, Jalan Sultan)" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
-                        
                         <div class="grid grid-cols-2 gap-2">
                             <input type="text" id="custCity" placeholder="City" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                             <input type="text" id="custPostcode" placeholder="Postcode" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                         </div>
-                        
-                        <!-- UPDATED: State Dropdown (Will be hidden if Singapore is selected) -->
                         <div id="stateContainer">
                             <select id="custState" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                                 <option value="" disabled selected>Select State...</option>
@@ -290,11 +283,9 @@
                 </div>
                 <div id="formError" class="text-xs text-red-500 mb-3 hidden font-medium text-center">Please fill in all delivery details above.</div>
                 
-                <!-- UPDATED SHIPPING SELECTION -->
                 <div class="mb-2">
                     <label class="block text-sm font-medium text-[#4c111f] mb-2">Shipping Destination</label>
                     <div class="grid grid-cols-2 gap-3" id="shippingOptionsContainer">
-                        <!-- Malaysian Options (Visible by default) -->
                         <label class="cursor-pointer group malaysia-shipping">
                             <input type="radio" name="shippingZone" value="west" class="peer sr-only" checked onchange="updateCartUI()">
                             <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
@@ -309,8 +300,6 @@
                                 <span class="block text-xs text-[#4c111f]/70 mt-1">RM 15</span>
                             </div>
                         </label>
-                        
-                        <!-- NEW: Singapore Option (Hidden by default) -->
                         <label class="cursor-pointer group singapore-shipping hidden col-span-2">
                             <input type="radio" name="shippingZone" value="sg" class="peer sr-only" onchange="updateCartUI()">
                             <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
@@ -424,7 +413,6 @@
             if (!auth.currentUser) return generateLocalFallbackID(); 
 
             try {
-                // Fetch current count securely
                 const counterRef = doc(db, 'artifacts', appId, 'public', 'data', 'store_metadata', 'order_counter');
                 const docSnap = await getDoc(counterRef);
                 
@@ -503,7 +491,7 @@
         });
 
         // ==========================================
-        // NEW: COUNTRY & SHIPPING LOGIC
+        // COUNTRY & SHIPPING LOGIC
         // ==========================================
         window.handleCountryChange = function() {
             const countrySelect = document.getElementById('custCountry').value;
@@ -513,31 +501,21 @@
             const sgShippingOption = document.querySelector('.singapore-shipping');
 
             if (countrySelect === 'SG') {
-                // Hide state dropdown and remove required attribute
                 stateContainer.classList.add('hidden');
                 stateSelect.removeAttribute('required');
-                stateSelect.value = ''; // clear value
+                stateSelect.value = ''; 
                 
-                // Switch shipping options
                 myShippingOptions.forEach(opt => opt.classList.add('hidden'));
                 sgShippingOption.classList.remove('hidden');
-                
-                // Auto-select SG shipping
                 document.querySelector('input[name="shippingZone"][value="sg"]').checked = true;
             } else {
-                // Show state dropdown and make it required
                 stateContainer.classList.remove('hidden');
                 stateSelect.setAttribute('required', 'required');
                 
-                // Switch shipping options back to Malaysia
                 sgShippingOption.classList.add('hidden');
                 myShippingOptions.forEach(opt => opt.classList.remove('hidden'));
-                
-                // Auto-select West Malaysia
                 document.querySelector('input[name="shippingZone"][value="west"]').checked = true;
             }
-            
-            // Recalculate totals
             updateCartUI();
         }
 
@@ -620,7 +598,6 @@
                  descText = `Selected colorway: ${currentModalProduct.colors[0].name}. ${currentModalProduct.desc}`;
             }
             document.getElementById('modalDesc').textContent = descText;
-            
             document.getElementById('modalTitle').textContent = currentModalProduct.colors[0].name;
             document.querySelector('input[name="clubType"][value="wood"]').checked = true;
 
@@ -688,7 +665,7 @@
             document.getElementById('modalPrice').textContent = `RM ${PRICES[selectedClub]}`;
         }
 
-        function addToCart() {
+        window.addToCart = function() {
             const type = document.querySelector('input[name="clubType"]:checked').value;
             const color = currentModalProduct.colors[selectedColorIndex];
             const cartImg = type === 'wood' ? color.woodImg : color.driverImg;
@@ -747,12 +724,10 @@
             let productsTotal = (bundlesCount * BUNDLE_PRICE) + ((woods - bundlesCount) * PRICES.wood) + ((drivers - bundlesCount) * PRICES.driver);
 
             const shippingZone = document.querySelector('input[name="shippingZone"]:checked').value;
-            
-            // UPDATED: Dynamic Shipping Fee Calculation
             let shippingFee = 0;
             if (shippingZone === 'west') shippingFee = 10;
             else if (shippingZone === 'east') shippingFee = 15;
-            else if (shippingZone === 'sg') shippingFee = 35; // Singapore Rate
+            else if (shippingZone === 'sg') shippingFee = 35;
 
             calculatedFinalTotal = cart.length > 0 ? productsTotal + shippingFee : 0;
             totalEl.textContent = `RM ${calculatedFinalTotal}`;
@@ -814,13 +789,16 @@
             document.querySelectorAll('.menu-link').forEach(link => {
                 link.addEventListener('click', closeMenu);
             });
+
+            // Re-wired Add to Cart Button properly
+            document.getElementById('addToCartModalBtn').addEventListener('click', window.addToCart);
+
             // ==========================================
             // HITPAY CHECKOUT INTEGRATION
             // ==========================================
             document.getElementById('checkoutBtn').addEventListener('click', async () => {
                 if (cart.length === 0) return;
                 
-                // FETCH ALL DELIVERY DETAILS
                 const custName = document.getElementById('custName').value.trim();
                 const custEmail = document.getElementById('custEmail').value.trim();
                 const custPhone = document.getElementById('custPhone').value.trim();
@@ -829,7 +807,6 @@
                 const custPostcode = document.getElementById('custPostcode').value.trim();
                 const custCountry = document.getElementById('custCountry').value;
                 
-                // State is only required if Country is Malaysia
                 let custState = '';
                 if (custCountry === 'MY') {
                     custState = document.getElementById('custState').value;
@@ -837,7 +814,6 @@
                 
                 const formError = document.getElementById('formError');
 
-                // 1. Validation
                 if (!custName || !custEmail || !custPhone || !custAddress || !custCity || !custPostcode || (custCountry === 'MY' && !custState)) {
                     formError.innerHTML = 'Please fill in all delivery details above.';
                     formError.classList.remove('hidden');
@@ -857,23 +833,16 @@
                 const originalText = btn.innerHTML;
                 btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Secure Payment...';
                 btn.disabled = true;
-                // 2. Generate Universal Order ID
+                
                 if (window.generateUniversalOrderID) {
                     currentOrderID = await window.generateUniversalOrderID();
                 } else {
                     currentOrderID = 'HTHG-' + Math.floor(Math.random() * 9000 + 1000); 
                 }
 
-                // ==========================================================
-                // HITPAY ADDRESS INJECTION FIX
-                // ==========================================================
-                
-                // Extract cart details
+                // Injecting full details into HitPay Description
                 let cartDetails = cart.map(item => `${item.series} (${item.type}) - ${item.color}`).join(', ');
-                
-                // Format the full physical address into a single readable string
                 const countryName = custCountry === 'SG' ? 'Singapore' : 'Malaysia';
-                // If it's Singapore, state is empty, so we format accordingly
                 const stateString = custState ? `, ${custState}` : ''; 
                 const fullAddressString = `${custAddress}, ${custPostcode} ${custCity}${stateString}, ${countryName}`;
 
@@ -884,16 +853,11 @@
                 payload.append("name", custName);
                 payload.append("email", custEmail);
                 payload.append("phone", custPhone);
-                
-                // The magic fix: We append the entire address into the 'purpose' field
-                // so it appears perfectly on the HitPay dashboard for you!
                 payload.append("purpose", `Order: ${cartDetails}. Ship to: ${fullAddressString}`);
                 
-                // Redirect user back to success page after payment
                 const successUrl = window.location.origin + "/success.html";
                 payload.append("redirect_url", successUrl); 
 
-                // Send API Request securely to our Cloudflare backend
                 try {
                     const response = await fetch("/checkout", {
                         method: "POST",
