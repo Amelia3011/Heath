@@ -517,30 +517,52 @@
         }
 
         async function detectUserLocation() {
+            let countryCode = 'MY'; // Default to Malaysia
             try {
                 const res = await fetch('https://ipapi.co/json/');
-                menuFlag.src = 'https://flagcdn.com/w20/sg.png';
-                menuFlag.srcset = 'https://flagcdn.com/w40/sg.png 2x';
-                menuFlag.alt = 'Singapore';
-                menuText.textContent = 'Singapore (SGD)';
-            } else {
-                headerFlag.src = 'https://flagcdn.com/w20/my.png';
-                headerFlag.srcset = 'https://flagcdn.com/w40/my.png 2x';
-                headerFlag.alt = 'Malaysia';
-                headerCurrency.textContent = 'MYR';
-                
-                menuFlag.src = 'https://flagcdn.com/w20/my.png';
-                menuFlag.srcset = 'https://flagcdn.com/w40/my.png 2x';
-                menuFlag.alt = 'Malaysia';
-                menuText.textContent = 'Malaysia (MYR)';
+                if (res.ok) {
+                    const data = await res.json();
+                    if (data.country === 'SG') {
+                        countryCode = 'SG';
+                    }
+                }
+            } catch (e) {
+                console.log('Geolocation skipped or blocked');
             }
             
+            // Apply the detected country on initial page load
+            syncCountry(countryCode, false, false);
+        }
+
+        window.syncCountry = function(code, closeSideMenu = false, shouldScroll = false) {
+            const headerFlag = document.getElementById('headerSelectedFlag');
+            const headerCurrency = document.getElementById('headerSelectedCurrency');
+            const menuFlag = document.getElementById('menuSelectedFlag');
+            const menuText = document.getElementById('menuSelectedText');
+            const custCountry = document.getElementById('custCountry');
+
+            if (code === 'SG') {
+                if (headerFlag) { headerFlag.src = 'https://flagcdn.com/w20/sg.png'; headerFlag.srcset = 'https://flagcdn.com/w40/sg.png 2x'; headerFlag.alt = 'Singapore'; }
+                if (headerCurrency) headerCurrency.textContent = 'SGD';
+                if (menuFlag) { menuFlag.src = 'https://flagcdn.com/w20/sg.png'; menuFlag.srcset = 'https://flagcdn.com/w40/sg.png 2x'; menuFlag.alt = 'Singapore'; }
+                if (menuText) menuText.textContent = 'Singapore (SGD)';
+                if (custCountry) custCountry.value = 'SG';
+            } else {
+                if (headerFlag) { headerFlag.src = 'https://flagcdn.com/w20/my.png'; headerFlag.srcset = 'https://flagcdn.com/w40/my.png 2x'; headerFlag.alt = 'Malaysia'; }
+                if (headerCurrency) headerCurrency.textContent = 'MYR';
+                if (menuFlag) { menuFlag.src = 'https://flagcdn.com/w20/my.png'; menuFlag.srcset = 'https://flagcdn.com/w40/my.png 2x'; menuFlag.alt = 'Malaysia'; }
+                if (menuText) menuText.textContent = 'Malaysia (MYR)';
+                if (custCountry) custCountry.value = 'MY';
+            }
+            
+            // Apply the pricing and shipping logic based on the new country
             handleCountryChange();
             
-            // Close the side menu
-            closeMenu();
+            // Actions when triggered by the side menu selection
+            if (closeSideMenu && typeof closeMenu === 'function') {
+                closeMenu();
+            }
             
-            // Smoothly scroll down to the collections section only if triggered from the menu
             if (shouldScroll) {
                 const collectionsSection = document.getElementById('collections');
                 if (collectionsSection) {
@@ -553,14 +575,15 @@
 
         // Custom Header Select Logic
         window.selectHeaderCountry = function(code) {
-            syncCountry(code, false);
-            toggleHeaderDropdown();
+            syncCountry(code, false, false);
+            if (typeof toggleHeaderDropdown === 'function') {
+                toggleHeaderDropdown();
+            }
         }
 
         // Custom Menu Select Logic
         window.selectMenuCountry = function(code) {
-            syncCountry(code, true);
-            // The menu automatically closes inside syncCountry so we don't need to manually close the dropdown here
+            syncCountry(code, true, true); // true = close menu, true = scroll down
         }
 
         window.handleCountryChange = function() {
