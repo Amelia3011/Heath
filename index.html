@@ -264,15 +264,20 @@
                     <input type="tel" id="custPhone" placeholder="Phone Number" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                     
                     <div class="space-y-2">
+                        <!-- Country Dropdown -->
                         <select id="custCountry" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base font-semibold" required onchange="handleCountryChange()">
                             <option value="MY" selected>Malaysia</option>
                             <option value="SG">Singapore</option>
                         </select>
+
                         <input type="text" id="custAddress" placeholder="Street Address (e.g. No. 12, Jalan Sultan)" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                        
                         <div class="grid grid-cols-2 gap-2">
                             <input type="text" id="custCity" placeholder="City" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                             <input type="text" id="custPostcode" placeholder="Postcode" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                         </div>
+
+                        <!-- State Dropdown Container -->
                         <div id="stateContainer">
                             <select id="custState" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                                 <option value="" disabled selected>Select State...</option>
@@ -286,6 +291,7 @@
                 <div class="mb-2">
                     <label class="block text-sm font-medium text-[#4c111f] mb-2">Shipping Destination</label>
                     <div class="grid grid-cols-2 gap-3" id="shippingOptionsContainer">
+                        <!-- Malaysia Options -->
                         <label class="cursor-pointer group malaysia-shipping">
                             <input type="radio" name="shippingZone" value="west" class="peer sr-only" checked onchange="updateCartUI()">
                             <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
@@ -300,6 +306,7 @@
                                 <span class="block text-xs text-[#4c111f]/70 mt-1">RM 15</span>
                             </div>
                         </label>
+                        <!-- Singapore Option -->
                         <label class="cursor-pointer group singapore-shipping hidden col-span-2">
                             <input type="radio" name="shippingZone" value="sg" class="peer sr-only" onchange="updateCartUI()">
                             <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
@@ -501,21 +508,26 @@
             const sgShippingOption = document.querySelector('.singapore-shipping');
 
             if (countrySelect === 'SG') {
+                // Hide Malaysian states and remove required attribute
                 stateContainer.classList.add('hidden');
                 stateSelect.removeAttribute('required');
-                stateSelect.value = ''; 
+                stateSelect.value = ''; // Clear selection
                 
+                // Switch shipping options
                 myShippingOptions.forEach(opt => opt.classList.add('hidden'));
                 sgShippingOption.classList.remove('hidden');
                 document.querySelector('input[name="shippingZone"][value="sg"]').checked = true;
             } else {
+                // Show Malaysian states and make required
                 stateContainer.classList.remove('hidden');
                 stateSelect.setAttribute('required', 'required');
                 
+                // Switch shipping options
                 sgShippingOption.classList.add('hidden');
                 myShippingOptions.forEach(opt => opt.classList.remove('hidden'));
                 document.querySelector('input[name="shippingZone"][value="west"]').checked = true;
             }
+            // Recalculate totals based on new shipping fee
             updateCartUI();
         }
 
@@ -727,7 +739,7 @@
             let shippingFee = 0;
             if (shippingZone === 'west') shippingFee = 10;
             else if (shippingZone === 'east') shippingFee = 15;
-            else if (shippingZone === 'sg') shippingFee = 35;
+            else if (shippingZone === 'sg') shippingFee = 35; // Singapore shipping fee
 
             calculatedFinalTotal = cart.length > 0 ? productsTotal + shippingFee : 0;
             totalEl.textContent = `RM ${calculatedFinalTotal}`;
@@ -814,6 +826,7 @@
                 
                 const formError = document.getElementById('formError');
 
+                // 1. Validation
                 if (!custName || !custEmail || !custPhone || !custAddress || !custCity || !custPostcode || (custCountry === 'MY' && !custState)) {
                     formError.innerHTML = 'Please fill in all delivery details above.';
                     formError.classList.remove('hidden');
@@ -829,6 +842,19 @@
 
                 formError.classList.add('hidden');
                 
+                // Loading State
+                const btn = document.getElementById('checkoutBtn');
+                const originalText = btn.innerHTML;
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Secure Payment...';
+                btn.disabled = true;
+                
+                // 2. Generate Universal Order ID
+                if (window.generateUniversalOrderID) {
+                    currentOrderID = await window.generateUniversalOrderID();
+                } else {
+                    currentOrderID = 'HTHG-' + Math.floor(Math.random() * 9000 + 1000); 
+                }
+
                 // 3. Format Cart Details for HitPay Description
                 let cartDetails = cart.map(item => `${item.series} (${item.type}) - ${item.color}`).join(', ');
 
@@ -844,20 +870,15 @@
                 payload.append("email", custEmail);
                 payload.append("phone", custPhone);
                 
-                // FIX 1: Send the full address inside the Order Description (Purpose)
+                // FIX: Safely send the full address inside the Order Description (Purpose)
+                // We are removing the strict address fields that caused the API to reject the payment
                 payload.append("purpose", `Order: ${cartDetails}. Ship to: ${fullAddressString}`);
-                
-                // FIX 2: Send structured address data to populate the specific HitPay "Address" box
-                payload.append("address[street]", custAddress);
-                payload.append("address[city]", custCity);
-                payload.append("address[state]", custState);
-                payload.append("address[postal_code]", custPostcode);
-                payload.append("address[country]", custCountry);
                 
                 // Redirect user back to success page after payment
                 const successUrl = window.location.origin + "/success.html";
                 payload.append("redirect_url", successUrl); 
 
+                // 5. Send API Request to our secure Cloudflare backend instead of HitPay directly
                 try {
                     const response = await fetch("/checkout", {
                         method: "POST",
@@ -870,14 +891,17 @@
                     const data = await response.json();
 
                     if (response.ok && data.url) {
+                        // SUCCESS: Redirect the user to HitPay's secure checkout URL
                         window.location.href = data.url;
                     } else {
+                        // API ERROR
                         console.error("HitPay API Error:", data);
                         alert("Payment gateway error. Please contact support.");
                         btn.innerHTML = originalText;
                         btn.disabled = false;
                     }
                 } catch (error) {
+                    // NETWORK ERROR
                     console.error("Network Error:", error);
                     alert("Network connection error. Please try again.");
                     btn.innerHTML = originalText;
