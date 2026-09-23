@@ -73,7 +73,6 @@
 
 <body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen relative">
 
-    <!-- HEADER -->
     <header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
         <!-- SCROLLING MARQUEE BANNER -->
         <div class="marquee-container w-full overflow-hidden bg-white/10 backdrop-blur-md py-3 border-y border-white/20 my-6">
@@ -127,7 +126,7 @@
     </header>
 
     <main class="flex-grow pt-0 mt-0">
-        <!-- HOME SECTION -->
+        
         <section id="home" class="relative overflow-hidden home-bg-image pt-20 lg:pt-28 pb-24">
             <div class="bg-overlay"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -147,7 +146,6 @@
             <div class="absolute inset-0 bg-black/20 mix-blend-multiply pointer-events-none"></div>
         </section>
 
-        <!-- COLLECTIONS SECTION -->
         <section id="collections" class="relative pt-20 pb-36 hero-bg">
             <div class="absolute inset-0 bg-white/10"></div>
             
@@ -162,12 +160,10 @@
                 </div>
             </div>
         </section>
-        
         <section class="w-full h-48 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-[#4c111f]/20">
             <img src="Untitled design.png" alt="Golf course green" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/1200x500/228b22/ffffff?text=GOLF+GREEN'">
         </section>
 
-        <!-- ABOUT SECTION -->
         <section id="about" class="py-24 bg-[#4c111f] text-white">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
@@ -189,7 +185,6 @@
         </section>
     </main>
 
-    <!-- FOOTER -->
     <footer class="bg-[#2f0a13] text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
@@ -215,7 +210,6 @@
         </div>
     </footer>
 
-    <!-- MENU OVERLAY -->
     <div id="menuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
 
     <div id="sideMenu" class="fixed top-0 left-0 h-[100dvh] w-[250px] sm:w-[300px] bg-white shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
@@ -242,7 +236,7 @@
         </div>
     </div>
 
-    <!-- CART SIDEBAR -->
+    <!-- CART -->
     <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
 
     <div id="cartSidebar" class="fixed top-0 right-0 h-[100dvh] w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
@@ -263,38 +257,67 @@
                     <i class="fas fa-check-circle mr-1"></i> Bundle discount applied!
                 </div>
                 
+                <!-- UPDATED DELIVERY DETAILS SECTION -->
                 <div class="mb-4 space-y-3">
                     <h3 class="text-sm font-medium text-[#4c111f]">Delivery Details</h3>
+                    
                     <input type="text" id="custName" placeholder="Full Name" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                     <input type="email" id="custEmail" placeholder="Email Address" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                     <input type="tel" id="custPhone" placeholder="Phone Number" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                    
                     <div class="space-y-2">
+                        <!-- NEW: Country Dropdown -->
+                        <select id="custCountry" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base font-semibold" required onchange="handleCountryChange()">
+                            <option value="MY" selected>Malaysia</option>
+                            <option value="SG">Singapore</option>
+                        </select>
+                        
                         <input type="text" id="custAddress" placeholder="Street Address (e.g. No. 12, Jalan Sultan)" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                        
                         <div class="grid grid-cols-2 gap-2">
                             <input type="text" id="custCity" placeholder="City" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                             <input type="text" id="custPostcode" placeholder="Postcode" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                         </div>
                         
-                        <!-- Country Selection Dropdown -->
-                        <select id="custCountry" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base font-semibold text-primary bg-primary/5" required onchange="updateStateOptions()">
-                            <option value="MY" selected>Malaysia</option>
-                            <option value="SG">Singapore</option>
-                        </select>
-
-                        <!-- Dynamic State/Province Dropdown -->
-                        <select id="custState" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
-                            <option value="" disabled selected>Select State...</option>
-                            <option value="Johor">Johor</option><option value="Kedah">Kedah</option><option value="Kelantan">Kelantan</option><option value="Melaka">Melaka</option><option value="Negeri Sembilan">Negeri Sembilan</option><option value="Pahang">Pahang</option><option value="Perak">Perak</option><option value="Perlis">Perlis</option><option value="Penang">Penang</option><option value="Sabah">Sabah</option><option value="Sarawak">Sarawak</option><option value="Selangor">Selangor</option><option value="Terengganu">Terengganu</option><option value="Kuala Lumpur">Kuala Lumpur</option><option value="Labuan">Labuan</option><option value="Putrajaya">Putrajaya</option>
-                        </select>
+                        <!-- UPDATED: State Dropdown (Will be hidden if Singapore is selected) -->
+                        <div id="stateContainer">
+                            <select id="custState" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                                <option value="" disabled selected>Select State...</option>
+                                <option value="Johor">Johor</option><option value="Kedah">Kedah</option><option value="Kelantan">Kelantan</option><option value="Melaka">Melaka</option><option value="Negeri Sembilan">Negeri Sembilan</option><option value="Pahang">Pahang</option><option value="Perak">Perak</option><option value="Perlis">Perlis</option><option value="Penang">Penang</option><option value="Sabah">Sabah</option><option value="Sarawak">Sarawak</option><option value="Selangor">Selangor</option><option value="Terengganu">Terengganu</option><option value="Kuala Lumpur">Kuala Lumpur</option><option value="Labuan">Labuan</option><option value="Putrajaya">Putrajaya</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
                 <div id="formError" class="text-xs text-red-500 mb-3 hidden font-medium text-center">Please fill in all delivery details above.</div>
                 
+                <!-- UPDATED SHIPPING SELECTION -->
                 <div class="mb-2">
                     <label class="block text-sm font-medium text-[#4c111f] mb-2">Shipping Destination</label>
-                    <!-- Shipping options are now populated dynamically via JS based on country -->
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="shippingOptionsContainer">
-                        <!-- Default MY options injected on load -->
+                    <div class="grid grid-cols-2 gap-3" id="shippingOptionsContainer">
+                        <!-- Malaysian Options (Visible by default) -->
+                        <label class="cursor-pointer group malaysia-shipping">
+                            <input type="radio" name="shippingZone" value="west" class="peer sr-only" checked onchange="updateCartUI()">
+                            <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
+                                <span class="block font-semibold text-[#4c111f] text-sm">West Malaysia</span>
+                                <span class="block text-xs text-[#4c111f]/70 mt-1">RM 10</span>
+                            </div>
+                        </label>
+                        <label class="cursor-pointer group malaysia-shipping">
+                            <input type="radio" name="shippingZone" value="east" class="peer sr-only" onchange="updateCartUI()">
+                            <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
+                                <span class="block font-semibold text-[#4c111f] text-sm">East Malaysia</span>
+                                <span class="block text-xs text-[#4c111f]/70 mt-1">RM 15</span>
+                            </div>
+                        </label>
+                        
+                        <!-- NEW: Singapore Option (Hidden by default) -->
+                        <label class="cursor-pointer group singapore-shipping hidden col-span-2">
+                            <input type="radio" name="shippingZone" value="sg" class="peer sr-only" onchange="updateCartUI()">
+                            <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
+                                <span class="block font-semibold text-[#4c111f] text-sm">Singapore International</span>
+                                <span class="block text-xs text-[#4c111f]/70 mt-1">RM 80</span>
+                            </div>
+                        </label>
                     </div>
                 </div>
             </div>
@@ -311,7 +334,6 @@
         </div>
     </div>
 
-    <!-- PRODUCT MODAL -->
     <div id="productModal" class="fixed inset-0 z-[80] hidden items-center justify-center">
         <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="modalBackdrop"></div>
         <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 no-scrollbar flex flex-col md:block" id="modalContent">
@@ -363,7 +385,6 @@
         </div>
     </div>
 
-    <!-- FIREBASE DB INTEGRATION -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -423,7 +444,6 @@
             }
         };
 
-        // Fallback for safety
         function generateLocalFallbackID() {
              let currentNumberStr = localStorage.getItem('heathStockOrderNumber');
              let nextNumber = currentNumberStr ? parseInt(currentNumberStr, 10) + 1 : 1;
@@ -432,7 +452,6 @@
         }
     </script>
 
-    <!-- CORE LOGIC -->
     <script>
         const products = [
             {
@@ -480,14 +499,48 @@
             renderProductGrid();
             setupMobileAutoplay(); 
             setupEventListeners();
-            
-            // Initialize shipping options based on default country (MY)
-            updateStateOptions(); 
+            updateCartUI();
         });
 
-        // -------------------------
-        // SLIDESHOW & GRID LOGIC
-        // -------------------------
+        // ==========================================
+        // NEW: COUNTRY & SHIPPING LOGIC
+        // ==========================================
+        window.handleCountryChange = function() {
+            const countrySelect = document.getElementById('custCountry').value;
+            const stateContainer = document.getElementById('stateContainer');
+            const stateSelect = document.getElementById('custState');
+            const myShippingOptions = document.querySelectorAll('.malaysia-shipping');
+            const sgShippingOption = document.querySelector('.singapore-shipping');
+
+            if (countrySelect === 'SG') {
+                // Hide state dropdown and remove required attribute
+                stateContainer.classList.add('hidden');
+                stateSelect.removeAttribute('required');
+                stateSelect.value = ''; // clear value
+                
+                // Switch shipping options
+                myShippingOptions.forEach(opt => opt.classList.add('hidden'));
+                sgShippingOption.classList.remove('hidden');
+                
+                // Auto-select SG shipping
+                document.querySelector('input[name="shippingZone"][value="sg"]').checked = true;
+            } else {
+                // Show state dropdown and make it required
+                stateContainer.classList.remove('hidden');
+                stateSelect.setAttribute('required', 'required');
+                
+                // Switch shipping options back to Malaysia
+                sgShippingOption.classList.add('hidden');
+                myShippingOptions.forEach(opt => opt.classList.remove('hidden'));
+                
+                // Auto-select West Malaysia
+                document.querySelector('input[name="shippingZone"][value="west"]').checked = true;
+            }
+            
+            // Recalculate totals
+            updateCartUI();
+        }
+
         function startHoverSlideshow(productId, cardElement) {
             const product = products.find(p => p.id === productId);
             const images = product.slideshowImages; 
@@ -556,9 +609,6 @@
             `).join('');
         }
 
-        // -------------------------
-        // MODAL LOGIC
-        // -------------------------
         window.openModal = function(productId) {
             currentModalProduct = products.find(p => p.id === productId);
             selectedColorIndex = 0;
@@ -656,58 +706,8 @@
             openCart();
         }
 
-        // -------------------------
-        // CART & SHIPPING LOGIC
-        // -------------------------
         window.removeFromCart = function(index) {
             cart.splice(index, 1);
-            updateCartUI();
-        }
-
-        window.updateStateOptions = function() {
-            const country = document.getElementById('custCountry').value;
-            const stateSelect = document.getElementById('custState');
-            const shippingContainer = document.getElementById('shippingOptionsContainer');
-            
-            if (country === 'MY') {
-                // Restore Malaysian States
-                stateSelect.innerHTML = `
-                    <option value="" disabled selected>Select State...</option>
-                    <option value="Johor">Johor</option><option value="Kedah">Kedah</option><option value="Kelantan">Kelantan</option><option value="Melaka">Melaka</option><option value="Negeri Sembilan">Negeri Sembilan</option><option value="Pahang">Pahang</option><option value="Perak">Perak</option><option value="Perlis">Perlis</option><option value="Penang">Penang</option><option value="Sabah">Sabah</option><option value="Sarawak">Sarawak</option><option value="Selangor">Selangor</option><option value="Terengganu">Terengganu</option><option value="Kuala Lumpur">Kuala Lumpur</option><option value="Labuan">Labuan</option><option value="Putrajaya">Putrajaya</option>
-                `;
-                
-                // Show Malaysian Shipping Options
-                shippingContainer.innerHTML = `
-                    <label class="cursor-pointer group">
-                        <input type="radio" name="shippingZone" value="west" class="peer sr-only" checked onchange="updateCartUI()">
-                        <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all h-full flex flex-col justify-center">
-                            <span class="block font-semibold text-[#4c111f] text-sm">West Malaysia</span>
-                            <span class="block text-xs text-[#4c111f]/70 mt-1">RM 10</span>
-                        </div>
-                    </label>
-                    <label class="cursor-pointer group">
-                        <input type="radio" name="shippingZone" value="east" class="peer sr-only" onchange="updateCartUI()">
-                        <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all h-full flex flex-col justify-center">
-                            <span class="block font-semibold text-[#4c111f] text-sm">East Malaysia</span>
-                            <span class="block text-xs text-[#4c111f]/70 mt-1">RM 15</span>
-                        </div>
-                    </label>
-                `;
-            } else if (country === 'SG') {
-                // Change state to generic string for Singapore
-                stateSelect.innerHTML = `<option value="Singapore" selected>Singapore</option>`;
-                
-                // Show Singapore Shipping Option
-                shippingContainer.innerHTML = `
-                    <label class="cursor-pointer group col-span-1 sm:col-span-2">
-                        <input type="radio" name="shippingZone" value="singapore" class="peer sr-only" checked onchange="updateCartUI()">
-                        <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 transition-all">
-                            <span class="block font-semibold text-[#4c111f] text-sm">International Shipping (Singapore)</span>
-                            <span class="block text-xs text-[#4c111f]/70 mt-1">RM 80.00</span>
-                        </div>
-                    </label>
-                `;
-            }
             updateCartUI();
         }
 
@@ -746,15 +746,13 @@
             let bundlesCount = Math.min(woods, drivers);
             let productsTotal = (bundlesCount * BUNDLE_PRICE) + ((woods - bundlesCount) * PRICES.wood) + ((drivers - bundlesCount) * PRICES.driver);
 
-            // Determine shipping fee dynamically based on selected zone
-            const shippingZoneInput = document.querySelector('input[name="shippingZone"]:checked');
+            const shippingZone = document.querySelector('input[name="shippingZone"]:checked').value;
+            
+            // UPDATED: Dynamic Shipping Fee Calculation
             let shippingFee = 0;
-            if (shippingZoneInput) {
-                const zone = shippingZoneInput.value;
-                if (zone === 'west') shippingFee = 10;
-                else if (zone === 'east') shippingFee = 15;
-                else if (zone === 'singapore') shippingFee = 80; 
-            }
+            if (shippingZone === 'west') shippingFee = 10;
+            else if (shippingZone === 'east') shippingFee = 15;
+            else if (shippingZone === 'sg') shippingFee = 80; // Singapore Rate
 
             calculatedFinalTotal = cart.length > 0 ? productsTotal + shippingFee : 0;
             totalEl.textContent = `RM ${calculatedFinalTotal}`;
@@ -793,9 +791,6 @@
             }, 300);
         }
 
-        // -------------------------
-        // CHECKOUT LOGIC (HITPAY)
-        // -------------------------
         function setupEventListeners() {
             document.getElementById('cartBtn').addEventListener('click', openCart);
             document.getElementById('closeCart').addEventListener('click', closeCart);
@@ -825,6 +820,7 @@
             document.getElementById('checkoutBtn').addEventListener('click', async () => {
                 if (cart.length === 0) return;
                 
+                // FETCH ALL DELIVERY DETAILS
                 const custName = document.getElementById('custName').value.trim();
                 const custEmail = document.getElementById('custEmail').value.trim();
                 const custPhone = document.getElementById('custPhone').value.trim();
@@ -832,11 +828,17 @@
                 const custCity = document.getElementById('custCity').value.trim();
                 const custPostcode = document.getElementById('custPostcode').value.trim();
                 const custCountry = document.getElementById('custCountry').value;
-                const custState = document.getElementById('custState').value;
+                
+                // State is only required if Country is Malaysia
+                let custState = '';
+                if (custCountry === 'MY') {
+                    custState = document.getElementById('custState').value;
+                }
+                
                 const formError = document.getElementById('formError');
 
-                // Validation
-                if (!custName || !custEmail || !custPhone || !custAddress || !custCity || !custPostcode || !custState) {
+                // 1. Validation
+                if (!custName || !custEmail || !custPhone || !custAddress || !custCity || !custPostcode || (custCountry === 'MY' && !custState)) {
                     formError.innerHTML = 'Please fill in all delivery details above.';
                     formError.classList.remove('hidden');
                     return;
@@ -856,21 +858,25 @@
                 btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Secure Payment...';
                 btn.disabled = true;
                 
-                // Generate Order ID
                 if (window.generateUniversalOrderID) {
                     currentOrderID = await window.generateUniversalOrderID();
                 } else {
                     currentOrderID = 'HTHG-' + Math.floor(Math.random() * 9000 + 1000); 
                 }
 
-                // Format Cart Details
+                // ==========================================================
+                // HITPAY ADDRESS INJECTION FIX
+                // ==========================================================
+                
+                // Extract cart details
                 let cartDetails = cart.map(item => `${item.series} (${item.type}) - ${item.color}`).join(', ');
                 
-                // Construct the full address including country for your records
+                // Format the full physical address into a single readable string
                 const countryName = custCountry === 'SG' ? 'Singapore' : 'Malaysia';
-                const fullAddressString = `${custAddress}, ${custPostcode} ${custCity}, ${custState}, ${countryName}`;
-                
-                // Construct Payload for Cloudflare Backend
+                // If it's Singapore, state is empty, so we format accordingly
+                const stateString = custState ? `, ${custState}` : ''; 
+                const fullAddressString = `${custAddress}, ${custPostcode} ${custCity}${stateString}, ${countryName}`;
+
                 const payload = new URLSearchParams();
                 payload.append("amount", calculatedFinalTotal);
                 payload.append("currency", "MYR");
@@ -878,12 +884,16 @@
                 payload.append("name", custName);
                 payload.append("email", custEmail);
                 payload.append("phone", custPhone);
-                // Storing the full address in the purpose/description field
+                
+                // The magic fix: We append the entire address into the 'purpose' field
+                // so it appears perfectly on the HitPay dashboard for you!
                 payload.append("purpose", `Order: ${cartDetails}. Ship to: ${fullAddressString}`);
                 
+                // Redirect user back to success page after payment
                 const successUrl = window.location.origin + "/success.html";
                 payload.append("redirect_url", successUrl); 
 
+                // Send API Request securely to our Cloudflare backend
                 try {
                     const response = await fetch("/checkout", {
                         method: "POST",
