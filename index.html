@@ -801,9 +801,8 @@
                 let cartDetails = cart.map(item => `${item.series} (${item.type}) - ${item.color}`).join(', ');
 
                 // ================================================================
-                // ⚠️ IMPORTANT: REPLACE THIS WITH YOUR HITPAY LIVE API KEY ⚠️
+                // API KEY REMOVED - It is now safely hidden in functions/checkout.js
                 // ================================================================
-                const hitpayApiKey = "live_92b0b068df82a71ea8999fe9ef30b74ac9cc612d276c1b8eb483c0a5ed957760"; 
                 
                 // 4. Construct Payload
                 const payload = new URLSearchParams();
@@ -819,14 +818,12 @@
                 const successUrl = window.location.origin + "/success.html";
                 payload.append("redirect_url", successUrl); 
 
-                // 5. Send API Request to HitPay
+                // 5. Send API Request to our secure Cloudflare backend instead of HitPay directly
                 try {
-                    const response = await fetch("https://api.hit-pay.com/v1/payment-requests", {
+                    const response = await fetch("/checkout", {
                         method: "POST",
                         headers: {
-                            "X-BUSINESS-API-KEY": hitpayApiKey,
-                            "Content-Type": "application/x-www-form-urlencoded",
-                            "X-Requested-With": "XMLHttpRequest"
+                            "Content-Type": "application/x-www-form-urlencoded"
                         },
                         body: payload.toString()
                     });
