@@ -392,6 +392,22 @@
         </div>
     </div>
 
+    <!-- SUCCESS MODAL -->
+    <div id="successModal" class="fixed inset-0 z-[90] hidden items-center justify-center">
+        <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="successModalBackdrop"></div>
+        <div class="bg-white rounded-2xl w-full max-w-md m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 flex flex-col items-center p-8 md:p-10 text-center" id="successModalContent">
+            <div class="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-6 shadow-inner">
+                <i class="fas fa-check text-4xl text-green-500"></i>
+            </div>
+            <h2 class="font-serif text-3xl font-bold text-[#4c111f] mb-3">Order Confirmed</h2>
+            <p class="text-gray-600 mb-6 leading-relaxed">Thank you for your purchase! Your order has been successfully placed. We have sent a detailed confirmation to your email, and our studio team is now preparing your handcrafted pieces.</p>
+            <button onclick="closeSuccessModal()" class="w-full bg-[#4c111f] text-white py-4 rounded-xl font-bold hover:opacity-90 transition-colors shadow-lg active:scale-95 focus:outline-none">
+                Return to Store
+            </button>
+        </div>
+    </div>
+
+    <!-- FIREBASE ID GENERATION -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -464,45 +480,45 @@
             await detectUserLocation();
             setupMobileAutoplay(); 
             setupEventListeners();
+            checkPaymentStatus();
         });
+
+        // FUNCTION TO DETECT SUCCESSFUL HITPAY RETURN
+        function checkPaymentStatus() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+            
+            // HitPay passes 'completed' or 'success' in the URL query when successful
+            if (status === 'completed' || status === 'success') {
+                const successModal = document.getElementById('successModal');
+                successModal.classList.remove('hidden');
+                successModal.classList.add('flex');
+                setTimeout(() => {
+                    document.getElementById('successModalBackdrop').classList.remove('opacity-0');
+                    document.getElementById('successModalContent').classList.remove('scale-95', 'opacity-0');
+                }, 10);
+                
+                // Clear the URL so it doesn't pop up again if they refresh the page
+                window.history.replaceState({}, document.title, window.location.pathname);
+                
+                // Clear the shopping cart
+                cart = [];
+                updateCartUI();
+            }
+        }
+
+        window.closeSuccessModal = function() {
+            document.getElementById('successModalBackdrop').classList.add('opacity-0');
+            document.getElementById('successModalContent').classList.add('scale-95', 'opacity-0');
+            setTimeout(() => { 
+                document.getElementById('successModal').classList.add('hidden'); 
+                document.getElementById('successModal').classList.remove('flex'); 
+            }, 300);
+        }
 
         async function detectUserLocation() {
             try {
-                // Cloudflare injects the country code directly into this trace endpoint
-                const res = await fetch('/cdn-cgi/trace');
-                const text = await res.text();
-                
-                // Parse the trace output to find loc=SG
-                const locMatch = text.match(/loc=([A-Z]{2})/);
-                if (locMatch && locMatch[1] === 'SG') {
-                    document.getElementById('custCountry').value = 'SG';
-                    if(document.getElementById('menuCountrySelect')) document.getElementById('menuCountrySelect').value = 'SG';
-                    if(document.getElementById('headerCountrySelect')) document.getElementById('headerCountrySelect').value = 'SG';
-                }
-            } catch (e) { 
-                console.log('CF Trace failed, defaulting to MY'); 
-            }
-            
-            handleCountryChange(); 
-        }
-        
-        window.syncCountry = function(countryCode, shouldScroll = true) {
-            document.getElementById('custCountry').value = countryCode;
-            
-            // Update custom header UI
-            const headerFlag = document.getElementById('headerSelectedFlag');
-            const headerCurrency = document.getElementById('headerSelectedCurrency');
-            
-            // Update custom menu UI
-            const menuFlag = document.getElementById('menuSelectedFlag');
-            const menuText = document.getElementById('menuSelectedText');
-
-            if (countryCode === 'SG') {
-                headerFlag.src = 'https://flagcdn.com/w20/sg.png';
-                headerFlag.srcset = 'https://flagcdn.com/w40/sg.png 2x';
-                headerFlag.alt = 'Singapore';
-                headerCurrency.textContent = 'SGD';
-                
+                const res = await fetch('https://ipapi.co/json/');
                 menuFlag.src = 'https://flagcdn.com/w20/sg.png';
                 menuFlag.srcset = 'https://flagcdn.com/w40/sg.png 2x';
                 menuFlag.alt = 'Singapore';
@@ -955,7 +971,9 @@
                 payload.append("phone", cPhone);
                 payload.append("purpose", `Order: ${cartDetails}. Ship to: ${fullAddress}`);
                 payload.append("send_email", "true"); 
-                payload.append("redirect_url", window.location.origin + "/success.html"); 
+                
+                // UPDATE REDIRECT TO RETURN DIRECTLY TO INDEX INSTEAD OF SUCCESS.HTML
+                payload.append("redirect_url", window.location.origin + window.location.pathname); 
 
                 try {
                     const response = await fetch("/checkout", {
