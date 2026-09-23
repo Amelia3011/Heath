@@ -829,23 +829,13 @@
 
                 formError.classList.add('hidden');
                 
-                const btn = document.getElementById('checkoutBtn');
-                const originalText = btn.innerHTML;
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Secure Payment...';
-                btn.disabled = true;
-                
-                if (window.generateUniversalOrderID) {
-                    currentOrderID = await window.generateUniversalOrderID();
-                } else {
-                    currentOrderID = 'HTHG-' + Math.floor(Math.random() * 9000 + 1000); 
-                }
-
-                // Injecting full details into HitPay Description
+                // 3. Format Cart Details for HitPay Description
                 let cartDetails = cart.map(item => `${item.series} (${item.type}) - ${item.color}`).join(', ');
-                const countryName = custCountry === 'SG' ? 'Singapore' : 'Malaysia';
-                const stateString = custState ? `, ${custState}` : ''; 
-                const fullAddressString = `${custAddress}, ${custPostcode} ${custCity}${stateString}, ${countryName}`;
 
+                const countryName = custCountry === 'SG' ? 'Singapore' : 'Malaysia';
+                const fullAddressString = `${custAddress}, ${custPostcode} ${custCity}, ${custState}, ${countryName}`;
+                
+                // 4. Construct Payload
                 const payload = new URLSearchParams();
                 payload.append("amount", calculatedFinalTotal);
                 payload.append("currency", "MYR");
@@ -853,8 +843,18 @@
                 payload.append("name", custName);
                 payload.append("email", custEmail);
                 payload.append("phone", custPhone);
+                
+                // FIX 1: Send the full address inside the Order Description (Purpose)
                 payload.append("purpose", `Order: ${cartDetails}. Ship to: ${fullAddressString}`);
                 
+                // FIX 2: Send structured address data to populate the specific HitPay "Address" box
+                payload.append("address[street]", custAddress);
+                payload.append("address[city]", custCity);
+                payload.append("address[state]", custState);
+                payload.append("address[postal_code]", custPostcode);
+                payload.append("address[country]", custCountry);
+                
+                // Redirect user back to success page after payment
                 const successUrl = window.location.origin + "/success.html";
                 payload.append("redirect_url", successUrl); 
 
