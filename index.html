@@ -74,7 +74,6 @@
 <body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen relative">
 
     <header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
-        <!-- SCROLLING MARQUEE BANNER -->
         <div class="marquee-container w-full overflow-hidden bg-white/10 backdrop-blur-md py-3 border-y border-white/20 my-6">
           <div class="animate-marquee flex items-center whitespace-nowrap text-white font-bold tracking-widest text-sm uppercase">
             <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
@@ -126,7 +125,6 @@
     </header>
 
     <main class="flex-grow pt-0 mt-0">
-        
         <section id="home" class="relative overflow-hidden home-bg-image pt-20 lg:pt-28 pb-24">
             <div class="bg-overlay"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -148,18 +146,17 @@
 
         <section id="collections" class="relative pt-20 pb-36 hero-bg">
             <div class="absolute inset-0 bg-white/10"></div>
-            
             <div class="max-w-7xl mx-auto px-2 md:px-12 relative z-10">
                 <div class="text-center mb-8 md:mb-16 px-2">
                     <h2 class="font-serif text-4xl font-bold text-[#4c111f] mb-4">THE ATELIER COLLECTION</h2>
                     <p class="text-gray-600 max-w-2xl mx-auto">Three distinct series, meticulously crafted for style and protection. Available for Drivers and Woods. Bundle up to save!</p>
                 </div>
-
                 <div class="grid grid-cols-3 gap-1.5 md:gap-10" id="productGrid">
-                    <!-- Products injected here via JS -->
+                    <!-- Products injected via JS -->
                 </div>
             </div>
         </section>
+
         <section class="w-full h-48 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-[#4c111f]/20">
             <img src="Untitled design.png" alt="Golf course green" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/1200x500/228b22/ffffff?text=GOLF+GREEN'">
         </section>
@@ -170,7 +167,6 @@
                     <div>
                         <h2 class="font-serif text-4xl font-bold mb-6">The House of Heath</h2>
                         <p class="text-gray-300 mb-6 leading-relaxed">Born in Malaysia, Heath was created with a belief that the details matter. We look beyond the equipment itself to the pieces that accompany the game — thoughtfully designed objects that reflect individuality, taste, and a love for golf.</p>
-                        
                         <div class="flex gap-4">
                             <a href="https://instagram.com/heath.golf" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors shadow-sm" aria-label="Instagram">
                                 <i class="fab fa-instagram text-xl"></i>
@@ -188,12 +184,10 @@
     <footer class="bg-[#2f0a13] text-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
             <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-                
                 <div class="text-center md:text-left">
                     <p class="font-serif text-xl font-semibold">HEATH STUDIO</p>
                     <p class="text-sm text-gray-300 mt-1">Considered differently.</p>
                 </div>
-
                 <div class="flex flex-wrap justify-center gap-4 text-sm mt-4 md:mt-0">
                     <a href="shipping_policy.html" class="text-gray-300 hover:text-white underline-offset-4 hover:underline transition-colors">Shipping Policy</a>
                     <span class="text-gray-500 hidden sm:inline">|</span>
@@ -221,18 +215,6 @@
             <a href="#home" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Home</a>
             <a href="#collection" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">Collections</a>
             <a href="#about" class="menu-link block py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 border-b border-gray-100 transition-all">About Us</a>
-            <div class="border-b border-gray-100">
-                <button id="helpMenuBtn" class="w-full flex justify-between items-center py-3 text-lg font-medium text-[#4c111f] hover:opacity-80 transition-all focus:outline-none">
-                    <span>Help</span>
-                    <i class="fas fa-chevron-down text-sm transition-transform duration-300" id="helpMenuIcon"></i>
-                </button>
-                <div id="helpSubMenu" class="hidden flex-col pl-4 pb-2 space-y-2 mt-1">
-                    <a href="T&C1.html" class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all">Terms & Conditions</a>
-                    <a href="Returnpolicy.html" class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all">Return & Refund Policy</a>
-                    <a href="shipping_policy.html" class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all">Shipping Policy</a>
-                    <a href="privacy_policy.html" class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all">Privacy Policy</a>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -263,27 +245,20 @@
                     <input type="email" id="custEmail" placeholder="Email Address" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                     <input type="tel" id="custPhone" placeholder="Phone Number" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                     
+                    <select id="custCountry" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required onchange="handleCountryChange()">
+                        <option value="MY" selected>Malaysia</option>
+                        <option value="SG">Singapore</option>
+                    </select>
+                    
                     <div class="space-y-2">
-                        <!-- Country Dropdown -->
-                        <select id="custCountry" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base font-semibold" required onchange="handleCountryChange()">
-                            <option value="MY" selected>Malaysia</option>
-                            <option value="SG">Singapore</option>
-                        </select>
-
-                        <input type="text" id="custAddress" placeholder="Street Address (e.g. No. 12, Jalan Sultan)" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
-                        
+                        <input type="text" id="custAddress" placeholder="Street Address" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                         <div class="grid grid-cols-2 gap-2">
                             <input type="text" id="custCity" placeholder="City" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                             <input type="text" id="custPostcode" placeholder="Postcode" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                         </div>
-
-                        <!-- State Dropdown Container -->
-                        <div id="stateContainer">
-                            <select id="custState" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
-                                <option value="" disabled selected>Select State...</option>
-                                <option value="Johor">Johor</option><option value="Kedah">Kedah</option><option value="Kelantan">Kelantan</option><option value="Melaka">Melaka</option><option value="Negeri Sembilan">Negeri Sembilan</option><option value="Pahang">Pahang</option><option value="Perak">Perak</option><option value="Perlis">Perlis</option><option value="Penang">Penang</option><option value="Sabah">Sabah</option><option value="Sarawak">Sarawak</option><option value="Selangor">Selangor</option><option value="Terengganu">Terengganu</option><option value="Kuala Lumpur">Kuala Lumpur</option><option value="Labuan">Labuan</option><option value="Putrajaya">Putrajaya</option>
-                            </select>
-                        </div>
+                        <select id="custState" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
+                            <option value="" disabled selected>Select State...</option>
+                        </select>
                     </div>
                 </div>
                 <div id="formError" class="text-xs text-red-500 mb-3 hidden font-medium text-center">Please fill in all delivery details above.</div>
@@ -291,29 +266,7 @@
                 <div class="mb-2">
                     <label class="block text-sm font-medium text-[#4c111f] mb-2">Shipping Destination</label>
                     <div class="grid grid-cols-2 gap-3" id="shippingOptionsContainer">
-                        <!-- Malaysia Options -->
-                        <label class="cursor-pointer group malaysia-shipping">
-                            <input type="radio" name="shippingZone" value="west" class="peer sr-only" checked onchange="updateCartUI()">
-                            <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
-                                <span class="block font-semibold text-[#4c111f] text-sm">West Malaysia</span>
-                                <span class="block text-xs text-[#4c111f]/70 mt-1">RM 10</span>
-                            </div>
-                        </label>
-                        <label class="cursor-pointer group malaysia-shipping">
-                            <input type="radio" name="shippingZone" value="east" class="peer sr-only" onchange="updateCartUI()">
-                            <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
-                                <span class="block font-semibold text-[#4c111f] text-sm">East Malaysia</span>
-                                <span class="block text-xs text-[#4c111f]/70 mt-1">RM 15</span>
-                            </div>
-                        </label>
-                        <!-- Singapore Option -->
-                        <label class="cursor-pointer group singapore-shipping hidden col-span-2">
-                            <input type="radio" name="shippingZone" value="sg" class="peer sr-only" onchange="updateCartUI()">
-                            <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
-                                <span class="block font-semibold text-[#4c111f] text-sm">Singapore International</span>
-                                <span class="block text-xs text-[#4c111f]/70 mt-1">RM 35</span>
-                            </div>
-                        </label>
+                        <!-- Injected via JS based on country -->
                     </div>
                 </div>
             </div>
@@ -323,17 +276,15 @@
             <button id="checkoutBtn" class="w-full bg-[#4c111f] text-white py-4 rounded-xl font-bold hover:opacity-90 transition-opacity disabled:opacity-50 disabled:cursor-not-allowed shadow-md flex justify-center items-center gap-2 text-lg">
                 Proceed to Payment
             </button>
-            <p class="text-xs text-center text-gray-500 mt-3 leading-relaxed">
-                By proceeding to order, you agree to our <a href="T&C1.html" target="_blank" class="text-[#4c111f] font-medium underline hover:opacity-70">Terms & Conditions</a> and <a href="Returnpolicy.html" target="_blank" class="text-[#4c111f] font-medium underline hover:opacity-70">Return & Refund Policy</a>.
-            </p>
-            <p class="text-xs text-center text-gray-500 mt-3"><i class="fas fa-lock mr-1"></i> Payments processed securely by HitPay.</p>
+            <p id="currencyDisclaimer" class="text-xs text-center text-red-500 mt-2 font-medium hidden">Payments are processed securely via cross-border PayNow equivalent.</p>
         </div>
     </div>
 
+    <!-- Product Modal -->
     <div id="productModal" class="fixed inset-0 z-[80] hidden items-center justify-center">
         <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="modalBackdrop"></div>
         <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 no-scrollbar flex flex-col md:block" id="modalContent">
-            <button id="closeModal" class="absolute top-4 right-4 text-[#4c111f]/60 hover:text-[#4c111f] z-20 bg-white/80 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center shadow-sm focus:outline-none" aria-label="Close product modal">
+            <button id="closeModal" class="absolute top-4 right-4 text-[#4c111f]/60 hover:text-[#4c111f] z-20 bg-white/80 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center shadow-sm focus:outline-none">
                 <i class="fas fa-times text-lg"></i>
             </button>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
@@ -351,20 +302,7 @@
                     <div class="mb-8">
                         <h4 class="text-sm font-medium text-[#4c111f] mb-3 uppercase tracking-wide">Select Club Type</h4>
                         <div class="grid grid-cols-2 gap-4" id="modalClubTypes">
-                            <label class="cursor-pointer group">
-                                <input type="radio" name="clubType" value="wood" class="peer sr-only" checked onchange="selectClubType()">
-                                <div class="rounded-xl border-2 border-[#4c111f]/20 p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
-                                    <span class="block font-semibold text-[#4c111f]">Wood</span>
-                                    <span class="block text-sm text-[#4c111f]/70 mt-1">RM 109</span>
-                                </div>
-                            </label>
-                            <label class="cursor-pointer group">
-                                <input type="radio" name="clubType" value="driver" class="peer sr-only" onchange="selectClubType()">
-                                <div class="rounded-xl border-2 border-[#4c111f]/20 p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
-                                    <span class="block font-semibold text-[#4c111f]">Driver</span>
-                                    <span class="block text-sm text-[#4c111f]/70 mt-1">RM 129</span>
-                                </div>
-                            </label>
+                            <!-- Injected dynamically based on currency -->
                         </div>
                     </div>
                     <div class="mt-auto pt-6 border-t border-[#4c111f]/10 flex items-center justify-between">
@@ -381,6 +319,7 @@
         </div>
     </div>
 
+    <!-- FIREBASE ID GENERATION -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -399,185 +338,128 @@
 
             async function authenticate() {
                 try {
-                    if (typeof __initial_auth_token !== 'undefined') {
-                        await signInWithCustomToken(auth, __initial_auth_token);
-                    } else {
-                        await signInAnonymously(auth);
-                    }
-                } catch (error) {
-                    console.error("Firebase Auth Error:", error);
-                }
+                    await signInAnonymously(auth);
+                } catch (error) { console.error("Firebase Error"); }
             }
             authenticate();
         }
 
         window.generateUniversalOrderID = async function() {
             if (!db || !auth) return generateLocalFallbackID();
-
-            if (!auth.currentUser) {
-                await new Promise(r => setTimeout(r, 800)); 
-            }
+            if (!auth.currentUser) await new Promise(r => setTimeout(r, 800)); 
             if (!auth.currentUser) return generateLocalFallbackID(); 
 
             try {
                 const counterRef = doc(db, 'artifacts', appId, 'public', 'data', 'store_metadata', 'order_counter');
                 const docSnap = await getDoc(counterRef);
-                
-                let currentCount = 0;
-                if (docSnap.exists() && docSnap.data().count) {
-                    currentCount = docSnap.data().count;
-                }
-                
-                const newCount = currentCount + 1;
-                await setDoc(counterRef, { count: newCount }, { merge: true });
-                
-                return `HTHG-${newCount.toString().padStart(4, '0')}`;
-                
+                let currentCount = docSnap.exists() && docSnap.data().count ? docSnap.data().count : 0;
+                await setDoc(counterRef, { count: currentCount + 1 }, { merge: true });
+                return `HTHG-${(currentCount + 1).toString().padStart(4, '0')}`;
             } catch (error) {
-                console.error("Database error generating ID:", error);
                 return generateLocalFallbackID();
             }
         };
 
         function generateLocalFallbackID() {
-             let currentNumberStr = localStorage.getItem('heathStockOrderNumber');
-             let nextNumber = currentNumberStr ? parseInt(currentNumberStr, 10) + 1 : 1;
+             let nextNumber = (parseInt(localStorage.getItem('heathStockOrderNumber')) || 0) + 1;
              localStorage.setItem('heathStockOrderNumber', nextNumber.toString());
              return `HTHG-${nextNumber.toString().padStart(4, '0')}`;
         }
     </script>
 
+    <!-- MAIN LOGIC -->
     <script>
         const products = [
-            {
-                id: 'earthy',
-                series: 'Earthy Tweed',
-                desc: 'Classic tweed texture bringing a touch of tradition to your bag.',
-                slideshowImages: ['ET3.png', 'ET4.png', 'Untitled design - 7.png', 'Untitled design - 8.png', 'IMG_8051.jpeg'],
-                colors: [
-                    { name: 'Autumn', hex: '#894E35', woodImg: 'Untitled design - 10.png', driverImg: 'Untitled design - 9.png' },
-                    { name: 'Moss', hex: '#5E564C', woodImg: 'Untitled design - 12.png', driverImg: 'Untitled design - 11.png' }
-                ]
-            },
-            {
-                id: 'azure',
-                series: 'Azure Wave',
-                desc: 'Dynamic patterns inspired by coastal waters.',
-                slideshowImages: ['AZ3.png', 'AZ4.png', 'Untitled design - 2.png', 'Untitled design - 1.png', 'IMG_8050.jpeg'],
-                colors: [
-                    { name: 'Deep Sea', hex: '#30506E', woodImg: 'Untitled design - 4.png', driverImg: 'Untitled design - 3.png' },
-                    { name: 'Sky Crest', hex: '#A1C8D5', woodImg: 'Untitled design - 6.png', driverImg: 'Untitled design - 5.png' }
-                ]
-            },
-            {
-                id: 'Black & Bone',
-                series: 'Black & Bone',
-                desc: 'Sleek, minimalist, and menacing.',
-                slideshowImages: ['BW2.png', 'BW3.png', 'Untitled design - 13.jpeg', 'IMG_8049.jpeg', 'IMG_8009.jpeg'],
-                colors: [
-                    { name: 'Black & Bone', bgStyle: 'background: linear-gradient(to right, #000000 50%, #f3DEC7 50%);', woodImg: 'Untitled design - 15.jpeg', driverImg: 'Untitled design - 14.jpeg' }
-                ]
-            }
+            { id: 'earthy', series: 'Earthy Tweed', desc: 'Classic tweed texture bringing a touch of tradition to your bag.', slideshowImages: ['ET3.png', 'ET4.png', 'Untitled design - 7.png', 'Untitled design - 8.png', 'IMG_8051.jpeg'], colors: [{ name: 'Autumn', hex: '#894E35', woodImg: 'Untitled design - 10.png', driverImg: 'Untitled design - 9.png' }, { name: 'Moss', hex: '#5E564C', woodImg: 'Untitled design - 12.png', driverImg: 'Untitled design - 11.png' }] },
+            { id: 'azure', series: 'Azure Wave', desc: 'Dynamic patterns inspired by coastal waters.', slideshowImages: ['AZ3.png', 'AZ4.png', 'Untitled design - 2.png', 'Untitled design - 1.png', 'IMG_8050.jpeg'], colors: [{ name: 'Deep Sea', hex: '#30506E', woodImg: 'Untitled design - 4.png', driverImg: 'Untitled design - 3.png' }, { name: 'Sky Crest', hex: '#A1C8D5', woodImg: 'Untitled design - 6.png', driverImg: 'Untitled design - 5.png' }] },
+            { id: 'Black & Bone', series: 'Black & Bone', desc: 'Sleek, minimalist, and menacing.', slideshowImages: ['BW2.png', 'BW3.png', 'Untitled design - 13.jpeg', 'IMG_8049.jpeg', 'IMG_8009.jpeg'], colors: [{ name: 'Black & Bone', bgStyle: 'background: linear-gradient(to right, #000000 50%, #f3DEC7 50%);', woodImg: 'Untitled design - 15.jpeg', driverImg: 'Untitled design - 14.jpeg' }] }
         ];
 
-        const PRICES = { wood: 109, driver: 129 };
-        const BUNDLE_PRICE = 228;
+        const PRICING = {
+            MYR: { symbol: 'RM ', wood: 109, driver: 129, bundle: 228, shippingWest: 10, shippingEast: 15 },
+            SGD: { symbol: 'S$ ', wood: 38, driver: 44, bundle: 78, shipping: 25 } // Bundle dynamically saves S$4
+        };
+        
+        // This is the multiplier used to convert the marked-up SGD back to MYR for the HitPay payload
+        const SGD_TO_MYR_RATE = 3.5; 
 
+        let currentCurrency = 'MYR';
         let cart = [];
         let currentModalProduct = null;
         let selectedColorIndex = 0;
         let calculatedFinalTotal = 0; 
-        let currentOrderID = '';
         let hoverIntervals = {};
 
-        document.addEventListener('DOMContentLoaded', () => {
-            renderProductGrid();
+        document.addEventListener('DOMContentLoaded', async () => {
+            await detectUserLocation();
             setupMobileAutoplay(); 
             setupEventListeners();
-            updateCartUI();
         });
 
-        // ==========================================
-        // COUNTRY & SHIPPING LOGIC
-        // ==========================================
+        async function detectUserLocation() {
+            try {
+                const res = await fetch('https://ipapi.co/json/');
+                const data = await res.json();
+                if (data.country === 'SG') {
+                    document.getElementById('custCountry').value = 'SG';
+                }
+            } catch (e) { console.log('Geolocation skipped'); }
+            
+            handleCountryChange(); 
+        }
+
         window.handleCountryChange = function() {
-            const countrySelect = document.getElementById('custCountry').value;
-            const stateContainer = document.getElementById('stateContainer');
+            const country = document.getElementById('custCountry').value;
             const stateSelect = document.getElementById('custState');
-            const myShippingOptions = document.querySelectorAll('.malaysia-shipping');
-            const sgShippingOption = document.querySelector('.singapore-shipping');
-
-            if (countrySelect === 'SG') {
-                // Hide Malaysian states and remove required attribute
-                stateContainer.classList.add('hidden');
-                stateSelect.removeAttribute('required');
-                stateSelect.value = ''; // Clear selection
-                
-                // Switch shipping options
-                myShippingOptions.forEach(opt => opt.classList.add('hidden'));
-                sgShippingOption.classList.remove('hidden');
-                document.querySelector('input[name="shippingZone"][value="sg"]').checked = true;
+            const shippingContainer = document.getElementById('shippingOptionsContainer');
+            const disclaimer = document.getElementById('currencyDisclaimer');
+            
+            if (country === 'SG') {
+                currentCurrency = 'SGD';
+                disclaimer.classList.remove('hidden');
+                stateSelect.innerHTML = `<option value="Singapore" selected>Singapore</option>`;
+                shippingContainer.innerHTML = `
+                    <label class="cursor-pointer group col-span-2">
+                        <input type="radio" name="shippingZone" value="singapore" class="peer sr-only" checked onchange="updateCartUI()">
+                        <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
+                            <span class="block font-semibold text-[#4c111f] text-sm">International (Singapore)</span>
+                            <span class="block text-xs text-[#4c111f]/70 mt-1">S$ 25</span>
+                        </div>
+                    </label>
+                `;
             } else {
-                // Show Malaysian states and make required
-                stateContainer.classList.remove('hidden');
-                stateSelect.setAttribute('required', 'required');
-                
-                // Switch shipping options
-                sgShippingOption.classList.add('hidden');
-                myShippingOptions.forEach(opt => opt.classList.remove('hidden'));
-                document.querySelector('input[name="shippingZone"][value="west"]').checked = true;
+                currentCurrency = 'MYR';
+                disclaimer.classList.add('hidden');
+                stateSelect.innerHTML = `
+                    <option value="" disabled selected>Select State...</option>
+                    <option value="Johor">Johor</option><option value="Kedah">Kedah</option><option value="Kelantan">Kelantan</option><option value="Melaka">Melaka</option><option value="Negeri Sembilan">Negeri Sembilan</option><option value="Pahang">Pahang</option><option value="Perak">Perak</option><option value="Perlis">Perlis</option><option value="Penang">Penang</option><option value="Sabah">Sabah</option><option value="Sarawak">Sarawak</option><option value="Selangor">Selangor</option><option value="Terengganu">Terengganu</option><option value="Kuala Lumpur">Kuala Lumpur</option><option value="Labuan">Labuan</option><option value="Putrajaya">Putrajaya</option>
+                `;
+                shippingContainer.innerHTML = `
+                    <label class="cursor-pointer group">
+                        <input type="radio" name="shippingZone" value="west" class="peer sr-only" checked onchange="updateCartUI()">
+                        <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
+                            <span class="block font-semibold text-[#4c111f] text-sm">West Malaysia</span>
+                            <span class="block text-xs text-[#4c111f]/70 mt-1">RM 10</span>
+                        </div>
+                    </label>
+                    <label class="cursor-pointer group">
+                        <input type="radio" name="shippingZone" value="east" class="peer sr-only" onchange="updateCartUI()">
+                        <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
+                            <span class="block font-semibold text-[#4c111f] text-sm">East Malaysia</span>
+                            <span class="block text-xs text-[#4c111f]/70 mt-1">RM 15</span>
+                        </div>
+                    </label>
+                `;
             }
-            // Recalculate totals based on new shipping fee
-            updateCartUI();
-        }
-
-        function startHoverSlideshow(productId, cardElement) {
-            const product = products.find(p => p.id === productId);
-            const images = product.slideshowImages; 
-            const imgEl = cardElement.querySelector('.product-img');
             
-            if (!imgEl || images.length <= 1) return;
-            let currentIndex = 0;
-            
-            if (hoverIntervals[productId]) clearInterval(hoverIntervals[productId]);
-            hoverIntervals[productId] = setInterval(() => {
-                currentIndex = (currentIndex + 1) % images.length;
-                imgEl.src = images[currentIndex];
-            }, 1500); 
-        }
-
-        function stopHoverSlideshow(productId, cardElement) {
-            if (hoverIntervals[productId]) {
-                clearInterval(hoverIntervals[productId]);
-                delete hoverIntervals[productId];
-            }
-            const product = products.find(p => p.id === productId);
-            const imgEl = cardElement.querySelector('.product-img');
-            if (imgEl && product) {
-                imgEl.src = product.slideshowImages[0];
-            }
-        }
-        
-        function setupMobileAutoplay() {
-            const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
-            if (!isTouchDevice) return; 
-
-            const cards = document.querySelectorAll('.product-card');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    const productId = entry.target.getAttribute('data-product-id');
-                    if (entry.isIntersecting) {
-                        startHoverSlideshow(productId, entry.target);
-                    } else {
-                        stopHoverSlideshow(productId, entry.target);
-                    }
-                });
-            }, { root: null, rootMargin: '0px', threshold: 0.4 });
-
-            cards.forEach(card => observer.observe(card));
+            renderProductGrid();
+            if(currentModalProduct) injectModalClubs(); 
+            updateCartUI(); 
         }
 
         function renderProductGrid() {
+            const sym = PRICING[currentCurrency].symbol;
+            const price = PRICING[currentCurrency].wood;
             const grid = document.getElementById('productGrid');
             grid.innerHTML = products.map((product) => `
                 <div class="product-card group cursor-pointer" data-product-id="${product.id}" onclick="openModal('${product.id}')" onmouseenter="startHoverSlideshow('${product.id}', this)" onmouseleave="stopHoverSlideshow('${product.id}', this)">
@@ -593,7 +475,7 @@
                     <div class="px-0.5 md:px-2">
                         <h3 class="font-serif text-[15px] sm:text-base md:text-2xl font-bold text-primary mb-0.5 md:mb-2 leading-tight">${product.series}</h3>
                         <p class="text-gray-600 text-[9px] sm:text-sm mb-1 md:mb-3 leading-snug line-clamp-2 md:line-clamp-none">${product.desc}</p>
-                        <p class="font-semibold text-primary text-[14px] md:text-xl md:text-base">From RM ${PRICES.wood}</p>
+                        <p class="font-semibold text-primary text-[14px] md:text-xl md:text-base">From ${sym}${price}</p>
                     </div>
                 </div>
             `).join('');
@@ -602,28 +484,23 @@
         window.openModal = function(productId) {
             currentModalProduct = products.find(p => p.id === productId);
             selectedColorIndex = 0;
-
             document.getElementById('modalSeries').textContent = currentModalProduct.series;
             
-            let descText = currentModalProduct.desc;
-            if (currentModalProduct.id !== 'Black & Bone') {
-                 descText = `Selected colorway: ${currentModalProduct.colors[0].name}. ${currentModalProduct.desc}`;
-            }
+            let descText = currentModalProduct.id !== 'Black & Bone' 
+                ? `Selected colorway: ${currentModalProduct.colors[0].name}. ${currentModalProduct.desc}` 
+                : currentModalProduct.desc;
             document.getElementById('modalDesc').textContent = descText;
             document.getElementById('modalTitle').textContent = currentModalProduct.colors[0].name;
-            document.querySelector('input[name="clubType"][value="wood"]').checked = true;
 
+            injectModalClubs();
             updateModalImage();
 
             document.getElementById('modalColors').innerHTML = currentModalProduct.colors.map((color, index) => `
-                <button onclick="selectColor(${index})" class="w-12 h-12 rounded-full transition-all ${index === selectedColorIndex ? 'border-4 border-white ring-2 ring-primary scale-110' : 'border-2 border-gray-200'}" style="${color.bgStyle ? color.bgStyle : `background-color: ${color.hex}`}" id="colorBtn-${index}" aria-label="${color.name}"></button>
+                <button onclick="selectColor(${index})" class="w-12 h-12 rounded-full transition-all ${index === selectedColorIndex ? 'border-4 border-white ring-2 ring-primary scale-110' : 'border-2 border-gray-200'}" style="${color.bgStyle ? color.bgStyle : `background-color: ${color.hex}`}" id="colorBtn-${index}"></button>
             `).join('');
-
-            updateModalPrice();
 
             document.getElementById('productModal').classList.remove('hidden');
             document.getElementById('productModal').classList.add('flex');
-
             setTimeout(() => {
                 document.getElementById('modalBackdrop').classList.remove('opacity-0');
                 document.getElementById('modalContent').classList.remove('scale-95', 'opacity-0');
@@ -631,27 +508,40 @@
             document.body.style.overflow = 'hidden';
         }
 
-        function closeModal() {
-            document.getElementById('modalBackdrop').classList.add('opacity-0');
-            document.getElementById('modalContent').classList.add('scale-95', 'opacity-0');
+        function injectModalClubs() {
+            const sym = PRICING[currentCurrency].symbol;
+            document.getElementById('modalClubTypes').innerHTML = `
+                <label class="cursor-pointer group">
+                    <input type="radio" name="clubType" value="wood" class="peer sr-only" checked onchange="selectClubType()">
+                    <div class="rounded-xl border-2 border-[#4c111f]/20 p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
+                        <span class="block font-semibold text-[#4c111f]">Wood</span>
+                        <span class="block text-sm text-[#4c111f]/70 mt-1">${sym}${PRICING[currentCurrency].wood}</span>
+                    </div>
+                </label>
+                <label class="cursor-pointer group">
+                    <input type="radio" name="clubType" value="driver" class="peer sr-only" onchange="selectClubType()">
+                    <div class="rounded-xl border-2 border-[#4c111f]/20 p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
+                        <span class="block font-semibold text-[#4c111f]">Driver</span>
+                        <span class="block text-sm text-[#4c111f]/70 mt-1">${sym}${PRICING[currentCurrency].driver}</span>
+                    </div>
+                </label>
+            `;
+            updateModalPrice();
+        }
 
-            setTimeout(() => {
-                document.getElementById('productModal').classList.remove('flex');
-                document.getElementById('productModal').classList.add('hidden');
-                document.body.style.overflow = '';
-            }, 300);
+        function updateModalPrice() {
+            const type = document.querySelector('input[name="clubType"]:checked').value;
+            const sym = PRICING[currentCurrency].symbol;
+            document.getElementById('modalPrice').textContent = `${sym}${PRICING[currentCurrency][type]}`;
         }
 
         window.selectColor = function(index) {
             selectedColorIndex = index;
             updateModalImage();
             document.getElementById('modalTitle').textContent = currentModalProduct.colors[index].name;
-            
-            let descText = currentModalProduct.desc;
-            if (currentModalProduct.id !== 'Black & Bone') {
-                 descText = `Selected colorway: ${currentModalProduct.colors[index].name}. ${currentModalProduct.desc}`;
-            }
-            document.getElementById('modalDesc').textContent = descText;
+            document.getElementById('modalDesc').textContent = currentModalProduct.id !== 'Black & Bone' 
+                ? `Selected colorway: ${currentModalProduct.colors[index].name}. ${currentModalProduct.desc}` 
+                : currentModalProduct.desc;
 
             currentModalProduct.colors.forEach((_, i) => {
                 const btn = document.getElementById(`colorBtn-${i}`);
@@ -666,30 +556,20 @@
         }
 
         function updateModalImage() {
-            const selectedClub = document.querySelector('input[name="clubType"]:checked').value;
+            const type = document.querySelector('input[name="clubType"]:checked').value;
             const colorData = currentModalProduct.colors[selectedColorIndex];
-            if (selectedClub === 'wood') document.getElementById('modalImg').src = colorData.woodImg;
-            else document.getElementById('modalImg').src = colorData.driverImg;
-        }
-
-        function updateModalPrice() {
-            const selectedClub = document.querySelector('input[name="clubType"]:checked').value;
-            document.getElementById('modalPrice').textContent = `RM ${PRICES[selectedClub]}`;
+            document.getElementById('modalImg').src = type === 'wood' ? colorData.woodImg : colorData.driverImg;
         }
 
         window.addToCart = function() {
             const type = document.querySelector('input[name="clubType"]:checked').value;
             const color = currentModalProduct.colors[selectedColorIndex];
-            const cartImg = type === 'wood' ? color.woodImg : color.driverImg;
-
             cart.push({
                 series: currentModalProduct.series,
                 type: type,
                 color: color.name,
-                price: PRICES[type],
-                img: cartImg
+                img: type === 'wood' ? color.woodImg : color.driverImg
             });
-
             updateCartUI();
             closeModal();
             openCart();
@@ -701,6 +581,8 @@
         }
 
         window.updateCartUI = function() {
+            const sym = PRICING[currentCurrency].symbol;
+            const p = PRICING[currentCurrency];
             const cartItemsEl = document.getElementById('cartItems');
             const cartCountEl = document.getElementById('cartCount');
             const checkoutBtn = document.getElementById('checkoutBtn');
@@ -718,8 +600,8 @@
                                 <h4 class="font-bold">${item.series}</h4>
                                 <p class="text-xs text-gray-500 capitalize">${item.type} &bull; ${item.color}</p>
                                 <div class="flex justify-between items-center mt-1">
-                                    <p class="font-bold text-primary">RM ${item.price}</p>
-                                    <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-600" aria-label="Remove item"><i class="fas fa-trash-alt"></i></button>
+                                    <p class="font-bold text-primary">${sym}${p[item.type]}</p>
+                                    <button onclick="removeFromCart(${index})" class="text-red-400 hover:text-red-600"><i class="fas fa-trash-alt"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -733,49 +615,59 @@
             let woods = cart.filter(i => i.type === 'wood').length;
             let drivers = cart.filter(i => i.type === 'driver').length;
             let bundlesCount = Math.min(woods, drivers);
-            let productsTotal = (bundlesCount * BUNDLE_PRICE) + ((woods - bundlesCount) * PRICES.wood) + ((drivers - bundlesCount) * PRICES.driver);
+            let productsTotal = (bundlesCount * p.bundle) + ((woods - bundlesCount) * p.wood) + ((drivers - bundlesCount) * p.driver);
 
-            const shippingZone = document.querySelector('input[name="shippingZone"]:checked').value;
+            const zoneInput = document.querySelector('input[name="shippingZone"]:checked');
             let shippingFee = 0;
-            if (shippingZone === 'west') shippingFee = 10;
-            else if (shippingZone === 'east') shippingFee = 15;
-            else if (shippingZone === 'sg') shippingFee = 35; // Singapore shipping fee
+            if (zoneInput) {
+                if (zoneInput.value === 'west') shippingFee = p.shippingWest;
+                else if (zoneInput.value === 'east') shippingFee = p.shippingEast;
+                else if (zoneInput.value === 'singapore') shippingFee = p.shipping;
+            }
 
             calculatedFinalTotal = cart.length > 0 ? productsTotal + shippingFee : 0;
-            totalEl.textContent = `RM ${calculatedFinalTotal}`;
+            totalEl.textContent = `${sym}${calculatedFinalTotal}`;
 
-            if (bundlesCount > 0) {
-                bundleNotice.classList.remove('hidden');
-                bundleNotice.innerHTML = `<i class="fas fa-check-circle mr-1"></i> ${bundlesCount} Bundle discount(s) applied!`;
-            } else {
-                bundleNotice.classList.add('hidden');
-            }
+            if (bundlesCount > 0) bundleNotice.classList.remove('hidden');
+            else bundleNotice.classList.add('hidden');
         }
 
-        function openCart() {
-            document.getElementById('cartOverlay').classList.remove('hidden', 'opacity-0');
-            document.getElementById('cartSidebar').classList.remove('translate-x-full');
+        function closeModal() {
+            document.getElementById('modalBackdrop').classList.add('opacity-0');
+            document.getElementById('modalContent').classList.add('scale-95', 'opacity-0');
+            setTimeout(() => { document.getElementById('productModal').classList.add('hidden'); document.getElementById('productModal').classList.remove('flex'); document.body.style.overflow = ''; }, 300);
+        }
+        function openCart() { document.getElementById('cartOverlay').classList.remove('hidden', 'opacity-0'); document.getElementById('cartSidebar').classList.remove('translate-x-full'); }
+        function closeCart() { document.getElementById('cartSidebar').classList.add('translate-x-full'); document.getElementById('cartOverlay').classList.add('opacity-0'); setTimeout(() => document.getElementById('cartOverlay').classList.add('hidden'), 300); }
+        function openMenu() { document.getElementById('menuOverlay').classList.remove('hidden', 'opacity-0'); document.getElementById('sideMenu').classList.remove('-translate-x-full'); }
+        function closeMenu() { document.getElementById('sideMenu').classList.add('-translate-x-full'); document.getElementById('menuOverlay').classList.add('opacity-0'); setTimeout(() => document.getElementById('menuOverlay').classList.add('hidden'), 300); }
+
+        function setupMobileAutoplay() {
+            if (!('ontouchstart' in window)) return;
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    const pid = entry.target.getAttribute('data-product-id');
+                    if (entry.isIntersecting) startHoverSlideshow(pid, entry.target);
+                    else stopHoverSlideshow(pid, entry.target);
+                });
+            }, { threshold: 0.4 });
+            document.querySelectorAll('.product-card').forEach(card => observer.observe(card));
         }
 
-        function closeCart() {
-            document.getElementById('cartSidebar').classList.add('translate-x-full');
-            document.getElementById('cartOverlay').classList.add('opacity-0');
-            setTimeout(() => {
-                document.getElementById('cartOverlay').classList.add('hidden');
-            }, 300);
+        function startHoverSlideshow(pid, card) {
+            const prod = products.find(p => p.id === pid);
+            const imgEl = card.querySelector('.product-img');
+            if (!imgEl || prod.slideshowImages.length <= 1) return;
+            let i = 0;
+            if (hoverIntervals[pid]) clearInterval(hoverIntervals[pid]);
+            hoverIntervals[pid] = setInterval(() => { i = (i + 1) % prod.slideshowImages.length; imgEl.src = prod.slideshowImages[i]; }, 1500); 
         }
 
-        function openMenu() {
-            document.getElementById('menuOverlay').classList.remove('hidden', 'opacity-0');
-            document.getElementById('sideMenu').classList.remove('-translate-x-full');
-        }
-
-        function closeMenu() {
-            document.getElementById('sideMenu').classList.add('-translate-x-full');
-            document.getElementById('menuOverlay').classList.add('opacity-0');
-            setTimeout(() => {
-                document.getElementById('menuOverlay').classList.add('hidden');
-            }, 300);
+        function stopHoverSlideshow(pid, card) {
+            clearInterval(hoverIntervals[pid]);
+            const prod = products.find(p => p.id === pid);
+            const imgEl = card.querySelector('.product-img');
+            if (imgEl && prod) imgEl.src = prod.slideshowImages[0];
         }
 
         function setupEventListeners() {
@@ -786,124 +678,71 @@
             document.getElementById('mobileMenuBtn').addEventListener('click', openMenu);
             document.getElementById('closeMenuBtn').addEventListener('click', closeMenu);
             document.getElementById('menuOverlay').addEventListener('click', closeMenu);
+            document.getElementById('addToCartModalBtn').addEventListener('click', addToCart);
             
-            const helpMenuBtn = document.getElementById('helpMenuBtn');
-            const helpSubMenu = document.getElementById('helpSubMenu');
-            const helpMenuIcon = document.getElementById('helpMenuIcon');
-            if (helpMenuBtn) {
-                helpMenuBtn.addEventListener('click', () => {
-                    helpSubMenu.classList.toggle('hidden');
-                    helpSubMenu.classList.toggle('flex');
-                    helpMenuIcon.classList.toggle('rotate-180');
-                });
-            }
-
-            document.querySelectorAll('.menu-link').forEach(link => {
-                link.addEventListener('click', closeMenu);
-            });
-
-            // Re-wired Add to Cart Button properly
-            document.getElementById('addToCartModalBtn').addEventListener('click', window.addToCart);
-
-            // ==========================================
-            // HITPAY CHECKOUT INTEGRATION
-            // ==========================================
             document.getElementById('checkoutBtn').addEventListener('click', async () => {
                 if (cart.length === 0) return;
                 
-                const custName = document.getElementById('custName').value.trim();
-                const custEmail = document.getElementById('custEmail').value.trim();
-                const custPhone = document.getElementById('custPhone').value.trim();
-                const custAddress = document.getElementById('custAddress').value.trim();
-                const custCity = document.getElementById('custCity').value.trim();
-                const custPostcode = document.getElementById('custPostcode').value.trim();
-                const custCountry = document.getElementById('custCountry').value;
-                
-                let custState = '';
-                if (custCountry === 'MY') {
-                    custState = document.getElementById('custState').value;
-                }
-                
-                const formError = document.getElementById('formError');
+                const cName = document.getElementById('custName').value.trim();
+                const cEmail = document.getElementById('custEmail').value.trim();
+                const cPhone = document.getElementById('custPhone').value.trim();
+                const cCountry = document.getElementById('custCountry').value;
+                const cAddress = document.getElementById('custAddress').value.trim();
+                const cCity = document.getElementById('custCity').value.trim();
+                const cPost = document.getElementById('custPostcode').value.trim();
+                const cState = document.getElementById('custState').value;
+                const err = document.getElementById('formError');
 
-                // 1. Validation
-                if (!custName || !custEmail || !custPhone || !custAddress || !custCity || !custPostcode || (custCountry === 'MY' && !custState)) {
-                    formError.innerHTML = 'Please fill in all delivery details above.';
-                    formError.classList.remove('hidden');
-                    return;
+                if (!cName || !cEmail || !cPhone || !cAddress || !cCity || !cPost || !cState) {
+                    err.innerHTML = 'Please fill in all delivery details above.'; err.classList.remove('hidden'); return;
                 }
-
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailRegex.test(custEmail)) {
-                    formError.innerHTML = 'Please enter a valid email address.';
-                    formError.classList.remove('hidden');
-                    return;
+                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cEmail)) {
+                    err.innerHTML = 'Please enter a valid email address.'; err.classList.remove('hidden'); return;
                 }
-
-                formError.classList.add('hidden');
+                err.classList.add('hidden');
                 
-                // Loading State
                 const btn = document.getElementById('checkoutBtn');
                 const originalText = btn.innerHTML;
                 btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Secure Payment...';
                 btn.disabled = true;
                 
-                // 2. Generate Universal Order ID
-                if (window.generateUniversalOrderID) {
-                    currentOrderID = await window.generateUniversalOrderID();
-                } else {
-                    currentOrderID = 'HTHG-' + Math.floor(Math.random() * 9000 + 1000); 
+                const orderID = window.generateUniversalOrderID ? await window.generateUniversalOrderID() : 'HTHG-' + Math.floor(Math.random() * 9000 + 1000); 
+                const cartDetails = cart.map(i => `${i.series} (${i.type}) - ${i.color}`).join(', ');
+                const fullAddress = `${cAddress}, ${cPost} ${cCity}, ${cState}, ${cCountry === 'SG' ? 'Singapore' : 'Malaysia'}`;
+
+                // Calculate the final marked-up amount to send to HitPay in MYR
+                let gatewayAmount = calculatedFinalTotal;
+                if (currentCurrency === 'SGD') {
+                    // Multiply the displayed SGD total by our markup rate (3.5)
+                    gatewayAmount = (calculatedFinalTotal * SGD_TO_MYR_RATE).toFixed(2);
                 }
 
-                // 3. Format Cart Details for HitPay Description
-                let cartDetails = cart.map(item => `${item.series} (${item.type}) - ${item.color}`).join(', ');
-
-                const countryName = custCountry === 'SG' ? 'Singapore' : 'Malaysia';
-                const fullAddressString = `${custAddress}, ${custPostcode} ${custCity}, ${custState}, ${countryName}`;
-                
-                // 4. Construct Payload
                 const payload = new URLSearchParams();
-                payload.append("amount", calculatedFinalTotal);
+                payload.append("amount", gatewayAmount); 
+                
+                // CRITICAL FIX: Because you have a Malaysia HitPay account, this must ALWAYS be "MYR".
+                // HitPay will handle the cross-border PayNow conversion natively when they scan the QR.
                 payload.append("currency", "MYR");
-                payload.append("reference_number", currentOrderID);
-                payload.append("name", custName);
-                payload.append("email", custEmail);
-                payload.append("phone", custPhone);
                 
-                // FIX: Safely send the full address inside the Order Description (Purpose)
-                // We are removing the strict address fields that caused the API to reject the payment
-                payload.append("purpose", `Order: ${cartDetails}. Ship to: ${fullAddressString}`);
-                
-                // Redirect user back to success page after payment
-                const successUrl = window.location.origin + "/success.html";
-                payload.append("redirect_url", successUrl); 
+                payload.append("reference_number", orderID);
+                payload.append("name", cName);
+                payload.append("email", cEmail);
+                payload.append("phone", cPhone);
+                payload.append("purpose", `Order: ${cartDetails}. Ship to: ${fullAddress}`);
+                payload.append("send_email", "true"); 
+                payload.append("redirect_url", window.location.origin + "/success.html"); 
 
-                // 5. Send API Request to our secure Cloudflare backend instead of HitPay directly
                 try {
                     const response = await fetch("/checkout", {
                         method: "POST",
-                        headers: {
-                            "Content-Type": "application/x-www-form-urlencoded"
-                        },
+                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
                         body: payload.toString()
                     });
-
                     const data = await response.json();
-
-                    if (response.ok && data.url) {
-                        // SUCCESS: Redirect the user to HitPay's secure checkout URL
-                        window.location.href = data.url;
-                    } else {
-                        // API ERROR
-                        console.error("HitPay API Error:", data);
-                        alert("Payment gateway error. Please contact support.");
-                        btn.innerHTML = originalText;
-                        btn.disabled = false;
-                    }
+                    if (response.ok && data.url) window.location.href = data.url;
+                    else throw new Error("API Error");
                 } catch (error) {
-                    // NETWORK ERROR
-                    console.error("Network Error:", error);
-                    alert("Network connection error. Please try again.");
+                    alert("Payment gateway error. Please try again.");
                     btn.innerHTML = originalText;
                     btn.disabled = false;
                 }
