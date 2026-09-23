@@ -315,7 +315,7 @@
                             <input type="radio" name="shippingZone" value="sg" class="peer sr-only" onchange="updateCartUI()">
                             <div class="rounded-xl border-2 border-[#4c111f]/20 p-3 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
                                 <span class="block font-semibold text-[#4c111f] text-sm">Singapore International</span>
-                                <span class="block text-xs text-[#4c111f]/70 mt-1">RM 80</span>
+                                <span class="block text-xs text-[#4c111f]/70 mt-1">RM 35</span>
                             </div>
                         </label>
                     </div>
@@ -752,7 +752,7 @@
             let shippingFee = 0;
             if (shippingZone === 'west') shippingFee = 10;
             else if (shippingZone === 'east') shippingFee = 15;
-            else if (shippingZone === 'sg') shippingFee = 80; // Singapore Rate
+            else if (shippingZone === 'sg') shippingFee = 35; // Singapore Rate
 
             calculatedFinalTotal = cart.length > 0 ? productsTotal + shippingFee : 0;
             totalEl.textContent = `RM ${calculatedFinalTotal}`;
@@ -814,9 +814,9 @@
             document.querySelectorAll('.menu-link').forEach(link => {
                 link.addEventListener('click', closeMenu);
             });
-
-            document.getElementById('addToCartModalBtn').addEventListener('click', addToCart);
-
+            // ==========================================
+            // HITPAY CHECKOUT INTEGRATION
+            // ==========================================
             document.getElementById('checkoutBtn').addEventListener('click', async () => {
                 if (cart.length === 0) return;
                 
@@ -857,7 +857,7 @@
                 const originalText = btn.innerHTML;
                 btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing Secure Payment...';
                 btn.disabled = true;
-                
+                // 2. Generate Universal Order ID
                 if (window.generateUniversalOrderID) {
                     currentOrderID = await window.generateUniversalOrderID();
                 } else {
