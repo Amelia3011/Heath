@@ -146,21 +146,23 @@
             <div class="absolute inset-0 bg-black/20 mix-blend-multiply pointer-events-none"></div>
         </section>
 
+        <!-- COLLECTIONS SECTION: Added pb-36 to stretch the pattern down to create the gap -->
         <section id="collections" class="relative pt-20 pb-36 hero-bg">
             <div class="absolute inset-0 bg-white/10"></div>
             
-            <div class="max-w-7xl mx-auto px-8 md:px-12 relative z-10">
-                <div class="text-center mb-8 md:mb-16">
+            <!-- REDUCED MOBILE PADDING: Changed px-8 to px-2 to let the 3-column grid expand outward on phones -->
+            <div class="max-w-7xl mx-auto px-2 md:px-12 relative z-10">
+                <div class="text-center mb-8 md:mb-16 px-2">
                     <h2 class="font-serif text-4xl font-bold text-[#4c111f] mb-4">THE ATELIER COLLECTION</h2>
                     <p class="text-gray-600 max-w-2xl mx-auto">Three distinct series, meticulously crafted for style and protection. Available for Drivers and Woods. Bundle up to save!</p>
                 </div>
 
-                <div class="grid grid-cols-3 gap-3 md:gap-10" id="productGrid">
+                <!-- REDUCED MOBILE GAP: Changed gap-3 to gap-1.5 to maximize image size in the 3-column layout -->
+                <div class="grid grid-cols-3 gap-1.5 md:gap-10" id="productGrid">
                     <!-- Products injected here via JS -->
                 </div>
             </div>
         </section>
-
         <section class="w-full h-48 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-[#4c111f]/20">
             <img src="Untitled design.png" alt="Golf course green" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/1200x500/228b22/ffffff?text=GOLF+GREEN'">
         </section>
