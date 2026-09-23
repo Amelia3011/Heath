@@ -149,7 +149,7 @@
     <main class="flex-grow pt-0 mt-0">
         
         <!-- HOME SECTION -->
-        <section id="home" class="relative overflow-hidden home-bg-image pt-20 lg:pt-28 pb-16">
+        <section id="home" class="relative overflow-hidden home-bg-image pt-20 lg:pt-28 pb-24">
             <div class="bg-overlay"></div>
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="text-center max-w-3xl mx-auto flex flex-col items-center bg-white/3 backdrop-blur-sm p-8 rounded-2xl shadow-sm">
@@ -163,14 +163,14 @@
             </div>
         </section>
 
-        <!-- GIF DIVIDER: Added mt-6 for a half-inch gap -->
-        <section class="w-full relative overflow-hidden bg-primary p-0 mt-6 leading-none">
+        <!-- GIF DIVIDER: Removed mt-6. The gap is now created by pb-24 on the home section above it -->
+        <section class="w-full relative overflow-hidden bg-primary p-0 leading-none">
             <img src="divider.GIF" alt="Lifestyle Divider" class="w-full h-auto max-h-[450px] object-cover block m-0 p-0" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/4c111f/ffffff?text=LIFESTYLE+IMAGE'">
             <div class="absolute inset-0 bg-black/20 mix-blend-multiply pointer-events-none"></div>
         </section>
 
-        <!-- COLLECTIONS SECTION -->
-        <section id="collections" class="relative py-20 hero-bg">
+        <!-- COLLECTIONS SECTION: Added pb-36 to stretch the pattern down to create the gap -->
+        <section id="collections" class="relative pt-20 pb-36 hero-bg">
             <div class="absolute inset-0 bg-white/10"></div>
             
             <!-- Added px-8 md:px-12 to push the grid inward from the edges (~1 inch) -->
@@ -186,8 +186,8 @@
             </div>
         </section>
 
-        <!-- FULL-WIDTH GOLF GREEN IMAGE DIVIDER: Added mt-16 for a 2-inch gap -->
-        <section class="w-full h-48 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-gray-100 mt-16">
+        <!-- FULL-WIDTH GOLF GREEN IMAGE DIVIDER: Removed mt-16, gap is handled by pb-36 above -->
+        <section class="w-full h-48 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-[#4c111f]/20">
             <img src="Untitled design.png" alt="Golf course green" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/1200x500/228b22/ffffff?text=GOLF+GREEN'">
         </section>
 
@@ -198,6 +198,17 @@
                     <div>
                         <h2 class="font-serif text-4xl font-bold mb-6">The House of Heath</h2>
                         <p class="text-gray-300 mb-6 leading-relaxed">Born in Malaysia, Heath was created with a belief that the details matter. We look beyond the equipment itself to the pieces that accompany the game — thoughtfully designed objects that reflect individuality, taste, and a love for golf.</p>
+                        
+                        <!-- Social Media Icons (About Section) -->
+                        <div class="flex gap-4">
+                            <a href="YOUR_INSTAGRAM_LINK_HERE" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors shadow-sm" aria-label="Instagram">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                            <a href="YOUR_TIKTOK_LINK_HERE" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors shadow-sm" aria-label="TikTok">
+                                <i class="fab fa-tiktok text-xl"></i>
+                            </a>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -218,7 +229,7 @@
                         <a href="https://instagram.com/heath.golf" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white hover:scale-110 transition-all" aria-label="Instagram">
                             <i class="fab fa-instagram text-2xl"></i>
                         </a>
-                        <a href="https://www.tiktok.com/@heathgolf.co?_r=1&_t=ZS-99xzQplElB2" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white hover:scale-110 transition-all" aria-label="TikTok">
+                        <a href="https://www.tiktok.com/heathgolf.co" target="_blank" rel="noopener noreferrer" class="text-gray-300 hover:text-white hover:scale-110 transition-all" aria-label="TikTok">
                             <i class="fab fa-tiktok text-2xl"></i>
                         </a>
                     </div>
@@ -989,6 +1000,9 @@
                 }, 800);
             });
         }
+    </script>
+</body>
+</html>
     </script>
 </body>
 </html>
