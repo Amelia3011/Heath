@@ -1014,14 +1014,11 @@
                 const cartDetails = cart.map(i => `${i.series} (${i.type}) - ${i.color}`).join(', ');
                 const fullAddress = `${cAddress}, ${cPost} ${cCity}, ${cState}, ${cCountry === 'SG' ? 'Singapore' : 'Malaysia'}`;
 
-                let gatewayAmount = calculatedFinalTotal;
-                if (currentCurrency === 'SGD') {
-                    gatewayAmount = (calculatedFinalTotal * SGD_TO_MYR_RATE).toFixed(2);
-                }
-
+                // FIX: Pass the native currency rather than forcing everything to MYR. 
+                // This ensures HitPay natively generates a PayNow code for Singaporean users.
                 const payload = new URLSearchParams();
-                payload.append("amount", gatewayAmount); 
-                payload.append("currency", "MYR");
+                payload.append("amount", calculatedFinalTotal); 
+                payload.append("currency", currentCurrency); 
                 payload.append("reference_number", orderID);
                 payload.append("name", cName);
                 payload.append("email", cEmail);
