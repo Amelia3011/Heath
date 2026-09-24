@@ -103,9 +103,7 @@
                 </div>
                 <div class="flex-1 flex items-center justify-end gap-2 sm:gap-4">
                     
-                    <!-- NEW HEADER CURRENCY/COUNTRY SELECTOR -->
                     <div class="relative">
-                        <!-- Custom Select Trigger -->
                         <button id="customHeaderCountrySelect" class="bg-black/10 hover:bg-black/20 transition-colors rounded-full px-2 py-1 md:px-3 flex items-center gap-1.5 md:gap-2 border border-white/20 text-[#fffaf1] font-bold text-xs sm:text-sm focus:outline-none w-20 md:w-24 justify-between relative z-[65]">
                             <div class="flex items-center gap-1.5">
                                 <img id="headerSelectedFlag" src="https://flagcdn.com/w20/my.png" srcset="https://flagcdn.com/w40/my.png 2x" width="20" height="13" alt="Malaysia" class="rounded-[2px] shadow-sm hidden md:block">
@@ -114,7 +112,6 @@
                             <i class="fas fa-chevron-down text-[10px] opacity-80 transition-transform duration-200" id="headerSelectIcon"></i>
                         </button>
                         
-                        <!-- Custom Select Dropdown Options -->
                         <div id="customHeaderCountryOptions" class="absolute top-full mt-2 right-0 w-32 bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden hidden flex-col z-[65] opacity-0 transform -translate-y-2 transition-all duration-200 origin-top-right">
                             <button onclick="selectHeaderCountry('MY')" class="w-full px-4 py-3 text-left flex items-center gap-3 hover:bg-gray-50 transition-colors border-b border-gray-50 group">
                                 <img src="https://flagcdn.com/w20/my.png" srcset="https://flagcdn.com/w40/my.png 2x" width="20" height="13" alt="Malaysia" class="rounded-[2px] shadow-sm group-hover:scale-110 transition-transform">
@@ -248,7 +245,6 @@
                 </div>
             </div>
             
-            <!-- MASTER CURRENCY/COUNTRY SELECTOR -->
             <div class="mt-6 pt-2">
                 <label class="block text-sm font-medium text-[#4c111f] mb-2 uppercase tracking-wide">Select Shipping Region</label>
                 <div class="relative">
@@ -302,7 +298,6 @@
                     <input type="email" id="custEmail" placeholder="Email Address" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                     <input type="tel" id="custPhone" placeholder="Phone Number" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required>
                     
-                    <!-- CART COUNTRY SYNCED WITH MENU -->
                     <select id="custCountry" class="w-full border-gray-300 rounded-md shadow-sm focus:border-primary focus:ring-primary p-2 border text-base" required onchange="syncCountry(this.value)">
                         <option value="MY" selected>Malaysia</option>
                         <option value="SG">Singapore</option>
@@ -335,7 +330,6 @@
                 Proceed to Payment
             </button>
             
-            <!-- FOOTERS - DYNAMICALLY TOGGLED VIA JS -->
             <div id="myDisclaimer">
                 <p class="text-xs text-center text-gray-500 leading-relaxed mb-2">
                     By proceeding to order, you agree to our <a href="T&C1.html" target="_blank" class="text-[#4c111f] font-medium underline hover:opacity-70">Terms & Conditions</a> and <a href="Returnpolicy.html" target="_blank" class="text-[#4c111f] font-medium underline hover:opacity-70">Return & Refund Policy</a>.
@@ -382,8 +376,9 @@
                         <div>
                             <p class="text-xs text-[#4c111f]/50 mb-1">Total Price</p>
                             <div class="font-bold text-3xl text-[#4c111f]" id="modalPrice">RM 109</div>
+                            <div id="modalStockStatus" class="text-sm mt-1 h-5"></div>
                         </div>
-                        <button id="addToCartModalBtn" class="bg-[#4c111f] text-white px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-colors shadow-lg active:scale-95 focus:outline-none">
+                        <button id="addToCartModalBtn" class="bg-[#4c111f] text-white px-8 py-4 rounded-xl font-bold hover:opacity-90 transition-all shadow-lg active:scale-95 focus:outline-none">
                             Add to Cart
                         </button>
                     </div>
@@ -392,7 +387,6 @@
         </div>
     </div>
 
-    <!-- SUCCESS MODAL -->
     <div id="successModal" class="fixed inset-0 z-[90] hidden items-center justify-center">
         <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="successModalBackdrop"></div>
         <div class="bg-white rounded-2xl w-full max-w-md m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 flex flex-col items-center p-8 md:p-10 text-center" id="successModalContent">
@@ -407,10 +401,9 @@
         </div>
     </div>
 
-    <!-- FIREBASE ID GENERATION -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
         import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'heath-studio-dev';
@@ -457,14 +450,31 @@
 
     <script>
         const products = [
-            { id: 'earthy', series: 'Earthy Tweed', desc: 'Classic tweed texture bringing a touch of tradition to your bag.', slideshowImages: ['ET3.png', 'ET4.png', 'Untitled design - 7.png', 'Untitled design - 8.png', 'IMG_8051.jpeg'], colors: [{ name: 'Autumn', hex: '#894E35', woodImg: 'Untitled design - 10.png', driverImg: 'Untitled design - 9.png' }, { name: 'Moss', hex: '#5E564C', woodImg: 'Untitled design - 12.png', driverImg: 'Untitled design - 11.png' }] },
-            { id: 'azure', series: 'Azure Wave', desc: 'Dynamic patterns inspired by coastal waters.', slideshowImages: ['AZ3.png', 'AZ4.png', 'Untitled design - 2.png', 'Untitled design - 1.png', 'IMG_8050.jpeg'], colors: [{ name: 'Deep Sea', hex: '#30506E', woodImg: 'Untitled design - 4.png', driverImg: 'Untitled design - 3.png' }, { name: 'Sky Crest', hex: '#A1C8D5', woodImg: 'Untitled design - 6.png', driverImg: 'Untitled design - 5.png' }] },
-            { id: 'Black & Bone', series: 'Black & Bone', desc: 'Sleek, minimalist, and menacing.', slideshowImages: ['BW2.png', 'BW3.png', 'Untitled design - 13.jpeg', 'IMG_8049.jpeg', 'IMG_8009.jpeg'], colors: [{ name: 'Black & Bone', bgStyle: 'background: linear-gradient(to right, #000000 50%, #f3DEC7 50%);', woodImg: 'Untitled design - 15.jpeg', driverImg: 'Untitled design - 14.jpeg' }] }
+            { 
+                id: 'earthy', series: 'Earthy Tweed', desc: 'Classic tweed texture bringing a touch of tradition to your bag.', slideshowImages: ['ET3.png', 'ET4.png', 'Untitled design - 7.png', 'Untitled design - 8.png', 'IMG_8051.jpeg'], 
+                colors: [
+                    { name: 'Autumn', hex: '#894E35', woodImg: 'Untitled design - 10.png', driverImg: 'Untitled design - 9.png', stock: { wood: 4, driver: 4 } }, 
+                    { name: 'Moss', hex: '#5E564C', woodImg: 'Untitled design - 12.png', driverImg: 'Untitled design - 11.png', stock: { wood: 4, driver: 4 } }
+                ] 
+            },
+            { 
+                id: 'azure', series: 'Azure Wave', desc: 'Dynamic patterns inspired by coastal waters.', slideshowImages: ['AZ3.png', 'AZ4.png', 'Untitled design - 2.png', 'Untitled design - 1.png', 'IMG_8050.jpeg'], 
+                colors: [
+                    { name: 'Deep Sea', hex: '#30506E', woodImg: 'Untitled design - 4.png', driverImg: 'Untitled design - 3.png', stock: { wood: 4, driver: 4 } }, 
+                    { name: 'Sky Crest', hex: '#A1C8D5', woodImg: 'Untitled design - 6.png', driverImg: 'Untitled design - 5.png', stock: { wood: 4, driver: 4 } }
+                ] 
+            },
+            { 
+                id: 'Black & Bone', series: 'Black & Bone', desc: 'Sleek, minimalist, and menacing.', slideshowImages: ['BW2.png', 'BW3.png', 'Untitled design - 13.jpeg', 'IMG_8049.jpeg', 'IMG_8009.jpeg'], 
+                colors: [
+                    { name: 'Black & Bone', bgStyle: 'background: linear-gradient(to right, #000000 50%, #f3DEC7 50%);', woodImg: 'Untitled design - 15.jpeg', driverImg: 'Untitled design - 14.jpeg', stock: { wood: 4, driver: 4 } }
+                ] 
+            }
         ];
 
         const PRICING = {
-            MYR: { symbol: 'RM ', wood: 109, driver: 129, bundle: 228, shippingWest: 10, shippingEast: 15 },
-            SGD: { symbol: 'S$ ', wood: 35, driver: 42, bundle: 73, shipping: 25 } 
+            MYR: { symbol: 'RM ', wood: 1, driver: 1, bundle: 2, shippingWest: 0, shippingEast: 0 },
+            SGD: { symbol: 'S$ ', wood: 2, driver: 2, bundle: 3, shipping: 0 } 
         };
         
         const SGD_TO_MYR_RATE = 3.25; 
@@ -483,12 +493,10 @@
             checkPaymentStatus();
         });
 
-        // FUNCTION TO DETECT SUCCESSFUL HITPAY RETURN
         function checkPaymentStatus() {
             const urlParams = new URLSearchParams(window.location.search);
             const status = urlParams.get('status');
             
-            // HitPay passes 'completed' or 'success' in the URL query when successful
             if (status === 'completed' || status === 'success') {
                 const successModal = document.getElementById('successModal');
                 successModal.classList.remove('hidden');
@@ -498,10 +506,7 @@
                     document.getElementById('successModalContent').classList.remove('scale-95', 'opacity-0');
                 }, 10);
                 
-                // Clear the URL so it doesn't pop up again if they refresh the page
                 window.history.replaceState({}, document.title, window.location.pathname);
-                
-                // Clear the shopping cart
                 cart = [];
                 updateCartUI();
             }
@@ -517,7 +522,7 @@
         }
 
         async function detectUserLocation() {
-            let countryCode = 'MY'; // Default to Malaysia
+            let countryCode = 'MY';
             try {
                 const res = await fetch('https://ipapi.co/json/');
                 if (res.ok) {
@@ -529,8 +534,6 @@
             } catch (e) {
                 console.log('Geolocation skipped or blocked');
             }
-            
-            // Apply the detected country on initial page load
             syncCountry(countryCode, false, false);
         }
 
@@ -555,10 +558,8 @@
                 if (custCountry) custCountry.value = 'MY';
             }
             
-            // Apply the pricing and shipping logic based on the new country
             handleCountryChange();
             
-            // Actions when triggered by the side menu selection
             if (closeSideMenu && typeof closeMenu === 'function') {
                 closeMenu();
             }
@@ -568,12 +569,11 @@
                 if (collectionsSection) {
                     setTimeout(() => {
                         collectionsSection.scrollIntoView({ behavior: 'smooth' });
-                    }, 300); // Tiny delay to let the menu closing animation finish
+                    }, 300);
                 }
             }
         }
 
-        // Custom Header Select Logic
         window.selectHeaderCountry = function(code) {
             syncCountry(code, false, false);
             if (typeof toggleHeaderDropdown === 'function') {
@@ -581,9 +581,8 @@
             }
         }
 
-        // Custom Menu Select Logic
         window.selectMenuCountry = function(code) {
-            syncCountry(code, true, true); // true = close menu, true = scroll down
+            syncCountry(code, true, true);
         }
 
         window.handleCountryChange = function() {
@@ -689,6 +688,8 @@
                 document.getElementById('modalContent').classList.remove('scale-95', 'opacity-0');
             }, 10);
             document.body.style.overflow = 'hidden';
+            
+            updateModalState();
         }
 
         function injectModalClubs() {
@@ -710,6 +711,7 @@
                 </label>
             `;
             updateModalPrice();
+            updateModalState();
         }
 
         function updateModalPrice() {
@@ -731,17 +733,53 @@
                 if (i === index) btn.classList.add('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110');
                 else btn.classList.remove('border-4', 'border-white', 'ring-2', 'ring-primary', 'scale-110');
             });
+            updateModalState();
         }
         
         window.selectClubType = function() {
             updateModalImage();
             updateModalPrice();
+            updateModalState();
         }
 
         function updateModalImage() {
             const type = document.querySelector('input[name="clubType"]:checked').value;
             const colorData = currentModalProduct.colors[selectedColorIndex];
             document.getElementById('modalImg').src = type === 'wood' ? colorData.woodImg : colorData.driverImg;
+        }
+
+        function updateModalState() {
+            if (!currentModalProduct) return;
+            
+            const typeEl = document.querySelector('input[name="clubType"]:checked');
+            if (!typeEl) return;
+            const type = typeEl.value;
+            const colorData = currentModalProduct.colors[selectedColorIndex];
+            
+            const stockAvailable = colorData.stock[type] || 0;
+            const inCart = cart.filter(item => 
+                item.series === currentModalProduct.series && 
+                item.color === colorData.name && 
+                item.type === type
+            ).length;
+            
+            const remaining = stockAvailable - inCart;
+            const btn = document.getElementById('addToCartModalBtn');
+            const stockStatus = document.getElementById('modalStockStatus');
+            
+            if (remaining <= 0) {
+                btn.disabled = true;
+                btn.textContent = "Sold Out";
+                btn.classList.add('opacity-50', 'cursor-not-allowed', 'bg-gray-400');
+                btn.classList.remove('hover:opacity-90', 'active:scale-95', 'bg-[#4c111f]');
+                stockStatus.innerHTML = `<span class="text-red-500 font-bold"><i class="fas fa-times-circle mr-1"></i>Out of stock</span>`;
+            } else {
+                btn.disabled = false;
+                btn.textContent = "Add to Cart";
+                btn.classList.remove('opacity-50', 'cursor-not-allowed', 'bg-gray-400');
+                btn.classList.add('hover:opacity-90', 'active:scale-95', 'bg-[#4c111f]');
+                stockStatus.innerHTML = `<span class="text-accent font-medium"><i class="fas fa-check-circle mr-1"></i>${remaining} left in stock</span>`;
+            }
         }
 
         window.addToCart = function() {
@@ -754,6 +792,7 @@
                 img: type === 'wood' ? color.woodImg : color.driverImg
             });
             updateCartUI();
+            updateModalState();
             closeModal();
             openCart();
         }
@@ -761,6 +800,10 @@
         window.removeFromCart = function(index) {
             cart.splice(index, 1);
             updateCartUI();
+            
+            if(currentModalProduct && !document.getElementById('productModal').classList.contains('hidden')) {
+                updateModalState();
+            }
         }
 
         window.updateCartUI = function() {
@@ -863,12 +906,10 @@
             document.getElementById('menuOverlay').addEventListener('click', closeMenu);
             document.getElementById('addToCartModalBtn').addEventListener('click', addToCart);
             
-            // Custom Header Dropdown
             const headerSelectBtn = document.getElementById('customHeaderCountrySelect');
             const headerOptions = document.getElementById('customHeaderCountryOptions');
             const headerIcon = document.getElementById('headerSelectIcon');
             
-            // Custom Menu Dropdown
             const menuSelectBtn = document.getElementById('customMenuCountrySelect');
             const menuOptions = document.getElementById('customMenuCountryOptions');
             const menuIcon = document.getElementById('menuSelectIcon');
@@ -879,7 +920,6 @@
                 
                 if (isHidden) {
                     headerOptions.classList.remove('hidden');
-                    // Small delay to allow display:block to apply before animating opacity
                     setTimeout(() => {
                         headerOptions.classList.remove('opacity-0', '-translate-y-2');
                         headerIcon.classList.add('rotate-180');
@@ -920,14 +960,10 @@
                 menuSelectBtn.addEventListener('click', toggleMenuDropdown);
             }
 
-            // Close dropdowns when clicking outside
             document.addEventListener('click', (e) => {
-                // Header dropdown
                 if (headerOptions && !headerOptions.classList.contains('hidden') && !headerSelectBtn.contains(e.target) && !headerOptions.contains(e.target)) {
                     toggleHeaderDropdown();
                 }
-                
-                // Menu dropdown
                 if (menuOptions && !menuOptions.classList.contains('hidden') && !menuSelectBtn.contains(e.target) && !menuOptions.contains(e.target)) {
                     toggleMenuDropdown();
                 }
@@ -978,10 +1014,8 @@
                 const cartDetails = cart.map(i => `${i.series} (${i.type}) - ${i.color}`).join(', ');
                 const fullAddress = `${cAddress}, ${cPost} ${cCity}, ${cState}, ${cCountry === 'SG' ? 'Singapore' : 'Malaysia'}`;
 
-                // Calculate the final marked-up amount to send to HitPay in MYR
                 let gatewayAmount = calculatedFinalTotal;
                 if (currentCurrency === 'SGD') {
-                    // Multiply the displayed SGD total by our markup rate (3.5)
                     gatewayAmount = (calculatedFinalTotal * SGD_TO_MYR_RATE).toFixed(2);
                 }
 
@@ -995,7 +1029,6 @@
                 payload.append("purpose", `Order: ${cartDetails}. Ship to: ${fullAddress}`);
                 payload.append("send_email", "true"); 
                 
-                // UPDATE REDIRECT TO RETURN DIRECTLY TO INDEX INSTEAD OF SUCCESS.HTML
                 payload.append("redirect_url", window.location.origin + window.location.pathname); 
 
                 try {
