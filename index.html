@@ -442,10 +442,10 @@
         };
 
         function generateLocalFallbackID() {
-             let nextNumber = (parseInt(localStorage.getItem('heathStockOrderNumber')) || 0) + 1;
-             localStorage.setItem('heathStockOrderNumber', nextNumber.toString());
-             return `HTHG-${nextNumber.toString().padStart(4, '0')}`;
-        }
+     // Generate a completely random 5-digit number to guarantee HitPay accepts it uniquely
+     const randomNum = Math.floor(Math.random() * 90000 + 10000);
+     return `HTHG-${randomNum}`;
+    }
     </script>
 
     <script>
