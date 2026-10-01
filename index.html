@@ -26,7 +26,6 @@
             }
         }
     </script>
-
     <style>
         html { scroll-behavior: smooth; }
         .hero-bg {
@@ -70,21 +69,21 @@
     <header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
         <div class="marquee-container w-full overflow-hidden bg-white/10 backdrop-blur-md py-3 border-b border-white/20 mb-4">
           <div class="animate-marquee flex items-center whitespace-nowrap text-white font-bold tracking-widest text-sm uppercase">
-            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="mx-6">OFFICIAL SITE LAUNCH, PROMO CODES DROP TONIGHT AT 8:00 PM</span>
             <span class="text-white/80 text-lg">⛳️</span>
-            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="mx-6">OFFICIAL SITE LAUNCH, PROMO CODES DROP TONIGHT AT 8:00 PM</span>
             <span class="text-white/80 text-lg">⛳️</span>
-            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="mx-6">OFFICIAL SITE LAUNCH, PROMO CODES DROP TONIGHT AT 8:00 PM</span>
             <span class="text-white/80 text-lg">⛳️</span>
-            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="mx-6">OFFICIAL SITE LAUNCH, PROMO CODES DROP TONIGHT AT 8:00 PM</span>
             <span class="text-white/80 text-lg">⛳️</span>
-            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="mx-6">OFFICIAL SITE LAUNCH, PROMO CODES DROP TONIGHT AT 8:00 PM</span>
             <span class="text-white/80 text-lg">⛳️</span>
-            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="mx-6">OFFICIAL SITE LAUNCH, PROMO CODES DROP TONIGHT AT 8:00 PM</span>
             <span class="text-white/80 text-lg">⛳️</span>
-            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="mx-6">OFFICIAL SITE LAUNCH, PROMO CODES DROP TONIGHT AT 8:00 PM</span>
             <span class="text-white/80 text-lg">⛳️</span>
-            <span class="mx-6">LIMITED PIECES, SHOP YOUR NEW GOLF HEADCOVERS NOW!</span>
+            <span class="mx-6">OFFICIAL SITE LAUNCH, PROMO CODES DROP TONIGHT AT 8:00 PM</span>
             <span class="text-white/80 text-lg">⛳️</span>
           </div>
         </div>
@@ -322,6 +321,16 @@
                         <!-- Injected via JS based on country -->
                     </div>
                 </div>
+
+                <!-- NEW PROMO CODE SECTION -->
+                <div class="mt-6 pt-4 border-t border-gray-200">
+                    <label class="block text-sm font-medium text-[#4c111f] mb-2">Promo Code</label>
+                    <div class="flex gap-2">
+                        <input type="text" id="promoCodeInput" placeholder="Enter code" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-primary focus:ring-primary p-2 border text-sm uppercase">
+                        <button onclick="applyPromoCode()" class="bg-gray-800 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-gray-700 transition-colors">Apply</button>
+                    </div>
+                    <p id="promoMessage" class="text-xs mt-2 hidden font-medium"></p>
+                </div>
             </div>
         </div>
 
@@ -372,6 +381,16 @@
                             <!-- Injected dynamically based on currency -->
                         </div>
                     </div>
+
+                    <!-- NEW FAST SHIPPING BANNER -->
+                    <div class="mb-8 bg-green-50 border border-green-200 rounded-xl p-4 flex items-start gap-3">
+                        <div class="text-green-600 mt-0.5"><i class="fas fa-truck-fast text-lg"></i></div>
+                        <div>
+                            <h5 class="text-sm font-bold text-green-800">Fast Shipping</h5>
+                            <p class="text-xs text-green-700 mt-1">Ships within 24 hours. Arrives in 1-2 days (MY). Arrives in 3-5 days (SG).</p>
+                        </div>
+                    </div>
+
                     <div class="mt-auto pt-6 border-t border-[#4c111f]/10 flex items-center justify-between">
                         <div>
                             <p class="text-xs text-[#4c111f]/50 mb-1">Total Price</p>
@@ -442,10 +461,9 @@
         };
 
         function generateLocalFallbackID() {
-     // Generate a completely random 5-digit number to guarantee HitPay accepts it uniquely
-     const randomNum = Math.floor(Math.random() * 90000 + 10000);
-     return `HTHG-${randomNum}`;
-    }
+             const randomNum = Math.floor(Math.random() * 90000 + 10000);
+             return `HTHG-${randomNum}`;
+        }
     </script>
 
     <script>
@@ -485,6 +503,9 @@
         let selectedColorIndex = 0;
         let calculatedFinalTotal = 0; 
         let hoverIntervals = {};
+        let discountApplied = false; // THE FIX: Discount Tracking Variable
+        let freeShippingMYApplied = false; // NEW: Free Shipping MY
+        let freeShippingSGApplied = false; // NEW: S$5 Off Shipping SG
 
         document.addEventListener('DOMContentLoaded', async () => {
             await detectUserLocation();
@@ -843,16 +864,43 @@
             let bundlesCount = Math.min(woods, drivers);
             let productsTotal = (bundlesCount * p.bundle) + ((woods - bundlesCount) * p.wood) + ((drivers - bundlesCount) * p.driver);
 
-            const zoneInput = document.querySelector('input[name="shippingZone"]:checked');
-            let shippingFee = 0;
-            if (zoneInput) {
-                if (zoneInput.value === 'west') shippingFee = p.shippingWest;
-                else if (zoneInput.value === 'east') shippingFee = p.shippingEast;
-                else if (zoneInput.value === 'singapore') shippingFee = p.shipping;
+            // THE FIX: Promo code calculation
+            let discountAmount = 0;
+            if (discountApplied) {
+                discountAmount = productsTotal * 0.10; // 10% off items
             }
 
-            calculatedFinalTotal = cart.length > 0 ? productsTotal + shippingFee : 0;
-            totalEl.textContent = `${sym}${calculatedFinalTotal}`;
+            const zoneInput = document.querySelector('input[name="shippingZone"]:checked');
+            let shippingFee = 0;
+            let originalShippingFee = 0;
+            if (zoneInput) {
+                if (zoneInput.value === 'west') originalShippingFee = p.shippingWest;
+                else if (zoneInput.value === 'east') originalShippingFee = p.shippingEast;
+                else if (zoneInput.value === 'singapore') originalShippingFee = p.shipping;
+            }
+
+            // Apply specific shipping logic based on country
+            if (freeShippingMYApplied && currentCurrency === 'MYR') {
+                shippingFee = 0; // 100% Free Shipping for MY
+            } else if (freeShippingSGApplied && currentCurrency === 'SGD') {
+                shippingFee = Math.max(0, originalShippingFee - 5); // $5 Off Shipping for SG
+            } else {
+                shippingFee = originalShippingFee;
+            }
+
+            // Calculate new total and prevent weird floating point decimals
+            let tempTotal = cart.length > 0 ? (productsTotal - discountAmount) + shippingFee : 0;
+            calculatedFinalTotal = Number(tempTotal.toFixed(2));
+            
+            // Display crossed-out original price if any valid discount is active
+            let isValidPromoActive = discountApplied || (freeShippingMYApplied && currentCurrency === 'MYR') || (freeShippingSGApplied && currentCurrency === 'SGD');
+            
+            if (isValidPromoActive && cart.length > 0) {
+                let originalTotal = productsTotal + originalShippingFee;
+                totalEl.innerHTML = `<span class="text-lg text-gray-400 line-through mr-2">${sym}${originalTotal}</span>${sym}${calculatedFinalTotal}`;
+            } else {
+                totalEl.textContent = `${sym}${calculatedFinalTotal}`;
+            }
 
             if (bundlesCount > 0) bundleNotice.classList.remove('hidden');
             else bundleNotice.classList.add('hidden');
@@ -867,6 +915,82 @@
         function closeCart() { document.getElementById('cartSidebar').classList.add('translate-x-full'); document.getElementById('cartOverlay').classList.add('opacity-0'); setTimeout(() => document.getElementById('cartOverlay').classList.add('hidden'), 300); }
         function openMenu() { document.getElementById('menuOverlay').classList.remove('hidden', 'opacity-0'); document.getElementById('sideMenu').classList.remove('-translate-x-full'); }
         function closeMenu() { document.getElementById('sideMenu').classList.add('-translate-x-full'); document.getElementById('menuOverlay').classList.add('opacity-0'); setTimeout(() => document.getElementById('menuOverlay').classList.add('hidden'), 300); }
+
+        // THE FIX: The Promo Code Engine
+        window.applyPromoCode = function() {
+            const input = document.getElementById('promoCodeInput');
+            const msg = document.getElementById('promoMessage');
+            const code = input.value.trim().toUpperCase();
+            
+            msg.classList.remove('hidden', 'text-green-600', 'text-red-500');
+
+            // --- TIME LOCK LOGIC ---
+            // Unlocks at 8:00 PM Singapore Time (UTC+8) on October 1, 2026
+            const goLiveTime = new Date('2026-10-01T20:00:00+08:00');
+            const now = new Date();
+            
+            if (code !== '' && now < goLiveTime) {
+                msg.textContent = 'Hold tight! Promo codes go live tonight at 8:00 PM ⛳';
+                msg.classList.add('text-red-500');
+                msg.classList.remove('hidden');
+                return;
+            }
+            // -----------------------
+            
+            if (code === 'STUDIO10') {
+                if (discountApplied) {
+                    msg.textContent = 'Code already applied!';
+                    msg.classList.add('text-green-600');
+                } else {
+                    discountApplied = true;
+                    freeShippingMYApplied = false;
+                    freeShippingSGApplied = false; 
+                    msg.textContent = '🎉 STUDIO10 applied! 10% off your items.';
+                    msg.classList.add('text-green-600');
+                    input.value = ''; 
+                    updateCartUI(); 
+                }
+            } else if (code === 'FREESHIPMY') {
+                if (currentCurrency !== 'MYR') {
+                    msg.textContent = 'This code is only valid for Malaysia shipping.';
+                    msg.classList.add('text-red-500');
+                } else if (freeShippingMYApplied) {
+                    msg.textContent = 'Code already applied!';
+                    msg.classList.add('text-green-600');
+                } else {
+                    freeShippingMYApplied = true;
+                    discountApplied = false; 
+                    freeShippingSGApplied = false;
+                    msg.textContent = '🚚 FREESHIPMY applied! Shipping is on us.';
+                    msg.classList.add('text-green-600');
+                    input.value = ''; 
+                    updateCartUI(); 
+                }
+            } else if (code === 'FREESHIPSG') {
+                if (currentCurrency !== 'SGD') {
+                    msg.textContent = 'This code is only valid for Singapore shipping.';
+                    msg.classList.add('text-red-500');
+                } else if (freeShippingSGApplied) {
+                    msg.textContent = 'Code already applied!';
+                    msg.classList.add('text-green-600');
+                } else {
+                    freeShippingSGApplied = true;
+                    discountApplied = false; 
+                    freeShippingMYApplied = false;
+                    msg.textContent = '🇸🇬 FREESHIPSG applied! S$5 off shipping.';
+                    msg.classList.add('text-green-600');
+                    input.value = ''; 
+                    updateCartUI(); 
+                }
+            } else if (code === '') {
+                msg.textContent = 'Please enter a code.';
+                msg.classList.add('text-red-500');
+            } else {
+                msg.textContent = 'Invalid promo code.';
+                msg.classList.add('text-red-500');
+            }
+            msg.classList.remove('hidden');
+        }
 
         function setupMobileAutoplay() {
             if (!('ontouchstart' in window)) return;
@@ -1014,8 +1138,6 @@
                 const cartDetails = cart.map(i => `${i.series} (${i.type}) - ${i.color}`).join(', ');
                 const fullAddress = `${cAddress}, ${cPost} ${cCity}, ${cState}, ${cCountry === 'SG' ? 'Singapore' : 'Malaysia'}`;
 
-                // FIX: Pass the native currency rather than forcing everything to MYR. 
-                // This ensures HitPay natively generates a PayNow code for Singaporean users.
                 const payload = new URLSearchParams();
                 payload.append("amount", calculatedFinalTotal); 
                 payload.append("currency", currentCurrency); 
