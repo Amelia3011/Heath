@@ -375,23 +375,33 @@
                         <h4 class="text-sm font-medium text-[#4c111f] mb-3 uppercase tracking-wide">Select Colorway</h4>
                         <div class="flex gap-4" id="modalColors"></div>
                     </div>
-                    <div class="mb-8">
+                   <div class="mb-8">
                         <h4 class="text-sm font-medium text-[#4c111f] mb-3 uppercase tracking-wide">Select Club Type</h4>
                         <div class="grid grid-cols-2 gap-4" id="modalClubTypes">
                             <!-- Injected dynamically based on currency -->
                         </div>
                     </div>
-
-                    <!-- NEW FAST SHIPPING BANNER -->
-                    <div class="mb-8 bg-green-50 border border-green-200 rounded-xl p-4 flex items-start gap-3">
-                        <div class="text-green-600 mt-0.5"><i class="fas fa-truck-fast text-lg"></i></div>
+                    
+                    <div class="mb-8 bg-green-50/80 border border-green-200 rounded-xl p-4 flex items-start gap-3">
+                        <i class="fas fa-shipping-fast text-green-700 text-xl mt-1"></i>
                         <div>
-                            <h5 class="text-sm font-bold text-green-800">Fast Shipping</h5>
-                            <p class="text-xs text-green-700 mt-1">Ships within 24 hours. Arrives in 1-2 days (MY). Arrives in 3-5 days (SG).</p>
+                            <h4 class="font-bold text-green-800 text-sm mb-1">Fast Shipping</h4>
+                            <p class="text-xs text-green-700/90 font-semibold mb-1.5">Ships within 24 hours.</p>
+                            <ul class="text-[11px] text-green-700/80 space-y-1.5">
+                                <li class="flex items-center gap-1.5">
+                                    <img src="https://flagcdn.com/w20/my.png" srcset="https://flagcdn.com/w40/my.png 2x" width="16" alt="Malaysia" class="rounded-[2px] shadow-[0_0_2px_rgba(0,0,0,0.2)]">
+                                    <span>Malaysia: Arrives in 1-2 days</span>
+                                </li>
+                                <li class="flex items-center gap-1.5">
+                                    <img src="https://flagcdn.com/w20/sg.png" srcset="https://flagcdn.com/w40/sg.png 2x" width="16" alt="Singapore" class="rounded-[2px] shadow-[0_0_2px_rgba(0,0,0,0.2)]">
+                                    <span>Singapore: Arrives in 2-3 days</span>
+                                </li>
+                            </ul>
                         </div>
                     </div>
 
                     <div class="mt-auto pt-6 border-t border-[#4c111f]/10 flex items-center justify-between">
+                        <div>
                         <div>
                             <p class="text-xs text-[#4c111f]/50 mb-1">Total Price</p>
                             <div class="font-bold text-3xl text-[#4c111f]" id="modalPrice">RM 109</div>
