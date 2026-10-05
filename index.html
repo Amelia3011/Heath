@@ -70,10 +70,10 @@
     <header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
         <div class="marquee-container w-full overflow-hidden bg-white/10 backdrop-blur-md py-3 border-b border-white/20 mb-4">
           <div class="animate-marquee flex items-center whitespace-nowrap text-white font-bold tracking-widest text-sm uppercase">
-            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ First Drop ⛳️ The Atelier Collection ⛳️ Shipping in 24 hours ⛳️</span>
-            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ First Drop ⛳️ The Atelier Collection ⛳️ Shipping in 24 hours ⛳️</span>
-            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ First Drop ⛳️ The Atelier Collection ⛳️ Shipping in 24 hours ⛳️</span>
-            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ First Drop ⛳️ The Atelier Collection ⛳️ Shipping in 24 hours ⛳️</span>
+            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ THE ATELIER COLLECTION NOW AVAILABLE ⛳️ SHIPPING IN 24 HOURS ⛳️</span>
+            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ THE ATELIER COLLECTION NOW AVAILABLE ⛳️ SHIPPING IN 24 HOURS ⛳️</span>
+            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ THE ATELIER COLLECTION NOW AVAILABLE ⛳️ SHIPPING IN 24 HOURS ⛳️</span>
+            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ THE ATELIER COLLECTION NOW AVAILABLE ⛳️ SHIPPING IN 24 HOURS ⛳️</span>
           </div>
         </div>
         
@@ -311,7 +311,7 @@
                     </div>
                 </div>
 
-                <!-- NEW PROMO CODE SECTION -->
+                <!-- PROMO CODE SECTION (SANDBOX) -->
                 <div class="mb-4 pt-4 border-t border-gray-200">
                     <label class="block text-sm font-medium text-[#4c111f] mb-2">Promo Code</label>
                     <div class="flex gap-2">
@@ -505,7 +505,7 @@
         let calculatedFinalTotal = 0; 
         let hoverIntervals = {};
         
-        // NEW PROMO CODE VARIABLES
+        // PROMO CODE VARIABLES
         let discountApplied = false;
         let discountType = ''; 
         let discountAmount = 0;
@@ -885,7 +885,7 @@
             }
 
             let subTotal = productsTotal + shippingFee;
-
+            
             // PROMO MATH (Remains intact for future sandbox codes)
             if (discountApplied && cart.length > 0) {
                 if (discountType === 'percentage') {
@@ -936,6 +936,8 @@
             }
             
             updateCartUI();
+        }
+
         function closeModal() {
             document.getElementById('modalBackdrop').classList.add('opacity-0');
             document.getElementById('modalContent').classList.add('scale-95', 'opacity-0');
