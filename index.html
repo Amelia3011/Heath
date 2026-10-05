@@ -885,11 +885,11 @@
             }
 
             let subTotal = productsTotal + shippingFee;
-            
-            // NEW PROMO MATH
+
+            // PROMO MATH (Remains intact for future sandbox codes)
             if (discountApplied && cart.length > 0) {
                 if (discountType === 'percentage') {
-                    discountAmount = subTotal * 0.10; 
+                    discountAmount = subTotal * 0.10; // Change 0.10 based on future % discounts
                 }
                 calculatedFinalTotal = subTotal - discountAmount;
                 
@@ -912,60 +912,30 @@
             const msg = document.getElementById('promoMsg');
             const country = document.getElementById('custCountry').value;
             
-            const dropTime = new Date('2026-10-01T20:00:00+08:00').getTime();
-            const now = new Date().getTime();
-            
             msg.classList.remove('hidden');
-            
-            if (now < dropTime) {
-                msg.innerHTML = '<i class="fas fa-clock"></i> Hold tight! Promo codes go live tonight at 8:00 PM SGT.';
-                msg.className = 'text-xs mt-2 text-accent font-medium';
-                return;
-            }
 
-            if (code === 'STUDIO10') {
-                discountApplied = true;
-                discountType = 'percentage';
-                msg.innerHTML = '<i class="fas fa-check-circle"></i> 10% Off Applied!';
-                msg.className = 'text-xs mt-2 text-green-600 font-medium';
-            } else if (code === 'FREESHIPMY') {
-                if (country !== 'MY') {
-                    msg.innerHTML = '<i class="fas fa-times-circle"></i> This code is only valid for Malaysia.';
-                    msg.className = 'text-xs mt-2 text-red-500 font-medium';
-                    return;
-                }
-                const zoneInput = document.querySelector('input[name="shippingZone"]:checked');
-                let shippingFee = 0;
-                if (zoneInput) {
-                    if (zoneInput.value === 'west') shippingFee = PRICING['MYR'].shippingWest;
-                    else if (zoneInput.value === 'east') shippingFee = PRICING['MYR'].shippingEast;
-                }
-                
-                discountApplied = true;
-                discountType = 'fixed';
-                discountAmount = shippingFee;
-                msg.innerHTML = '<i class="fas fa-check-circle"></i> Free Shipping Applied!';
-                msg.className = 'text-xs mt-2 text-green-600 font-medium';
-            } else if (code === 'SG5OFF') {
-                if (country !== 'SG') {
-                    msg.innerHTML = '<i class="fas fa-times-circle"></i> This code is only valid for Singapore.';
-                    msg.className = 'text-xs mt-2 text-red-500 font-medium';
-                    return;
-                }
-                discountApplied = true;
-                discountType = 'fixed';
-                discountAmount = 5; 
-                msg.innerHTML = '<i class="fas fa-check-circle"></i> S$5 Off Shipping Applied!';
-                msg.className = 'text-xs mt-2 text-green-600 font-medium';
-            } else {
+            /* -------------------------------------------------------------
+             * PROMO CODE SANDBOX - FOR FUTURE EVENTS
+             * 
+             * Below is a template. If you want to add a code later (like "NEWYEAR10"),
+             * just change "YOUR_CODE_HERE" and uncomment the lines inside!
+             * ------------------------------------------------------------- */
+            
+            if (code === 'YOUR_CODE_HERE') {
+                // discountApplied = true;
+                // discountType = 'percentage'; // change to 'fixed' if it's a flat RM/SGD discount
+                // msg.innerHTML = '<i class="fas fa-check-circle"></i> 10% Off Applied!';
+                // msg.className = 'text-xs mt-2 text-green-600 font-medium';
+            } 
+            else {
+                // If it doesn't match any code above, tell them it's invalid
                 discountApplied = false;
+                discountAmount = 0;
                 msg.innerHTML = '<i class="fas fa-times-circle"></i> Invalid promo code.';
                 msg.className = 'text-xs mt-2 text-red-500 font-medium';
             }
             
             updateCartUI();
-        }
-
         function closeModal() {
             document.getElementById('modalBackdrop').classList.add('opacity-0');
             document.getElementById('modalContent').classList.add('scale-95', 'opacity-0');
