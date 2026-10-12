@@ -420,7 +420,7 @@
                                 <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
                                     <p class="text-xs text-gray-600 mb-4 leading-relaxed">
                                         <i class="fas fa-info-circle mr-1 text-[#4c111f]"></i> 
-                                        <strong>Details:</strong> Premium white embroidery patch with stitched border and thread matching your selected headcover colorway. Size: 13cm x 4cm (Driver/Wood) Size: 10cm x 4cm (Hybrid). Precision pressed.
+                                        <strong>Details:</strong> Premium white embroidery patch with stitched border and thread matching your selected headcover colorway. Size: 6cm x 2cm. Precision pressed.
                                     </p>
                                     
                                     <!-- DYNAMIC LIVE PREVIEW -->
@@ -508,7 +508,7 @@
                             </div>
                             <ul class="space-y-1.5 text-xs text-green-700 font-medium">
                                 <li class="flex items-center gap-2">
-                                    <i class="fas fa-box text-[10px] opacity-70"></i> Packs & ships within 24 hours (Custom order ETA 7-14days)
+                                    <i class="fas fa-box text-[10px] opacity-70"></i> Packs & ships within 24 hours (Non-custom items)
                                 </li>
                                 <li class="flex items-center gap-2">
                                     <img src="https://flagcdn.com/w20/my.png" class="w-4 shadow-sm rounded-sm" alt="MY"> Arrives in 1-2 days (MY)
@@ -601,45 +601,45 @@
             { 
                 id: 'earthy', series: 'Earthy Tweed', desc: 'Classic tweed texture bringing a touch of tradition to your bag.', slideshowImages: ['ET3.png', 'ET4.png', 'Untitled design - 7.png', 'Untitled design - 8.png', 'IMG_8051.jpeg'], 
                 colors: [
-                    { name: 'Terracotta', hex: '#894E35', woodImg: 'Untitled design - 10.png', driverImg: 'Untitled design - 9.png', stock: { wood: 0, driver: 0 } }, 
-                    { name: 'Moss', hex: '#5E564C', woodImg: 'Untitled design - 12.png', driverImg: 'Untitled design - 11.png', stock: { wood: 0, driver: 1 } }
+                    { name: 'Terracotta', hex: '#894E35', woodImg: 'Untitled design - 10.png', driverImg: 'Untitled design - 9.png', hybridImg: 'Untitled design - 10.png', stock: { wood: 5, driver: 5, hybrid: 5 } }, 
+                    { name: 'Moss', hex: '#5E564C', woodImg: 'Untitled design - 12.png', driverImg: 'Untitled design - 11.png', hybridImg: 'Untitled design - 12.png', stock: { wood: 5, driver: 5, hybrid: 5 } }
                 ] 
             },
             { 
                 id: 'azure', series: 'Azure Wave', desc: 'Dynamic patterns inspired by coastal waters.', slideshowImages: ['AZ3.png', 'AZ4.png', 'Untitled design - 2.png', 'Untitled design - 1.png', 'IMG_8050.jpeg'], 
                 colors: [
-                    { name: 'Deep Sea', hex: '#30506E', woodImg: 'Untitled design - 4.png', driverImg: 'Untitled design - 3.png', stock: { wood: 0, driver: 1 } }, 
-                    { name: 'Sky Crest', hex: '#A1C8D5', woodImg: 'Untitled design - 6.png', driverImg: 'Untitled design - 5.png', stock: { wood: 2, driver: 2 } }
+                    { name: 'Deep Sea', hex: '#30506E', woodImg: 'Untitled design - 4.png', driverImg: 'Untitled design - 3.png', hybridImg: 'Untitled design - 4.png', stock: { wood: 5, driver: 5, hybrid: 5 } }, 
+                    { name: 'Sky Crest', hex: '#A1C8D5', woodImg: 'Untitled design - 6.png', driverImg: 'Untitled design - 5.png', hybridImg: 'Untitled design - 6.png', stock: { wood: 5, driver: 5, hybrid: 5 } }
                 ] 
             },
             { 
                 id: 'Black & Bone', series: 'Black & Bone', desc: 'Sleek, minimalist, and menacing.', slideshowImages: ['BW2.png', 'BW3.png', 'Untitled design - 13.jpeg', 'IMG_8049.jpeg', 'IMG_8009.jpeg'], 
                 colors: [
-                    { name: 'Black & Bone', bgStyle: 'background: linear-gradient(to right, #000000 50%, #f3DEC7 50%);', hex: '#000000', woodImg: 'Untitled design - 15.jpeg', driverImg: 'Untitled design - 14.jpeg', stock: { wood: 0, driver: 0 } }
+                    { name: 'Black & Bone', bgStyle: 'background: linear-gradient(to right, #000000 50%, #f3DEC7 50%);', hex: '#000000', woodImg: 'Untitled design - 15.jpeg', driverImg: 'Untitled design - 14.jpeg', hybridImg: 'Untitled design - 15.jpeg', stock: { wood: 5, driver: 5, hybrid: 5 } }
                 ] 
             }
         ];
 
         const heritageProducts = [
             { 
-                id: 'argyle', series: 'Argyle', desc: 'Premium argyle fabric paired with plush velvet lining.', slideshowImages: ['https://placehold.co/800x1000/e6d5c3/4c111f?text=Argyle+Collection', 'https://placehold.co/800x1000/d5a6a1/4c111f?text=Blush+Argyle'], 
+                id: 'argyle', series: 'The Argyle', desc: 'Premium argyle fabric paired with plush velvet lining.', slideshowImages: ['https://placehold.co/800x1000/e6d5c3/4c111f?text=Argyle+Collection', 'https://placehold.co/800x1000/d5a6a1/4c111f?text=Blush+Argyle'], 
                 colors: [
-                    { name: 'Chestnut Argyle', hex: '#8B5A2B', woodImg: 'https://placehold.co/800x1000/8B5A2B/ffffff?text=Chestnut+Wood', driverImg: 'https://placehold.co/800x1000/8B5A2B/ffffff?text=Chestnut+Driver', stock: { wood: 10, driver: 10 } }, 
-                    { name: 'Blush Argyle', hex: '#D19C97', woodImg: 'https://placehold.co/800x1000/D19C97/ffffff?text=Blush+Wood', driverImg: 'https://placehold.co/800x1000/D19C97/ffffff?text=Blush+Driver', stock: { wood: 10, driver: 10 } }
+                    { name: 'Chestnut Argyle', hex: '#8B5A2B', woodImg: 'https://placehold.co/800x1000/8B5A2B/ffffff?text=Chestnut+Wood', driverImg: 'https://placehold.co/800x1000/8B5A2B/ffffff?text=Chestnut+Driver', hybridImg: 'https://placehold.co/800x1000/8B5A2B/ffffff?text=Chestnut+Hybrid', stock: { wood: 10, driver: 10, hybrid: 10 } }, 
+                    { name: 'Blush Argyle', hex: '#D19C97', woodImg: 'https://placehold.co/800x1000/D19C97/ffffff?text=Blush+Wood', driverImg: 'https://placehold.co/800x1000/D19C97/ffffff?text=Blush+Driver', hybridImg: 'https://placehold.co/800x1000/D19C97/ffffff?text=Blush+Hybrid', stock: { wood: 10, driver: 10, hybrid: 10 } }
                 ] 
             },
             { 
-                id: 'houndstooth', series: 'Houndstooth', desc: 'Classic houndstooth precision. A timeless look on the fairways.', slideshowImages: ['https://placehold.co/800x1000/1a1a1a/ffffff?text=Houndstooth', 'https://placehold.co/800x1000/8b0000/ffffff?text=Crimson+Houndstooth'], 
+                id: 'houndstooth', series: 'The Houndstooth', desc: 'Classic houndstooth precision. A timeless look on the fairways.', slideshowImages: ['https://placehold.co/800x1000/1a1a1a/ffffff?text=Houndstooth', 'https://placehold.co/800x1000/8b0000/ffffff?text=Crimson+Houndstooth'], 
                 colors: [
-                    { name: 'Espresso Houndstooth', hex: '#2B1B17', woodImg: 'https://placehold.co/800x1000/2B1B17/ffffff?text=Espresso+Wood', driverImg: 'https://placehold.co/800x1000/2B1B17/ffffff?text=Espresso+Driver', stock: { wood: 10, driver: 10 } }, 
-                    { name: 'Crimson Houndstooth', hex: '#800000', woodImg: 'https://placehold.co/800x1000/800000/ffffff?text=Crimson+Wood', driverImg: 'https://placehold.co/800x1000/800000/ffffff?text=Crimson+Driver', stock: { wood: 10, driver: 10 } }
+                    { name: 'Espresso Houndstooth', hex: '#2B1B17', woodImg: 'https://placehold.co/800x1000/2B1B17/ffffff?text=Espresso+Wood', driverImg: 'https://placehold.co/800x1000/2B1B17/ffffff?text=Espresso+Driver', hybridImg: 'https://placehold.co/800x1000/2B1B17/ffffff?text=Espresso+Hybrid', stock: { wood: 10, driver: 10, hybrid: 10 } }, 
+                    { name: 'Crimson Houndstooth', hex: '#800000', woodImg: 'https://placehold.co/800x1000/800000/ffffff?text=Crimson+Wood', driverImg: 'https://placehold.co/800x1000/800000/ffffff?text=Crimson+Driver', hybridImg: 'https://placehold.co/800x1000/800000/ffffff?text=Crimson+Hybrid', stock: { wood: 10, driver: 10, hybrid: 10 } }
                 ] 
             },
             { 
-                id: 'tartan', series: 'Tartan', desc: 'Heritage tartan plaid bringing bold tradition to your bag.', slideshowImages: ['https://placehold.co/800x1000/c5a165/1a1a1a?text=Tartan', 'https://placehold.co/800x1000/cc0000/ffffff?text=Royal+Stewart'], 
+                id: 'tartan', series: 'The Tartan', desc: 'Heritage tartan plaid bringing bold tradition to your bag.', slideshowImages: ['https://placehold.co/800x1000/c5a165/1a1a1a?text=Tartan', 'https://placehold.co/800x1000/cc0000/ffffff?text=Royal+Stewart'], 
                 colors: [
-                    { name: 'Haymarket Tartan', hex: '#C19A6B', woodImg: 'https://placehold.co/800x1000/C19A6B/ffffff?text=Haymarket+Wood', driverImg: 'https://placehold.co/800x1000/C19A6B/ffffff?text=Haymarket+Driver', stock: { wood: 10, driver: 10 } },
-                    { name: 'Royal Stewart Tartan', hex: '#B22222', woodImg: 'https://placehold.co/800x1000/B22222/ffffff?text=Royal+Wood', driverImg: 'https://placehold.co/800x1000/B22222/ffffff?text=Royal+Driver', stock: { wood: 10, driver: 10 } }
+                    { name: 'Haymarket Tartan', hex: '#C19A6B', woodImg: 'https://placehold.co/800x1000/C19A6B/ffffff?text=Haymarket+Wood', driverImg: 'https://placehold.co/800x1000/C19A6B/ffffff?text=Haymarket+Driver', hybridImg: 'https://placehold.co/800x1000/C19A6B/ffffff?text=Haymarket+Hybrid', stock: { wood: 10, driver: 10, hybrid: 10 } },
+                    { name: 'Royal Stewart Tartan', hex: '#B22222', woodImg: 'https://placehold.co/800x1000/B22222/ffffff?text=Royal+Wood', driverImg: 'https://placehold.co/800x1000/B22222/ffffff?text=Royal+Driver', hybridImg: 'https://placehold.co/800x1000/B22222/ffffff?text=Royal+Hybrid', stock: { wood: 10, driver: 10, hybrid: 10 } }
                 ] 
             }
         ];
@@ -647,8 +647,23 @@
         const allProducts = [...heritageProducts, ...atelierProducts];
 
         const PRICING = {
-            MYR: { symbol: 'RM ', wood: 109, driver: 129, bundle: 228, patch: 30, shippingWest: 10, shippingEast: 15 },
-            SGD: { symbol: 'S$ ', wood: 35, driver: 42, bundle: 73, patch: 10, shipping: 12 } 
+            MYR: { 
+                symbol: 'RM ', 
+                atelier: { wood: 109, driver: 129, hybrid: 99 },
+                heritage: { wood: 119, driver: 139, hybrid: 99 },
+                bundleDiscount: 10, 
+                patch: 30, 
+                shippingWest: 10, 
+                shippingEast: 15 
+            },
+            SGD: { 
+                symbol: 'S$ ', 
+                atelier: { wood: 35, driver: 42, hybrid: 32 },
+                heritage: { wood: 38, driver: 44, hybrid: 35 },
+                bundleDiscount: 5, 
+                patch: 12, 
+                shipping: 12 
+            } 
         };
         
         const SGD_TO_MYR_RATE = 3.25; 
@@ -843,9 +858,12 @@
 
         function renderProductGrids() {
             const sym = PRICING[currentCurrency].symbol;
-            const price = PRICING[currentCurrency].wood;
             
-            const generateCard = (product) => `
+            const generateCard = (product) => {
+                const collectionKey = heritageProducts.some(p => p.id === product.id) ? 'heritage' : 'atelier';
+                const price = PRICING[currentCurrency][collectionKey].wood;
+                
+                return `
                 <div class="product-card group cursor-pointer" data-product-id="${product.id}" onclick="openModal('${product.id}')" onmouseenter="startHoverSlideshow('${product.id}', this)" onmouseleave="stopHoverSlideshow('${product.id}', this)">
                     <div class="relative bg-gray-100 rounded-lg md:rounded-2xl overflow-hidden aspect-[4/5] mb-2 md:mb-6 shadow-sm group-hover:shadow-xl transition-shadow duration-300 border border-gray-200/50">
                         <img src="${product.slideshowImages[0]}" alt="${product.series}" class="product-img w-full h-full object-cover transition-opacity duration-300">
@@ -862,7 +880,8 @@
                         <p class="font-semibold text-primary text-[14px] md:text-xl md:text-base">From ${sym}${price}</p>
                     </div>
                 </div>
-            `;
+                `;
+            };
 
             document.getElementById('heritageGrid').innerHTML = heritageProducts.map(generateCard).join('');
             document.getElementById('atelierGrid').innerHTML = atelierProducts.map(generateCard).join('');
@@ -992,22 +1011,46 @@
 
         function injectModalClubs() {
             const sym = PRICING[currentCurrency].symbol;
-            document.getElementById('modalClubTypes').innerHTML = `
+            const collectionKey = heritageProducts.some(p => p.id === currentModalProduct.id) ? 'heritage' : 'atelier';
+            const prices = PRICING[currentCurrency][collectionKey];
+            const isHeritage = collectionKey === 'heritage';
+            
+            const clubTypesContainer = document.getElementById('modalClubTypes');
+            
+            // Adjust the grid columns depending on how many options we are showing
+            clubTypesContainer.className = isHeritage ? "grid grid-cols-3 gap-2 sm:gap-4" : "grid grid-cols-2 gap-2 sm:gap-4";
+            
+            let html = `
                 <label class="cursor-pointer group">
                     <input type="radio" name="clubType" value="wood" class="peer sr-only" checked onchange="selectClubType()">
-                    <div class="rounded-xl border-2 border-[#4c111f]/20 p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
-                        <span class="block font-semibold text-[#4c111f]">Wood</span>
-                        <span class="block text-sm text-[#4c111f]/70 mt-1">${sym}${PRICING[currentCurrency].wood}</span>
+                    <div class="rounded-xl border-2 border-[#4c111f]/20 p-2 sm:p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all h-full flex flex-col justify-center">
+                        <span class="block font-bold text-[#4c111f] text-sm sm:text-base">Wood</span>
+                        <span class="block text-xs sm:text-sm text-[#4c111f]/70 mt-1">${sym}${prices.wood}</span>
                     </div>
                 </label>
                 <label class="cursor-pointer group">
                     <input type="radio" name="clubType" value="driver" class="peer sr-only" onchange="selectClubType()">
-                    <div class="rounded-xl border-2 border-[#4c111f]/20 p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all">
-                        <span class="block font-semibold text-[#4c111f]">Driver</span>
-                        <span class="block text-sm text-[#4c111f]/70 mt-1">${sym}${PRICING[currentCurrency].driver}</span>
+                    <div class="rounded-xl border-2 border-[#4c111f]/20 p-2 sm:p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all h-full flex flex-col justify-center">
+                        <span class="block font-bold text-[#4c111f] text-sm sm:text-base">Driver</span>
+                        <span class="block text-xs sm:text-sm text-[#4c111f]/70 mt-1">${sym}${prices.driver}</span>
                     </div>
                 </label>
             `;
+
+            // Only add the Hybrid option if it is a Heritage collection product
+            if (isHeritage) {
+                html += `
+                    <label class="cursor-pointer group">
+                        <input type="radio" name="clubType" value="hybrid" class="peer sr-only" onchange="selectClubType()">
+                        <div class="rounded-xl border-2 border-[#4c111f]/20 p-2 sm:p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all h-full flex flex-col justify-center">
+                            <span class="block font-bold text-[#4c111f] text-sm sm:text-base">Hybrid</span>
+                            <span class="block text-xs sm:text-sm text-[#4c111f]/70 mt-1">${sym}${prices.hybrid}</span>
+                        </div>
+                    </label>
+                `;
+            }
+            
+            clubTypesContainer.innerHTML = html;
             updateModalPrice();
             updateModalState();
         }
@@ -1018,7 +1061,8 @@
             if(!typeEl) return;
             
             const type = typeEl.value;
-            let basePrice = PRICING[currentCurrency][type];
+            const collectionKey = heritageProducts.some(p => p.id === currentModalProduct.id) ? 'heritage' : 'atelier';
+            let basePrice = PRICING[currentCurrency][collectionKey][type];
             
             const patchCheckbox = document.getElementById('addPatchCheckbox');
             if(patchCheckbox && patchCheckbox.checked) {
@@ -1055,7 +1099,12 @@
         function updateModalImage() {
             const type = document.querySelector('input[name="clubType"]:checked').value;
             const colorData = currentModalProduct.colors[selectedColorIndex];
-            document.getElementById('modalImg').src = type === 'wood' ? colorData.woodImg : colorData.driverImg;
+            
+            let imgSrc = colorData.woodImg;
+            if (type === 'driver') imgSrc = colorData.driverImg;
+            if (type === 'hybrid') imgSrc = colorData.hybridImg || colorData.woodImg;
+            
+            document.getElementById('modalImg').src = imgSrc;
         }
 
         function updateModalState() {
@@ -1095,6 +1144,7 @@
         window.addToCart = function() {
             const type = document.querySelector('input[name="clubType"]:checked').value;
             const color = currentModalProduct.colors[selectedColorIndex];
+            const collectionKey = heritageProducts.some(p => p.id === currentModalProduct.id) ? 'heritage' : 'atelier';
             
             let patchData = null;
             const wantsPatch = document.getElementById('addPatchCheckbox').checked;
@@ -1119,11 +1169,16 @@
                 };
             }
 
+            let imgSrc = color.woodImg;
+            if (type === 'driver') imgSrc = color.driverImg;
+            if (type === 'hybrid') imgSrc = color.hybridImg || color.woodImg;
+
             cart.push({
                 series: currentModalProduct.series,
+                collectionKey: collectionKey,
                 type: type,
                 color: color.name,
-                img: type === 'wood' ? color.woodImg : color.driverImg,
+                img: imgSrc,
                 patch: patchData 
             });
             
@@ -1157,7 +1212,7 @@
                 checkoutBtn.disabled = false;
                 
                 cartItemsEl.innerHTML = cart.map((item, index) => {
-                    let itemBasePrice = p[item.type];
+                    let itemBasePrice = PRICING[currentCurrency][item.collectionKey][item.type];
                     let patchHtml = '';
                     let patchPrice = 0;
                     
@@ -1197,11 +1252,22 @@
                 cartItemsEl.innerHTML = `<p class="text-center text-gray-400 mt-10">Your cart is empty.</p>`;
             }
 
-            let woods = cart.filter(i => i.type === 'wood').length;
-            let drivers = cart.filter(i => i.type === 'driver').length;
-            let bundlesCount = Math.min(woods, drivers);
+            // Calculate Totals using dynamic collection pricing
+            let productsTotal = 0;
+            let woodsCount = 0;
+            let driversCount = 0;
             
-            let productsTotal = (bundlesCount * p.bundle) + ((woods - bundlesCount) * p.wood) + ((drivers - bundlesCount) * p.driver);
+            cart.forEach(item => {
+                productsTotal += PRICING[currentCurrency][item.collectionKey][item.type];
+                if (item.type === 'wood') woodsCount++;
+                if (item.type === 'driver') driversCount++;
+            });
+            
+            // Calculate Bundle Discount (discount for every Driver+Wood pair regardless of collection)
+            let bundlesCount = Math.min(woodsCount, driversCount);
+            let totalBundleDiscount = bundlesCount * p.bundleDiscount;
+            productsTotal = productsTotal - totalBundleDiscount;
+            
             let totalPatchFees = cart.reduce((total, item) => total + (item.patch ? item.patch.price : 0), 0);
 
             const zoneInput = document.querySelector('input[name="shippingZone"]:checked');
