@@ -94,7 +94,8 @@
                     </button>
                 </div>
                 <div class="flex-shrink-0 flex items-center justify-center -my-6 md:-my-8">
-                    <a href="#" class="block">
+                    <!-- Logo now routes back to home -->
+                    <a href="#home" class="block">
                         <img src="Heath logo 2.png" alt="Heath Logo" class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain" onerror="this.onerror=null; this.src='https://placehold.co/200x100/4c111f/ffffff?text=HEATH+LOGO'">
                     </a>
                 </div>
@@ -137,74 +138,165 @@
         </div>
     </header>
 
+    <!-- MAIN ROUTER CONTAINER -->
     <main class="flex-grow pt-0 mt-0">
-        <section id="home" class="relative overflow-hidden home-bg-image pt-20 lg:pt-28 pb-24">
-            <div class="bg-overlay"></div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center max-w-3xl mx-auto flex flex-col items-center bg-white/3 backdrop-blur-sm p-8 rounded-2xl shadow-sm">
-                    <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#4c111f] mb-6 leading-tight drop-shadow-sm">Golf, Considered Differently.</h1>
-                    <p class="text-xl text-gray-800 mb-6 font-medium">Handcrafted headcovers designed with character, precision, and a considered approach to the game.</p>
-                    <p class="text-xl text-[#4c111f] mb-10 font-bold">The Heritage Collection. Launching Oct 20.</p>
-                    <div class="flex justify-center gap-4">
-                        <a href="#heritage-collection" class="bg-[#4c111f] text-white px-8 py-4 rounded-full font-medium hover:opacity-80 transition-opacity shadow-lg">Shop The Drop</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="w-full relative overflow-hidden bg-primary p-0 leading-none">
-            <img src="divider.GIF" alt="Lifestyle Divider" class="w-full h-auto max-h-[450px] object-cover block m-0 p-0" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/4c111f/ffffff?text=LIFESTYLE+IMAGE'">
-            <div class="absolute inset-0 bg-black/20 mix-blend-multiply pointer-events-none"></div>
-        </section>
-
-        <!-- NEW HERITAGE COLLECTION SECTION -->
-        <section id="heritage-collection" class="relative pt-20 pb-16 bg-gray-50 border-b border-[#4c111f]/10">
-            <div class="max-w-7xl mx-auto px-2 md:px-12 relative z-10">
-                <div class="text-center mb-8 md:mb-16 px-2">
-                    <h2 class="font-serif text-4xl font-bold text-[#4c111f] mb-4">THE HERITAGE COLLECTION</h2>
-                    <p class="text-gray-600 max-w-2xl mx-auto">Where heritage meets the fairways. Handcrafted with premium houndstooth, argyle, and tartan fabrics paired with plush velvet lining.</p>
-                </div>
-                <div class="grid grid-cols-3 gap-1.5 md:gap-10" id="heritageGrid">
-                    <!-- Products injected via JS -->
-                </div>
-            </div>
-        </section>
-
-        <section id="atelier-collection" class="relative pt-16 pb-24 hero-bg">
-            <div class="absolute inset-0 bg-white/30 backdrop-blur-[2px]"></div>
-            <div class="max-w-7xl mx-auto px-2 md:px-12 relative z-10">
-                <div class="text-center mb-8 md:mb-12 px-2">
-                    <h2 class="font-serif text-4xl font-bold text-[#4c111f] mb-4">THE ATELIER COLLECTION</h2>
-                    <p class="text-gray-800 font-medium max-w-2xl mx-auto">Our inaugural collection. Three distinct series, meticulously crafted for style and protection. Limited remaining stock available.</p>
-                </div>
-                <div class="grid grid-cols-3 gap-1.5 md:gap-10" id="atelierGrid">
-                    <!-- Products injected via JS -->
-                </div>
-            </div>
-        </section>
-
-        <section class="w-full h-48 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-[#4c111f]/20">
-            <img src="Untitled design.png" alt="Golf course green" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/1200x500/228b22/ffffff?text=GOLF+GREEN'">
-        </section>
-
-        <section id="about" class="py-24 bg-[#4c111f] text-white">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                    <div>
-                        <h2 class="font-serif text-4xl font-bold mb-6">The House of Heath</h2>
-                        <p class="text-gray-300 mb-6 leading-relaxed">Born in Malaysia, Heath was created with a belief that the details matter. We look beyond the equipment itself to the pieces that accompany the game — thoughtfully designed objects that reflect individuality, taste, and a love for golf.</p>
-                        <div class="flex gap-4">
-                            <a href="https://instagram.com/heath.golf" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors shadow-sm" aria-label="Instagram">
-                                <i class="fab fa-instagram text-xl"></i>
-                            </a>
-                            <a href="https://www.tiktok.com/@heathgolf.co" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors shadow-sm" aria-label="TikTok">
-                                <i class="fab fa-tiktok text-xl"></i>
-                            </a>
+        
+        <!-- ========================================== -->
+        <!-- VIEW: HOME (Landing Page)                  -->
+        <!-- ========================================== -->
+        <div id="view-home">
+            <section class="relative overflow-hidden home-bg-image pt-20 lg:pt-28 pb-24">
+                <div class="bg-overlay"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                    <div class="text-center max-w-3xl mx-auto flex flex-col items-center bg-white/3 backdrop-blur-sm p-8 rounded-2xl shadow-sm">
+                        <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#4c111f] mb-6 leading-tight drop-shadow-sm">Golf, Considered Differently.</h1>
+                        <p class="text-xl text-gray-800 mb-6 font-medium">Handcrafted headcovers designed with character, precision, and a considered approach to the game.</p>
+                        <p class="text-xl text-[#4c111f] mb-10 font-bold">The Heritage Collection. Launching Oct 20.</p>
+                        <div class="flex justify-center gap-4">
+                            <a href="#heritage" class="bg-[#4c111f] text-white px-8 py-4 rounded-full font-medium hover:opacity-80 transition-opacity shadow-lg">Shop The Drop</a>
                         </div>
                     </div>
                 </div>
+            </section>
+
+            <section class="w-full relative overflow-hidden bg-primary p-0 leading-none">
+                <img src="divider.GIF" alt="Lifestyle Divider" class="w-full h-auto max-h-[450px] object-cover block m-0 p-0" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/4c111f/ffffff?text=LIFESTYLE+IMAGE'">
+                <div class="absolute inset-0 bg-black/20 mix-blend-multiply pointer-events-none"></div>
+            </section>
+
+            <!-- NEW SIDE-BY-SIDE COLLECTION CARDS -->
+            <section class="py-16 md:py-24 bg-gray-50 relative z-10 border-t border-[#4c111f]/10">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="text-center mb-10 md:mb-16">
+                        <h2 class="font-serif text-4xl font-bold text-[#4c111f] mb-4">Discover the Collections</h2>
+                        <p class="text-gray-600 max-w-2xl mx-auto font-medium">Explore our distinct series of handcrafted headcovers, designed to elevate your game and protect your clubs with unparalleled style.</p>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
+                        <!-- Heritage Banner Card -->
+                        <a href="#heritage" class="group relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 block border border-gray-200/50">
+                            <!-- Background Image (Using placeholder reference) -->
+                            <img src="Untitled design - 7.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/800x1000/4c111f/ffffff?text=Heritage'">
+                            <!-- Gradient Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+                            
+                            <!-- New Arrival Badge -->
+                            <div class="absolute top-6 left-6 bg-white text-[#4c111f] text-[10px] sm:text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest shadow-lg flex items-center gap-1.5 z-10">
+                                <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span> New Release
+                            </div>
+                            
+                            <!-- Text Content -->
+                            <div class="absolute bottom-0 left-0 p-8 w-full z-10">
+                                <h3 class="font-serif text-3xl md:text-4xl font-bold text-white mb-2 shadow-sm">The Heritage Collection</h3>
+                                <p class="text-gray-200 text-sm md:text-base font-medium mb-6 transition-all duration-500 transform translate-y-2 opacity-80 group-hover:translate-y-0 group-hover:opacity-100">Premium houndstooth, argyle, and tartan fabrics paired with plush velvet lining.</p>
+                                <span class="inline-flex items-center gap-2 text-white font-bold tracking-wide uppercase text-sm border-b-2 border-white/30 pb-1 group-hover:border-white transition-colors duration-300">
+                                    Explore Collection <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                                </span>
+                            </div>
+                        </a>
+                        
+                        <!-- Atelier Banner Card -->
+                        <a href="#atelier" class="group relative h-96 md:h-[500px] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 block border border-gray-200/50">
+                            <!-- Background Image -->
+                            <img src="ET3.png" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" onerror="this.src='https://placehold.co/800x1000/2f0a13/ffffff?text=Atelier'">
+                            <!-- Gradient Overlay -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
+                            
+                            <!-- Text Content -->
+                            <div class="absolute bottom-0 left-0 p-8 w-full z-10">
+                                <h3 class="font-serif text-3xl md:text-4xl font-bold text-white mb-2 shadow-sm">The Atelier Collection</h3>
+                                <p class="text-gray-200 text-sm md:text-base font-medium mb-6 transition-all duration-500 transform translate-y-2 opacity-80 group-hover:translate-y-0 group-hover:opacity-100">Our inaugural series. Meticulously crafted for style and maximum protection.</p>
+                                <span class="inline-flex items-center gap-2 text-white font-bold tracking-wide uppercase text-sm border-b-2 border-white/30 pb-1 group-hover:border-white transition-colors duration-300">
+                                    Shop Remaining <i class="fas fa-arrow-right text-xs transition-transform group-hover:translate-x-1"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="w-full h-48 md:h-96 lg:h-[500px] relative overflow-hidden border-t border-[#4c111f]/20">
+                <img src="Untitled design.png" alt="Golf course green" class="absolute inset-0 w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/1200x500/228b22/ffffff?text=GOLF+GREEN'">
+            </section>
+
+            <section id="about" class="py-24 bg-[#4c111f] text-white">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                        <div>
+                            <h2 class="font-serif text-4xl font-bold mb-6">The House of Heath</h2>
+                            <p class="text-gray-300 mb-6 leading-relaxed">Born in Malaysia, Heath was created with a belief that the details matter. We look beyond the equipment itself to the pieces that accompany the game — thoughtfully designed objects that reflect individuality, taste, and a love for golf.</p>
+                            <div class="flex gap-4">
+                                <a href="https://instagram.com/heath.golf" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors shadow-sm" aria-label="Instagram">
+                                    <i class="fab fa-instagram text-xl"></i>
+                                </a>
+                                <a href="https://www.tiktok.com/@heathgolf.co" target="_blank" rel="noopener noreferrer" class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-accent transition-colors shadow-sm" aria-label="TikTok">
+                                    <i class="fab fa-tiktok text-xl"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW: HERITAGE COLLECTION                  -->
+        <!-- ========================================== -->
+        <div id="view-heritage" class="hidden">
+            <!-- Breadcrumb Navigation -->
+            <div class="bg-gray-50 pt-6 pb-2 border-b border-gray-200/50 sticky top-[72px] md:top-[90px] z-30">
+                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                     <a href="#home" class="inline-flex items-center text-gray-500 hover:text-[#4c111f] font-bold text-xs uppercase tracking-wider transition-colors">
+                        <i class="fas fa-arrow-left mr-2"></i> Back to Home
+                     </a>
+                 </div>
             </div>
-        </section>
+            
+            <section class="relative pt-12 pb-24 bg-gray-50">
+                <div class="max-w-7xl mx-auto px-2 md:px-12 relative z-10">
+                    <div class="text-center mb-10 md:mb-16 px-2 flex flex-col items-center">
+                        <span class="bg-[#4c111f] text-white text-[10px] md:text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-5 inline-block shadow-sm">New Release</span>
+                        <h2 class="font-serif text-4xl md:text-5xl font-bold text-[#4c111f] mb-6">THE HERITAGE COLLECTION</h2>
+                        <p class="text-gray-600 md:text-lg max-w-2xl mx-auto font-medium">Where heritage meets the fairways. Handcrafted with premium houndstooth, argyle, and tartan fabrics paired with plush velvet lining.</p>
+                    </div>
+                    <!-- Heritage Grid (3 Columns on Mobile & Desktop) -->
+                    <div class="grid grid-cols-3 gap-1.5 md:gap-10" id="heritageGrid">
+                        <!-- Products injected via JS -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
+
+        <!-- ========================================== -->
+        <!-- VIEW: ATELIER COLLECTION                   -->
+        <!-- ========================================== -->
+        <div id="view-atelier" class="hidden">
+            <!-- Breadcrumb Navigation (Transparent on Hero) -->
+            <div class="bg-white/90 backdrop-blur-md pt-6 pb-2 border-b border-gray-200/50 sticky top-[72px] md:top-[90px] z-30 shadow-sm">
+                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                     <a href="#home" class="inline-flex items-center text-gray-800 hover:text-[#4c111f] font-bold text-xs uppercase tracking-wider transition-colors">
+                        <i class="fas fa-arrow-left mr-2"></i> Back to Home
+                     </a>
+                 </div>
+            </div>
+            
+            <section class="relative pt-16 pb-36 hero-bg">
+                <div class="absolute inset-0 bg-white/20 backdrop-blur-[2px]"></div>
+                <div class="max-w-7xl mx-auto px-2 md:px-12 relative z-10">
+                    <div class="text-center mb-10 md:mb-16 px-2">
+                        <h2 class="font-serif text-4xl md:text-5xl font-bold text-[#4c111f] mb-6 drop-shadow-sm">THE ATELIER COLLECTION</h2>
+                        <p class="text-gray-800 md:text-lg font-semibold max-w-2xl mx-auto drop-shadow-sm">Our inaugural collection. Three distinct series, meticulously crafted for style and protection. Limited remaining stock available.</p>
+                    </div>
+                    <!-- Atelier Grid (3 Columns on Mobile & Desktop) -->
+                    <div class="grid grid-cols-3 gap-1.5 md:gap-10" id="atelierGrid">
+                        <!-- Products injected via JS -->
+                    </div>
+                </div>
+            </section>
+        </div>
+
     </main>
 
     <footer class="bg-[#2f0a13] text-white">
@@ -230,6 +322,7 @@
         </div>
     </footer>
 
+    <!-- Mobile Navigation Overlay & Menu -->
     <div id="menuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
 
     <div id="sideMenu" class="fixed top-0 left-0 h-[100dvh] w-[250px] sm:w-[300px] bg-white shadow-2xl z-[70] transform -translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
@@ -246,8 +339,8 @@
                     <i class="fas fa-chevron-down text-sm transition-transform duration-300" id="collectionsMenuIcon"></i>
                 </button>
                 <div id="collectionsSubMenu" class="hidden flex-col pl-4 pb-2 space-y-2 mt-1">
-                    <a href="#heritage-collection" class="menu-link block py-2 text-base font-bold text-accent hover:text-[#4c111f] transition-all">The Heritage Collection <span class="text-xs ml-1 bg-red-100 text-red-700 px-1.5 rounded">NEW</span></a>
-                    <a href="#atelier-collection" class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all">The Atelier Collection</a>
+                    <a href="#heritage" class="menu-link block py-2 text-base font-bold text-accent hover:text-[#4c111f] transition-all">The Heritage Collection <span class="text-xs ml-1 bg-red-100 text-red-700 px-1.5 rounded">NEW</span></a>
+                    <a href="#atelier" class="menu-link block py-2 text-base font-medium text-gray-600 hover:text-[#4c111f] transition-all">The Atelier Collection</a>
                 </div>
             </div>
             
@@ -293,6 +386,7 @@
         </div>
     </div>
 
+    <!-- Cart Overlay & Sidebar -->
     <div id="cartOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-[60] hidden transition-opacity duration-300 opacity-0"></div>
 
     <div id="cartSidebar" class="fixed top-0 right-0 h-[100dvh] w-full sm:w-[400px] bg-white shadow-2xl z-[70] transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col">
@@ -378,6 +472,7 @@
         </div>
     </div>
 
+    <!-- Product Modal -->
     <div id="productModal" class="fixed inset-0 z-[80] hidden items-center justify-center">
         <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="modalBackdrop"></div>
         <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 no-scrollbar flex flex-col md:block" id="modalContent">
@@ -399,7 +494,7 @@
                     <div class="mb-4">
                         <h4 class="text-sm font-medium text-[#4c111f] mb-3 uppercase tracking-wide">Select Club Type</h4>
                         <div class="grid grid-cols-2 gap-4" id="modalClubTypes">
-                            <!-- Injected dynamically based on currency -->
+                            <!-- Injected dynamically based on collection/currency -->
                         </div>
                         
                         <div class="mt-8 border border-gray-200 rounded-xl overflow-hidden shadow-sm transition-all duration-300 hover:border-[#4c111f]/30">
@@ -420,7 +515,7 @@
                                 <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm">
                                     <p class="text-xs text-gray-600 mb-4 leading-relaxed">
                                         <i class="fas fa-info-circle mr-1 text-[#4c111f]"></i> 
-                                        <strong>Details:</strong> Premium white embroidery patch with stitched border and thread matching your selected headcover colorway. (Driver/Wood) Size: 13cm x 4cm. (Hybrid) Size: 10cm x 4cm. Precision pressed.
+                                        <strong>Details:</strong> Premium white embroidery patch with stitched border and thread matching your selected headcover colorway. Size: 6cm x 2cm. Precision pressed.
                                     </p>
                                     
                                     <!-- DYNAMIC LIVE PREVIEW -->
@@ -431,7 +526,7 @@
                                             <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span> Live Preview
                                         </p>
                                         
-                                        <!-- The Virtual Patch (White Background) -->
+                                        <!-- The Virtual Patch -->
                                         <div id="livePatchElement" class="bg-white rounded-md shadow-xl flex items-center justify-center relative transition-transform duration-500 ease-[cubic-bezier(0.34,1.56,0.64,1)] z-20 border-[3px] border-[#4c111f]" style="width: 180px; height: 60px;">
                                             <!-- Faux stitching inner border -->
                                             <div id="patchInnerBorder" class="absolute inset-[3px] border-[1px] border-dashed rounded-[2px] pointer-events-none opacity-60 border-[#4c111f]"></div>
@@ -451,7 +546,7 @@
                                             <p id="patchErrorMsg" class="text-[10px] text-red-500 mt-1 hidden font-semibold animate-pulse"><i class="fas fa-exclamation-circle mr-1"></i>Please enter text for your custom patch.</p>
                                         </div>
 
-                                        <!-- Font Selection -->
+                                        <!-- Font Selection (Now with 3 fonts!) -->
                                         <div>
                                             <label class="block text-xs font-bold text-[#4c111f] mb-1.5 uppercase tracking-wide">Select Font</label>
                                             <div class="grid grid-cols-3 gap-2">
@@ -536,6 +631,7 @@
         </div>
     </div>
 
+    <!-- Success Modal -->
     <div id="successModal" class="fixed inset-0 z-[90] hidden items-center justify-center">
         <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="successModalBackdrop"></div>
         <div class="bg-white rounded-2xl w-full max-w-md m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 flex flex-col items-center p-8 md:p-10 text-center" id="successModalContent">
@@ -597,6 +693,7 @@
     </script>
 
     <script>
+        // Data for Atelier Collection
         const atelierProducts = [
             { 
                 id: 'earthy', series: 'Earthy Tweed', desc: 'Classic tweed texture bringing a touch of tradition to your bag.', slideshowImages: ['ET3.png', 'ET4.png', 'Untitled design - 7.png', 'Untitled design - 8.png', 'IMG_8051.jpeg'], 
@@ -620,6 +717,7 @@
             }
         ];
 
+        // Data for Heritage Collection 
         const heritageProducts = [
             { 
                 id: 'argyle', series: 'The Argyle', desc: 'Premium argyle fabric paired with plush velvet lining.', slideshowImages: ['https://placehold.co/800x1000/e6d5c3/4c111f?text=Argyle+Collection', 'https://placehold.co/800x1000/d5a6a1/4c111f?text=Blush+Argyle'], 
@@ -650,7 +748,7 @@
             MYR: { 
                 symbol: 'RM ', 
                 atelier: { wood: 109, driver: 129, hybrid: 99 },
-                heritage: { wood: 119, driver: 139, hybrid: 99 },
+                heritage: { wood: 149, driver: 169, hybrid: 129 },
                 bundleDiscount: 10, 
                 patch: 30, 
                 shippingWest: 10, 
@@ -659,9 +757,9 @@
             SGD: { 
                 symbol: 'S$ ', 
                 atelier: { wood: 35, driver: 42, hybrid: 32 },
-                heritage: { wood: 38, driver: 44, hybrid: 35 },
+                heritage: { wood: 48, driver: 54, hybrid: 42 },
                 bundleDiscount: 5, 
-                patch: 12, 
+                patch: 10, 
                 shipping: 12 
             } 
         };
@@ -674,54 +772,54 @@
         let selectedColorIndex = 0;
         let calculatedFinalTotal = 0; 
         let hoverIntervals = {};
+        
         let discountApplied = false;
-        let discountType = ''; 
+        let discountType = '';
         let discountAmount = 0;
 
         document.addEventListener('DOMContentLoaded', async () => {
+            setupRouter(); 
             await detectUserLocation();
             setupMobileAutoplay(); 
             setupEventListeners();
-            checkPaymentStatus();
-            
-            const collectionsMenuBtn = document.getElementById('collectionsMenuBtn');
-            const collectionsSubMenu = document.getElementById('collectionsSubMenu');
-            const collectionsMenuIcon = document.getElementById('collectionsMenuIcon');
-            if (collectionsMenuBtn) {
-                collectionsMenuBtn.addEventListener('click', () => {
-                    collectionsSubMenu.classList.toggle('hidden');
-                    collectionsSubMenu.classList.toggle('flex');
-                    collectionsMenuIcon.classList.toggle('rotate-180');
-                });
-            }
         });
 
-        function checkPaymentStatus() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const status = urlParams.get('status');
-            
-            if (status === 'completed' || status === 'success') {
-                const successModal = document.getElementById('successModal');
-                successModal.classList.remove('hidden');
-                successModal.classList.add('flex');
-                setTimeout(() => {
-                    document.getElementById('successModalBackdrop').classList.remove('opacity-0');
-                    document.getElementById('successModalContent').classList.remove('scale-95', 'opacity-0');
-                }, 10);
-                
-                window.history.replaceState({}, document.title, window.location.pathname);
-                cart = [];
-                updateCartUI();
-            }
+        // ----------------------------------------------------
+        // NEW: SPA Router Logic
+        // ----------------------------------------------------
+        function setupRouter() {
+            window.addEventListener('hashchange', handleRoute);
+            handleRoute(); // Run immediately on load
         }
 
-        window.closeSuccessModal = function() {
-            document.getElementById('successModalBackdrop').classList.add('opacity-0');
-            document.getElementById('successModalContent').classList.add('scale-95', 'opacity-0');
-            setTimeout(() => { 
-                document.getElementById('successModal').classList.add('hidden'); 
-                document.getElementById('successModal').classList.remove('flex'); 
-            }, 300);
+        function handleRoute() {
+            const hash = window.location.hash;
+            const viewHome = document.getElementById('view-home');
+            const viewHeritage = document.getElementById('view-heritage');
+            const viewAtelier = document.getElementById('view-atelier');
+            
+            if(!viewHome || !viewHeritage || !viewAtelier) return;
+
+            // Hide everything first
+            viewHome.classList.add('hidden');
+            viewHeritage.classList.add('hidden');
+            viewAtelier.classList.add('hidden');
+
+            // Show the requested page and scroll to top seamlessly
+            if (hash === '#heritage') {
+                viewHeritage.classList.remove('hidden');
+                window.scrollTo(0, 0);
+            } else if (hash === '#atelier') {
+                viewAtelier.classList.remove('hidden');
+                window.scrollTo(0, 0);
+            } else {
+                viewHome.classList.remove('hidden');
+                if (hash === '#about') {
+                    setTimeout(() => document.getElementById('about').scrollIntoView({behavior: 'smooth'}), 100);
+                } else {
+                    window.scrollTo(0, 0);
+                }
+            }
         }
 
         async function detectUserLocation() {
@@ -748,32 +846,22 @@
             const custCountry = document.getElementById('custCountry');
 
             if (code === 'SG') {
-                if (headerFlag) { headerFlag.src = 'https://flagcdn.com/w20/sg.png'; headerFlag.srcset = 'https://flagcdn.com/w40/sg.png 2x'; headerFlag.alt = 'Singapore'; }
+                if (headerFlag) { headerFlag.src = 'https://flagcdn.com/w20/sg.png'; headerFlag.srcset = 'https://flagcdn.com/w40/sg.png 2x'; }
                 if (headerCurrency) headerCurrency.textContent = 'SGD';
-                if (menuFlag) { menuFlag.src = 'https://flagcdn.com/w20/sg.png'; menuFlag.srcset = 'https://flagcdn.com/w40/sg.png 2x'; menuFlag.alt = 'Singapore'; }
+                if (menuFlag) { menuFlag.src = 'https://flagcdn.com/w20/sg.png'; menuFlag.srcset = 'https://flagcdn.com/w40/sg.png 2x'; }
                 if (menuText) menuText.textContent = 'Singapore (SGD)';
                 if (custCountry) custCountry.value = 'SG';
             } else {
-                if (headerFlag) { headerFlag.src = 'https://flagcdn.com/w20/my.png'; headerFlag.srcset = 'https://flagcdn.com/w40/my.png 2x'; headerFlag.alt = 'Malaysia'; }
+                if (headerFlag) { headerFlag.src = 'https://flagcdn.com/w20/my.png'; headerFlag.srcset = 'https://flagcdn.com/w40/my.png 2x'; }
                 if (headerCurrency) headerCurrency.textContent = 'MYR';
-                if (menuFlag) { menuFlag.src = 'https://flagcdn.com/w20/my.png'; menuFlag.srcset = 'https://flagcdn.com/w40/my.png 2x'; menuFlag.alt = 'Malaysia'; }
+                if (menuFlag) { menuFlag.src = 'https://flagcdn.com/w20/my.png'; menuFlag.srcset = 'https://flagcdn.com/w40/my.png 2x'; }
                 if (menuText) menuText.textContent = 'Malaysia (MYR)';
                 if (custCountry) custCountry.value = 'MY';
             }
             
             handleCountryChange();
-            
             if (closeSideMenu && typeof closeMenu === 'function') {
                 closeMenu();
-            }
-            
-            if (shouldScroll) {
-                const collectionsSection = document.getElementById('heritage-collection');
-                if (collectionsSection) {
-                    setTimeout(() => {
-                        collectionsSection.scrollIntoView({ behavior: 'smooth' });
-                    }, 300);
-                }
             }
         }
 
@@ -845,7 +933,6 @@
             
             renderProductGrids();
             if(currentModalProduct) {
-                // Must do this FIRST so clubs exist in DOM before price updates
                 injectModalClubs(); 
                 updateModalPrice();
                 const patchPriceLabel = document.getElementById('patchPriceLabel');
@@ -929,7 +1016,6 @@
 
             let val = textInput.value;
             if (!fontScript && val.length > 0) {
-                // Keep Serif and Sans looking bold and capitalized for golf style
                 val = val.toUpperCase();
             }
             
@@ -938,20 +1024,17 @@
             liveText.textContent = val === '' ? (fontScript ? 'Heath' : 'HEATH') : val;
             liveText.style.opacity = val === '' ? '0.3' : '1'; 
             
-            // Clean up old classes
             liveText.classList.remove('font-serif', 'font-sans', 'font-script', 'text-xl', 'text-2xl', 'font-bold', 'tracking-[0.1em]');
             
-            // Apply correct styling based on font
             if (fontSerif) {
                 liveText.classList.add('font-serif', 'text-xl', 'font-bold', 'tracking-[0.1em]');
             } else if (fontScript) {
-                // Scripts need to be slightly larger and shouldn't have widespread tracking
                 liveText.classList.add('font-script', 'text-2xl', 'font-bold'); 
             } else {
                 liveText.classList.add('font-sans', 'text-xl', 'font-bold', 'tracking-[0.1em]');
             }
             
-            // Fix applied: Clockwise rotation so text reads downwards
+            // ROTATION FIX: Now rotates clockwise (90deg) so text reads downwards
             if (posVertical) {
                 liveElement.style.transform = 'rotate(90deg) scale(0.9)';
             } else {
@@ -975,11 +1058,9 @@
             document.getElementById('modalDesc').textContent = descText;
             document.getElementById('modalTitle').textContent = currentModalProduct.colors[0].name;
 
-            // BUG FIX: Inject clubs to DOM BEFORE checking patch checkbox and price logic
             injectModalClubs();
             updateModalImage();
 
-            // Reset Patch Feature UI Safely
             const patchCheckbox = document.getElementById('addPatchCheckbox');
             if (patchCheckbox) {
                 patchCheckbox.checked = false;
@@ -1011,9 +1092,9 @@
 
         function injectModalClubs() {
             const sym = PRICING[currentCurrency].symbol;
-            const collectionKey = heritageProducts.some(p => p.id === currentModalProduct.id) ? 'heritage' : 'atelier';
+            const isHeritage = heritageProducts.some(p => p.id === currentModalProduct.id);
+            const collectionKey = isHeritage ? 'heritage' : 'atelier';
             const prices = PRICING[currentCurrency][collectionKey];
-            const isHeritage = collectionKey === 'heritage';
             
             const clubTypesContainer = document.getElementById('modalClubTypes');
             
@@ -1252,7 +1333,6 @@
                 cartItemsEl.innerHTML = `<p class="text-center text-gray-400 mt-10">Your cart is empty.</p>`;
             }
 
-            // Calculate Totals using dynamic collection pricing
             let productsTotal = 0;
             let woodsCount = 0;
             let driversCount = 0;
@@ -1263,7 +1343,6 @@
                 if (item.type === 'driver') driversCount++;
             });
             
-            // Calculate Bundle Discount (discount for every Driver+Wood pair regardless of collection)
             let bundlesCount = Math.min(woodsCount, driversCount);
             let totalBundleDiscount = bundlesCount * p.bundleDiscount;
             productsTotal = productsTotal - totalBundleDiscount;
@@ -1307,18 +1386,13 @@
             msg.classList.remove('hidden');
 
             if (code === 'YOUR_CODE_HERE') {
-                // discountApplied = true;
-                // discountType = 'percentage';
-                // msg.innerHTML = '<i class="fas fa-check-circle"></i> 10% Off Applied!';
-                // msg.className = 'text-xs mt-2 text-green-600 font-medium';
-            } 
-            else {
+                // ... discount logic here
+            } else {
                 discountApplied = false;
                 discountAmount = 0;
                 msg.innerHTML = '<i class="fas fa-times-circle"></i> Invalid promo code.';
                 msg.className = 'text-xs mt-2 text-red-500 font-medium';
             }
-            
             updateCartUI();
         }
 
