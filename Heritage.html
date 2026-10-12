@@ -7,7 +7,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Afacad:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Afacad:wght@300;400;500;600&family=Dancing+Script:wght@600;700&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -16,6 +16,7 @@
                     fontFamily: {
                         sans: ['Afacad', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
+                        script: ['Dancing Script', 'cursive'],
                     },
                     colors: {
                         primary: '#4c111f',
@@ -444,7 +445,7 @@
                                         <div>
                                             <label class="block text-xs font-bold text-[#4c111f] mb-1.5 uppercase tracking-wide">Enter Name / Text</label>
                                             <div class="relative">
-                                                <input type="text" id="patchTextInput" maxlength="8" placeholder="Max 8 chars" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#4c111f] focus:ring-[#4c111f] p-2.5 border text-sm uppercase font-semibold transition-colors" oninput="updatePatchPreview()">
+                                                <input type="text" id="patchTextInput" maxlength="8" placeholder="Max 8 chars" class="w-full border-gray-300 rounded-lg shadow-sm focus:border-[#4c111f] focus:ring-[#4c111f] p-2.5 border text-sm font-semibold transition-colors" oninput="updatePatchPreview()">
                                                 <span class="absolute right-3 top-1/2 transform -translate-y-1/2 text-xs text-gray-400 font-medium"><span id="charCount">0</span>/8</span>
                                             </div>
                                             <p id="patchErrorMsg" class="text-[10px] text-red-500 mt-1 hidden font-semibold animate-pulse"><i class="fas fa-exclamation-circle mr-1"></i>Please enter text for your custom patch.</p>
@@ -453,17 +454,23 @@
                                         <!-- Font Selection -->
                                         <div>
                                             <label class="block text-xs font-bold text-[#4c111f] mb-1.5 uppercase tracking-wide">Select Font</label>
-                                            <div class="grid grid-cols-2 gap-2">
+                                            <div class="grid grid-cols-3 gap-2">
                                                 <label class="cursor-pointer group">
                                                     <input type="radio" name="patchFont" value="Serif" class="peer sr-only" checked onchange="updatePatchPreview()">
                                                     <div class="rounded-lg border border-gray-200 p-2 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 transition-all">
-                                                        <span class="block font-serif text-sm font-bold text-gray-800 peer-checked:text-[#4c111f]">Classic Serif</span>
+                                                        <span class="block font-serif text-[11px] sm:text-xs font-bold text-gray-800 peer-checked:text-[#4c111f]">Serif</span>
                                                     </div>
                                                 </label>
                                                 <label class="cursor-pointer group">
                                                     <input type="radio" name="patchFont" value="Sans" class="peer sr-only" onchange="updatePatchPreview()">
                                                     <div class="rounded-lg border border-gray-200 p-2 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 transition-all">
-                                                        <span class="block font-sans text-sm font-bold text-gray-800 peer-checked:text-[#4c111f]">Modern Sans</span>
+                                                        <span class="block font-sans text-[11px] sm:text-xs font-bold text-gray-800 peer-checked:text-[#4c111f]">Sans</span>
+                                                    </div>
+                                                </label>
+                                                <label class="cursor-pointer group">
+                                                    <input type="radio" name="patchFont" value="Script" class="peer sr-only" onchange="updatePatchPreview()">
+                                                    <div class="rounded-lg border border-gray-200 p-2 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 transition-all">
+                                                        <span class="block font-script text-[11px] sm:text-xs font-bold text-gray-800 peer-checked:text-[#4c111f]">Script</span>
                                                     </div>
                                                 </label>
                                             </div>
@@ -888,6 +895,7 @@
             if(!liveText || !liveElement) return;
 
             const fontSerif = document.querySelector('input[name="patchFont"][value="Serif"]').checked;
+            const fontScript = document.querySelector('input[name="patchFont"][value="Script"]').checked;
             const posVertical = document.querySelector('input[name="patchPlacement"][value="Vertical"]').checked;
             
             let themeColor = '#4c111f'; 
@@ -900,19 +908,28 @@
             if(innerBorder) innerBorder.style.borderColor = themeColor;
             liveText.style.color = themeColor;
 
-            let val = textInput.value.toUpperCase();
-            textInput.value = val; 
+            let val = textInput.value;
+            if (!fontScript && val.length > 0) {
+                // Keep Serif and Sans looking bold and capitalized for golf style
+                val = val.toUpperCase();
+            }
+            
             charCount.textContent = val.length;
             
-            liveText.textContent = val === '' ? 'HEATH' : val;
+            liveText.textContent = val === '' ? (fontScript ? 'Heath' : 'HEATH') : val;
             liveText.style.opacity = val === '' ? '0.3' : '1'; 
             
+            // Clean up old classes
+            liveText.classList.remove('font-serif', 'font-sans', 'font-script', 'text-xl', 'text-2xl', 'font-bold', 'tracking-[0.1em]');
+            
+            // Apply correct styling based on font
             if (fontSerif) {
-                liveText.classList.add('font-serif');
-                liveText.classList.remove('font-sans');
+                liveText.classList.add('font-serif', 'text-xl', 'font-bold', 'tracking-[0.1em]');
+            } else if (fontScript) {
+                // Scripts need to be slightly larger and shouldn't have widespread tracking
+                liveText.classList.add('font-script', 'text-2xl', 'font-bold'); 
             } else {
-                liveText.classList.add('font-sans');
-                liveText.classList.remove('font-serif');
+                liveText.classList.add('font-sans', 'text-xl', 'font-bold', 'tracking-[0.1em]');
             }
             
             // Fix applied: Clockwise rotation so text reads downwards
@@ -1095,7 +1112,7 @@
                 const patchPos = document.querySelector('input[name="patchPlacement"]:checked').value;
                 
                 patchData = {
-                    text: patchText.toUpperCase(),
+                    text: patchFont === 'Script' ? patchText : patchText.toUpperCase(),
                     font: patchFont,
                     placement: patchPos,
                     price: PRICING[currentCurrency].patch
