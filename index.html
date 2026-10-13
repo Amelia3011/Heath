@@ -1056,10 +1056,7 @@
             
             document.getElementById('modalSeries').textContent = currentModalProduct.series;
             
-            let descText = currentModalProduct.id !== 'Black & Bone' 
-                ? `Selected colorway: ${currentModalProduct.colors[0].name}. ${currentModalProduct.desc}` 
-                : currentModalProduct.desc;
-            document.getElementById('modalDesc').textContent = descText;
+            document.getElementById('modalDesc').textContent = currentModalProduct.desc;
             document.getElementById('modalTitle').textContent = currentModalProduct.colors[0].name;
 
             injectModalClubs();
@@ -1160,9 +1157,7 @@
             selectedColorIndex = index;
             updateModalImage();
             document.getElementById('modalTitle').textContent = currentModalProduct.colors[index].name;
-            document.getElementById('modalDesc').textContent = currentModalProduct.id !== 'Black & Bone' 
-                ? `Selected colorway: ${currentModalProduct.colors[index].name}. ${currentModalProduct.desc}` 
-                : currentModalProduct.desc;
+            document.getElementById('modalDesc').textContent = currentModalProduct.desc;
 
             currentModalProduct.colors.forEach((_, i) => {
                 const btn = document.getElementById(`colorBtn-${i}`);
