@@ -30,6 +30,16 @@
 
     <style>
         html { scroll-behavior: smooth; }
+        
+        /* HIDE GLOBAL SCROLLBAR ON DESKTOP & MOBILE */
+        ::-webkit-scrollbar { 
+            display: none; 
+        }
+        html, body { 
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
         .hero-bg {
             background-image: url('Heath w BG.pdf.png');
             background-size: cover;
@@ -159,6 +169,7 @@
                 </div>
             </section>
 
+            <!-- Lifestyle Divider moved ABOVE Collections -->
             <section class="w-full relative overflow-hidden bg-primary p-0 leading-none">
                 <img src="divider.GIF" alt="Lifestyle Divider" class="w-full h-auto max-h-[450px] object-cover block m-0 p-0" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/4c111f/ffffff?text=LIFESTYLE+IMAGE'">
                 <div class="absolute inset-0 bg-black/20 mix-blend-multiply pointer-events-none"></div>
@@ -172,6 +183,7 @@
                         <p class="text-gray-600 max-w-2xl mx-auto font-medium">Explore our distinct series of handcrafted headcovers, designed to elevate your game and protect your clubs with unparalleled style.</p>
                     </div>
                     
+                    <!-- Forced grid-cols-2 for Side-by-Side mobile -->
                     <div class="grid grid-cols-2 gap-3 sm:gap-6 md:gap-10">
                         <!-- Heritage Banner Card -->
                         <a href="#heritage" class="group relative h-64 sm:h-80 md:h-[500px] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 block border border-gray-200/50">
@@ -182,7 +194,7 @@
                             
                             <!-- New Arrival Badge -->
                             <div class="absolute top-3 left-3 md:top-6 md:left-6 bg-white text-[#4c111f] text-[8px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-full uppercase tracking-widest shadow-lg flex items-center gap-1 md:gap-1.5 z-10">
-                                <span class="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-red-500 animate-pulse"></span> <span class="hidden sm:inline">New Release</span><span class="sm:hidden">New Realease</span>
+                                <span class="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-red-500 animate-pulse"></span> <span class="hidden sm:inline">New Release</span><span class="sm:hidden">New Release</span>
                             </div>
                             
                             <!-- Text Content -->
@@ -743,6 +755,7 @@
         
         const allProducts = [...heritageProducts, ...atelierProducts];
 
+        // NEW Split Pricing Structure
         const PRICING = {
             MYR: { 
                 symbol: 'RM ', 
@@ -1039,6 +1052,7 @@
                 liveText.classList.add('font-sans', 'text-xl', 'font-bold', 'tracking-[0.1em]');
             }
             
+            // Rotating clockwise (90deg)
             if (posVertical) {
                 liveElement.style.transform = 'rotate(90deg) scale(0.9)';
             } else {
@@ -1056,6 +1070,7 @@
             
             document.getElementById('modalSeries').textContent = currentModalProduct.series;
             
+            // CLEAN DESCRIPTION FIX
             document.getElementById('modalDesc').textContent = currentModalProduct.desc;
             document.getElementById('modalTitle').textContent = currentModalProduct.colors[0].name;
 
@@ -1156,6 +1171,8 @@
         window.selectColor = function(index) {
             selectedColorIndex = index;
             updateModalImage();
+            
+            // CLEAN DESCRIPTION FIX
             document.getElementById('modalTitle').textContent = currentModalProduct.colors[index].name;
             document.getElementById('modalDesc').textContent = currentModalProduct.desc;
 
@@ -1204,11 +1221,9 @@
             const btn = document.getElementById('addToCartModalBtn');
             const stockStatus = document.getElementById('modalStockStatus');
             
-            // --- NEW: HERITAGE LAUNCH LOCK ---
+            // LAUNCH TIME LOCK LOGIC
             const isHeritage = heritageProducts.some(p => p.id === currentModalProduct.id);
-            
-            // Set the exact unlock time (YYYY-MM-DDTHH:MM:SS+08:00 for MYT/SGT)
-            const launchDate = new Date('2026-10-20T20:00:00+08:00'); 
+            const launchDate = new Date('2026-10-20T20:00:00+08:00'); // 8:00 PM Malaysia Time
             const isLaunched = new Date() >= launchDate;
             
             if (isHeritage && !isLaunched) {
@@ -1217,9 +1232,8 @@
                 btn.classList.add('opacity-50', 'cursor-not-allowed', 'bg-gray-800');
                 btn.classList.remove('hover:opacity-90', 'active:scale-95', 'bg-[#4c111f]');
                 stockStatus.innerHTML = `<span class="text-accent font-bold"><i class="fas fa-lock mr-1"></i>Unlocks Oct 20 @ 8:00 PM</span>`;
-                return; // Stop the function here so they can't bypass it!
+                return; // Stop here! Do not check for stock.
             }
-            // --- END LAUNCH LOCK ---
 
             if (remaining <= 0) {
                 btn.disabled = true;
