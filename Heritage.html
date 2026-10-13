@@ -947,7 +947,13 @@
             
             const generateCard = (product) => {
                 const collectionKey = heritageProducts.some(p => p.id === product.id) ? 'heritage' : 'atelier';
-                const price = PRICING[currentCurrency][collectionKey].wood;
+                const prices = PRICING[currentCurrency][collectionKey];
+                
+                // Dynamically find the lowest price to display on the "From" tag
+                let startingPrice = prices.wood;
+                if (prices.hybrid > 0 && prices.hybrid < startingPrice) {
+                    startingPrice = prices.hybrid;
+                }
                 
                 return `
                 <div class="product-card group cursor-pointer" data-product-id="${product.id}" onclick="openModal('${product.id}')" onmouseenter="startHoverSlideshow('${product.id}', this)" onmouseleave="stopHoverSlideshow('${product.id}', this)">
@@ -963,7 +969,7 @@
                     <div class="px-0.5 md:px-2">
                         <h3 class="font-serif text-[15px] sm:text-base md:text-2xl font-bold text-primary mb-0.5 md:mb-2 leading-tight">${product.series}</h3>
                         <p class="text-gray-600 text-[9px] sm:text-sm mb-1 md:mb-3 leading-snug line-clamp-2 md:line-clamp-none">${product.desc}</p>
-                        <p class="font-semibold text-primary text-[14px] md:text-xl md:text-base">From ${sym}${price}</p>
+                        <p class="font-semibold text-primary text-[14px] md:text-xl md:text-base">From ${sym}${startingPrice}</p>
                     </div>
                 </div>
                 `;
