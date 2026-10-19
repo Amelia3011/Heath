@@ -1213,7 +1213,7 @@
             const isHeritage = heritageProducts.some(p => p.id === currentModalProduct.id);
             
             // Set the exact unlock time (YYYY-MM-DDTHH:MM:SS+08:00 for MYT/SGT)
-            const launchDate = new Date('2026-10-19T14:00:00+02:00'); 
+            const launchDate = new Date('2026-10-19T14:00:00+08:00'); 
             const isLaunched = new Date() >= launchDate;
             
             if (isHeritage && !isLaunched) {
@@ -1221,7 +1221,7 @@
                 btn.textContent = "Dropping Oct 20";
                 btn.classList.add('opacity-50', 'cursor-not-allowed', 'bg-gray-800');
                 btn.classList.remove('hover:opacity-90', 'active:scale-95', 'bg-[#4c111f]');
-                stockStatus.innerHTML = `<span class="text-accent font-bold"><i class="fas fa-lock mr-1"></i>Unlocks Oct 20 @ 8:00 PM</span>`;
+                stockStatus.innerHTML = `<span class="text-accent font-bold"><i class="fas fa-lock mr-1"></i>Unlocks Oct 19 @ 8:00 PM</span>`;
                 return; // Stop the function here so they can't bypass it!
             }
             // --- END LAUNCH LOCK ---
