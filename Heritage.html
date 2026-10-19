@@ -1213,7 +1213,7 @@
             const isHeritage = heritageProducts.some(p => p.id === currentModalProduct.id);
             
             // Set the exact unlock time (YYYY-MM-DDTHH:MM:SS+08:00 for MYT/SGT)
-            const launchDate = new Date('2026-10-19T14:00:00+08:00'); 
+            const launchDate = new Date('2026-10-19T20:00:00+08:00'); 
             const isLaunched = new Date() >= launchDate;
             
             if (isHeritage && !isLaunched) {
