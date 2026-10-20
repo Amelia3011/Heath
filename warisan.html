@@ -14,7 +14,7 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Sans', 'sans-serif'],
+                        sans: ['Afacad', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
                         script: ['Dancing Script', 'cursive'],
                     },
@@ -30,6 +30,16 @@
 
     <style>
         html { scroll-behavior: smooth; }
+        
+        /* HIDE GLOBAL SCROLLBAR ON DESKTOP & MOBILE */
+        ::-webkit-scrollbar { 
+            display: none; 
+        }
+        html, body { 
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+        
         .hero-bg {
             background-image: url('Heath w BG.pdf.png');
             background-size: cover;
@@ -138,7 +148,6 @@
         </div>
     </header>
 
-    <!-- MAIN ROUTER CONTAINER -->
     <main class="flex-grow pt-0 mt-0">
         
         <!-- ========================================== -->
@@ -159,6 +168,7 @@
                 </div>
             </section>
 
+            <!-- Lifestyle Divider moved ABOVE Collections -->
             <section class="w-full relative overflow-hidden bg-primary p-0 leading-none">
                 <img src="divider.GIF" alt="Lifestyle Divider" class="w-full h-auto max-h-[450px] object-cover block m-0 p-0" onerror="this.onerror=null; this.src='https://placehold.co/1200x400/4c111f/ffffff?text=LIFESTYLE+IMAGE'">
                 <div class="absolute inset-0 bg-black/20 mix-blend-multiply pointer-events-none"></div>
@@ -172,6 +182,7 @@
                         <p class="text-gray-600 max-w-2xl mx-auto font-medium">Explore our distinct series of handcrafted headcovers, designed to elevate your game and protect your clubs with unparalleled style.</p>
                     </div>
                     
+                    <!-- Forced grid-cols-2 for Side-by-Side mobile -->
                     <div class="grid grid-cols-2 gap-3 sm:gap-6 md:gap-10">
                         <!-- Heritage Banner Card -->
                         <a href="#heritage" class="group relative h-64 sm:h-80 md:h-[500px] rounded-2xl overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 block border border-gray-200/50">
@@ -182,7 +193,7 @@
                             
                             <!-- New Arrival Badge -->
                             <div class="absolute top-3 left-3 md:top-6 md:left-6 bg-white text-[#4c111f] text-[8px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-full uppercase tracking-widest shadow-lg flex items-center gap-1 md:gap-1.5 z-10">
-                                <span class="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-red-500 animate-pulse"></span> <span class="hidden sm:inline">New Release</span><span class="sm:hidden">New Realease</span>
+                                <span class="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-red-500 animate-pulse"></span> <span class="hidden sm:inline">New Release</span><span class="sm:hidden">New Release</span>
                             </div>
                             
                             <!-- Text Content -->
@@ -238,7 +249,6 @@
                 </div>
             </section>
         </div>
-
 
         <!-- ========================================== -->
         <!-- VIEW: HERITAGE COLLECTION                  -->
@@ -479,8 +489,13 @@
                 <i class="fas fa-times text-lg"></i>
             </button>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                <div class="bg-gray-100 min-h-[300px] flex items-center justify-center p-8 relative h-[250px] sm:h-[300px] md:h-auto md:min-h-[400px] shrink-0">
-                    <img id="modalImg" src="" alt="Product" class="max-w-full h-full object-contain drop-shadow-xl rounded-lg">
+                <!-- UPDATED Modal Image Container for Zoom functionality -->
+                <div class="bg-gray-100 min-h-[300px] flex items-center justify-center p-8 relative h-[250px] sm:h-[300px] md:h-auto md:min-h-[400px] shrink-0 group cursor-zoom-in" onclick="openZoom(document.getElementById('modalImg').src)">
+                    <img id="modalImg" src="" alt="Product" class="max-w-full h-full object-contain drop-shadow-xl rounded-lg transition-transform duration-300 group-hover:scale-105">
+                    <!-- Icon is now permanently visible on mobile (opacity-100), and shows on hover for desktop -->
+                    <div class="absolute bottom-4 right-4 bg-white/80 backdrop-blur text-[#4c111f] w-10 h-10 flex items-center justify-center rounded-full shadow-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
                 </div>
                 <div class="p-8 md:p-12 flex flex-col justify-center">
                     <span id="modalSeries" class="text-sm font-semibold text-accent uppercase tracking-wider mb-2"></span>
@@ -645,6 +660,19 @@
         </div>
     </div>
 
+    <!-- Fullscreen Zoom Modal -->
+    <div id="zoomModal" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-sm items-center justify-center overflow-hidden transition-opacity duration-300 opacity-0">
+        <button id="closeZoomBtn" class="absolute top-4 right-4 text-white/70 hover:text-white z-[110] bg-black/50 hover:bg-black/80 rounded-full w-12 h-12 flex items-center justify-center focus:outline-none transition-all" aria-label="Close Zoom">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+        <div class="w-full h-full flex items-center justify-center relative">
+            <img id="zoomImg" src="" alt="Zoomed Product" class="max-w-full max-h-full object-contain transition-transform duration-300 cursor-zoom-in transform scale-100">
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/50 text-xs md:text-sm tracking-widest uppercase pointer-events-none font-medium z-10 bg-black/40 px-5 py-2.5 rounded-full backdrop-blur-md transition-all duration-300" id="zoomHint">
+            Tap to Zoom In / Out
+        </div>
+    </div>
+
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -721,28 +749,29 @@
             { 
                 id: 'argyle', series: 'Argyle', desc: 'Premium argyle fabric paired with plush velvet lining.', slideshowImages: ['argyle 2.jpg' , 'argyle 4.jpg'], 
                 colors: [
-                    { name: 'Chestnut Argyle', hex: '#8B5A2B', woodImg: 'Chestnut Wood.jpg', driverImg: 'Chestnut Driver.jpg', hybridImg: 'Chestnut Hybrid.jpg', stock: { wood: 1, driver: 4, hybrid: 2 } }, 
+                    { name: 'Chestnut Argyle', hex: '#8B5A2B', woodImg: 'Chestnut Wood.jpg', driverImg: 'Chestnut Driver.jpg', hybridImg: 'Chestnut Hybrid.jpg', stock: { wood: 2, driver: 3, hybrid: 2 } }, 
                     { name: 'Blush Argyle', hex: '#D19C97', woodImg: 'Blush Wood.jpg', driverImg: 'Blush Driver.jpg', hybridImg: 'Blush Hybrid.jpg', stock: { wood: 4, driver: 4, hybrid: 0 } }
                 ] 
             },
             { 
                 id: 'houndstooth', series: 'Houndstooth', desc: 'Classic houndstooth precision. A timeless look on the fairways.', slideshowImages: ['houndstooth 1.jpg', 'houndstooth 5.jpg'], 
                 colors: [
-                    { name: 'Espresso Houndstooth', hex: '#2B1B17', woodImg: 'Espresso Wood.jpg', driverImg: 'Espresso Driver.jpg', hybridImg: 'Espresso Hybrid.jpg', stock: { wood: 4, driver: 3, hybrid: 2 } }, 
-                    { name: 'Crimson Houndstooth', hex: '#800000', woodImg: 'Crimson Wood.jpg', driverImg: 'Crimson Driver.jpg', hybridImg: 'Crimson Hybrid.jpg', stock: { wood: 3, driver: 1, hybrid: 2 } }
+                    { name: 'Espresso Houndstooth', hex: '#2B1B17', woodImg: 'Espresso Wood.jpg', driverImg: 'Espresso Driver.jpg', hybridImg: 'Espresso Hybrid.jpg', stock: { wood: 4, driver: 4, hybrid: 2 } }, 
+                    { name: 'Crimson Houndstooth', hex: '#800000', woodImg: 'Crimson Wood.jpg', driverImg: 'Crimson Driver.jpg', hybridImg: 'Crimson Hybrid.jpg', stock: { wood: 3, driver: 3, hybrid: 2 } }
                 ] 
             },
             { 
                 id: 'tartan', series: 'Tartan', desc: 'Heritage tartan plaid bringing bold tradition to your bag.', slideshowImages: ['tartan 9.jpg' , 'tartan 10.jpg'], 
                 colors: [
                     { name: 'Haymarket Tartan', hex: '#C19A6B', woodImg: 'Haymarket Wood.jpg', driverImg: 'Haymarket Driver.jpg', hybridImg: 'Haymarket Hybrid.jpg', stock: { wood: 4, driver: 4, hybrid: 2 } },
-                    { name: 'Royal Stewart Tartan', hex: '#B22222', woodImg: 'Stewart Wood.jpg', driverImg: 'Stewart Driver.jpg', hybridImg: 'Stewart Hybrid.jpg', stock: { wood: 3, driver: 1, hybrid: 1 } }
+                    { name: 'Royal Stewart Tartan', hex: '#B22222', woodImg: 'Stewart Wood.jpg', driverImg: 'Stewart Driver.jpg', hybridImg: 'Stewart Hybrid.jpg', stock: { wood: 3, driver: 2, hybrid: 1 } }
                 ] 
             }
         ];
         
         const allProducts = [...heritageProducts, ...atelierProducts];
 
+        // NEW Split Pricing Structure
         const PRICING = {
             MYR: { 
                 symbol: 'RM ', 
@@ -1039,6 +1068,7 @@
                 liveText.classList.add('font-sans', 'text-xl', 'font-bold', 'tracking-[0.1em]');
             }
             
+            // Rotating clockwise (90deg)
             if (posVertical) {
                 liveElement.style.transform = 'rotate(90deg) scale(0.9)';
             } else {
@@ -1056,10 +1086,8 @@
             
             document.getElementById('modalSeries').textContent = currentModalProduct.series;
             
-            let descText = currentModalProduct.id !== 'Black & Bone' 
-                ? `Selected colorway: ${currentModalProduct.colors[0].name}. ${currentModalProduct.desc}` 
-                : currentModalProduct.desc;
-            document.getElementById('modalDesc').textContent = descText;
+            // CLEAN DESCRIPTION FIX
+            document.getElementById('modalDesc').textContent = currentModalProduct.desc;
             document.getElementById('modalTitle').textContent = currentModalProduct.colors[0].name;
 
             injectModalClubs();
@@ -1159,10 +1187,10 @@
         window.selectColor = function(index) {
             selectedColorIndex = index;
             updateModalImage();
+            
+            // CLEAN DESCRIPTION FIX
             document.getElementById('modalTitle').textContent = currentModalProduct.colors[index].name;
-            document.getElementById('modalDesc').textContent = currentModalProduct.id !== 'Black & Bone' 
-                ? `Selected colorway: ${currentModalProduct.colors[index].name}. ${currentModalProduct.desc}` 
-                : currentModalProduct.desc;
+            document.getElementById('modalDesc').textContent = currentModalProduct.desc;
 
             currentModalProduct.colors.forEach((_, i) => {
                 const btn = document.getElementById(`colorBtn-${i}`);
@@ -1209,22 +1237,19 @@
             const btn = document.getElementById('addToCartModalBtn');
             const stockStatus = document.getElementById('modalStockStatus');
             
-            // --- NEW: HERITAGE LAUNCH LOCK ---
+            // LAUNCH TIME LOCK LOGIC
             const isHeritage = heritageProducts.some(p => p.id === currentModalProduct.id);
-            
-            // Set the exact unlock time (YYYY-MM-DDTHH:MM:SS+08:00 for MYT/SGT)
-            const launchDate = new Date('2026-10-19T20:00:00+08:00'); 
+            const launchDate = new Date('2026-10-20T20:00:00+08:00'); // 8:00 PM Malaysia Time
             const isLaunched = new Date() >= launchDate;
             
             if (isHeritage && !isLaunched) {
                 btn.disabled = true;
-                btn.textContent = "VIP Drop on Oct 19";
+                btn.textContent = "Dropping Oct 20";
                 btn.classList.add('opacity-50', 'cursor-not-allowed', 'bg-gray-800');
                 btn.classList.remove('hover:opacity-90', 'active:scale-95', 'bg-[#4c111f]');
-                stockStatus.innerHTML = `<span class="text-accent font-bold"><i class="fas fa-lock mr-1"></i>Unlocks Oct 19 @ 8:00 PM</span>`;
-                return; // Stop the function here so they can't bypass it!
+                stockStatus.innerHTML = `<span class="text-accent font-bold"><i class="fas fa-lock mr-1"></i>Unlocks Oct 20 @ 8:00 PM</span>`;
+                return; // Stop here! Do not check for stock.
             }
-            // --- END LAUNCH LOCK ---
 
             if (remaining <= 0) {
                 btn.disabled = true;
@@ -1451,6 +1476,96 @@
             const prod = allProducts.find(p => p.id === pid);
             const imgEl = card.querySelector('.product-img');
             if (imgEl && prod) imgEl.src = prod.slideshowImages[0];
+        }
+
+        // --- NEW ZOOM LOGIC (WITH TOUCH SUPPORT) ---
+        const zoomModal = document.getElementById('zoomModal');
+        const zoomImg = document.getElementById('zoomImg');
+        const closeZoomBtn = document.getElementById('closeZoomBtn');
+        const zoomHint = document.getElementById('zoomHint');
+        let isZoomed = false;
+
+        window.openZoom = function(src) {
+            zoomImg.src = src;
+            zoomModal.classList.remove('hidden');
+            zoomModal.classList.add('flex');
+            
+            setTimeout(() => {
+                zoomModal.classList.remove('opacity-0');
+            }, 10);
+            
+            isZoomed = false;
+            zoomImg.style.transform = 'scale(1)';
+            zoomImg.classList.remove('cursor-zoom-out');
+            zoomImg.classList.add('cursor-zoom-in');
+            zoomImg.style.transformOrigin = 'center center';
+            if(zoomHint) {
+                zoomHint.textContent = "Tap to Zoom In / Out";
+                zoomHint.classList.remove('opacity-0');
+            }
+        };
+
+        window.closeZoom = function() {
+            zoomModal.classList.add('opacity-0');
+            setTimeout(() => {
+                zoomModal.classList.add('hidden');
+                zoomModal.classList.remove('flex');
+            }, 300);
+        };
+
+        if(closeZoomBtn) closeZoomBtn.addEventListener('click', closeZoom);
+
+        if(zoomImg) {
+            // Click toggles zoom
+            zoomImg.addEventListener('click', function(e) {
+                toggleZoom(e.clientX, e.clientY);
+            });
+
+            // Desktop pan
+            zoomImg.addEventListener('mousemove', function(e) {
+                if (isZoomed) {
+                    updateTransformOrigin(e.clientX, e.clientY);
+                }
+            });
+            
+            // Mobile Touch preparation
+            zoomImg.addEventListener('touchstart', function(e) {
+                // Allows tapping to work without jumping
+            }, {passive: true});
+
+            // Mobile pan
+            zoomImg.addEventListener('touchmove', function(e) {
+                if (isZoomed && e.touches.length === 1) {
+                    e.preventDefault(); // Stop entire page from scrolling while zoomed
+                    updateTransformOrigin(e.touches[0].clientX, e.touches[0].clientY);
+                }
+            }, {passive: false});
+        }
+        
+        function toggleZoom(clientX, clientY) {
+            if (!isZoomed) {
+                isZoomed = true;
+                zoomImg.style.transform = 'scale(2.5)';
+                zoomImg.classList.remove('cursor-zoom-in');
+                zoomImg.classList.add('cursor-zoom-out');
+                
+                updateTransformOrigin(clientX, clientY);
+            } else {
+                isZoomed = false;
+                zoomImg.style.transform = 'scale(1)';
+                zoomImg.classList.remove('cursor-zoom-out');
+                zoomImg.classList.add('cursor-zoom-in');
+                
+                setTimeout(() => {
+                    if (!isZoomed) zoomImg.style.transformOrigin = 'center center';
+                }, 300);
+            }
+        }
+
+        function updateTransformOrigin(clientX, clientY) {
+            const x = (clientX / window.innerWidth) * 100;
+            const y = (clientY / window.innerHeight) * 100;
+            zoomImg.style.transformOrigin = `${x}% ${y}%`;
         }
 
         function setupEventListeners() {
