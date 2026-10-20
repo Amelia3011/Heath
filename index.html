@@ -82,6 +82,25 @@
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
+
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2082588625826859');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2082588625826859&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
 </head>
 
 <body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen relative">
@@ -109,6 +128,7 @@
                         <img src="Heath logo 2.png" alt="Heath Logo" class="h-36 sm:h-20 md:h-24 lg:h-42 w-auto max-w-[200px] md:max-w-none object-contain" onerror="this.onerror=null; this.src='https://placehold.co/200x100/4c111f/ffffff?text=HEATH+LOGO'">
                     </a>
                 </div>
+                
                 <div class="flex-1 flex items-center justify-end gap-2 sm:gap-4">
                     
                     <div class="relative">
@@ -148,6 +168,7 @@
         </div>
     </header>
 
+    <!-- MAIN ROUTER CONTAINER -->
     <main class="flex-grow pt-0 mt-0">
         
         <!-- ========================================== -->
@@ -249,6 +270,7 @@
                 </div>
             </section>
         </div>
+
 
         <!-- ========================================== -->
         <!-- VIEW: HERITAGE COLLECTION                  -->
@@ -1567,6 +1589,7 @@
             const y = (clientY / window.innerHeight) * 100;
             zoomImg.style.transformOrigin = `${x}% ${y}%`;
         }
+        // ----------------------
 
         function setupEventListeners() {
             document.getElementById('cartBtn').addEventListener('click', openCart);
