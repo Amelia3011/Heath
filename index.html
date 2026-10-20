@@ -148,7 +148,6 @@
         </div>
     </header>
 
-    <!-- MAIN ROUTER CONTAINER -->
     <main class="flex-grow pt-0 mt-0">
         
         <!-- ========================================== -->
@@ -250,7 +249,6 @@
                 </div>
             </section>
         </div>
-
 
         <!-- ========================================== -->
         <!-- VIEW: HERITAGE COLLECTION                  -->
@@ -491,8 +489,13 @@
                 <i class="fas fa-times text-lg"></i>
             </button>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
-                <div class="bg-gray-100 min-h-[300px] flex items-center justify-center p-8 relative h-[250px] sm:h-[300px] md:h-auto md:min-h-[400px] shrink-0">
-                    <img id="modalImg" src="" alt="Product" class="max-w-full h-full object-contain drop-shadow-xl rounded-lg">
+                <!-- UPDATED Modal Image Container for Zoom functionality -->
+                <div class="bg-gray-100 min-h-[300px] flex items-center justify-center p-8 relative h-[250px] sm:h-[300px] md:h-auto md:min-h-[400px] shrink-0 group cursor-zoom-in" onclick="openZoom(document.getElementById('modalImg').src)">
+                    <img id="modalImg" src="" alt="Product" class="max-w-full h-full object-contain drop-shadow-xl rounded-lg transition-transform duration-300 group-hover:scale-105">
+                    <!-- Icon is now permanently visible on mobile (opacity-100), and shows on hover for desktop -->
+                    <div class="absolute bottom-4 right-4 bg-white/80 backdrop-blur text-[#4c111f] w-10 h-10 flex items-center justify-center rounded-full shadow-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
                 </div>
                 <div class="p-8 md:p-12 flex flex-col justify-center">
                     <span id="modalSeries" class="text-sm font-semibold text-accent uppercase tracking-wider mb-2"></span>
@@ -654,6 +657,19 @@
             <button onclick="closeSuccessModal()" class="w-full bg-[#4c111f] text-white py-4 rounded-xl font-bold hover:opacity-90 transition-colors shadow-lg active:scale-95 focus:outline-none">
                 Return to Store
             </button>
+        </div>
+    </div>
+
+    <!-- Fullscreen Zoom Modal -->
+    <div id="zoomModal" class="fixed inset-0 z-[100] hidden bg-black/95 backdrop-blur-sm items-center justify-center overflow-hidden transition-opacity duration-300 opacity-0">
+        <button id="closeZoomBtn" class="absolute top-4 right-4 text-white/70 hover:text-white z-[110] bg-black/50 hover:bg-black/80 rounded-full w-12 h-12 flex items-center justify-center focus:outline-none transition-all" aria-label="Close Zoom">
+            <i class="fas fa-times text-xl"></i>
+        </button>
+        <div class="w-full h-full flex items-center justify-center relative">
+            <img id="zoomImg" src="" alt="Zoomed Product" class="max-w-full max-h-full object-contain transition-transform duration-300 cursor-zoom-in transform scale-100">
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/50 text-xs md:text-sm tracking-widest uppercase pointer-events-none font-medium z-10 bg-black/40 px-5 py-2.5 rounded-full backdrop-blur-md transition-all duration-300" id="zoomHint">
+            Tap to Zoom In / Out
         </div>
     </div>
 
@@ -1460,6 +1476,96 @@
             const prod = allProducts.find(p => p.id === pid);
             const imgEl = card.querySelector('.product-img');
             if (imgEl && prod) imgEl.src = prod.slideshowImages[0];
+        }
+
+        // --- NEW ZOOM LOGIC (WITH TOUCH SUPPORT) ---
+        const zoomModal = document.getElementById('zoomModal');
+        const zoomImg = document.getElementById('zoomImg');
+        const closeZoomBtn = document.getElementById('closeZoomBtn');
+        const zoomHint = document.getElementById('zoomHint');
+        let isZoomed = false;
+
+        window.openZoom = function(src) {
+            zoomImg.src = src;
+            zoomModal.classList.remove('hidden');
+            zoomModal.classList.add('flex');
+            
+            setTimeout(() => {
+                zoomModal.classList.remove('opacity-0');
+            }, 10);
+            
+            isZoomed = false;
+            zoomImg.style.transform = 'scale(1)';
+            zoomImg.classList.remove('cursor-zoom-out');
+            zoomImg.classList.add('cursor-zoom-in');
+            zoomImg.style.transformOrigin = 'center center';
+            if(zoomHint) {
+                zoomHint.textContent = "Tap to Zoom In / Out";
+                zoomHint.classList.remove('opacity-0');
+            }
+        };
+
+        window.closeZoom = function() {
+            zoomModal.classList.add('opacity-0');
+            setTimeout(() => {
+                zoomModal.classList.add('hidden');
+                zoomModal.classList.remove('flex');
+            }, 300);
+        };
+
+        if(closeZoomBtn) closeZoomBtn.addEventListener('click', closeZoom);
+
+        if(zoomImg) {
+            // Click toggles zoom
+            zoomImg.addEventListener('click', function(e) {
+                toggleZoom(e.clientX, e.clientY);
+            });
+
+            // Desktop pan
+            zoomImg.addEventListener('mousemove', function(e) {
+                if (isZoomed) {
+                    updateTransformOrigin(e.clientX, e.clientY);
+                }
+            });
+            
+            // Mobile Touch preparation
+            zoomImg.addEventListener('touchstart', function(e) {
+                // Allows tapping to work without jumping
+            }, {passive: true});
+
+            // Mobile pan
+            zoomImg.addEventListener('touchmove', function(e) {
+                if (isZoomed && e.touches.length === 1) {
+                    e.preventDefault(); // Stop entire page from scrolling while zoomed
+                    updateTransformOrigin(e.touches[0].clientX, e.touches[0].clientY);
+                }
+            }, {passive: false});
+        }
+        
+        function toggleZoom(clientX, clientY) {
+            if (!isZoomed) {
+                isZoomed = true;
+                zoomImg.style.transform = 'scale(2.5)';
+                zoomImg.classList.remove('cursor-zoom-in');
+                zoomImg.classList.add('cursor-zoom-out');
+                
+                updateTransformOrigin(clientX, clientY);
+            } else {
+                isZoomed = false;
+                zoomImg.style.transform = 'scale(1)';
+                zoomImg.classList.remove('cursor-zoom-out');
+                zoomImg.classList.add('cursor-zoom-in');
+                
+                setTimeout(() => {
+                    if (!isZoomed) zoomImg.style.transformOrigin = 'center center';
+                }, 300);
+            }
+        }
+
+        function updateTransformOrigin(clientX, clientY) {
+            const x = (clientX / window.innerWidth) * 100;
+            const y = (clientY / window.innerHeight) * 100;
+            zoomImg.style.transformOrigin = `${x}% ${y}%`;
         }
 
         function setupEventListeners() {
