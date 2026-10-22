@@ -108,10 +108,10 @@
     <header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
         <div class="marquee-container w-full overflow-hidden bg-white/10 backdrop-blur-md py-3 border-b border-white/20 mb-4">
           <div class="animate-marquee flex items-center whitespace-nowrap text-white font-bold tracking-widest text-sm uppercase">
-            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ THE HERITAGE COLLECTION LAUNCHING OCT 20 ⛳️ SHIPPING IN 24 HOURS ⛳️</span>
-            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ THE HERITAGE COLLECTION LAUNCHING OCT 20 ⛳️ SHIPPING IN 24 HOURS ⛳️</span>
-            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ THE HERITAGE COLLECTION LAUNCHING OCT 20 ⛳️ SHIPPING IN 24 HOURS ⛳️</span>
-            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ THE HERITAGE COLLECTION LAUNCHING OCT 20 ⛳️ SHIPPING IN 24 HOURS ⛳️</span>
+            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ THE HERITAGE COLLECTION OFFICIALLY LIVE ⛳️ SHIPPING IN 24 HOURS ⛳️</span>
+            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ THE HERITAGE COLLECTION OFFICIALLY LIVE ⛳️ SHIPPING IN 24 HOURS ⛳️</span>
+            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ THE HERITAGE COLLECTION OFFICIALLY LIVE ⛳️ SHIPPING IN 24 HOURS ⛳️</span>
+            <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ THE HERITAGE COLLECTION OFFICIALLY LIVE ⛳️ SHIPPING IN 24 HOURS ⛳️</span>
           </div>
         </div>
         
@@ -507,12 +507,14 @@
     <div id="productModal" class="fixed inset-0 z-[80] hidden items-center justify-center">
         <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="modalBackdrop"></div>
         <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 no-scrollbar flex flex-col md:block" id="modalContent">
-            <button id="closeModal" class="absolute top-4 right-4 text-[#4c111f]/60 hover:text-[#4c111f] z-20 bg-white/80 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center shadow-sm focus:outline-none">
-                <i class="fas fa-times text-lg"></i>
-            </button>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
                 <!-- UPDATED Modal Image Container for Zoom functionality -->
-                <div class="bg-gray-100 min-h-[300px] flex items-center justify-center p-8 relative h-[250px] sm:h-[300px] md:h-auto md:min-h-[400px] shrink-0 group cursor-zoom-in" onclick="openZoom(document.getElementById('modalImg').src)">
+                <div class="bg-gray-100 flex items-center justify-center p-6 relative h-[280px] sm:h-[350px] md:h-auto md:min-h-[400px] shrink-0 group cursor-zoom-in sticky top-0 z-30 border-b border-gray-200/60 md:border-none shadow-sm md:shadow-none" onclick="openZoom(document.getElementById('modalImg').src)">
+                    <!-- Close button moved inside sticky container so it stays visible -->
+                    <button id="closeModal" class="absolute top-4 right-4 text-[#4c111f]/60 hover:text-[#4c111f] z-40 bg-white/90 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center shadow-sm focus:outline-none border border-white" onclick="event.stopPropagation();">
+                        <i class="fas fa-times text-lg"></i>
+                    </button>
+                    
                     <img id="modalImg" src="" alt="Product" class="max-w-full h-full object-contain drop-shadow-xl rounded-lg transition-transform duration-300 group-hover:scale-105">
                     <!-- Icon is now permanently visible on mobile (opacity-100), and shows on hover for desktop -->
                     <div class="absolute bottom-4 right-4 bg-white/80 backdrop-blur text-[#4c111f] w-10 h-10 flex items-center justify-center rounded-full shadow-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
@@ -754,7 +756,7 @@
             { 
                 id: 'azure', series: 'Azure Wave', desc: 'Dynamic patterns inspired by coastal waters.', slideshowImages: ['AZ3.png', 'AZ4.png', 'Untitled design - 2.png', 'Untitled design - 1.png', 'IMG_8050.jpeg'], 
                 colors: [
-                    { name: 'Deep Sea', hex: '#30506E', woodImg: 'Untitled design - 4.png', driverImg: 'Untitled design - 3.png', hybridImg: 'Untitled design - 4.png', stock: { wood: 0, driver: 1, hybrid: 0 } }, 
+                    { name: 'Deep Sea', hex: '#30506E', woodImg: 'Untitled design - 4.png', driverImg: 'Untitled design - 3.png', hybridImg: 'Untitled design - 4.png', stock: { wood: 0, driver: 0, hybrid: 0 } }, 
                     { name: 'Sky Crest', hex: '#A1C8D5', woodImg: 'Untitled design - 6.png', driverImg: 'Untitled design - 5.png', hybridImg: 'Untitled design - 6.png', stock: { wood: 2, driver: 2, hybrid: 0 } }
                 ] 
             },
@@ -771,22 +773,22 @@
             { 
                 id: 'argyle', series: 'Argyle', desc: 'Premium argyle fabric paired with plush velvet lining.', slideshowImages: ['argyle 2.jpg' , 'argyle 4.jpg'], 
                 colors: [
-                    { name: 'Chestnut Argyle', hex: '#8B5A2B', woodImg: 'Chestnut Wood.jpg', driverImg: 'Chestnut Driver.jpg', hybridImg: 'Chestnut Hybrid.jpg', stock: { wood: 2, driver: 3, hybrid: 2 } }, 
-                    { name: 'Blush Argyle', hex: '#D19C97', woodImg: 'Blush Wood.jpg', driverImg: 'Blush Driver.jpg', hybridImg: 'Blush Hybrid.jpg', stock: { wood: 4, driver: 4, hybrid: 0 } }
+                    { name: 'Chestnut Argyle', hex: '#8B5A2B', woodImg: 'Chestnut Wood.jpg', driverImg: 'Chestnut Driver.jpg', hybridImg: 'Chestnut Hybrid.jpg', stock: { wood: 2, driver: 2, hybrid: 1 } }, 
+                    { name: 'Blush Argyle', hex: '#D19C97', woodImg: 'Blush Wood.jpg', driverImg: 'Blush Driver.jpg', hybridImg: 'Blush Hybrid.jpg', stock: { wood: 2, driver: 2, hybrid: 0 } }
                 ] 
             },
             { 
                 id: 'houndstooth', series: 'Houndstooth', desc: 'Classic houndstooth precision. A timeless look on the fairways.', slideshowImages: ['houndstooth 1.jpg', 'houndstooth 5.jpg'], 
                 colors: [
-                    { name: 'Espresso Houndstooth', hex: '#2B1B17', woodImg: 'Espresso Wood.jpg', driverImg: 'Espresso Driver.jpg', hybridImg: 'Espresso Hybrid.jpg', stock: { wood: 4, driver: 4, hybrid: 2 } }, 
+                    { name: 'Espresso Houndstooth', hex: '#2B1B17', woodImg: 'Espresso Wood.jpg', driverImg: 'Espresso Driver.jpg', hybridImg: 'Espresso Hybrid.jpg', stock: { wood: 1, driver: 4, hybrid: 0 } }, 
                     { name: 'Crimson Houndstooth', hex: '#800000', woodImg: 'Crimson Wood.jpg', driverImg: 'Crimson Driver.jpg', hybridImg: 'Crimson Hybrid.jpg', stock: { wood: 3, driver: 3, hybrid: 2 } }
                 ] 
             },
             { 
                 id: 'tartan', series: 'Tartan', desc: 'Heritage tartan plaid bringing bold tradition to your bag.', slideshowImages: ['tartan 9.jpg' , 'tartan 10.jpg'], 
                 colors: [
-                    { name: 'Haymarket Tartan', hex: '#C19A6B', woodImg: 'Haymarket Wood.jpg', driverImg: 'Haymarket Driver.jpg', hybridImg: 'Haymarket Hybrid.jpg', stock: { wood: 4, driver: 4, hybrid: 2 } },
-                    { name: 'Royal Stewart Tartan', hex: '#B22222', woodImg: 'Stewart Wood.jpg', driverImg: 'Stewart Driver.jpg', hybridImg: 'Stewart Hybrid.jpg', stock: { wood: 3, driver: 2, hybrid: 1 } }
+                    { name: 'Haymarket Tartan', hex: '#C19A6B', woodImg: 'Haymarket Wood.jpg', driverImg: 'Haymarket Driver.jpg', hybridImg: 'Haymarket Hybrid.jpg', stock: { wood: 3, driver: 4, hybrid: 2 } },
+                    { name: 'Royal Stewart Tartan', hex: '#B22222', woodImg: 'Stewart Wood.jpg', driverImg: 'Stewart Driver.jpg', hybridImg: 'Stewart Hybrid.jpg', stock: { wood: 3, driver: 2, hybrid: 0 } }
                 ] 
             }
         ];
@@ -832,7 +834,51 @@
             await detectUserLocation();
             setupMobileAutoplay(); 
             setupEventListeners();
+            checkPaymentStatus(); // <-- ADDED: Checks for return from payment gateway
         });
+
+        // ----------------------------------------------------
+        // PAYMENT STATUS CHECK
+        // ----------------------------------------------------
+        function checkPaymentStatus() {
+            const urlParams = new URLSearchParams(window.location.search);
+            // Most gateways use status=success, status=completed, or append a reference parameter
+            if (urlParams.get('status') === 'success' || urlParams.get('status') === 'completed' || urlParams.has('reference')) {
+                // Show modal
+                const successModal = document.getElementById('successModal');
+                const backdrop = document.getElementById('successModalBackdrop');
+                const content = document.getElementById('successModalContent');
+                
+                if (successModal && backdrop && content) {
+                    successModal.classList.remove('hidden');
+                    successModal.classList.add('flex');
+                    setTimeout(() => {
+                        backdrop.classList.remove('opacity-0');
+                        content.classList.remove('scale-95', 'opacity-0');
+                    }, 10);
+                }
+                
+                // Clean the URL to prevent the popup showing again if the user refreshes
+                window.history.replaceState({}, document.title, window.location.pathname);
+                
+                // Clear the cart
+                cart = [];
+                updateCartUI();
+            }
+        }
+
+        window.closeSuccessModal = function() {
+            const successModal = document.getElementById('successModal');
+            const backdrop = document.getElementById('successModalBackdrop');
+            const content = document.getElementById('successModalContent');
+            
+            backdrop.classList.add('opacity-0');
+            content.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => { 
+                successModal.classList.add('hidden'); 
+                successModal.classList.remove('flex'); 
+            }, 300);
+        }
 
         // ----------------------------------------------------
         // SPA Router Logic
@@ -1722,7 +1768,8 @@
                 payload.append("phone", cPhone);
                 payload.append("purpose", `Order: ${cartDetails}. Ship to: ${fullAddress}`);
                 payload.append("send_email", "true"); 
-                payload.append("redirect_url", window.location.origin + window.location.pathname); 
+                // HitPay usually appends its own query variables to this redirect_url (like status=completed or reference=xxx)
+                payload.append("redirect_url", window.location.origin + window.location.pathname + "?status=success"); 
 
                 try {
                     const response = await fetch("/checkout", {
