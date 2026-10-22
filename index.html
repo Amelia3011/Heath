@@ -832,7 +832,51 @@
             await detectUserLocation();
             setupMobileAutoplay(); 
             setupEventListeners();
+            checkPaymentStatus(); // <-- ADDED: Checks for return from payment gateway
         });
+
+        // ----------------------------------------------------
+        // PAYMENT STATUS CHECK
+        // ----------------------------------------------------
+        function checkPaymentStatus() {
+            const urlParams = new URLSearchParams(window.location.search);
+            // Most gateways use status=success, status=completed, or append a reference parameter
+            if (urlParams.get('status') === 'success' || urlParams.get('status') === 'completed' || urlParams.has('reference')) {
+                // Show modal
+                const successModal = document.getElementById('successModal');
+                const backdrop = document.getElementById('successModalBackdrop');
+                const content = document.getElementById('successModalContent');
+                
+                if (successModal && backdrop && content) {
+                    successModal.classList.remove('hidden');
+                    successModal.classList.add('flex');
+                    setTimeout(() => {
+                        backdrop.classList.remove('opacity-0');
+                        content.classList.remove('scale-95', 'opacity-0');
+                    }, 10);
+                }
+                
+                // Clean the URL to prevent the popup showing again if the user refreshes
+                window.history.replaceState({}, document.title, window.location.pathname);
+                
+                // Clear the cart
+                cart = [];
+                updateCartUI();
+            }
+        }
+
+        window.closeSuccessModal = function() {
+            const successModal = document.getElementById('successModal');
+            const backdrop = document.getElementById('successModalBackdrop');
+            const content = document.getElementById('successModalContent');
+            
+            backdrop.classList.add('opacity-0');
+            content.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => { 
+                successModal.classList.add('hidden'); 
+                successModal.classList.remove('flex'); 
+            }, 300);
+        }
 
         // ----------------------------------------------------
         // SPA Router Logic
@@ -1722,7 +1766,8 @@
                 payload.append("phone", cPhone);
                 payload.append("purpose", `Order: ${cartDetails}. Ship to: ${fullAddress}`);
                 payload.append("send_email", "true"); 
-                payload.append("redirect_url", window.location.origin + window.location.pathname); 
+                // HitPay usually appends its own query variables to this redirect_url (like status=completed or reference=xxx)
+                payload.append("redirect_url", window.location.origin + window.location.pathname + "?status=success"); 
 
                 try {
                     const response = await fetch("/checkout", {
