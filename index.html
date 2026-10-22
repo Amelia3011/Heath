@@ -507,12 +507,14 @@
     <div id="productModal" class="fixed inset-0 z-[80] hidden items-center justify-center">
         <div class="absolute inset-0 bg-black bg-opacity-60 backdrop-blur-sm transition-opacity duration-300 opacity-0" id="modalBackdrop"></div>
         <div class="bg-white rounded-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto m-4 relative z-10 shadow-2xl transform scale-95 opacity-0 transition-all duration-300 no-scrollbar flex flex-col md:block" id="modalContent">
-            <button id="closeModal" class="absolute top-4 right-4 text-[#4c111f]/60 hover:text-[#4c111f] z-20 bg-white/80 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center shadow-sm focus:outline-none">
-                <i class="fas fa-times text-lg"></i>
-            </button>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-0">
                 <!-- UPDATED Modal Image Container for Zoom functionality -->
-                <div class="bg-gray-100 min-h-[300px] flex items-center justify-center p-8 relative h-[250px] sm:h-[300px] md:h-auto md:min-h-[400px] shrink-0 group cursor-zoom-in" onclick="openZoom(document.getElementById('modalImg').src)">
+                <div class="bg-gray-100 flex items-center justify-center p-6 relative h-[280px] sm:h-[350px] md:h-auto md:min-h-[400px] shrink-0 group cursor-zoom-in sticky top-0 z-30 border-b border-gray-200/60 md:border-none shadow-sm md:shadow-none" onclick="openZoom(document.getElementById('modalImg').src)">
+                    <!-- Close button moved inside sticky container so it stays visible -->
+                    <button id="closeModal" class="absolute top-4 right-4 text-[#4c111f]/60 hover:text-[#4c111f] z-40 bg-white/90 backdrop-blur rounded-full w-10 h-10 flex items-center justify-center shadow-sm focus:outline-none border border-white" onclick="event.stopPropagation();">
+                        <i class="fas fa-times text-lg"></i>
+                    </button>
+                    
                     <img id="modalImg" src="" alt="Product" class="max-w-full h-full object-contain drop-shadow-xl rounded-lg transition-transform duration-300 group-hover:scale-105">
                     <!-- Icon is now permanently visible on mobile (opacity-100), and shows on hover for desktop -->
                     <div class="absolute bottom-4 right-4 bg-white/80 backdrop-blur text-[#4c111f] w-10 h-10 flex items-center justify-center rounded-full shadow-md opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10 pointer-events-none">
