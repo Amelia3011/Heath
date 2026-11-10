@@ -107,7 +107,7 @@
 
     <header class="bg-[#4c111f] shadow-md sticky top-0 z-50">
         <div class="marquee-container w-full overflow-hidden bg-white/10 backdrop-blur-md py-3 border-b border-white/20 mb-4">
-          <div class="animate-marquee flex items-center whitespace-nowrap text-white font-bold tracking-widest text-sm uppercase">
+          <div id="mainMarquee" class="animate-marquee flex items-center whitespace-nowrap text-white font-bold tracking-widest text-sm uppercase">
             <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ THE HERITAGE COLLECTION OFFICIALLY LIVE ⛳️ SHIPPING IN 24 HOURS ⛳️</span>
             <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ THE HERITAGE COLLECTION OFFICIALLY LIVE ⛳️ SHIPPING IN 24 HOURS ⛳️</span>
             <span class="mx-6">WELCOME TO HEATH.STUDIO ⛳️ THE HERITAGE COLLECTION OFFICIALLY LIVE ⛳️ SHIPPING IN 24 HOURS ⛳️</span>
@@ -181,9 +181,9 @@
                     <div class="text-center max-w-3xl mx-auto flex flex-col items-center bg-white/3 backdrop-blur-sm p-8 rounded-2xl shadow-sm">
                         <h1 class="font-serif text-5xl md:text-7xl font-bold text-[#4c111f] mb-6 leading-tight drop-shadow-sm">Golf, Considered Differently.</h1>
                         <p class="text-xl text-white-800 mb-6 font-medium">Handcrafted headcovers designed with character, precision, and a considered approach to the game.</p>
-                        <p class="text-xl text-[#4c111f] mb-10 font-bold">The Heritage Collection. Launching Oct 20.</p>
+                        <p id="heroBadgeText" class="text-xl text-[#4c111f] mb-10 font-bold">The Heritage Collection. Launching Oct 20.</p>
                         <div class="flex justify-center gap-4">
-                            <a href="#heritage" class="bg-[#1E3F20] text-white px-8 py-4 rounded-full font-bold shadow-[0_10px_25px_rgba(0,0,0,0.25),_0_0_20px_rgba(57,255,20,0.5)] animate-pulse hover:animate-none hover:scale-105 hover:shadow-[0_15px_35px_rgba(0,0,0,0.3),_0_0_30px_rgba(57,255,20,0.7)] transition-all duration-300">Shop The Drop</a>
+                            <a id="heroShopBtn" href="#heritage" class="bg-[#1E3F20] text-white px-8 py-4 rounded-full font-bold shadow-[0_10px_25px_rgba(0,0,0,0.25),_0_0_20px_rgba(57,255,20,0.5)] animate-pulse hover:animate-none hover:scale-105 hover:shadow-[0_15px_35px_rgba(0,0,0,0.3),_0_0_30px_rgba(57,255,20,0.7)] transition-all duration-300">Shop The Drop</a>
                         </div>
                     </div>
                 </div>
@@ -213,7 +213,7 @@
                             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300"></div>
                             
                             <!-- New Arrival Badge -->
-                            <div class="absolute top-3 left-3 md:top-6 md:left-6 bg-white text-[#4c111f] text-[8px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-full uppercase tracking-widest shadow-lg flex items-center gap-1 md:gap-1.5 z-10">
+                            <div id="heritageCardBadge" class="absolute top-3 left-3 md:top-6 md:left-6 bg-white text-[#4c111f] text-[8px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-full uppercase tracking-widest shadow-lg flex items-center gap-1 md:gap-1.5 z-10">
                                 <span class="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-red-500 animate-pulse"></span> <span class="hidden sm:inline">New Release</span><span class="sm:hidden">New Release</span>
                             </div>
                             
@@ -288,7 +288,7 @@
             <section class="relative pt-12 pb-24 bg-gray-50">
                 <div class="max-w-7xl mx-auto px-2 md:px-12 relative z-10">
                     <div class="text-center mb-10 md:mb-16 px-2 flex flex-col items-center">
-                        <span class="bg-[#4c111f] text-white text-[10px] md:text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-5 inline-block shadow-sm">New Release</span>
+                        <span id="heritageViewBadge" class="bg-[#4c111f] text-white text-[10px] md:text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-5 inline-block shadow-sm">New Release</span>
                         <h2 class="font-serif text-4xl md:text-5xl font-bold text-[#4c111f] mb-6">THE HERITAGE COLLECTION</h2>
                         <p class="text-gray-600 md:text-lg max-w-2xl mx-auto font-medium">Where heritage meets the fairways. Handcrafted with premium houndstooth, argyle, and tartan fabrics paired with plush velvet lining.</p>
                     </div>
@@ -317,7 +317,8 @@
             <section class="relative pt-16 pb-36 hero-bg">
                 <div class="absolute inset-0 bg-white/20 backdrop-blur-[2px]"></div>
                 <div class="max-w-7xl mx-auto px-2 md:px-12 relative z-10">
-                    <div class="text-center mb-10 md:mb-16 px-2">
+                    <div class="text-center mb-10 md:mb-16 px-2 flex flex-col items-center">
+                        <span id="atelierViewBadge" class="hidden"></span>
                         <h2 class="font-serif text-4xl md:text-5xl font-bold text-[#4c111f] mb-6 drop-shadow-sm">THE ATELIER COLLECTION</h2>
                         <p class="text-gray-800 md:text-lg font-semibold max-w-2xl mx-auto drop-shadow-sm">Our inaugural collection. Three distinct series, meticulously crafted for style and protection. Limited remaining stock available.</p>
                     </div>
@@ -435,7 +436,7 @@
                     <span class="font-bold text-2xl text-primary flex items-center gap-2" id="cartTotal">RM 0</span>
                 </div>
                 <div class="text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-md mb-4 hidden border border-green-100" id="bundleNotice">
-                    <i class="fas fa-check-circle mr-1"></i> Bundle discount applied!
+                    <!-- Dynamic notice injected via JS -->
                 </div>
                 
                 <div class="mb-4 space-y-3">
@@ -787,7 +788,7 @@
             { 
                 id: 'tartan', series: 'Tartan', desc: 'Heritage tartan plaid bringing bold tradition to your bag.', slideshowImages: ['tartan 9.jpg' , 'tartan 10.jpg'], 
                 colors: [
-                    { name: 'Haymarket Tartan', hex: '#C19A6B', woodImg: 'Haymarket Wood.jpg', driverImg: 'Haymarket Driver.jpg', hybridImg: 'Haymarket Hybrid.jpg', stock: { wood: 3, driver: 3, hybrid: 1 } },
+                    { name: 'Haymarket Tartan', hex: '#C19A6B', woodImg: 'Haymarket Wood.jpg', driverImg: 'Haymarket Driver.jpg', hybridImg: 'Haymarket Hybrid.jpg', stock: { wood: 2, driver: 3, hybrid: 1 } },
                     { name: 'Royal Stewart Tartan', hex: '#B22222', woodImg: 'Stewart Wood.jpg', driverImg: 'Stewart Driver.jpg', hybridImg: 'Stewart Hybrid.jpg', stock: { wood: 2, driver: 2, hybrid: 0 } }
                 ] 
             }
@@ -817,6 +818,20 @@
         };
         
         const SGD_TO_MYR_RATE = 3.25; 
+        
+        // 11.11 Sale Time Control
+        const SALE_START = new Date('2026-11-11T00:00:00+08:00'); // 12:00 AM Nov 11 MYT
+        const SALE_END = new Date('2026-11-11T23:59:59+08:00');   // 11:59 PM Nov 11 MYT
+        
+        function checkSaleActive() {
+            const now = new Date();
+            return now >= SALE_START && now <= SALE_END;
+        }
+        
+        const isSaleActive = checkSaleActive();
+        const SALE_DISCOUNT = isSaleActive ? 0.11 : 0;
+        const FREE_SHIPPING_MYR = 250;
+        const FREE_SHIPPING_SGD = Math.ceil(250 / SGD_TO_MYR_RATE); 
 
         let currentCurrency = 'MYR';
         let cart = [];
@@ -830,12 +845,54 @@
         let discountAmount = 0;
 
         document.addEventListener('DOMContentLoaded', async () => {
+            applySaleUI(); // Check and apply 11.11 UI modifications
             setupRouter(); 
             await detectUserLocation();
             setupMobileAutoplay(); 
             setupEventListeners();
             checkPaymentStatus(); // <-- ADDED: Checks for return from payment gateway
         });
+
+        // ----------------------------------------------------
+        // SALE TIME UI TOGGLE
+        // ----------------------------------------------------
+        function applySaleUI() {
+            if (!isSaleActive) return; // Keep normal HTML if sale hasn't started
+
+            const marquee = document.getElementById('mainMarquee');
+            if (marquee) {
+                const saleText = "WELCOME TO HEATH.STUDIO ⛳️ 11.11 SALE IS LIVE! 11% OFF STOREWIDE ⛳️ FREE SHIPPING OVER RM250 ⛳️";
+                marquee.innerHTML = Array(4).fill(`<span class="mx-6">${saleText}</span>`).join('');
+            }
+            
+            const heroBadge = document.getElementById('heroBadgeText');
+            if (heroBadge) {
+                heroBadge.className = "text-xl text-red-600 mb-10 font-bold bg-white/80 px-4 py-2 rounded-full inline-block";
+                heroBadge.textContent = "11.11 Sale: 11% Off Storewide";
+            }
+            
+            const heroBtn = document.getElementById('heroShopBtn');
+            if (heroBtn) heroBtn.textContent = "Shop The Sale";
+
+            const heritageCardBadge = document.getElementById('heritageCardBadge');
+            if (heritageCardBadge) {
+                heritageCardBadge.className = "absolute top-3 left-3 md:top-6 md:left-6 bg-white text-red-600 text-[8px] md:text-xs font-bold px-2 py-1 md:px-3 md:py-1.5 rounded-full uppercase tracking-widest shadow-lg flex items-center gap-1 md:gap-1.5 z-10";
+                heritageCardBadge.innerHTML = `<span class="w-1 h-1 md:w-1.5 md:h-1.5 rounded-full bg-red-500 animate-pulse"></span> <span class="hidden sm:inline">Sale Live</span><span class="sm:hidden">11% Off</span>`;
+            }
+
+            const hViewBadge = document.getElementById('heritageViewBadge');
+            if (hViewBadge) {
+                hViewBadge.className = "bg-red-600 text-white text-[10px] md:text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-5 inline-block shadow-sm";
+                hViewBadge.textContent = "11.11 Sale Live";
+            }
+
+            const aViewBadge = document.getElementById('atelierViewBadge');
+            if (aViewBadge) {
+                aViewBadge.className = "bg-red-600 text-white text-[10px] md:text-xs font-bold px-4 py-1.5 rounded-full uppercase tracking-widest mb-5 inline-block shadow-sm";
+                aViewBadge.textContent = "11.11 Sale Live";
+                aViewBadge.classList.remove('hidden');
+            }
+        }
 
         // ----------------------------------------------------
         // PAYMENT STATUS CHECK
@@ -1066,7 +1123,12 @@
                     <div class="px-0.5 md:px-2">
                         <h3 class="font-serif text-[15px] sm:text-base md:text-2xl font-bold text-primary mb-0.5 md:mb-2 leading-tight">${product.series}</h3>
                         <p class="text-gray-600 text-[9px] sm:text-sm mb-1 md:mb-3 leading-snug line-clamp-2 md:line-clamp-none">${product.desc}</p>
-                        <p class="font-semibold text-primary text-[14px] md:text-xl md:text-base">From ${sym}${startingPrice}</p>
+                        <p class="font-semibold text-[14px] md:text-xl md:text-base flex items-center flex-wrap gap-1">
+                            ${isSaleActive 
+                                ? `<span class="text-gray-400 line-through text-xs md:text-sm">${sym}${startingPrice}</span><span class="text-red-600">From ${sym}${Math.ceil(startingPrice * (1 - SALE_DISCOUNT))}</span>`
+                                : `<span class="text-[#4c111f]">From ${sym}${startingPrice}</span>`
+                            }
+                        </p>
                     </div>
                 </div>
                 `;
@@ -1200,19 +1262,28 @@
             
             clubTypesContainer.className = isHeritage ? "grid grid-cols-3 gap-2 sm:gap-4" : "grid grid-cols-2 gap-2 sm:gap-4";
             
+            const formatClubPrice = (price) => {
+                if (!isSaleActive) return `<span class="text-[#4c111f]/70">${sym}${price}</span>`;
+                return `<span class="text-gray-400 line-through mr-1">${sym}${price}</span><span class="text-red-600 font-bold">${sym}${Math.ceil(price * (1 - SALE_DISCOUNT))}</span>`;
+            };
+
             let html = `
                 <label class="cursor-pointer group">
                     <input type="radio" name="clubType" value="wood" class="peer sr-only" checked onchange="selectClubType()">
                     <div class="rounded-xl border-2 border-[#4c111f]/20 p-2 sm:p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all h-full flex flex-col justify-center">
                         <span class="block font-bold text-[#4c111f] text-sm sm:text-base">Wood</span>
-                        <span class="block text-xs sm:text-sm text-[#4c111f]/70 mt-1">${sym}${prices.wood}</span>
+                        <span class="block text-xs sm:text-sm mt-1">
+                            ${formatClubPrice(prices.wood)}
+                        </span>
                     </div>
                 </label>
                 <label class="cursor-pointer group">
                     <input type="radio" name="clubType" value="driver" class="peer sr-only" onchange="selectClubType()">
                     <div class="rounded-xl border-2 border-[#4c111f]/20 p-2 sm:p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all h-full flex flex-col justify-center">
                         <span class="block font-bold text-[#4c111f] text-sm sm:text-base">Driver</span>
-                        <span class="block text-xs sm:text-sm text-[#4c111f]/70 mt-1">${sym}${prices.driver}</span>
+                        <span class="block text-xs sm:text-sm mt-1">
+                            ${formatClubPrice(prices.driver)}
+                        </span>
                     </div>
                 </label>
             `;
@@ -1223,7 +1294,9 @@
                         <input type="radio" name="clubType" value="hybrid" class="peer sr-only" onchange="selectClubType()">
                         <div class="rounded-xl border-2 border-[#4c111f]/20 p-2 sm:p-4 text-center peer-checked:border-[#4c111f] peer-checked:bg-[#4c111f]/5 group-hover:border-[#4c111f]/30 transition-all h-full flex flex-col justify-center">
                             <span class="block font-bold text-[#4c111f] text-sm sm:text-base">Hybrid</span>
-                            <span class="block text-xs sm:text-sm text-[#4c111f]/70 mt-1">${sym}${prices.hybrid}</span>
+                            <span class="block text-xs sm:text-sm mt-1">
+                                ${formatClubPrice(prices.hybrid)}
+                            </span>
                         </div>
                     </label>
                 `;
@@ -1241,15 +1314,29 @@
             
             const type = typeEl.value;
             const collectionKey = heritageProducts.some(p => p.id === currentModalProduct.id) ? 'heritage' : 'atelier';
-            let basePrice = PRICING[currentCurrency][collectionKey][type];
+            
+            let originalItemPrice = PRICING[currentCurrency][collectionKey][type];
+            let discountedItemPrice = Math.ceil(originalItemPrice * (1 - SALE_DISCOUNT));
+            
+            let displayOriginal = originalItemPrice;
+            let displayFinal = discountedItemPrice;
             
             const patchCheckbox = document.getElementById('addPatchCheckbox');
             if(patchCheckbox && patchCheckbox.checked) {
-                basePrice += PRICING[currentCurrency].patch;
+                displayOriginal += PRICING[currentCurrency].patch;
+                displayFinal += PRICING[currentCurrency].patch;
             }
 
             const sym = PRICING[currentCurrency].symbol;
-            document.getElementById('modalPrice').textContent = `${sym}${basePrice}`;
+            
+            if (isSaleActive) {
+                document.getElementById('modalPrice').innerHTML = `
+                    <s class="text-gray-400 text-xl mr-2">${sym}${displayOriginal}</s> 
+                    <span class="text-red-600">${sym}${displayFinal}</span>
+                `;
+            } else {
+                document.getElementById('modalPrice').innerHTML = `${sym}${displayOriginal}`;
+            }
         }
 
         window.selectColor = function(index) {
@@ -1405,7 +1492,9 @@
                 checkoutBtn.disabled = false;
                 
                 cartItemsEl.innerHTML = cart.map((item, index) => {
-                    let itemBasePrice = PRICING[currentCurrency][item.collectionKey][item.type];
+                    let originalBasePrice = PRICING[currentCurrency][item.collectionKey][item.type];
+                    let itemBasePrice = Math.ceil(originalBasePrice * (1 - SALE_DISCOUNT)); // Applied 11% Discount if active
+
                     let patchHtml = '';
                     let patchPrice = 0;
                     
@@ -1420,7 +1509,12 @@
                         `;
                     }
                     
+                    const originalItemTotal = originalBasePrice + patchPrice;
                     const itemTotal = itemBasePrice + patchPrice;
+
+                    let priceHtmlBlock = isSaleActive 
+                        ? `<p class="text-gray-400 line-through text-[10px] m-0">${sym}${originalItemTotal}</p><p class="font-bold text-red-600 m-0">${sym}${itemTotal}</p>`
+                        : `<p class="font-bold text-primary m-0">${sym}${originalItemTotal}</p>`;
 
                     return `
                         <div class="flex gap-4 border-b border-gray-100 pb-4 items-start">
@@ -1433,7 +1527,7 @@
                                 <p class="text-xs text-gray-500 capitalize">${item.type} &bull; ${item.color}</p>
                                 ${patchHtml}
                                 <div class="mt-2 text-right">
-                                    <p class="font-bold text-primary">${sym}${itemTotal}</p>
+                                    ${priceHtmlBlock}
                                 </div>
                             </div>
                         </div>
@@ -1450,7 +1544,8 @@
             let driversCount = 0;
             
             cart.forEach(item => {
-                productsTotal += PRICING[currentCurrency][item.collectionKey][item.type];
+                let discountedPrice = Math.ceil(PRICING[currentCurrency][item.collectionKey][item.type] * (1 - SALE_DISCOUNT));
+                productsTotal += discountedPrice;
                 if (item.type === 'wood') woodsCount++;
                 if (item.type === 'driver') driversCount++;
             });
@@ -1467,6 +1562,15 @@
                 if (zoneInput.value === 'west') shippingFee = p.shippingWest;
                 else if (zoneInput.value === 'east') shippingFee = p.shippingEast;
                 else if (zoneInput.value === 'singapore') shippingFee = p.shipping;
+            }
+
+            // Free Shipping threshold check
+            const freeShipThreshold = currentCurrency === 'MYR' ? FREE_SHIPPING_MYR : FREE_SHIPPING_SGD;
+            let isFreeShipping = false;
+            
+            if (isSaleActive && (productsTotal + totalPatchFees >= freeShipThreshold)) {
+                shippingFee = 0;
+                isFreeShipping = true;
             }
 
             let subTotal = productsTotal + totalPatchFees + shippingFee;
@@ -1486,8 +1590,15 @@
                 totalEl.textContent = `${sym}${calculatedFinalTotal.toFixed(0)}`;
             }
 
-            if (bundlesCount > 0) bundleNotice.classList.remove('hidden');
-            else bundleNotice.classList.add('hidden');
+            if (bundlesCount > 0 || isFreeShipping) {
+                bundleNotice.classList.remove('hidden');
+                let msgs = [];
+                if (bundlesCount > 0) msgs.push('<i class="fas fa-tags mr-1"></i> Bundle discount applied!');
+                if (isFreeShipping) msgs.push('<i class="fas fa-truck-fast mr-1"></i> Free shipping unlocked!');
+                bundleNotice.innerHTML = msgs.join('<br>');
+            } else {
+                bundleNotice.classList.add('hidden');
+            }
         }
         
         window.applyPromoCode = function() {
